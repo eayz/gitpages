@@ -1,0 +1,27 @@
+title: 陈颂光
+description: 全栈工程师，承接从编译器到网站的各类软件开发与咨询，也可以聊历史哲学。
+lang: zh-CN
+author: 陈颂光
+google_analytics: 
+show_downloads: false
+paginate: 20
+baseurl: ""
+permalink: none
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-toc
+
+markdown: kramdown
+exclude: ["README.md"]
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      toc: true

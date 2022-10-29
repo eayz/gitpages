@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Haochen Shi</title>
+  
+  <meta name="author" content="Haochen Shi">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <!-- <link rel="icon" type="image/png" href="images/icon.png"> -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KVK6EML3WQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-KVK6EML3WQ');
+  </script>
+</head>
+
+<body>
+  <table style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <tr style="padding:0px">
+      <td style="padding:0px">
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr style="padding:0px">
+            <td style="padding:2.5%;width:67%;vertical-align:middle">
+              <p style="padding-bottom:10px;text-align:center">
+                <name>Haochen Shi</name>
+              </p>
+              <p>
+                I'm a first-year Master student in Computer Science at Stanford University, where I work with <a href="https://jiajunwu.com/">Jiajun Wu</a> 
+                and <a href="http://hxu.rocks/">Huazhe Xu</a> on robotics and computer vision. I worked with 
+                <a href="https://gleicher.sites.cs.wisc.edu/">Michael Gleicher</a> on robotics during my undergraduate at UW-Madison.
+              </p>
+              <p>
+                My research interests include robotics, computer vision, and potentially more! 
+                In my leisure time, I love playing tennis, Go, video games, and watching anime. 
+                I'm actively applying to PhD programs in Fall 2022!
+              </p>
+              <p style="text-align:center">
+                <a href="mailto:hshi74@stanford.edu">Email</a> &nbsp/&nbsp
+                <!-- <a href="data/JonBarron-CV.pdf">CV</a> &nbsp/&nbsp -->
+                <!-- <a href="data/JonBarron-bio.txt">Bio</a> &nbsp/&nbsp -->
+                <a href="https://scholar.google.com/citations?hl=en&user=gr51Y7UAAAAJ">Google Scholar</a> &nbsp/&nbsp
+                <a href="https://twitter.com/HaochenShi74">Twitter</a> &nbsp/&nbsp
+                <a href="https://github.com/hshi74">Github</a>
+              </p>
+            </td>
+            <td style="padding:2.5%;width:33%;max-width:33%">
+              <a href="images/me.jpeg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/me.jpeg" class="hoverZoomLink"></a>
+            </td>
+          </tr>
+        </tbody></table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="padding:10px;width:100%;vertical-align:middle">
+              <heading>Research</heading>
+            </td>
+          </tr>
+        </tbody></table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+          <tr onmouseout="robocraft_stop()" onmouseover="robocraft_start()">
+            <td style="padding: 20px 10px 20px 20px;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='robocraft_image'><video  width=100% height=100% muted autoplay loop>
+                <source src="images/robocraft.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video></div>
+                <img src='images/robocraft.jpg' width="160">
+              </div>
+              <script type="text/javascript">
+                function robocraft_start() {
+                  document.getElementById('robocraft_image').style.opacity = "1";
+                }
+
+                function robocraft_stop() {
+                  document.getElementById('robocraft_image').style.opacity = "0";
+                }
+                robocraft_stop()
+              </script>
+            </td>
+            <td style="padding: 20px 20px 20px 10px;width:75%;vertical-align:middle">
+              <!-- <a href="https://ieeexplore.ieee.org/abstract/document/9561505"> -->
+              <papertitle>RoboCraft: Learning to See, Simulate, and Shape Elasto-Plastic Objects with Graph Networks</papertitle>
+              <!-- </a> -->
+              <br>
+              <strong>Haochen Shi*</strong>,
+              <a href="http://hxu.rocks/">Huazhe Xu*</a>,
+              <a href="https://sites.google.com/view/zhiao-huang/">Zhiao Huang</a>,
+              <a href="https://people.csail.mit.edu/liyunzhu/">Yunzhu Li</a>,
+              <a href="https://jiajunwu.com/">Jiajun Wu</a>
+              <br>
+							<em>RSS</em>, 2022
+              <br>
+              Abridged in ICRA 2022 workshop on Representing and Manipulating Deformable Objects
+              <br>
+              <a href="http://hxu.rocks/robocraft/">[project page]</a>
+              <a href="https://arxiv.org/abs/2205.02909">[arXiv]</a>
+              <a href="https://github.com/hshi74/RoboCraft">[code]</a>
+              <!-- <a href="https://youtu.be/rdMl1gOPNoM">[video]</a> -->
+              <p></p>
+              <p>
+                Modeling and manipulating elasto-plastic objects are essential capabilities 
+                for robots to perform complex industrial and household interaction tasks 
+                (e.g., stuffing dumplings, rolling sushi, and making pottery). However, 
+                due to the high degree of freedom of elasto-plastic objects, significant 
+                challenges exist in virtually every aspect of the robotic manipulation pipeline, 
+                e.g., representing the states, modeling the dynamics, and synthesizing 
+                the control signals. We propose to tackle these challenges by employing a 
+                particle-based representation for elasto-plastic objects in a model-based planning framework.
+              </p>
+            </td>
+          </tr> 
+
+          <tr onmouseout="cik_stop()" onmouseover="cik_start()">
+            <td style="padding: 20px 10px 20px 20px;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='cik_image'><video  width=100% height=100% muted autoplay loop>
+                <source src="images/cik.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video></div>
+                <img src='images/cik.jpg' width="160">
+              </div>
+              <script type="text/javascript">
+                function cik_start() {
+                  document.getElementById('cik_image').style.opacity = "1";
+                }
+
+                function cik_stop() {
+                  document.getElementById('cik_image').style.opacity = "0";
+                }
+                cik_stop()
+              </script>
+            </td>
+            <td style="padding: 20px 20px 20px 10px;width:75%;vertical-align:middle">
+              <!-- <a href="https://ieeexplore.ieee.org/abstract/document/9561505"> -->
+              <papertitle>CollisionIK: A per-instant pose optimization method for generating robot motions with environment collision avoidance</papertitle>
+              <!-- </a> -->
+              <br>
+              <a href="https://pages.cs.wisc.edu/~rakita/">Daniel Rakita</a>,
+              <strong>Haochen Shi</strong>,
+              <a href="http://bilgemutlu.com/">Bilge Mutlu</a>,
+              <a href="https://gleicher.sites.cs.wisc.edu/">Michael Gleicher</a>
+              <br>
+							<em>ICRA</em>, 2021
+              <br>
+              <!-- <a href="http://jonbarron.info/mipnerf360">[project page]</a> -->
+              <a href="https://arxiv.org/abs/2102.13187">[arXiv]</a>
+              <a href="https://youtu.be/rdMl1gOPNoM">[video]</a>
+              <a href="https://github.com/uwgraphics/relaxed_ik_core">[code]</a>
+              <p></p>
+              <p>
+                In this work, we present a per-instant pose optimization method that can generate configurations that 
+                achieve specified pose or motion objectives as best as possible over a sequence of solutions, 
+                while also simultaneously avoiding collisions with static or dynamic obstacles in the environment.
+              </p>
+            </td>
+          </tr> 
+					
+          <!-- <tr onmouseout="urf_stop()" onmouseover="urf_start()">
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='urf_image'><video  width=100% height=100% muted autoplay loop>
+                <source src="images/urf.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video></div>
+                <img src='images/urf.jpg' width="160">
+              </div>
+              <script type="text/javascript">
+                function urf_start() {
+                  document.getElementById('urf_image').style.opacity = "1";
+                }
+
+                function urf_stop() {
+                  document.getElementById('urf_image').style.opacity = "0";
+                }
+                urf_stop()
+              </script>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+              <a href="https://urban-radiance-fields.github.io/">
+                <papertitle>Urban Radiance Fields</papertitle>
+              </a>
+              <br>
+							<a href="http://www.krematas.com/">Konstantinos Rematas</a>,
+							<a href="https://andrewhliu.github.io/">Andrew Liu</a>,
+							<a href="https://pratulsrinivasan.github.io/">Pratul P. Srinivasan</a>,
+							<strong>Jonathan T. Barron</strong>, <br>
+							<a href="https://taiya.github.io/">Andrea Tagliasacchi</a>,
+							<a href="https://www.cs.princeton.edu/~funk/">Tom Funkhouser</a>,
+							<a href="https://sites.google.com/corp/view/vittoferrari"> Vittorio Ferrari</a>
+              <br>
+							<em>arXiv</em>, 2021
+              <br>
+              <a href="https://urban-radiance-fields.github.io/">project page</a>
+              /
+              <a href="https://arxiv.org/abs/2111.14643">arXiv</a>
+              /
+              <a href="https://www.youtube.com/watch?v=qGlq5DZT6uc">video</a>
+              <p></p>
+              <p>
+								Incorporating lidar and explicitly modeling the sky lets you reconstruct urban environments.</p>
+            </td>
+          </tr>  -->
+        </tbody></table>
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+          <td style="padding:10px;width:100%;vertical-align:middle">
+            <heading>Teaching</heading>
+          </td>
+        </tr>
+        </tbody></table>
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+            <td>
+              <ul>
+                <li>Peer Mentor, <a href="https://graphics.cs.wisc.edu/Courses/559-sp2020/">UW-Madison CS 559</a>, Spring 2020</li>
+                <li>Teaching Assistant, <a href="https://web.stanford.edu/class/cs109/">Stanford CS 109</a>, Fall 2021</li>
+                <li>Teaching Assistant, <a href="https://web.stanford.edu/class/cs109/">Stanford CS 109</a>, Winter 2022</li>
+                <li>Teaching Assistant, <a href="http://cs231n.stanford.edu/">Stanford CS 231N</a>, Spring 2022</li>
+              </ul>
+            </td>
+          </tr>
+          
+          <!-- <tr>
+            <td align="center" style="padding:20px;width:25%;vertical-align:middle">
+							<heading>Basically <br> Blog Posts</heading>
+            </td>
+            <td width="75%" valign="middle">
+              <a href="https://arxiv.org/abs/2112.11687">Squareplus: A Softplus-Like Algebraic Rectifier</a>
+              <br>
+              <a href="https://arxiv.org/abs/2010.09714">A Convenient Generalization of Schlick's Bias and Gain Functions</a>
+              <br>
+              <a href="https://arxiv.org/abs/1704.07483">Continuously Differentiable Exponential Linear Units</a>
+            </td>
+          </tr> -->
+					
+					
+        </tbody></table>
+        
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+            <td style="padding:0px">
+              <br>
+              <p style="text-align:right;font-size:small;">
+                Template from <a href="https://jonbarron.info/">Jon Barron's website</a>
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>

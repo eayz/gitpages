@@ -1,0 +1,432 @@
+  <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/zh-cn/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/zh-cn/images/favicon-32px.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/zh-cn/images/favicon-16px.ico">
+  <link rel="mask-icon" href="/zh-cn/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="ajZK9uLUk8P_3aC1qEXbocD7aZUZOlZeL3yisIow9ko">
+  <meta name="msvalidate.01" content="293C974A486AEC99FF7AFA48F0B63338">
+  <meta name="baidu-site-verification" content="PZijha6ORE">
+
+<link rel="stylesheet" href="/zh-cn/css/main.css">
+
+<link rel="stylesheet" href="//fonts.proxy.ustclug.org/css?family=Lato:300,300italic,400,400italic,700,700italic|Georgia:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"Carrawayang.github.io","root":"/zh-cn/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="ML Carrawayang@gmail.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="杨国旭">
+<meta property="og:url" content="https://Carrawayang.github.io/zh-cn/index.html">
+<meta property="og:site_name" content="杨国旭">
+<meta property="og:description" content="ML Carrawayang@gmail.com">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="杨国旭">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://Carrawayang.github.io/zh-cn/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>杨国旭 - ML</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/zh-cn/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">杨国旭</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">ML</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/zh-cn/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-发表论文">
+
+    <a href="/zh-cn/publications/" rel="section"><i class="fa fa-fw fa-file"></i>发表论文</a>
+
+  </li>
+        <li class="menu-item menu-item-荣誉奖励">
+
+    <a href="/zh-cn/awards/" rel="section"><i class="fa fa-fw fa-trophy"></i>荣誉奖励</a>
+
+  </li>
+        <li class="menu-item menu-item-英文版">
+
+    <a href="/zh-cn/.." rel="section"><i class="fa fa-fw fa-language"></i>英文版</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            <div class="content-inner"></div>
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://Carrawayang.github.io/zh-cn/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/zh-cn/images/avatar.png">
+      <meta itemprop="name" content="杨国旭">
+      <meta itemprop="description" content="ML Carrawayang@gmail.com">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="杨国旭">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/zh-cn/hello-world/" class="post-title-link" itemprop="url">Welcome</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-20 15:59:32" itemprop="dateCreated datePublished" datetime="2021-04-20T15:59:32+08:00">2021-04-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-08 16:17:36" itemprop="dateModified" datetime="2021-08-08T16:17:36+08:00">2021-08-08</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+
+<h2>Education</h2>
+<p><img src="./img/hnu.png" alt="img" style="zoom: 15%;" /></p>
+<ul>
+<li>Jul. 2018 - Sep. 2022, Bachelor Degree of Computer Science, Henan Normal University</li>
+
+</ul>
+<h2>Updates and News</h2>
+<ul>
+<li>[2021/10/30] </li>
+
+</ul>
+<h2>Selected Honors and Awards</h2>
+<ul>
+<li>[2021/11/10] 全国大学生数学建模竞赛省二等奖 <strong>[CUMCM2021]</strong></li>
+<li>[2021/03/14] 美国大学生数学建模竞赛省三等奖 <strong>[MCM2021]</strong></li>
+<li>[2020/11/06] 全国大学生数学建模竞赛省一等奖 <strong>[CUMCM2020]</strong></li>
+
+</ul>
+<h2>Experience</h2>
+<ul>
+<li>August 2020 -- May 2021,大数据工程培训，北京文思海辉科技有限公司，北京 </li>
+
+</ul>
+<p><a href='https://gitee.com/Carrawayang/edu_platform'>Edu-platform</a>面向大规模系统的分布式架构和升级优化技术。 </p>
+<p>大数据离线处理应用技术及系统实现，基于微服务架构的大型互联网教育平台开发与实现</p>
+<ul>
+
+
+</ul>
+<h2>Professional Activities </h2>
+<p><a href='https://www.cnblogs.com/Carrawayang/p/13775492.html'>Array Mat </a> 玩具级神经网络计算模块，基于一维变长数组实现高维矩阵实现神经网络中的矩阵运算，通过一维变长数组实现高维矩阵，可以降低编译难度和 提高代码执行效率</p>
+<p><a href='https://gitee.com/Carrawayang/mnist-recognization'>Mnist-recognition</a> 基于Mnist数据集搭建CNN网络并使用Qt5实现手写数字识别，使用深度卷积网络和Opencv实现图像识别，使用Mnist手写数字数据集，使用Qt实现GUI，实现手写数字识别两种模式 和数据集提取测试</p>
+<p><a href='https://www.cnblogs.com/Carrawayang/p/13775492.html'>IMS-1.0</a>使用Flask实现网页和功能，使用Tkinter实现GUI，使用基于SVD的方法实现人脸识别登录，基于Mysql的数据库支持，使用多表操作和多表查询 </p>
+<h2>Essay </h2>
+<p><a href='../paper/2020cumcm.pdf'>基于中小企业的信贷决策研究</a></p>
+<p><a href='../paper/2021mcm.pdf'>基于黄蜂发生预测模型</a></p>
+<p><a href='../paper/2021cumcm.pdf'>葡萄酒评估问题</a></p>      
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="杨国旭"
+      src="/zh-cn/images/avatar.png">
+  <p class="site-author-name" itemprop="name">杨国旭</p>
+  <div class="site-description" itemprop="description">ML Carrawayang@gmail.com</div>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="Carrawayang@gmail.com" title="GMail → Carrawayang@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>GMail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://github.com/Carrawayang" title="Github → https://github.com/Carrawayang" rel="noopener" target="_blank"><i class="fa fa-fw fa-compass"></i>Github</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://gitee.com/Carrawayang" title="Gitee → https://gitee.com/Carrawayang" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Gitee</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/Carrawayang" title="Cnblogs → https://www.cnblogs.com/Carrawayang" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i>Cnblogs</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨国旭</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/zh-cn/lib/anime.min.js"></script>
+  <script src="/zh-cn/lib/velocity/velocity.min.js"></script>
+  <script src="/zh-cn/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/zh-cn/js/utils.js"></script>
+
+<script src="/zh-cn/js/motion.js"></script>
+
+
+<script src="/zh-cn/js/schemes/pisces.js"></script>
+
+
+<script src="/zh-cn/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

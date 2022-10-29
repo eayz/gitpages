@@ -1,0 +1,30 @@
+image: ruby:2.3
+
+variables:
+  JEKYLL_ENV: production
+
+before_script:
+  - bundle install
+
+test:
+  stage: test
+  script:
+  - bundle exec jekyll build -d test
+  artifacts:
+    paths:
+    - test
+  except:
+  - master
+
+pages:
+  stage: deploy
+  script:
+  - 'sed -i ''/baseurl: ""/aurl: "https://www.chungkwong.cc"'' _config.yml'
+  - 'sed -i "s/#//" _config.yml'
+  - bundle exec jekyll build -d public/
+  - cp -R .well-known public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
