@@ -1,0 +1,194 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>5.2.3-3乘法指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter05.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle05.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="05-2.htm"> 指令系统</a>  → 乘法指令</td>                                                
+    <td width="50%">               
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<p style="text-indent: 21.25pt"><font color="#FF00FF">3、乘法指令</font></p>
+<p style="text-indent: 21.25pt">计算机的乘法指令分为无符号乘法指令和有符号乘法指令，它们的唯一区别就在于：数据的最高位是作为“数值”参与运算，还是作为“符号位”参与运算。</p>
+<p style="text-indent: 21.25pt">乘法指令的被乘数都是隐含操作数，乘数在指令中显式地写出来。<font color="#FF0000">CPU</font>会根据乘数是8位、16位，还是32位操作数，来自动选用被乘数：<font color="#FF0000">AL</font>、<font color="#FF0000">AX</font>或<font color="#FF0000">EAX</font>。</p>
+<p style="text-indent: 21.25pt">指令的功能是把显式操作数和隐含操作数相乘，并把乘积存入相应的寄存器中。</p>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/ball.gif" width="12">、无符号数乘法指令<font color="#FF0000">MUL</font>(Unsigned                                        
+Multiply Instruction)</p>                                       
+<p style="margin-left: 40pt">指令的格式：MUL&nbsp; Reg/Mem<br>                                  
+受影响的标志位：CF和OF(AF、PF、SF和ZF无定义)<br> 
+指令的功能是把显式操作数和隐含操作数(都作为无符号数)相乘，所得的乘积按表5.2的对应关系存放。</p>      
+<p align="center">表5.2                                       
+乘法指令中乘数、被乘数和乘积的对应关系</p>     
+<div align="center">    
+  <center>    
+  <table border="0" width="50%" cellpadding="0">    
+    <tr>    
+      <td align="center" width="82" bgcolor="#FFFF00"><p>乘数位数</p>    
+      </td>    
+      <td align="center" width="111" bgcolor="#FFFF00">    
+<p>隐含的被乘数</p>    
+      </td>    
+      <td align="center" width="118" bgcolor="#FFFF00">    
+<p>乘积的存放位置</p>    
+      </td>    
+      <td align="center" width="125" bgcolor="#FFFF00">    
+<p>举例</p>    
+      </td>    
+    </tr>    
+    <tr>    
+      <td align="center" width="82" bgcolor="#00FFFF">    
+<p>8位</p>    
+      </td>    
+      <td align="center" width="111" bgcolor="#00FFFF">    
+<p>AL</p>    
+      </td>    
+      <td align="center" width="118" bgcolor="#00FFFF">    
+<p>AX</p>    
+      </td>    
+      <td align="center" width="125" bgcolor="#00FFFF">    
+<p>MUL&nbsp; BL</p>                                       
+      </td>      
+    </tr>      
+    <tr>      
+      <td align="center" width="82">     
+<p>16位</p>    
+      </td>    
+      <td align="center" width="111">    
+<p>AX</p>    
+      </td>    
+      <td align="center" width="118">    
+<p>DX-AX</p>    
+      </td>    
+      <td align="center" width="125">    
+<p>MUL&nbsp; BX</p>                                       
+      </td>      
+    </tr>      
+    <tr>      
+      <td align="center" width="82" bgcolor="#00FFFF">     
+<p>32位</p>    
+      </td>    
+      <td align="center" width="111" bgcolor="#00FFFF">    
+<p>EAX</p>    
+      </td>    
+      <td align="center" width="118" bgcolor="#00FFFF">    
+<p>EDX-EAX</p>    
+      </td>    
+      <td align="center" width="125" bgcolor="#00FFFF">    
+<p>MUL&nbsp; ECX</p>                                      
+      </td>     
+    </tr>     
+  </table>     
+  </center>     
+</div>     
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/ball.gif" width="12">、有符号数乘法指令<font color="#FF0000">IMUL</font>(Signed                                        
+Integer Multiply Instruction)</p>                                       
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+  <tr>
+    <td width="7%" rowspan="4" valign="top"></td>
+    <td width="12%" rowspan="4" valign="top">指令的格式：</td>
+    <td width="6%">IMUL</td>
+    <td width="76%" colspan="2"> Reg/Mem</td>
+  </tr>
+  <tr>
+    <td width="6%">IMUL</td>
+    <td width="22%"> Reg, Imm</td>  
+    <td width="54%">      
+;80286+</td>
+  </tr>
+  <tr>
+    <td width="6%">IMUL</td>
+    <td width="22%"> Reg, Reg, Imm</td>  
+    <td width="54%">      
+;80286+</td>
+  </tr>
+  <tr>
+    <td width="6%">IMUL</td>
+    <td width="22%"> Reg, Reg/Mem</td>  
+    <td width="54%">      
+;80386+</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">受影响的标志位：CF和OF(AF、PF、SF和ZF无定义)</p>
+<p style="text-indent: 21.25pt">1)、指令格式1——该指令的功能是把显式操作数和隐含操作数相乘，所得的乘积按表5.2的对应关系存放。</p>
+<p style="text-indent: 21.25pt">2)、指令格式2——其寄存器必须是16位/32位通用寄存器，其计算方式为：</p>
+<p style="margin-left: 110pt">Reg ← Reg × Imm</p>                       
+<p style="text-indent: 21.25pt">3)、指令格式3——其寄存器只能是16位通用寄存器，其计算方式为：</p>
+<p style="margin-left: 110pt">Reg<sub>1</sub> ← Reg<sub>2</sub>×Imm &nbsp;或&nbsp;                        
+Reg<sub>1</sub> ← Mem×Imm</p>                       
+<p style="text-indent: 21.25pt">4)、指令格式4——其寄存器必须是16位/32位通用寄存器，其计算方式为：</p>
+<p style="margin-left: 110pt">Reg<sub>1</sub> ← Reg<sub>1</sub>×Reg<sub>2</sub>                        
+&nbsp;或&nbsp; Reg<sub>1</sub> ← Reg<sub>1</sub>×Mem</p>                       
+<p style="text-indent: 21.25pt">在指令格式2~4中，各操作数的位数要一致。如果乘积超过目标寄存器所能存储的范围，则系统将置溢出标志OF为1。<p style="text-indent: 21.25pt">下面是学习和掌握乘法类指令的控件，可模拟执行MUL和IMUL等指令。</p>  
+       
+<p align="center">
+<object classid="clsid:51447AF6-B9EB-4660-84A6-AFDB98DB3FA9" id="multiply1" width="401" height="243">
+</object>
+</p>
+      
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=5&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="05-2-031.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="05-2-033.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>            
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->   
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

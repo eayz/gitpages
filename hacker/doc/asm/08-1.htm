@@ -1,0 +1,213 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>第8章 输入输出和中断</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter08.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle08.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%" valign="middle">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    </td>                             
+    <td width="50%">            
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+     
+<h1 align="center">第8章 输入输出和中断</h1>                                                              
+                               
+<p style="text-indent: 21.25pt">输入输出功能是计算机的重要组成部分，是人—机交互功能的主要承担者。在早期的计算机系统中，通常把输入输出设备或功能作为次要的部分，而把<font color="#FF0000" face="Arial">CPU</font>作为主要研究对象。但现在随着输入输出设备的日益丰富、功能要求越来越复杂，输入输出部分在整个计算机系统中的地位也得到了进一步提高。</p>  
+<p style="text-indent: 21.25pt">本章先介绍了I/O的基本概念和<font color="#FF0000" face="Arial">I/O</font>指令，再叙述了中断的概念及其工作过程，并列举出计算机系统中若干个常用的中断及其功能。</p>  
+<h2>8.1 输入输出的基本概念</h2>                                 
+<p style="text-indent: 21.25pt">输入输出是一个完整应用程序的重要组成部分，是交互式应用程序不可缺少的组成部分。</p>  
+<p style="text-indent: 21.25pt">在用高级语言编程时，程序员可直接用输入输出语句来完成键盘输入、屏幕显示或打印输出等需求，而无需关心这些输入输出语句是如何实现的，因为编译程序会自动把这些语句转换成相应的输入输出指令。但如果用汇编语言编写程序的话，情况就不同了，因为汇编语言是与机器有关的程序设计语言，要编写出具有输入输出功能的代码段就必须清楚<font color="#FF0000" face="Arial">CPU</font>为输入输出提供了哪些指令，或计算机系统提供了哪些可直接使用的功能调用。</p>  
+<h3><a name="I/O地址">8.1.1 I/O</a>端口地址</h3>   
+<p style="text-indent: 21.25pt"><font color="#FF0000">I/O</font>端口是<font color="#FF0000" face="Arial">CPU</font>与输入输出设备的交换数据的场所，通过<font color="#FF0000" face="Arial">I/O</font>端口，处理机可以接受从输入设备输入的信息；也可向输出设备发送信息。在计算机系统中，为了区分各类不同的<font color="#FF0000" face="Arial">I/O</font>端口，就用不同的数字给它们进行编号，这种对<font color="#FF0000" face="Arial">I/O</font>端口的编号就称为<font color="#FF0000" face="Arial">I/O</font>端口地址。按照</p>  
+<p style="text-indent: 21.25pt">每次可交换一个字节数据的端口称为字节端口，每次可交换一个字数据的端口称为字端口。</p>  
+<p style="text-indent: 21.25pt">在<font color="#FF0000" face="Arial">Intel</font>公司的<font color="#FF0000" face="Arial">CPU</font>家族中，<font color="#FF0000" face="Arial">I/O</font>端口的地址空间可达64K，即可有65536个字节端口，或32768个字端口。这些地址不是内存单元地址的一部分，不能普通的访问内存指令来读取其信息，而要用专门的<font color="#FF0000" face="Arial">I/O</font>指令才能访问它们。虽然<font color="#FF0000" face="Arial">CPU</font>提供了很大的<font color="#FF0000" face="Arial">I/O</font>地址空间，但目前大多数微机所用的端口地址都在<font color="#FF0000" face="Arial">0~3FFH</font>范围之内，其所用的<font color="#FF0000" face="Arial">I/O</font>地址空间只占整个<font color="#FF0000" face="Arial">I/O</font>地址空间的很小部分。表8.1列举了几个重要的<font color="#FF0000" face="Arial">I/O</font>端口地址。</p>  
+<p align="center"><a name="表8.1">表8.1 几个重要的I/O端口地址</a></p>                                 
+<div align="center">  
+  <center>  
+  <table border="0" width="60%" cellpadding="0">  
+    <tr>  
+      <td align="center" bgcolor="#FFFF00">端口地址</td>  
+      <td align="center" bgcolor="#FFFF00">端口名称</td>  
+      <td align="center" bgcolor="#FFFF00">端口地址</td>  
+      <td align="center" bgcolor="#FFFF00">端口名称</td>  
+    </tr>  
+    <tr>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">020H~023H</p>  
+      </td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">中断屏蔽寄存器</p>  
+      </td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">378H~37FH</p>  
+      </td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">并行口LPT2</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p style="margin-left: 4pt">040H~043H</p>  
+      </td>  
+      <td>  
+        <p style="margin-left: 4pt">时针/计数器</p>  
+      </td>  
+      <td>  
+        <p style="margin-left: 4pt">3B0H~3BBH</p>  
+      </td>  
+      <td>  
+        <p style="margin-left: 4pt">单色显示器端口</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">060H</p>  
+      </td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">键盘输入端口</p>  
+      </td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">3BCH~3BFH</p>  
+      </td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">并行口LPT1</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p style="margin-left: 4pt">061H</p>  
+      </td>  
+      <td>  
+        <p style="margin-left: 4pt">扬声器(0, 1位)</p>                                 
+      </td>  
+      <td>  
+        <p style="margin-left: 4pt">3C0H~3CFH</p>  
+      </td>  
+      <td>  
+        <p style="margin-left: 4pt">VGA/EGA</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">200H~20FH</p>  
+      </td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">游戏控制口</p>  
+      </td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">3D0H~3DFH</p>  
+      </td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">CGA</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td>  
+        <p style="margin-left: 4pt">278H~27FH</p>  
+      </td>  
+      <td>  
+        <p style="margin-left: 4pt">并行口LPT3</p>  
+      </td>  
+      <td>  
+        <p style="margin-left: 4pt">3F0H~3F7H</p>  
+      </td>  
+      <td>  
+        <p style="margin-left: 4pt">磁盘控制器</p>  
+      </td>  
+    </tr>  
+    <tr>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">2F8H~2FFH</p>  
+      </td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">串行口COM2</p>  
+      </td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">3F8H~3FFH</p>  
+      </td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 4pt">串行口COM1</p>  
+      </td>  
+    </tr>  
+  </table>  
+  </center>  
+</div>  
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+  <tr>
+    <td width="58%" valign="middle">  
+<p style="text-indent: 21.25pt">计算机在启动时，<font color="#FF0000" face="Arial">BIOS</font>程序(Basic                              
+Input/Output System)将检查计算机系统中有哪些端口地址。当发现有串行端口地址时，<font color="#FF0000" face="Arial">BIOS</font>就把                             
+该端口存放在以地址<font color="#FF0000" face="Arial">40:00H</font>开始的数据区内；当发现有并行端口地址时，<font color="#FF0000" face="Arial">BIOS</font>会把它                             
+存入以地址<font color="#FF0000" face="Arial">40:08H</font>开始的数据区内。</p>  
+<p style="text-indent: 21.25pt">每类端口有4个字的空间，对有二个串行口、二个并行口的计算机系统，<font color="#FF0000">其</font><font color="#FF0000" face="Arial">BIOS</font><font color="#FF0000">程序</font>将得到如图8.1所示的部分数据表。</p>  
+<p style="text-indent: 21.25pt">图中03F8H、02F8H、0378H和0278H分别为COM1、COM2、LPT1和LPT2的端口地址。</p>  
+    </td>
+    <td width="37%">
+      <p align="center"><img border="0" src="TextBookIMG/08-1.gif" width="136">
+      <p align="center">图8.1 BIOS部分数据表</td>                            
+  </tr>
+</table>
+            
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=8&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="07-Exercise.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="08-1-1.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+       
+</body>       
+       
+</html>

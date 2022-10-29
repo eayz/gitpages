@@ -1,0 +1,104 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.1 内存分配功能的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能48H</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">分配一块内存单元，并返回该块内存单元的首地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝48H<br>
+      BX＝需要申请的内存单元字节数</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——分配成功，AX＝存储单元的首地址，否则，AX＝错误号(07H或08H)，其含义见错误代码表，BX＝还可用的最大块数</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="49H">(2)、功能49</a></font><a name="49H"><font color="#FF00FF">H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">释放内存单元块以便为其它程序使用</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝49H<br>
+      ES＝被申请块的段地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——释放成功，否则，AX＝错误号(07H或09H)，其含义见错误代码表</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="4AH">(3)、功能</a></font><a name="4AH"><font color="#FF00FF">4AH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">根据程序的需要，动态地改变一个内存块</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝4AH<br>
+      BX＝需要一个新存储块的大小<br>
+      ES＝被修改块的段地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——修改成功，否则，AX＝错误号(07H、08H或09H)，其含义见错误代码表，BX＝可用最大块的大小</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="58H">(4)、功能</a></font><a name="58H"><font color="#FF00FF">58H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">读取/设置内存分配策略</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝58H
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="29%">读取内存分配策略</td>
+          <td width="71%">AL＝00H</td>
+        </tr>
+        <tr>
+          <td width="29%" valign="top">设置内存分配策略</td>
+          <td width="71%">AL＝01H<br>
+            BX＝内存分配策略代码：<br>
+            　　　00H—第一满足<br>
+            　　　01H—最好满足<br>
+            　　　02H—最后满足</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——操作成功，AX＝已选用的内存分配策略代码(含义如上说明)，否则，AX＝错误号(01H)，其含义见错误代码表</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

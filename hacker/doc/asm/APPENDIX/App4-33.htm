@@ -1,0 +1,140 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录4.3 目录和驱动器控制的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<h3 style="text-indent: -32pt; margin-left: 32pt"><a name="3.1">3.1、@MkDir：创建一个目录<br>
+</a>@RmDir：删除一个目录<br>
+@ChDir：改变当前目录</h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="6" valign="top"></td>
+    <td width="16%" valign="top">使用语法：</td>
+    <td width="79%" colspan="2">@MkDir path [，segment]<br>       
+      @RmDir path [，segment]<br>       
+      @ChDir path [，segment]</td>          
+  </tr>
+  <tr>
+    <td width="16%" rowspan="2" valign="top">参数说明：</td>
+    <td width="15%">&lt;path&gt;</td>
+    <td width="64%"> 目录路径字符串的地址</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;segment&gt;</td>
+    <td width="64%"> 路径的段地址，缺省值为DS</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">若CF＝1，则AX＝错误代码</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX，DX，DS(若段改变了)</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 21h — 39H、3AH和38H，<A href="#3.2">@GetDir</a></td>          
+  </tr>
+</table>
+<h3><a name="3.2">3.2、@GetDir：获取指定驱动器的当前目录</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="7" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@GetDir buffer [，[drive] [，segment]]</td>          
+  </tr>
+  <tr>
+    <td width="16%" rowspan="3" valign="top">参数说明：</td>
+    <td width="15%">&lt;path&gt;</td>
+    <td width="64%"> 接受目录路径的缓冲区地址</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">&lt;drive&gt;</td>
+    <td width="64%">驱动器号(一个字节)(0=当前，1=A，2=B，…)，缺省值为0</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;segment&gt;</td>
+    <td width="64%">路径的段地址，缺省值为DS</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">若CF＝1，则AX＝错误代码</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX，SI，DL，DS(若段改变了)</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 21h — 47H，<A href="#3.1">@ChDir</a>，<A href="#3.3">@GetDrv</a></td>          
+  </tr>
+</table>
+<h3 style="text-indent: -32PT; margin-left: 32PT"><a name="3.3">3.3、</a><a name="3.3">@GetDrv：获取当前驱动器<br>
+</a>@SetDrv：设置当前驱动器</h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="16%" valign="top">使用语法：</td>
+    <td width="79%" colspan="2">@GetDrv<br>
+      @SetDrv drive</td>         
+  </tr>
+  <tr>
+    <td width="16%" valign="top">参数说明：</td>
+    <td width="15%">&lt;drive&gt;</td>
+    <td width="64%">驱动器号(一个字节)(0=A，1=B，…)</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">对@GetDrv，AL＝驱动器号(0＝A，1＝B，…)<br>
+      对@SetDrv，AL＝驱动器数</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX(二者)，DL(在@SetDrv中)</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 21h — 19H和0EH，<A href="#3.2">@GetDir</a>，<A href="#3.4">@ChkDrv</a></td>         
+  </tr>
+</table>
+<h3><a name="3.4">3.4、@ChkDrv：读取磁盘的信息</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@ChkDrv [drive]</td>        
+  </tr>
+  <tr>
+    <td width="16%" valign="top">参数说明：</td>
+    <td width="15%" valign="top">&lt;drive&gt;</td>
+    <td width="64%">驱动器号(一个字节)(0=当前，1=A，2=B，…)，缺省值为0</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">AX＝每柱面中的扇区数，-1—非法的驱动器<br>
+      BX＝可用柱面<br>
+      CX＝每扇区的字节数<br>
+      DX＝驱动器中的柱面数</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX，BX，CX和DX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 21h — 36H，<A href="#3.3">@GetDrv</a></td>        
+  </tr>
+</table>
+         
+</body>        
+        
+</html>        

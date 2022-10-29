@@ -1,0 +1,254 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>5.2 指令系统</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter05.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle05.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → 指令系统</td>                            
+    <td width="50%">           
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<h2>5.2、指令系统</h2> 
+ 
+<p style="text-indent: 21.25pt">指令系统是<font color="#FF0000">CPU</font>指令的集合，<font color="#FF0000">CPU</font>除了具有计算功能的指令外，还有实现其它功能的指令，也有为某种特殊的应用而增设的指令。</p>
+<p style="text-indent: 21.25pt">通常，把指令按其功能分成以下几大类：</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="39%">
+      <ul type="square">
+        <li>
+          <p style="margin-left: 40PT"><a href="#MOVS">数据传送指令</a></li>
+        <li>
+          <p style="margin-left: 40PT"><a href="05-2-02.htm">标志位操作指令</a></li>
+        <li>
+          <p style="margin-left: 40PT"><a href="05-2-03.htm">算术运算指令</a></li>
+        <li>
+          <p style="margin-left: 40PT"><a href="05-2-04.htm">逻辑运算指令</a></li>
+        <li>
+          <p style="margin-left: 40PT"><a href="05-2-05.htm">移位操作指令</a></li>
+        <li>
+          <p style="margin-left: 40PT"><a href="05-2-06.htm">位操作指令</a></li>
+        <li>
+          <p style="margin-left: 40PT"><a href="05-2-07.htm">比较运算指令</a></li>
+      </ul>
+      <p style="margin-left: 21.25PT">下面，我们逐一介绍每类指令中的指令。</td>
+    <td width="61%" valign="top">
+      <ul type="square">
+        <li><a href="05-2-08.htm">循环指令</a></li>
+        <li><a href="05-2-09.htm">转移指令</a></li>
+        <li><a href="05-2-10.htm">条件设置字节指令</a></li>
+        <li><a href="05-2-11.htm">字符串操作指令</a></li>
+        <li><a href="05-2-12.htm">ASCII-BCD码运算调整指令</a></li>
+        <li><a href="05-2-13.htm">处理器指令</a></li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<h3><a name="MOVS">5.2.1 数据传送指令 </a></h3>                              
+<p style="text-indent: 21.25pt">数据传送指令又分为：传送指令、<a href="05-2-011.htm#XCHG">交换指令</a>、<a href="05-2-012.htm">地址传送指令</a>、<a href="05-2-013.htm">堆栈操作指令</a>、<a href="05-2-013.htm#XLAT">转换指令</a>和<a href="05-2-012.htm#I/O指令">I/O</a><a href="05-2-013.htm#I/O指令">指令</a>等。</p>
+<p style="text-indent: 21.25pt">除了标志位操作指令<a href="05-2-02.htm#LSAHF">SAHF</a>和<a href="05-2-02.htm#LSAHF">POPF</a>指令外，本类的其它指令都不影响标志位。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、传送指令MOV(Move                                           
+Instruction)</font></p>          
+<p style="text-indent: 21.25pt">传送指令是使用最频繁的指令，它相对于高级语言里的赋值语句。指令的格式如下：</p>          
+<p style="margin-left: 40pt">MOV&nbsp; Reg/Mem, Reg/Mem/Imm</p>                                          
+<p style="text-indent: 21.25pt">其中：<font color="#FF0000">Reg</font>—Register(寄存器)，<font color="#FF0000">Mem</font>—Memory(存储器)，<font color="#FF0000">Imm</font>—Immediate(立即数)，它们可以是8位、16位或32位(特别指出其位数的除外)。在本网络课件的网页中，都将采用上述缩写，此后不再说明。</p>       
+<p style="text-indent: 21.25pt">指令的功能是把源操作数(第二操作数)的值传给目的操作数(第一操作数)。指令执行后，目的操作数的值被改变，而源操作数的值不变。在存储单元是该指令的一个操作数时，该操作数的寻址方式可以是任意一种存储单元寻址方式。</p>       
+<p style="text-indent: 21.25pt">下面列举几组正确的指令例子：</p>       
+<table border="0" width="100%" cellspacing="0" cellpadding="2">       
+  <tr>       
+    <td width="100%" colspan="4">       
+      <p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/Ball3.gif" width="12">源操作数是寄存器</td>       
+  </tr>       
+  <tr>       
+    <td width="7%" rowspan="2" valign="top"></td>       
+    <td width="26%">MOV&nbsp; CH, AL</td>                                          
+    <td width="27%">MOV&nbsp; BP, SP</td>                                          
+    <td width="40%">MOV&nbsp; ECX, EBX</td>                                          
+  </tr>          
+  <tr>          
+    <td width="26%">MOV&nbsp; DS, AX</td>                                          
+    <td width="27%">MOV&nbsp; [BX], CH</td>                                          
+    <td width="40%">MOV&nbsp; [BX+SI], AX</td>                                          
+  </tr>          
+  <tr>          
+    <td width="100%" colspan="4">          
+      <p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/Ball3.gif" width="12">源操作数是存储单元</td>       
+  </tr>       
+  <tr>       
+    <td width="7%" rowspan="3" valign="top"></td>       
+    <td width="26%">MOV&nbsp; AL, [100H]</td>                                          
+    <td width="27%">MOV&nbsp; BX, ES:[DI]</td>                                          
+    <td width="40%">MOV&nbsp; EDX, [BX]</td>                                          
+  </tr>          
+  <tr>          
+    <td width="26%">MOV&nbsp; BX, VARW</td>                                          
+    <td width="27%">MOV&nbsp; AX, [BX+SI]</td>                                          
+    <td width="40%">MOV&nbsp; CH, [BX+DI+100H]</td>                                          
+  </tr>          
+  <tr>          
+    <td width="93%" colspan="3">其中：VARW是字类型内存变量(下同)。</td>       
+  </tr>       
+  <tr>       
+    <td width="100%" colspan="4">       
+      <p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/Ball3.gif" width="12">源操作数是立即数</td>       
+  </tr>       
+  <tr>       
+    <td width="7%" rowspan="2" valign="top"></td>       
+    <td width="26%">MOV&nbsp; AL, 89H</td>                                          
+    <td width="27%">MOV&nbsp; BX, -100H</td>                                          
+    <td width="40%">MOV&nbsp; EDX, 12345678H</td>                                          
+  </tr>          
+  <tr>          
+    <td width="26%">MOV&nbsp; VARW, 200H</td>                                          
+    <td width="27%">MOV&nbsp; [BX], 2345H</td>                                          
+    <td width="40%">MOV&nbsp; [BX+DI], 1234H</td>                                          
+  </tr>          
+</table>          
+<p style="text-indent: 21.25pt">在汇编语言中，主要的数据传送方式如图5.1所示。虽然一条MOV指令能实现其中大多数的数据传送方式，但也存在MOV指令不能实现的传送方式。</p>       
+<p align="center"><img border="0" src="TextBookIMG/05-01.gif" width="403"></p>       
+<p align="center">图5.1 MOV指令数据传送示意图</p>                                   
+<p style="text-indent: 21.25pt">对MOV指令有以下几条具体规定，其中有些规定对其它指令也同样有效。</p>       
+<table border="0" width="100%" cellspacing="0" cellpadding="2">       
+  <tr>       
+    <td width="7%" rowspan="7" valign="top"></td>       
+    <td width="93%">1)、两个操作数的数据类型要相同，要同为8位、16位或32位；如：MOV&nbsp;                                          
+      BL, AX等是不正确的；</td>                                         
+  </tr>          
+  <tr>          
+    <td width="93%">2)、两个操作数不能同时为段寄存器，如：MOV&nbsp;                                          
+      ES, DS等；</td>                                         
+  </tr>          
+  <tr>          
+    <td width="93%">          
+      <p style="text-indent: -18pt; margin-left: 18pt">3)、代码段寄存器<font color="#FF0000">CS</font>不能为目的操作数，但可作为源操作数，如：指令MOV&nbsp;                                          
+      CS, AX等不正确，但指令MOV&nbsp; AX, CS等是正确的；</td>                                         
+  </tr>          
+  <tr>          
+    <td width="93%">4)、立即数不能直接传给段寄存器，如：MOV&nbsp;                                          
+      DS, 100H等；</td>                                         
+  </tr>          
+  <tr>          
+    <td width="93%">5)、立即数不能作为目的操作数，如：MOV&nbsp;                                          
+      100H, AX等；</td>                                         
+  </tr>          
+  <tr>          
+    <td width="93%">6)、指令指针<font color="#FF0000">IP</font>，不能作为<font color="#FF0000">MOV</font>指令的操作数；</td>       
+  </tr>       
+  <tr>       
+    <td width="93%">7)、两个操作数不能同时为存储单元，如：MOV&nbsp;                                          
+      VARA, VARB等，其中VARA和VARB是同数据类型的内存变量。</td>                                     
+  </tr>       
+</table>       
+<p style="text-indent: 21.25pt">对于<font color="#FF0000">规定2</font>、<font color="#FF0000">4</font>和<font color="#FF0000">7</font>，我们可以用通用寄存器作为中转来达到最终目的。表5.1列举一个可行的解决方案，尽供参考。读者可考虑用其它办法来完成同样的功能。</p>      
+<p align="center">表5.1 <font color="#FF0000">MOV</font>指令的变通方法                                        
+<div align="center">         
+  <center>         
+  <table border="0" width="459" cellpadding="0">         
+    <tr>         
+      <td width="160" bgcolor="#FFFF00">         
+        <p style="margin-left: 3pt">功能描述</td>         
+      <td width="149" bgcolor="#FFFF00">         
+        <p style="margin-left: 3pt">不正确的指令</td>         
+      <td width="132" bgcolor="#FFFF00">         
+        <p style="margin-left: 3pt">可选的解决方法</td>         
+    </tr>         
+    <tr>         
+      <td valign="top" width="160" bgcolor="#00FFFF">         
+        <p style="margin-left: 3pt">把DS的值传送给ES</td>      
+      <td width="149" valign="top" bgcolor="#00FFFF">      
+        <p style="margin-left: 3pt">MOV&nbsp; ES, DS</td>                                          
+      <td width="132" bgcolor="#00FFFF">          
+        <p style="margin-left: 3pt">MOV&nbsp; AX, DS<br>                                          
+        MOV&nbsp; ES, AX</td>                                          
+    </tr>          
+    <tr>          
+      <td valign="top" width="160">          
+        <p style="margin-left: 3pt">把100H传给DS</td>       
+      <td width="149" valign="top">       
+        <p style="margin-left: 3pt">MOV&nbsp; DS, 100H</td>                                          
+      <td width="132">          
+        <p style="margin-left: 3pt">MOV&nbsp; AX, 100H<br>                                          
+        MOV&nbsp; DS, AX</td>                                          
+    </tr>          
+    <tr>          
+      <td valign="top" width="160" bgcolor="#00FFFF">          
+        <p style="margin-left: 3pt">把字变量VARB的值传送给字变量VARA</td>       
+      <td width="149" valign="top" bgcolor="#00FFFF">       
+        <p style="margin-left: 3pt">MOV&nbsp; VARA, VARB</td>                                          
+      <td width="132" bgcolor="#00FFFF">          
+        <p style="margin-left: 3pt">MOV&nbsp; AX, VARB<br>                                          
+        MOV&nbsp; VARA, AX</td>                                          
+    </tr>          
+  </table>          
+  </center>          
+</div>          
+          
+<p style="text-indent: 21.25pt">对于<font color="#FF0000">情况1</font>：不同位数数据之间的传送问题，在<font color="#FF0000">80386</font>及其以后的<font color="#FF0000">CPU</font>中，增加一组新的指令——<a href="05-2-011.htm">传送－填充指令</a>，它可把位数少的源操作数传送给位数多的目的操作数，多出的部分按指令的规定进行填充。</p>      
+      
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=5&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="05-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="05-2-011.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>  
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->   
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

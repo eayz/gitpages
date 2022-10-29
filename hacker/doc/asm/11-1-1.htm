@@ -1,0 +1,197 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>11.1.3 浮点数</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter11.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle11.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="11-1.htm">浮点数的数据格式</a>                     
+      <font face="Arial">                                   
+      → </font> 浮点数</td>             
+    <td width="50%">          
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h3>11.1.3 浮点数</h3>                                    
+<p style="text-indent: 21.25pt">在计算机中，浮点数一般由三部分组成：数值的符号位、阶码和有效数字(以后简称为尾数)。这种浮点数是用科学记数法来表示的，即：浮点数＝符号位.有效数字×2<sup>阶码</sup>。</p>  
+<p style="text-indent: 21.25pt">Intel系列的协处理器支持3种形式的浮点数：短型浮点数(32位)、长型浮点数(64位)和临时浮点数(80位)，它们分别对应单精度、双精度和扩展精度浮点数。这些浮点数的数据格式都符合IEEE-754标准，它们的具体格式如图11.3所示。</p>  
+<table border="0" width="100%" cellspacing="1">
+  <tr>
+    <td width="72%">
+      <p style="margin-left: 50pt"><img border="0" src="TextBookIMG/11-3A.gif" width="207"></td>
+  </tr>
+  <tr>
+    <td width="72%">
+      <p style="margin-left: 50pt"><img border="0" src="TextBookIMG/11-3B.gif" width="396"></td>
+  </tr>
+  <tr>
+    <td width="72%">
+      <p style="margin-left: 50pt"><img border="0" src="TextBookIMG/11-3C.gif" width="488"></td>
+  </tr>
+</table>
+<p align="center">图11.3　80x87中浮点数的三种数据格式</p>      
+<p style="text-indent: 21.25pt"><font color="#FF00FF">一、十进制数转换成浮点数的步骤</font></p>   
+<table border="0" width="100%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="6%" rowspan="5" valign="top">
+      <p></td>   
+    <td width="95%" colspan="2">
+      <p>1、将十进制数转换成二进制数：整数部分用2来除，小数部分用2来乘；</p>
+    </td>  
+  </tr>  
+  <tr>  
+    <td width="95%" colspan="2">
+      <p>2、规格化二进制数：改变阶码，使小数点前面仅有第一位有效数字；</p>
+    </td>  
+  </tr>  
+  <tr>  
+    <td width="95%" colspan="2">
+      <p>3、计算阶码：</p>
+    </td>  
+  </tr>  
+  <tr>  
+    <td width="3%" valign="top">
+      <p></td>  
+    <td width="92%">  
+      <p><font face="宋体">◆</font> 短型浮点数的阶码加上偏移量7FH<br>                         
+      <font face="宋体">◆</font>&nbsp;长型浮点数的阶码加上偏移量3FFH<br>
+      <font face="宋体">◆</font>&nbsp;扩展型浮点数的阶码加上偏移量3FFFH</td>       
+  </tr> 
+  <tr> 
+    <td width="95%" colspan="2">
+      <p>4、以浮点数据格式存储。</p>
+    </td> 
+  </tr> 
+</table> 
+<p style="text-indent: 21.25pt">把数值的符号位、阶码和尾数合在一起就得到了该数的浮点存储形式。</p> 
+<p style="text-indent: 21.25pt">注意：尾数是带有一个隐含位的23位数，即：数“1.XXXX”的尾数是“XXXX”，前面的”1”被隐含掉，它只在扩展精度的格式中才被显式表示出来。</p> 
+<p>例11.1 把十进制数100.25转换成协处理器中的浮点数</p>                                   
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" colspan="2">
+      <p>解：</p>
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="5%" rowspan="5" valign="top">
+      <p></td> 
+    <td width="95%">
+      <p>1、进制转换：(100.25)<sub>10</sub>＝(1100100.01)<sub>2</sub></p>
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="95%">
+      <p>2、规格化：(1100100.01)<sub>2</sub>＝1.10010001×2<sup>6</sup>＝1.10010001×2<sup>110</sup></p>
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="95%">
+      <p>3、计算阶码：110+01111111＝10000101</p>
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="95%">
+      <p>4、数值的符号位为0，阶码为：10000101，尾数为：1001                                       
+      0001 0000 0000 0000 000</p>                                   
+    </td>   
+  </tr>   
+  <tr>   
+    <td width="95%">
+      <p>综合上述可得：(100.25)<sub>10</sub>的浮点形式为：0                                       
+      10000101 10010001000000000000000</p>                                   
+    </td>   
+  </tr>   
+</table>   
+<p style="text-indent: 21.25pt">下面是学习和掌握十进制数转化为浮点数的控件，它可按步骤演示整个转换过程。</p>            
+<p style="text-indent: 21.25pt" align="center">
+<object classid="clsid:3A9979BB-C5CC-4A7D-B366-9B76FDD27254" id="DTOF1" width="673" height="247">
+</object>
+</p>            
+<p style="text-indent: 21.25pt"><a name="NAN">几个特殊数据的存储规则：</a></p>   
+<div align="center">
+  <center>
+  <table border="0" width="60%" cellpadding="0">
+    <tr>
+      <td width="26%" align="right" bgcolor="#FFFF00">正0：&nbsp;</td>
+      <td width="74%"> 所有的数据位都是0；</td>
+    </tr>
+    <tr>
+      <td width="26%" align="right" bgcolor="#FFFF00">负0：&nbsp;</td>
+      <td width="74%"> 最高位为1，其它的数据位是0；</td>
+    </tr>
+    <tr>
+      <td width="26%" align="right" bgcolor="#FFFF00">正/负无穷：&nbsp;</td>
+      <td width="74%"> 符号位为0/1，阶码位全为1，有效数字全为0；</td>
+    </tr>
+    <tr>
+      <td width="26%" align="right" bgcolor="#FFFF00">NAN：&nbsp;</td>
+      <td width="74%"> 非法的浮点数，阶码位全为1，有效数字不全为0；</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p style="text-indent: 21.25pt">其中：<font color="#FF00FF">NAN</font> — Not-A-Number。</p>                                    
+                              
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=11&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="11-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="11-1-2.htm"><img border="0" src="Button/NextPage1.gif" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">           
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>    
+        
+</body>        
+        
+</html>

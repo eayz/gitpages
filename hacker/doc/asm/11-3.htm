@@ -1,0 +1,119 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>11.3 协处理器的指令系统</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter11.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle11.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → 协处理器的指令系统</td>              
+    <td width="50%">             
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h2>11.3 协处理器的指令系统</h2>                           
+<p style="text-indent: 21.25pt">协处理器共有68条不同的指令，汇编程序在遇到协处理器指令助忆时，都会将其转换成机器语言的ESC指令，ESC指令代表了协处理器的操作码。</p>
+<p style="text-indent: 21.25pt">在协处理器指令在执行过程中，需要访问内存单元时，CPU会为其形成内存地址。协处理器在协处理器指令期间内利用数据总线来传递数据。80287协处理器利用I/O地址00FAH～00FFH来实现其与CPU之间的数据交换，而80387~Pentium系列芯片，则是利用I/O地址800000FAH～800000FFH来实现这两者之间的数据交换。</p>
+<h3><a name="命名规则">11.3.1 指令操作符的命名规则</a></h3>                           
+<p style="text-indent: 21.25pt">协处理器指令的操作符(或助忆符)在命名设计时，遵循了下列规则：</p>
+<p style="text-indent: 21.25pt">1、在操作符后面加上字母P：表示该指令执行完后，还进行一次堆栈弹出操作。如：FADD和FADDP等；</p>
+<p style="text-indent: 21.25pt">2、在操作符后面加上字母R：表示该操作是反模式，它仅限于减法、除法指令。如：FSUB和FSUBR等；</p>
+<p style="margin-left: 36pt">正模式 —— 栈顶数据＝栈顶数据 op                            
+指令操作数，或OPN1＝OPN1 – OPN2<br>                           
+反模式 —— 栈顶数据＝指令操作数 op 栈顶数据，或OPN1＝OPN2                            
+– OPN1</p>                           
+<p style="text-indent: 21.25pt">假设：栈顶数据为10，内存变量data的值为1，分别执行下列指令将有不同的结果。</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="8%" rowspan="4" valign="top"></td>
+    <td width="8%">FSUB</td>
+    <td width="28%">data</td>
+    <td width="56%">;指令执行后，栈顶数据为9</td>
+  </tr>
+  <tr>
+    <td width="8%">FSUBR</td>
+    <td width="28%">data</td>
+    <td width="56%">;指令执行后，栈顶数据为-9</td>
+  </tr>
+  <tr>
+    <td width="8%">FSUB</td>
+    <td width="28%">ST, ST(1)</td>
+    <td width="56%">;指令执行后，ST=ST-ST(1)</td>
+  </tr>
+  <tr>
+    <td width="8%">FSUBR</td>
+    <td width="28%">ST, ST(1)</td>
+    <td width="56%">;指令执行后，ST=ST(1)-ST</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">3、操作符的第2个字母是I：表示内存中数据是整数。它对加、减、乘除指令都有效。</p>
+<p style="text-indent: 21.25pt">例如：FADD　data——浮点数加法；</p>
+<p style="text-indent: 52pt">FIADD　data——整数加法，它表示内存单元data是一个整数，把该整数加到栈顶的浮点数上。</p>
+<p style="text-indent: 21.25pt">4、操作符的第2个字母是N：表示在指令执行之前检查非屏蔽数值性错误。如：FSAVE和FNSAVE等，前者称为等待形式(wait                            
+version)，后者称为非等待形式(no-wait version)。</p>                           
+<p style="text-indent: 21.25pt">在使用.8087伪指令情况下，汇编程序会在等待形式的指令前面加上指令WAIT，而在非等待形式的指令前面加上空操作指令NOP。</p>
+<p style="text-indent: 21.25pt">理解了上述操作符命名规则，就能很容易地区分同类指令之间的差异。</p>
+             
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=11&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="11-2-3.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="11-3-2.htm"><img border="0" src="Button/NextPage1.gif" width="96"></a>         
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">           
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>    
+        
+</body>        
+        
+</html>        

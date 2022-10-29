@@ -1,0 +1,239 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>6.4 简化的段定义</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter06.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle06.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → 简化的段定义</td>                          
+    <td width="50%">           
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h2>6.4 简化的段定义</h2>                                  
+<p style="text-indent: 21.25pt">前面，我们介绍了完整的段定义格式，用完整的段定义格式虽然可以控制段的各种属性，但程序员很少会这样做。现在的汇编程序提供了一种简化的段定义方式，它使定义段更简单、方便。</p>    
+<h3>6.4.1 存储模型说明伪指令</h3>                                  
+<p style="text-indent: 21.25pt">在使用简化的段定义方式之前，必须使用存储模式说明伪指令来描述源程序所采用的存储模式。该伪指令说程序所使用的存储模式，汇编程序将用该存储模式生成相应的ASSUME和GROUP语句，同时也为其它的简化段创建等价的预定义。</p>
+<p style="text-indent: 21.25pt">
+程序存储模式说明伪指令的格式如下：
+<p style="margin-left: 40pt">.MODEL                         
+&nbsp;存储模式[，语言类型] [，操作系统类型]                           
+[，堆栈类型]</p>
+<p style="text-indent: 21.25pt">程序可选的存储模式有：TINY、SMALL、COMPACT、MEDIUM、LARGE、HUGE和FLAT。</p>
+<p style="text-indent: 21.25pt">伪指令.MODEL必须写在源程序的首部，且只能出现一次，其前内容只能是注释。</p>
+<p style="text-indent: 21.25pt">如果用伪指令来指定程序所遵循的语言类型，那么，将不允许子程序的嵌套定义。与子程序定义有关的内容请见<a href="07-5-01.htm">第7.5节</a>。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">一、存储模式</font></p>
+<p style="text-indent: 21.25pt">如果要用汇编语言编写被高级语言调用的子程序，那么，该汇编程序的存储模式必须与该高级语言编译(或解释)程序所使用的存储模式相匹配。汇编语言程序所能使用的存储模式、符号及其相关信息如表6.2所列。</p>
+<p style="text-indent: 21.25pt">在程序中，还可伪指令OPTION                          
+SEGMENT和SEGMENT来指定段的规模。</p>
+<p style="text-indent: 21.25pt">有关存储模式的具体规定如下：</p>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、TINY</p>
+<p style="text-indent: 21.25pt">在汇编程序MASM                           
+6.11和TASM                           
+4.0，该存储类型是为编写COM文件类型而设置的。程序员还可用汇编命令行选项/AT和连接命令选项/TINY来达到此目的。</p>
+<p align="center">表6.2 存储模式的符号及其相关含义</p>                       
+<table border="0" width="100%" cellspacing="1" cellpadding="0">
+  <tr>
+    <td width="21%"></td>
+    <td width="79%">
+      <table border="0" width="91%" cellpadding="0">
+        <tr>
+          <td width="21%" align="center">代码的位距</td>
+          <td width="20%" align="center">数据的位距</td>
+          <td width="22%" align="center">段的宽度</td>
+          <td width="37%" align="center">数据段和代码段能否合并</td>
+        </tr>
+        <tr>
+          <td width="21%" align="center">Code                           
+        Distance</td>
+          <td width="20%" align="center">Data     
+        Distance</td>
+          <td width="22%" align="center">Segment     
+        Width</td>
+          <td width="37%" align="center">Data     
+        &amp; Code Combined?</td> 
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="21%">
+      <table border="0" width="100%" cellpadding="0">
+        <tr>
+          <td width="50%"></td>
+          <td width="50%" bgcolor="#00FFFF">Tiny</td>
+        </tr>
+        <tr>
+          <td width="50%"></td>
+          <td width="50%">Small</td>
+        </tr>
+        <tr>
+          <td width="50%"></td>
+          <td width="50%" bgcolor="#00FFFF"><p>Compact  
+        </p>
+          </td>
+        </tr>
+        <tr>
+          <td width="50%"></td>
+          <td width="50%">Medium</td>
+        </tr>
+        <tr>
+          <td width="50%"></td>
+          <td width="50%" bgcolor="#00FFFF">Large</td>
+        </tr>
+        <tr>
+          <td width="50%"></td>
+          <td width="50%">Huge</td>
+        </tr>
+        <tr>
+          <td width="50%"></td>
+          <td width="50%" bgcolor="#00FFFF">Flat</td>
+        </tr>
+      </table>
+    </td>
+    <td width="79%">
+      <table border="0" width="91%" cellpadding="0">
+        <tr>
+          <td width="21%" align="center" bgcolor="#00FFFF">NEAR</td>
+          <td width="20%" align="center" bgcolor="#00FFFF">NEAR</td>
+          <td width="22%" align="center" bgcolor="#00FFFF">16-bit</td>
+          <td width="37%" align="center" bgcolor="#00FFFF">Yes</td>
+        </tr>
+        <tr>
+          <td width="21%" align="center">NEAR</td>
+          <td width="20%" align="center">NEAR</td>
+          <td width="22%" align="center">16-bit</td>
+          <td width="37%" align="center">No</td>
+        </tr>
+        <tr>
+          <td width="21%" align="center" bgcolor="#00FFFF">NEAR</td>
+          <td width="20%" align="center" bgcolor="#00FFFF">FAR</td>
+          <td width="22%" align="center" bgcolor="#00FFFF">16-bit</td>
+          <td width="37%" align="center" bgcolor="#00FFFF">No</td>
+        </tr>
+        <tr>
+          <td width="21%" align="center">FAR</td>
+          <td width="20%" align="center">NEAR</td>
+          <td width="22%" align="center">16-bit</td>
+          <td width="37%" align="center">No</td>
+        </tr>
+        <tr>
+          <td width="21%" align="center" bgcolor="#00FFFF">FAR</td>
+          <td width="20%" align="center" bgcolor="#00FFFF">FAR</td>
+          <td width="22%" align="center" bgcolor="#00FFFF">16-bit</td>
+          <td width="37%" align="center" bgcolor="#00FFFF">No</td>
+        </tr>
+        <tr>
+          <td width="21%" align="center">FAR</td>
+          <td width="20%" align="center">FAR</td>
+          <td width="22%" align="center">16-bit</td>
+          <td width="37%" align="center">No</td>
+        </tr>
+        <tr>
+          <td width="21%" align="center" bgcolor="#00FFFF">NEAR</td>
+          <td width="20%" align="center" bgcolor="#00FFFF">NEAR</td>
+          <td width="22%" align="center" bgcolor="#00FFFF">32-bit</td>
+          <td width="37%" align="center" bgcolor="#00FFFF">Yes</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、SMALL</p>
+<p style="text-indent: 21.25pt">所有的数据变量必须在一个数据段之内，所有的代码也必须在一个代码段之内。在这种模型下，数据段寄存器的内容保持不变，所有转移也都是段内转移。</p>
+<p style="text-indent: 21.25pt">该存储类型是独立汇编语言源程序常用的存储模型。</p>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、MEDIUM</p>
+<p style="text-indent: 21.25pt">所有的数据变量必须在一个数据段之内，但代码段可以有多个。在这种模型下，数据段寄存器的内容保持不变，转移可以是段间转移。</p>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、COMPACT</p>
+<p style="text-indent: 21.25pt">数据段可以有多个，但代码段只能有一。</p>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、LARGE</p>
+<p style="text-indent: 21.25pt">数据段和代码段都可以有多个，但一个数组的字节数不能超过64KB。</p>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、HUGE</p>
+<p style="text-indent: 21.25pt">数据段和代码段都可以有多个，一个数组的字节数也可以超过64KB。</p>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、FLAT</p>
+<p style="text-indent: 21.25pt">FLAT存储模式在创建执行文件时，将使该程序仅含一个包括程序数据和代码的32位段，并且只能在80386及其以后的计算机系统中运行。该程序的文件类型为EXE。</p>
+<p style="text-indent: 21.25pt">在使用该存储模式之前，必须先用伪指令.386、.486或其它伪指令来说明更高性能的CPU类型。也就是说：FLAT模式仅在386及其以后CPU模式下才能使用。</p>
+<p style="text-indent: 21.25pt">在该程序中，所有代码和数据位距的缺省值都是NEAR，子程序的类型也是NEAR，并且标识符@CodeSize，@DataSize和@Model的值分别为：0、0和7。</p>
+<p style="text-indent: 21.25pt">在FLAT存储模式下，程序将不使用段寄存器FS和GS。汇编程序在处理说明语句“.MODEL                         
+&nbsp;FLAT”时，将自动生成下列段寄存器说明语句：</p>
+<p style="margin-left: 40pt">ASSUME&nbsp;                         
+CS:FLAT, DS:FLAT,                           
+SS:FLAT, ES:FLAT, FS:ERROR, GS:ERROR</p>                        
+<p style="text-indent: 21.25pt">当然，程序员也可把该段寄存器说明语句写在其指令序列之中。</p>
+       
+<p style="text-indent: 21.25pt"><font color="#FF00FF">二、语言类型</font></p>
+<p style="text-indent: 21.25pt">其详细说明请见<a href="07-5-02.htm#Language">7.5.3节</a>中所述。</p> 
+<p style="text-indent: 21.25pt"><font color="#FF00FF">三、操作系统类型</font></p>
+<p style="text-indent: 21.25pt">OS_DOS是当前唯一支持的选项值，也是该选项的缺省值。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">四、堆栈类型</font></p>
+<p style="text-indent:21.25pt">堆栈类型的值主要影响伪指令.STARTUP所生成的指令序列。该选项有二个可选值：NEARSTACK和FARSTACK。其中：NEARSTACK是该选项的缺省堆栈类型。</p>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、NEARSTACK——堆栈段和数据段是同一段；</p>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、FARSTACK——堆栈段和数据段是不同的段，且堆栈不在段组DGROUP中。</p>
+<p style="text-indent: 21.25pt">例如：</p>
+<p style="margin-left: 40pt">.MODEL&nbsp; SMALL, C, OS_DOS, FARSTACK                      
+       
+<p align="right">                  
+<a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=6&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="06-3-2.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="06-4-2.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>   
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>         

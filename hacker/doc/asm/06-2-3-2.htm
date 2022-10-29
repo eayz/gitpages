@@ -1,0 +1,273 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>6.2.3 辅助循环伪指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter06.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle06.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="06-2-1.htm">程序的基本结构</a>  →                        
+      辅助循环伪指令</td>                             
+    <td width="50%">                  
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<p style="text-indent: 21.25pt"><font color="#FF00FF">3、辅助循环伪指令</font></p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">(1)、终止循环伪指令</font></p>
+<p style="margin-left: 40pt">.BREAK<br>
+.BREAK&nbsp; .IF condition</p>                        
+<p style="text-indent: 21.25pt">该伪指令用来终止包含它的最内层循环。前者是无条件终止循环，后者是仅当逻辑表达式condition为真时，才终止循环。</p>
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="12%" rowspan="3" valign="top"></td>
+    <td width="36%">.WHILE&nbsp; 1</td>                       
+    <td width="52%">.REPEAT</td>
+  </tr>
+  <tr>
+    <td width="36%">
+      <p style="margin-left: 15pt">…<br>
+      .BREAK .IF condition<br> 
+      …</td>
+    <td width="52%">
+      <p style="margin-left: 15pt">…<br>
+      .BREAK .IF condition<br> 
+      …</td>
+  </tr>
+  <tr>
+    <td width="36%">   
+      ENDW</td>
+    <td width="52%">.UNTIL　0</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">对于以上二个循环，如果没有指令来终止循环的话，它们都将进入死循环状态，但如果在该层循环体内，存在伪指令“.BREAK                         
+.IF condition”的话，那么，当逻辑表达式condition为真时，该循环就会被终止了。</p>                       
+<p style="text-indent: 21.25pt"><font color="#FF00FF">(2)、循环继续伪指令</font></p>
+<p style="margin-left: 40pt">.CONTINUE<br>
+.CONTINUE　.IF condition</p>                        
+<p style="text-indent: 21.25pt">该伪指令用于直接跳转到包含它的最内层循环的计算循环条件表达式的代码处。前者是无条件转移到计算循环条件表达式的代码处，后者是仅当条件表达式condition为真时，才进行这样的跳转。</p>
+<p style="text-indent: 21.25pt">辅助循环伪指令.BREAK和.CONTINUE只能在伪指令.WHILE－.ENDW和.REPEAT－.UNTIL的循环体内使用。 
+</p>
+<p>例6.12 显示9个数字字母'1'~'9'，26个大写字母，和显示任意输入的数字字符，并用按“回车”键来结束本程序的运行。</p>                       
+<p>解：</p>
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="8%" rowspan="37" valign="top"></td>
+    <td width="8%" rowspan="6" valign="top">DATA1</td>
+    <td width="84%" colspan="3">SEGMENT</td>
+  </tr>
+  <tr>
+    <td width="7%">MSG1</td>
+    <td width="77%" colspan="2">DB　13, 10,&nbsp; &quot;Iteration: &quot;</td>                       
+  </tr>
+  <tr>
+    <td width="7%">NUM1</td>
+    <td width="77%" colspan="2">DB　'1', &quot;$&quot;</td>                       
+  </tr>
+  <tr>
+    <td width="7%">MSG2</td>
+    <td width="77%" colspan="2">DB　13, 10,&nbsp; &quot;Alphabet: $&quot;</td>                       
+  </tr>
+  <tr>
+    <td width="7%">NUM2</td>
+    <td width="77%" colspan="2">DB　'A', &quot; $&quot;</td>                       
+  </tr>
+  <tr>
+    <td width="7%">MSG3</td>
+    <td width="77%" colspan="2">DB　13, 10, &quot;Type digits, then press ENTER: $&quot;</td>                       
+  </tr>
+  <tr>
+    <td width="8%">DATA1</td>
+    <td width="84%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="2" valign="top">CODE1</td>
+    <td width="84%" colspan="3">SEGMENT</td>
+  </tr>
+  <tr>
+    <td width="84%" colspan="3">ASSUME　CS:CODE1, DS:DATA1</td>                       
+  </tr>
+  <tr>
+    <td width="8%" rowspan="26" valign="top">START:</td>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">AX, DATA1</td> 
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">DS, AX</td> 
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">CX,   
+9</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">AH, 09H</td> 
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">DX, OFFSET MSG1</td> 
+  </tr>
+  <tr>
+    <td width="84%" colspan="3">.REPEAT</td>
+  </tr>
+  <tr>
+    <td width="39%" colspan="2">　INT　21H<br>
+      　INC　NUM1</td>
+    <td width="45%" valign="top">;显示Iteration: 1,2,~,9</td>                       
+  </tr>
+  <tr>
+    <td width="84%" colspan="3">.UNTILCXZ</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">DX,   
+OFFSET MSG2</td> 
+  </tr>
+  <tr>
+    <td width="7%">INT</td>
+    <td width="32%">21H</td>
+    <td width="45%">;显示字符串"Alphabet:"</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">AH, 09H</td> 
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">DX, OFFSET NUM2</td> 
+  </tr>
+  <tr>
+    <td width="84%" colspan="3">.REPEAT</td>
+  </tr>
+  <tr>
+    <td width="39%" colspan="2">　INT　21H<br>
+      　INC　NUM2</td>
+    <td width="45%">;显示当前字母<br>
+      ;当前字母向后移</td>
+  </tr>
+  <tr>
+    <td width="39%" colspan="2">.UNTIL　NUM2 &gt; 'Z'</td>                       
+    <td width="45%">;显示整个大写字母表</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">AH, 09H</td> 
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">DX, OFFSET MSG3</td> 
+  </tr>
+  <tr>
+    <td width="7%">INT</td>
+    <td width="77%" colspan="2">21H</td>
+  </tr>
+  <tr>
+    <td width="39%" colspan="2">.WHILE&nbsp; 1</td>                      
+    <td width="45%">;循环条件为永真的循环</td>
+  </tr>
+  <tr>
+    <td width="39%" colspan="2">　MOV　AH, 07H<br>                       
+      　INT　21H</td>
+    <td width="45%" valign="bottom">;不带回显地从键盘读一个字符</td>
+  </tr>
+  <tr>
+    <td width="39%" colspan="2">　.BREAK .IF AL == 13</td>                       
+    <td width="45%">;如果输入“回车”键，则终止循环</td>
+  </tr>
+  <tr>
+    <td width="39%" colspan="2">　.CONTINUE .IF                           
+(AL&lt;'0') || (AL&gt;'9')</td>                       
+    <td width="45%">;如果字符不是数字字符，则继续循环</td>
+  </tr>
+  <tr>
+    <td width="39%" colspan="2">　MOV　DL, AL<br>                       
+      　MOV　AH, 02H<br>                       
+      　INT　21H</td>
+    <td width="45%" valign="bottom">;显示所输入的数字字母</td>
+  </tr>
+  <tr>
+    <td width="84%" colspan="3">.ENDW</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">AX, 4C00H</td> 
+  </tr>
+  <tr>
+    <td width="7%">INT</td>
+    <td width="77%" colspan="2">21H</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="2" valign="top">CODE1</td>
+    <td width="84%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="7%">END</td>
+    <td width="77%" colspan="2">START</td>
+  </tr>
+</table>
+                 
+<p align="right">                         
+<a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=6&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="06-2-3-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="06-3-1.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                            
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>         

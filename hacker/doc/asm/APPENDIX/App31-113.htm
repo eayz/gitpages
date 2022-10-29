@@ -1,0 +1,88 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.1 时间和日期功能的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能2AH</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="16%">功能描述：</td>
+    <td width="79%">取系统日期</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">入口参数：</td>
+    <td width="79%" valign="top">AH＝2AH</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">出口参数：</td>
+    <td width="79%">CX＝年(1980~2099)，DH＝月(1~12)，DL＝日(1~31)<br>
+      AL＝星期几(0＝Sunday，1＝Monday，...)</td>
+  </tr>
+</table>
+
+<p><a name="2BH"><font color="#FF00FF">(2)、功能2BH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="16%">功能描述：</td>
+    <td width="79%">置系统日期</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">入口参数：</td>
+    <td width="79%" valign="top">AH＝2BH<br>
+      CX＝年(1980~2099)，DH＝月(1~12)，DL＝日(1~31)</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">出口参数：</td>
+    <td width="79%">AL＝00H——设置成功，0FFH——设置失败</td>
+  </tr>
+</table>
+
+<p><a name="2CH"><font color="#FF00FF">(3)、功能2CH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="16%">功能描述：</td>
+    <td width="79%">取系统时间</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">入口参数：</td>
+    <td width="79%" valign="top">AH＝2CH</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">出口参数：</td>
+    <td width="79%">CH＝时(0~23)，CL＝分(0~59)，DL＝秒(0~59)，AL＝百分秒(0~99)</td>
+  </tr>
+</table>
+
+<p><a name="2DH"><font color="#FF00FF">(4)、功能2DH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="16%">功能描述：</td>
+    <td width="79%">置系统时间</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">入口参数：</td>
+    <td width="79%" valign="top">AH＝2DH<br>
+      CH＝时(0~23)，CL＝分(0~59)，DL＝秒(0~59)，AL＝百分秒(0~99)</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">出口参数：</td>
+    <td width="79%">出口参数：AL＝00H——设置成功，0FFH——设置失败</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

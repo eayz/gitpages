@@ -1,0 +1,169 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例6.10</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+<p style="text-indent: -36pt; margin-left: 36pt">例6.10 分类统计字数组data中正数、负数和零的个数，并分别存入内存字变量<font color="#FF0000">Positive</font>、<font color="#FF0000">Negative</font>和<font color="#FF0000">Zero</font>中，数组元素个数保存在其第一个字中。</p>                                                
+<table border="0" width="100%" cellspacing="0" cellpadding="0">          
+  <tr>          
+    <td width="100%" colspan="5">解：</td>          
+  </tr>          
+  <tr>          
+    <td width="6%" rowspan="34" valign="top"></td>          
+    <td width="9%" rowspan="6" valign="top">DATA1</td>          
+    <td width="99%" colspan="3">SEGMENT</td>          
+  </tr>          
+  <tr>          
+    <td width="8%" rowspan="2" valign="top">data</td>          
+    <td width="77%" colspan="2">DW　10</td> 
+  </tr> 
+  <tr>
+    <td width="77%" colspan="2">DW　2130, -43, 31, -321, -1234, 345, 0, 3213, 0, 5477</td>                                                          
+  </tr>            
+  <tr>            
+    <td width="8%">Positive</td>           
+    <td width="77%" colspan="2">DW　0</td> 
+  </tr>
+  <tr>
+    <td width="8%">Negative</td>
+    <td width="77%" colspan="2">DW　0</td> 
+  </tr>
+  <tr> 
+    <td width="1%">Zero</td>
+    <td width="104%" colspan="2">DW　0</td>
+  </tr>
+  <tr>
+    <td width="9%">DATA1</td>
+    <td width="101%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="9%" rowspan="2" valign="top">CODE1</td>
+    <td width="101%" colspan="3">SEGMENT</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">ASSUME　CS:CODE1, DS:DATA1</td>                                                    
+  </tr>        
+  <tr>        
+    <td width="9%" rowspan="8" valign="top">START:</td>      
+    <td width="1%">MOV</td>      
+    <td width="104%" colspan="2">AX, DATA1</td>         
+  </tr>        
+  <tr>        
+    <td width="1%">MOV</td>      
+    <td width="104%" colspan="2"> DS, AX</td>         
+  </tr>        
+  <tr>        
+    <td width="1%">XOR</td>      
+    <td width="23%"> AX, AX</td>         
+    <td width="81%"> ;用<font color="#FF0000">AX</font>来对正数计数 </td>       
+  </tr>      
+  <tr>      
+    <td width="1%">XOR</td>      
+    <td width="23%">BX, BX</td>         
+    <td width="81%"> ;用<font color="#FF0000">BX</font>来对负数计数</td>      
+  </tr>      
+  <tr>      
+    <td width="1%">XOR</td>      
+    <td width="23%"> DX, DX</td>         
+    <td width="81%"> ;用<font color="#FF0000">DX</font>来对零计数</td>      
+  </tr>      
+  <tr>      
+    <td width="1%">MOV</td>      
+    <td width="23%"> CX, data</td>          
+    <td width="81%"> ;用<font color="#FF0000">CX</font>来进行循环计数</td>      
+  </tr>      
+    <td width="1%">JCXZ</td>      
+    <td width="23%">save</td>       
+    <td width="81%">;考虑数组的元素个数为0的情况</td>       
+  <tr>      
+    <td width="1%">LEA</td>      
+    <td width="23%">SI, data+2</td>        
+    <td width="81%">;用指针<font color="#FF0000">SI</font>来访问整个数组</td>       
+  </tr>      
+  <tr>       
+    <td width="9%" rowspan="5" valign="top">again:</td>      
+    <td width="1%">CMP</td>      
+    <td width="104%" colspan="2">word ptr [SI], 0</td>        
+  </tr>       
+  <tr>       
+    <td width="1%">JL</td>       
+    <td width="104%" colspan="2"> lower</td>        
+  </tr>       
+  <tr>       
+    <td width="1%">JE</td>       
+    <td width="104%" colspan="2"> equal</td>        
+  </tr>       
+  <tr>       
+    <td width="1%">INC</td>       
+    <td width="104%" colspan="2"> AX</td>       
+  </tr>       
+  <tr>       
+    <td width="1%">JMP</td>       
+    <td width="104%" colspan="2"> loop1</td>        
+  </tr>        
+  <tr>        
+    <td width="9%" valign="top" rowspan="2">lower:</td>      
+    <td width="1%">INC</td>      
+    <td width="104%" colspan="2">BX</td>      
+  </tr>      
+  <tr>      
+    <td width="1%">JMP</td>      
+    <td width="104%" colspan="2"> loop1</td>      
+  </tr>      
+  <tr>      
+    <td width="9%" valign="top">equal:</td>      
+    <td width="1%">INC</td>      
+    <td width="104%" colspan="2">DX</td>      
+  </tr>      
+  <tr>      
+    <td width="9%" rowspan="2" valign="top">loop1:</td>      
+    <td width="1%">ADD</td>      
+    <td width="104%" colspan="2">SI, 2</td>        
+  </tr>       
+  <tr>       
+    <td width="1%">LOOP</td>       
+    <td width="104%" colspan="2"> again</td>        
+  </tr>        
+  <tr>       
+    <td width="9%" rowspan="5" valign="top">save:</td>       
+    <td width="1%">MOV</td>       
+    <td width="23%">Positive, AX</td>         
+    <td width="81%">;把各类的统计数保存到内存单元中</td>        
+  </tr>       
+  <tr>       
+    <td width="1%">MOV</td>       
+    <td width="104%" colspan="2"> Negative, BX</td>         
+  </tr>       
+  <tr>       
+    <td width="1%">MOV</td>       
+    <td width="104%" colspan="2"> Zero, DX</td>         
+  </tr>       
+  <tr>        
+    <td width="1%">MOV</td>       
+    <td width="104%" colspan="2">AX, 4C00H</td>                          
+  </tr>             
+  <tr>             
+    <td width="1%">INT</td>           
+    <td width="104%" colspan="2"> 21H</td>           
+  </tr>           
+  <tr>           
+    <td width="9%" valign="top" rowspan="2">CODE1</td>           
+    <td width="103%" colspan="3">ENDS</td>           
+  </tr>           
+  <tr>       
+    <td width="103%" colspan="3">END</td>          
+  </tr>      
+</table>          
+                 
+<p align="center"><a href="javascript:close();">关　闭</a></p>  
+             
+</body>         
+         
+</html>         

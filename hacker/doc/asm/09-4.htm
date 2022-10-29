@@ -1,0 +1,367 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>9.4 重复汇编伪指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter09.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle09.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → 重复汇编伪指令</td>                         
+    <td width="50%">           
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<h2>9.4 重复汇编伪指令</h2>                                
+<p style="text-indent: 21.25pt">在编写源程序时，有时会出现连续相同或相似的语句(组)。当出现这种情况时，可利用重复伪指令来重复语句，从而达到简化程序的目的。</p>   
+<p style="text-indent: 21.25pt">重复汇编伪指令所定义的重复块是宏的一种特殊形式，也是由伪指令<font color="#FF0000">ENDM</font>来结束重复块。用重复汇编伪指令定义的重复块也可带有参数，并在汇编过程中参数被实参代替，但重复块不会被命名，不能在程序的其它地方引用。</p>   
+<h3>9.4.1 伪指令REPT</h3>                               
+<p style="text-indent: 21.25pt">伪指令REPT的作用是把一组语句重复指定的次数，该重复次数由伪指令后面的数值表达式来确定。其一般使用格式如下：</p>   
+<table border="0" width="100%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="6%" rowspan="3" valign="top"></td>   
+    <td width="7%" rowspan="3" valign="top">REPT</td>   
+    <td width="87%">数值表达式</td>   
+  </tr>   
+  <tr>   
+    <td width="87%">重复的语句组</td>   
+  </tr>   
+  <tr>   
+    <td width="87%">ENDM</td>   
+  </tr>   
+</table>   
+<p>例9.8 定义100个初值为32的字节单元，该存储单元的起始符号地址为Table。</p>                         
+<table border="0" width="100%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="100%" colspan="4">   
+    解： 
+</td> 
+  </tr> 
+  <tr>
+    <td width="48%" colspan="3">   
+    <p style="margin-left: 20PT">方法1：用伪指令REPT来实现</p> 
+</td> 
+    <td width="52%">左边重复块的汇编结果如下： 
+    </td> 
+  </tr>
+  <tr>
+    <td width="9%" rowspan="4" valign="top">   
+</td> 
+    <td width="39%" colspan="2">   
+    Table　LABEL　TYPE 
+</td> 
+    <td width="52%"><p>Table　LABEL　TYPE</p> 
+    </td> 
+  </tr>
+  <tr>
+    <td width="6%" rowspan="3" valign="top">   
+    REPT 
+</td> 
+    <td width="33%">   
+100 
+</td> 
+    <td width="52%"><p style="margin-left: 20PT">DB　32</p> 
+    </td> 
+  </tr>
+  <tr>
+    <td width="33%">   
+    DB　32 
+</td> 
+    <td width="52%"><p style="margin-left: 20PT">…</p> 
+    </td> 
+  </tr>
+  <tr>
+    <td width="33%">   
+    ENDM 
+</td> 
+    <td width="52%"><p style="margin-left: 20PT">DB　32　　　　;上述字节定义重复100次</p> 
+    </td> 
+  </tr>
+</table> 
+<p style="text-indent: 21.25pt">方法2：用重复操作符DUP来实现</p> 
+<p style="margin-left: 50pt">Table　DB　100 DUP(32)</p>                                 
+<p style="text-indent: 21.25pt">从上例来看，用伪指令REPT重复定义的存储单元可以用重复操作符DUP来代替，其实前者的功能会更灵活、更强大。</p>   
+<p>例9.9 定义100个初值分别为1,2,…,100的字节单元，该存储单元的起始符号地址为Table。</p>                         
+<table border="0" width="100%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="100%" colspan="5">   
+    解： 
+</td> 
+  </tr> 
+  <tr>
+    <td width="9%" rowspan="6" valign="top">   
+</td> 
+    <td width="39%" colspan="2">   
+    Table　LABEL　TYPE 
+</td> 
+    <td width="52%" colspan="2">左边重复块的汇编结果相当于： 
+    </td> 
+  </tr>
+  <tr>
+    <td width="6%">   
+</td> 
+    <td width="33%">   
+ COUNT = 1                              
+</td> 
+    <td width="52%" colspan="2">Table　LABEL　TYPE 
+    </td> 
+  </tr>
+  <tr>
+    <td width="6%" rowspan="4" valign="top">   
+    REPT 
+</td> 
+    <td width="33%">   
+100 
+</td> 
+    <td width="6%" rowspan="4" valign="top"> 
+    </td> 
+    <td width="46%"> 
+DB　1 
+    </td> 
+  </tr>
+  <tr>
+    <td width="33%">   
+    DB　COUNT 
+</td> 
+    <td width="46%"> 
+DB　2 
+    </td> 
+  </tr>
+  <tr>
+    <td width="33%">   
+    COUNT = COUNT + 1  
+</td> 
+    <td width="46%"> 
+… 
+    </td> 
+  </tr>
+  <tr>
+    <td width="33%">   
+    ENDM 
+</td> 
+    <td width="46%"> 
+DB　100 
+    </td> 
+  </tr>
+</table> 
+<p style="text-indent: 21.25pt">上面定义了100个字节，其初值为1,2,…,100。本例好象不能用重复操作符DUP来说明字节存储单元。</p> 
+<p>例9.10 计算1+2+…+1000，并把其值存入寄存器AX。</p>                       
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" valign="top" colspan="4"> 
+    解：    
+</td>    
+  </tr> 
+  <tr>
+    <td width="40%" valign="top" colspan="3"> 
+<p style="text-indent: 21.25pt">方法1：用伪指令REPT来实现</p> 
+</td>    
+    <td width="60%" valign="top">左边重复块的汇编结果与下面程序段相一致： 
+    </td> 
+  </tr>
+  <tr>
+    <td width="10%" valign="top" rowspan="8"> 
+</td>    
+    <td width="30%" valign="top" colspan="2"> 
+    …    
+</td>    
+    <td width="60%" valign="top">… 
+    </td> 
+  </tr>
+  <tr>
+    <td width="30%" valign="top" colspan="2"> 
+    MOV　AX, 0                                 
+</td>    
+    <td width="60%" valign="top">
+      MOV　AX, 0                              
+    </td> 
+  </tr>
+  <tr>
+    <td width="30%" valign="top" colspan="2"> 
+    COUNT = 1     
+</td>    
+    <td width="60%" valign="top">   
+      ADD　AX, 1                              
+    </td> 
+  </tr>
+  <tr>
+    <td width="6%" valign="top" rowspan="4"> 
+    REPT    
+</td>    
+    <td width="24%" valign="top"> 
+1000    
+</td>    
+    <td width="60%" valign="top">   
+      ADD　AX, 2                              
+    </td> 
+  </tr>
+  <tr>
+    <td width="24%" valign="top"> 
+    ADD　AX, COUNT                                 
+</td>    
+    <td width="60%" valign="top">   
+      … 
+    </td> 
+  </tr>
+  <tr>
+    <td width="24%" valign="top"> 
+    COUNT = COUNT + 1     
+</td>    
+    <td width="60%" valign="top">   
+      ADD　AX, 1000　　;把AX从1累加到1000 
+    </td> 
+  </tr>
+  <tr>
+    <td width="24%" valign="top"> 
+    ENDM    
+</td>    
+    <td width="60%" valign="top">
+      … 
+    </td> 
+  </tr>
+  <tr>
+    <td width="30%" valign="top" colspan="2"> 
+    …    
+</td>    
+    <td width="60%" valign="top"> 
+<p style="text-indent: 21.25pt">虽然上面这些语句的执行能完成本例所指定的功能，但它是用1000条加法指令来直接计算的，这1000条指令无疑会大大增加目标代码的长度。</p> 
+    </td> 
+  </tr>
+</table> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" valign="top" colspan="3"> 
+<p style="text-indent: 21.25pt">方法2：用循环指令LOOP来实现</p> 
+    </td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top" rowspan="3"></td>
+    <td width="90%" colspan="2">…</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="83%">  
+AX, 0</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td>
+    <td width="83%">  
+CX, 1000</td>  
+  </tr> 
+  <tr> 
+    <td width="10%" valign="top" rowspan="3">again:</td>
+    <td width="7%">  
+ADD</td>
+    <td width="83%">  
+AX, CX</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">LOOP</td>
+    <td width="83%">  
+again</td>
+  </tr>
+  <tr>
+    <td width="90%" colspan="2">…</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">由例9.10，不难看出：伪指令REPT与循环指令起作用的时期和方式是截然不同的。它们之间的主要差异如表9.1所列。</p> 
+<p align="center">表9.1 伪指令<font color="#FF0000">REPT</font>与循环指令<font color="#FF0000">LOOP</font>之间的主要差异</p>                             
+<div align="center">
+  <center>
+  <table border="0" width="85%" cellpadding="0">
+    <tr>
+      <td width="99">　</td>
+      <td width="286" bgcolor="#FFFF00">
+        <p style="margin-left: 3pt">伪指令REPT</td>
+      <td width="252" bgcolor="#FFFF00">
+        <p style="margin-left: 3pt">循环指令LOOP</td>
+    </tr>
+    <tr>
+      <td width="99" bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">起作用的时期</td>
+      <td width="286" bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">汇编程序把源文件翻译成目标文件时期</td>
+      <td width="252" bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">程序的执行时期</td>
+    </tr>
+    <tr>
+      <td width="99" valign="top">
+        <p style="margin-left: 3pt">起作用的方式</td>
+      <td width="286" valign="top">
+        <p style="margin-left: 3pt">把被重复的指令(组)直接重复写入目标文件</td>
+      <td width="252" valign="top">
+        <p style="margin-left: 3pt">通过反复执行同一指令(组)来实现重复</td>
+    </tr>
+    <tr>
+      <td width="99" valign="top" bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">重复次数对目标文件的影响</td>
+      <td width="286" bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">由于重复次数决定着被重复指令(组)写入目标文件的次数，所以，改变重复次数一定会改变目标文件的字节数</td>
+      <td width="252" bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">由于重复的指令数与重复次数无关，所以，改变重复次数不会改变目标文件的字节数</td>
+    </tr>
+  </table>
+  </center>
+</div>
+          
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=9&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="09-3-3.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="09-4-2.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+      
+</body>      
+      
+</html>

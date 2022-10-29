@@ -1,0 +1,298 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>8.3.4 串行口中断功能</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter08.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle08.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="55%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="08-3.htm"> 中断功能的分类</a>  → 串行通信口的中断功能</td>                                      
+    <td width="45%">            
+      <p align="right">    
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+     
+<h3>8.3.4 串行通信口的中断功能</h3>                            
+<p style="text-indent: 21.25pt">    
+计算机的通信功能是现代计算机网络的最基本功能。如果计算机没有通信功能，计算机网络环境也就无从谈起。一台计算机与其它计算机(或设备)之间通信除了必要的物理连接之外，它们之间通信接口的功能就是另一个极其重要的功能模块。</p>    
+<p style="text-indent: 21.25pt">    
+从计算机通信的本质来看，通信就是发送或接受具有一定格式的二进制位。这些二进制位通过一些应用程序——如浏览器——的解释显示成具有不同表达形式的文字或图象。</p>    
+<p style="text-indent: 21.25pt">    
+为了方便实现计算机的通信功能，在系统的低层或操作系统中都有不同程度的支持，如：DOS、BIOS和NETBIOS等系统中都相应通信功能或中断服务。下面仅仅介绍在汇编语言程序中如何使用通信功能，有关通信功能的详细内容在《计算机通信与接口技术》课程会有更深入的论述。</p>    
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、DOS中的通信功能</font></p>    
+<p style="text-indent: 21.25pt">INT 21H提供了对通信口COM1操作的功能调用。其具体描述如下：</p>                             
+<p style="margin-left: 40pt">03H——从辅助设备读入一个字符，该辅助设备的缺省值为COM1<br>    
+04H——向辅助设备输出一个字符，该辅助设备的缺省值为COM1</p>    
+<p style="text-indent: 21.25pt">  
+有关中断功能的详细描述和调用参数在此从略，需要查阅者可参阅附录3之<a href="Appendix/App31-011.htm" target="_blank">字符功能调用类</a>。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、BIOS中的通信功能</font></p>  
+<p style="text-indent: 21.25pt">BIOS系统提供了中断14H来实现对通信端口的控制能。这些具体的功能如下：</p>  
+<table border="0" width="100%" cellpadding="0">  
+  <tr>  
+    <td width="7%" valign="top"></td>  
+    <td width="29%"> 00H——初始化通信口<br>  
+      01H——向通信口输出字符</td>  
+    <td width="64%"> 02H——从通信口读入字符<br>  
+ 03H——读取通信口状态</td>  
+  </tr>  
+</table>  
+<p style="text-indent: 21.25pt">
+有关中断功能的详细描述和调用参数在此从略，需要查阅者可参阅附录3之<a href="Appendix/App34-31.htm" target="_blank">串行口服务</a>。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">3、通信功能的应用举例</font></p>  
+<p style="text-indent: -30pt; margin-left: 30pt">例8.9 把字符串"Hello, World"从COM1端口传输出去。在传输过程中，要求传输速率为9600波特，字长为8位，1位停止位，无齐偶校验。</p>    
+<table border="0" width="100%" cellspacing="0" cellpadding="0">    
+  <tr>    
+    <td width="100%" colspan="5">解：</td>    
+  </tr>    
+  <tr>    
+    <td width="7%" valign="top" rowspan="19"></td>    
+    <td width="93%" colspan="4">.MODEL SMALL<br>                           
+      .DATA<br>    
+      　 MSG　DB　&quot;Hello, World"<br>                           
+      　 MLen　EQU　$-MSG<br>
+      .CODE</td>
+  </tr>
+  <tr>
+    <td width="3%" rowspan="8" valign="top"></td>
+    <td width="90%" colspan="3">.STARTUP</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="19%"> AL, 0E3H</td> 
+    <td width="65%">   
+;0E3—9600、无齐偶校验、字长8位，1位停止位</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="84%" colspan="2"> DX, 0</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="84%" colspan="2"> AH, 0</td> 
+  </tr>
+  <tr>
+    <td width="6%">INT</td>
+    <td width="19%"> 14H</td>
+    <td width="65%">   
+;初始化通信口COM1</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="84%" colspan="2"> BX, OFFSET MSG</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="84%" colspan="2"> CX, MLen</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="84%" colspan="2"> DX, 0</td> 
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">again:</td>
+  </tr>
+  <tr>
+    <td width="3%" rowspan="9" valign="top"></td>
+    <td width="6%">MOV</td>
+    <td width="84%" colspan="2"> AL, [BX]</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="84%" colspan="2"> AH, 1</td> 
+  </tr>
+  <tr>
+    <td width="6%">INT</td>
+    <td width="84%" colspan="2"> 14H</td>
+  </tr>
+  <tr>
+    <td width="6%">TEST</td>
+    <td width="19%"> AH, 80H</td> 
+    <td width="65%">   
+;如果发送字符失败，继续发同一个字符，这里可能</td>
+  </tr>
+  <tr>
+    <td width="6%">JNZ</td>
+    <td width="19%"> again</td>
+    <td width="65%">   
+;构成死循环。在实际工作过程中，还有其它考虑。</td>
+  </tr>
+  <tr>
+    <td width="6%">INC</td>
+    <td width="84%" colspan="2"> BX</td>
+  </tr>
+  <tr>
+    <td width="6%">LOOP</td>
+    <td width="84%" colspan="2"> again</td>
+  </tr>
+  <tr>
+    <td width="6%">.EXIT</td>
+    <td width="84%" colspan="2"> 0</td>
+  </tr>
+  <tr>
+    <td width="6%">END</td>
+    <td width="84%" colspan="2"></td>
+  </tr>
+</table>
+<p style="text-indent: -36pt; margin-left: 36pt">例8.10                              
+把从COM1端口读入的字符显示在屏幕上。如果通信端口数据未准备好，则程序处于等待状态；若传输出错，则用红色显示字符"?"。</p>    
+<table border="0" width="100%" cellspacing="0" cellpadding="0">    
+  <tr>    
+    <td width="100%" colspan="5">解：</td>    
+  </tr>    
+  <tr>    
+    <td width="7%" rowspan="23" valign="top"></td>    
+    <td width="6%"></td>    
+    <td width="87%" colspan="3">……</td>    
+  </tr>    
+  <tr>    
+    <td width="93%" colspan="4">again:</td>    
+  </tr>    
+  <tr>    
+    <td width="6%" valign="top" rowspan="21"></td>    
+    <td width="6%">MOV</td>    
+    <td width="81%" colspan="2"> DX, 0</td>     
+  </tr>    
+  <tr>    
+    <td width="6%">MOV</td>    
+    <td width="81%" colspan="2"> AH, 3</td>     
+  </tr>    
+  <tr>    
+    <td width="6%">INT</td>    
+    <td width="81%" colspan="2"> 14H</td>    
+  </tr>    
+  <tr>    
+    <td width="6%">TEST</td>    
+    <td width="22%"> AH, 1H</td>     
+    <td width="59%">       
+;检测状态字节AH的最后一位，看数据是否准备好</td>    
+  </tr>    
+  <tr>    
+    <td width="6%">JZ</td>    
+    <td width="81%" colspan="2"> again</td>    
+  </tr>    
+  <tr>    
+    <td width="6%">MOV</td>    
+    <td width="81%" colspan="2"> DX, 0</td>     
+  </tr>    
+  <tr>    
+    <td width="6%">MOV</td>    
+    <td width="81%" colspan="2"> AH, 2</td>     
+  </tr>    
+  <tr>    
+    <td width="6%">INT</td>    
+    <td width="22%"> 14H</td>    
+    <td width="59%">       
+;从COM1端口读字符</td>    
+  </tr>    
+  <tr>    
+    <td width="6%">TEST</td>    
+    <td width="22%"> AH, 80H</td>     
+    <td width="59%"> ;检测读字符是否成功</td>    
+  </tr>    
+  <tr>    
+    <td width="28%" colspan="2">.IF&nbsp; ZERO?</td>                          
+    <td width="59%"> ;读字符成功</td>    
+  </tr>    
+  <tr>    
+    <td width="28%" colspan="2">　　AND　AL, 7FH</td>                          
+    <td width="59%"> ;屏蔽掉最高位，使之为字符</td>    
+  </tr>    
+  <tr>    
+    <td width="28%" colspan="2">　　MOV　BL, 15</td>                           
+    <td width="59%"> ;正常颜色：白色</td>    
+  </tr>    
+  <tr>    
+    <td width="87%" colspan="3">.ELSE</td>    
+  </tr>    
+  <tr>    
+    <td width="28%" colspan="2">　　MOV　AL, '?'</td>                          
+    <td width="59%"> ;显示字符&quot;?&quot;</td>    
+  </tr>    
+  <tr>    
+    <td width="28%" colspan="2">　　MOV　BL, 12</td>                           
+    <td width="59%"> ;错误颜色：红字</td>    
+  </tr>    
+  <tr>    
+    <td width="87%" colspan="3">.ENDIF</td>    
+  </tr>    
+  <tr>    
+    <td width="6%">MOV</td>    
+    <td width="81%" colspan="2"> BH, 0</td>     
+  </tr>    
+  <tr>    
+    <td width="6%">MOV</td>    
+    <td width="81%" colspan="2"> AH, 0EH</td>     
+  </tr>    
+  <tr>    
+    <td width="6%">INT</td>    
+    <td width="81%" colspan="2"> 10H</td>    
+  </tr>    
+  <tr>    
+    <td width="6%">JMP</td>    
+    <td width="81%" colspan="2"> again</td>    
+  </tr>    
+  <tr>    
+    <td width="87%" colspan="3">……</td>    
+  </tr>    
+</table>    
+         
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=8&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="08-3-3.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="08-3-5.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+       
+</body>       
+       
+</html>

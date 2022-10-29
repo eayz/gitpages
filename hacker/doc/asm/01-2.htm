@@ -1,0 +1,170 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>1.2 数据地表示和类型</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter01.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/Btitle01.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a> 
+      → 数据的表示和类型</td>                               
+    <td width="50%">      
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=chapter1 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+ 
+<h2>1.2 数据的表示和类型</h2>                                                                        
+<p style="TEXT-INDENT: 21.25pt">在用汇编语言进行程序设计时，程序员可以直接访问内存，对数据在存储器内的表示形式要有一个清晰的认识。下面，我们只简单介绍本课程所要用到的数据表示知识，为后面的学习作一点必要的准备。                             
+<p style="TEXT-INDENT: 21.25pt">有关“数据表示”的详细内容请参阅《计算机组成原理》中的相关章节。</p>                             
+<h3>1.2.1 数值数据的表示</h3>                                                                          
+<p><font color="#FF00FF">(1)、二进制</font></p>                         
+<p style="TEXT-INDENT: 21.25pt">在计算机内，数值是用二进制来表示的，每个二进制数按权相加就可得到其十进制数值。在书写二进制时，为了区别，在数据后面紧跟一个字母<font color="#ff0000">B</font>。</p>                               
+<p style="TEXT-INDENT: 21.25pt">二进制的一般表现形式为：<font color="#ff0000">b<sub>n-1</sub>…b<sub>1</sub>b<sub>0</sub>B</font>，其代表数值：<font color="#ff0000">b<sub>n-1</sub>2<sup>n-1</sup>+…+b<sub>1</sub>2<sup>1</sup>+b<sub>0</sub>2<sup>0</sup></font>。</p>                             
+<p style="TEXT-INDENT: 21.25pt">数据的二进制表示形式简单、明了，但它书写起来比较长，所以，通常情况下，我们在程序中不直接用二进制来书写具体的数值，而改用八进制、十进制或十六进制。</p>                             
+<p><font color="#FF00FF">(2)、八进制</font></p>                             
+<p style="TEXT-INDENT: 21.25pt">八进制是一种二进制的变形，三位二进制可变为一位八进制，反之也然。八进制的表示元素是：0、1、…、7。在书写时，为了区别，在数据后面紧跟一个字母<font color="#ff0000">Q</font>。如：1234Q、7654Q、54Q等都是八进制。</p>                             
+<p style="TEXT-INDENT: 21.25pt">八进制数在程序中的使用频率不高。</p>                             
+<p><font color="#FF00FF">(3)、十进制</font></p>                             
+<p style="TEXT-INDENT: 21.25pt">十进制是我们最熟悉的一种数据表示形式，它的基本元素是：0、1、…、9。在书写时，为了区别，在数据后面紧跟一个字母<font color="#ff0000">D</font>。在程序中经常用十进制来表示数据。</p>                             
+<p><font color="#FF00FF">(4)、十六进制</font></p>                             
+<p style="TEXT-INDENT: 21.25pt">十六进制是另一种二进制的变形，四位二进制可变为一位十六进制，反之也然。十六进制的基本元素是：0、1、…、9、A、B、…、F(字母小写也可以)，其中：字母A、B、…、F依次代表10、11、…、15。</p>                             
+<p style="TEXT-INDENT: 21.25pt">在书写时，为了区别，在数据后面紧跟一个字母<font color="#ff0000">H</font>。当十六进制数的第一个字符是字母时，在第一个字符之前必须添加一个‘0’。如：100H、56EFH、0FFH、0ABCDH等都是十六进制数。</p>                             
+<p style="TEXT-INDENT: 21.25pt">十六进制在程序中的使用频率很高。</p>                             
+                             
+<p><font color="#FF00FF">(5)、数值进制的总结和相互转换</font></p>                             
+                             
+<p align="center">表1.1 各种进制及其字符表示</p>                                                                        
+<div align="center">                               
+  <center>                               
+<table border="0" width="64%" cellpadding="0">                               
+  <tr>                               
+    <td width="20%" bgcolor="#ffff00" align="center">                               
+      <p>进制</p>                               
+    </td>                               
+    <td width="20%" bgcolor="#ffff00" align="center">                               
+      <p style="MARGIN-LEFT: 10px">字符</p>                               
+    </td>                               
+    <td width="30%" bgcolor="#ffff00">                               
+      <p style="MARGIN-LEFT: 10px" align="center">例子</p>                               
+    </td>                               
+    <td width="30%" bgcolor="#ffff00">                               
+      <p style="MARGIN-LEFT: 10px">备注</p></td>                               
+  </tr>                               
+  <tr>                               
+    <td width="20%" bgcolor="#00FFFF" align="center">                               
+      <p>二进制</p>                               
+    </td>                               
+    <td width="20%" bgcolor="#00FFFF" align="center">                               
+      <p style="MARGIN-LEFT: 10px">B/Y<sup>(*)</sup></p>                               
+    </td>                               
+    <td width="30%" bgcolor="#00FFFF">                               
+      <p style="MARGIN-LEFT: 10px">1010B、1011B</p>                               
+    </td>                               
+    <td width="30%" rowspan="4">                               
+<p style="MARGIN-LEFT: 10px">(*)：字符Y、O和T是宏汇编<font color="#FF0000">MASM</font>系统所增加的进制表示符。</p>                                             
+                                             
+    </td>                               
+  </tr>                               
+  <tr>                               
+    <td width="20%" align="center">                               
+      <p align="center">八进制</p>                               
+    </td>                               
+    <td width="20%" align="center">                               
+      <p style="MARGIN-LEFT: 10px">Q/O</p>                               
+    </td>                               
+    <td width="30%">                               
+      <p style="MARGIN-LEFT: 10px">1234Q、311Q</p>                               
+    </td>                               
+  </tr>                               
+  <tr>                               
+    <td width="20%" bgcolor="#00FFFF" align="center">                               
+      <p>十进制</p>                               
+    </td>                               
+    <td width="20%" bgcolor="#00FFFF" align="center">                               
+      <p style="MARGIN-LEFT: 10px">D/T</p>                               
+    </td>                               
+    <td width="30%" bgcolor="#00FFFF">                               
+      <p style="MARGIN-LEFT: 10px">1234D、512D</p>                               
+    </td>                               
+  </tr>                               
+  <tr>                               
+    <td width="20%" align="center">                               
+      <p>十六进制</p>                               
+    </td>                               
+    <td width="20%" align="center">                               
+      <p style="MARGIN-LEFT: 10px">H</p>                               
+    </td>                               
+    <td width="30%">                               
+      <p style="MARGIN-LEFT: 10px">1234H、1011H</p>                               
+    </td>                               
+  </tr>                               
+</table>                               
+  </center>                               
+</div>                               
+                                             
+<p style="TEXT-INDENT: 21.25pt">下面是各进制数据之间进行转换的控件，浏览者通过它可很好地掌握这些进制之间的转换方法。<font color="#FF0000">当十进制转化为其它进制时，浏览者还可进行实际的练习操作</font>。</p>                                        
+                                        
+<p style="TEXT-INDENT: 21.25pt" align="center">                           
+<object classid="clsid:A0E7EB46-B3F5-11D4-8D6C-0080C8F1BD70" id="exchange1" width="617" height="299">
+</object>                              
+</p>                              
+                                    
+<p align="right"><a href="index.htm">                
+<img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><A href="asp/QuestionIndex.asp-chapter=1&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="01-1-5.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="01-2-1.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                              
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>         
+                    
+</body>                    
+                    
+</html>                    

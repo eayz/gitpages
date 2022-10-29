@@ -1,0 +1,412 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>6.3.3 段的类别和段组</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter06.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle06.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="06-3-1.htm"> 段的基本属性</a>  → 类别</td>                                               
+    <td width="50%">                
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h3>6.3.3 类别(CLASS)</h3>                                       
+<p style="text-indent: 21.25pt">类别是一个由程序员指定的用单引号括起来的字符串。如果一个段没有给出类别，那么，这个段的类别就为空。类别是用于段的分类，连接程序利用该类别来调整同名、同类别的段，并使它们相邻。典型的类别是"<font color="#FF0000">Data</font>"和"<font color="#FF0000">Code</font>"。如果指定某段的类别是"<font color="#FF0000">Code</font>"，那么，该段最好是代码段，这样，有的调试程序(如：<font color="#FF0000">CodeView</font>)就可以顺序工作。</p>       
+<table border="0" width="100%" cellspacing="0" cellpadding="0">      
+  <tr>      
+    <td width="100%" colspan="3"><p style="text-indent: 21.25pt">例如：</p></td>      
+  </tr>      
+  <tr>      
+    <td width="7%" rowspan="3" valign="top"></td>      
+    <td width="8%" rowspan="2" valign="top">DATA1</td>      
+    <td width="85%">SEGMENT&nbsp; WORD&nbsp; PUBLIC&nbsp; "Data"</td>                                      
+  </tr>       
+  <tr>       
+    <td width="85%">…</td>      
+  </tr>      
+  <tr>      
+    <td width="8%">DATA1</td>      
+    <td width="85%">ENDS</td>      
+  </tr>      
+</table>      
+<p style="text-indent: 21.25pt">上述段定义说明了该段的起始地址是下一个字地址、组合类型为PUBLIC、段类别是"Data"。</p>       
+<h3><a name="GROUP">6.3.4 段组(GROUP)</a></h3>                                       
+<p style="text-indent: 21.25pt">段组伪指令<font color="#FF0000">GROUP</font>是用于把源程序模块中若干个段结合成一个组，并对该段组定义一个段组名。段组伪指令的格式如下：</p>       
+<p style="margin-left: 40pt">段组名&nbsp; GROUP&nbsp; 段名[, 段名,                                         
+……]</p>         
+<p style="text-indent: 21.25pt">其中：段名之间要用逗号间隔，段名也可以用表达式“<font color="#FF0000">SEG</font>        
+变量”或“<font color="#FF0000">SEG</font> 标号”。</p>                                       
+<p style="text-indent: 21.25pt">下面举例说明段组伪指令的使用方法和作用。</p>        
+<table border="0" width="100%" cellspacing="0" cellpadding="0">      
+  <tr>      
+    <td width="100%" colspan="5">例6.12 段组的作用</td>                                
+  </tr>      
+  <tr>      
+    <td width="100%" colspan="5">      
+      <p style="margin-left: 21.25pt">方法1：用一个段寄存器对应二个数据段</p>     
+    </td>     
+  </tr>     
+  <tr>     
+    <td width="9%" rowspan="21" valign="top"></td>     
+    <td width="8%" rowspan="2" valign="top">DATA1</td>     
+    <td width="31%" colspan="2">SEGMENT</td>     
+    <td width="52%"> ;第一个数据段</td>     
+  </tr>     
+  <tr>     
+    <td width="7%">b1</td>     
+    <td width="76%" colspan="2">DB　10h</td>
+  </tr>
+  <tr>
+    <td width="8%">DATA1</td>
+    <td width="83%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="2" valign="top">DATA2</td>
+    <td width="31%" colspan="2">SEGMENT</td>
+    <td width="52%"> ;第二个数据段</td>
+  </tr>
+  <tr>
+    <td width="7%">b2</td>
+    <td width="76%" colspan="2">DB　23h</td>
+  </tr>
+  <tr>
+    <td width="8%">DATA2</td>
+    <td width="83%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="2" valign="top">CODE1</td>
+    <td width="83%" colspan="3">SEGMENT</td>
+  </tr>
+  <tr>
+    <td width="31%" colspan="2">ASSUME　CS:CODE1, DS:DATA1</td>                                     
+    <td width="52%">;<span style="font-family: 宋体; mso-ascii-font-family: Arial; mso-hansi-font-family: Arial">(1)</span></td>     
+  </tr>     
+  <tr>     
+    <td width="8%" rowspan="11" valign="top">START:</td>     
+    <td width="7%">MOV</td>     
+    <td width="76%" colspan="2">AX, DATA1</td>        
+  </tr>      
+  <tr>      
+    <td width="7%">MOV</td>      
+    <td width="24%">DS, AX&nbsp;</td>                                     
+    <td width="52%"> ;<span style="font-family: 宋体; mso-ascii-font-family: Arial; mso-hansi-font-family: Arial">(2)</span>把数据段DATA1的段值赋给段寄存器<font color="#FF0000">DS</font></td>     
+  </tr>     
+  <tr>     
+    <td width="83%" colspan="3">…</td>     
+  </tr>     
+  <tr>     
+    <td width="7%">MOV</td>     
+    <td width="24%">BL, b1</td>       
+    <td width="52%"> ;<span style="font-family:宋体;mso-ascii-font-family: 
+Arial;mso-hansi-font-family:Arial">(3)</span>引用<font color="#FF0000">DS</font>来访问DATA1中的变量b1</td>     
+  </tr>     
+  <tr>     
+    <td width="83%" colspan="3">…</td>     
+  </tr>     
+  <tr>     
+    <td width="31%" colspan="2" valign="top">ASSUME　DS:DATA2</td>
+    <td width="52%">;<span style="font-family:宋体;
+mso-ascii-font-family:Arial;mso-hansi-font-family:Arial">(4)</span></td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="76%" colspan="2"> AX, DATA2</td>  
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="24%"> DS, AX</td>  
+    <td width="52%"> ;<span style="font-family: 宋体; mso-ascii-font-family: Arial; mso-hansi-font-family: Arial">(5)</span>把数据段DATA2的段值赋给段寄存器<font color="#FF0000">DS</font></td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="24%"> AL, b2</td>   
+    <td width="52%"> ;<span style="font-family:宋体;mso-ascii-font-family:Arial;mso-hansi-font-family:Arial">(6)</span>引用<font color="#FF0000">DS</font>来访问DATA2中的变量b2</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">…</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="2" valign="top">CODE1</td> 
+    <td width="83%" colspan="3">ENDS</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">END</td> 
+    <td width="76%" colspan="2"> START</td> 
+  </tr> 
+</table> 
+<p style="text-indent: 21.25pt">在上例中，语句(1)说明DS与DATA1建立联系，语句(2)对DS赋值，语句(3)用DS来访问DATA1段的变量名。语句(4)说明DS与DATA2建立联系，语句(5)对DS赋值，语句(6)用DS来访问DATA2段的变量名。</p>
+<p style="text-indent: 21.25pt">在该例子中，因为只使用一个段寄存器DS来对应二个数据段，所以，需要切换DS的对应关系(如：语句(4))。但我们也可以用段寄存器DS和ES来分别对应段DATA1和DATA2，这样，方法1就可变成方法2。</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" colspan="5"> 
+<p style="text-indent: 21.25pt">方法2：用二个段寄存器对应二个数据段</p>  
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="9%" rowspan="19" valign="top"></td> 
+    <td width="8%" rowspan="2" valign="top">DATA1</td> 
+    <td width="83%" colspan="3">    
+SEGMENT</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">b1</td> 
+    <td width="76%" colspan="2">    
+DB　10h</td>
+  </tr>
+  <tr>
+    <td width="8%">DATA1</td>
+    <td width="83%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="2" valign="top">DATA2</td>
+    <td width="83%" colspan="3">   
+SEGMENT</td>
+  </tr>
+  <tr>
+    <td width="7%">b2</td>
+    <td width="76%" colspan="2">   
+DB　23h</td>
+  </tr>
+  <tr>
+    <td width="8%">DATA2</td>
+    <td width="83%" colspan="3">   
+ENDS</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="2" valign="top">CODE1</td>
+    <td width="83%" colspan="3">   
+SEGMENT</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">ASSUME　CS:CODE1, DS:DATA1, ES:DATA2</td>                                     
+  </tr>     
+  <tr>     
+    <td width="8%" rowspan="9" valign="top">START:</td>     
+    <td width="7%">        
+MOV</td>     
+    <td width="76%" colspan="2">        
+AX, DATA1</td>       
+  </tr>      
+  <tr>      
+    <td width="7%">MOV</td>      
+    <td width="18%">DS, AX&nbsp;</td>                                     
+    <td width="58%">;把数据段DATA1的段值赋给段寄存器<font color="#FF0000">DS</font></td>     
+  </tr>     
+  <tr>     
+    <td width="6%">MOV</td>     
+    <td width="77%" colspan="2"> AX, DATA2</td>     
+  </tr>     
+  <tr>     
+    <td width="6%">MOV</td>     
+    <td width="19%">ES, AX</td>     
+    <td width="58%">;把数据段DATA2的段值赋给段寄存器<font color="#FF0000">ES</font></td>    
+  </tr>    
+  <tr>    
+    <td width="83%" colspan="3">…</td>    
+  </tr>    
+  <tr>    
+    <td width="6%">MOV</td>    
+    <td width="19%">BL, b1</td>     
+    <td width="58%">;引用<font color="#FF0000">DS</font>来访问DATA1中的变量b1</td>     
+  </tr>     
+  <tr>     
+    <td width="83%" valign="top" colspan="3">…</td>     
+  </tr>     
+  <tr>    
+    <td width="6%" valign="top">MOV</td>     
+    <td width="19%" valign="top"> AL, b2</td>      
+    <td width="58%"> ;引用<font color="#FF0000">ES</font>来访问DATA2中的变量b2</td>    
+  </tr>   
+  <tr>    
+    <td width="83%" colspan="3">…</td>    
+  </tr>     
+  <tr>   
+    <td width="8%" rowspan="2" valign="top">CODE1</td>   
+    <td width="83%" colspan="3">      
+ENDS</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">END</td>   
+    <td width="76%" colspan="2"> START</td>   
+  </tr>   
+</table>   
+<p style="text-indent: 21.25pt">我们还可以用段组来简化段寄存器的使用，把段DATA1和DATA2组成一个数据段。所以，把方法2再改写成方法3的形式。</p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="100%" colspan="5">  
+<p style="text-indent: 21.25pt">方法3：用一个段组组成二个数据段</p>     
+    </td>  
+  </tr>  
+  <tr>  
+    <td width="9%" rowspan="18" valign="top"></td>  
+    <td width="8%" valign="top">GSEG</td>  
+    <td width="6%">     
+GROUP</td>  
+    <td width="19%">     
+DATA1, DATA2</td>   
+    <td width="58%">      
+;把段DATA1和DATA2定义成一个段组</td>   
+  </tr>   
+  <tr>   
+    <td width="8%" valign="top">DATA1</td>   
+    <td width="83%" colspan="3">      
+SEGMENT</td>   
+  </tr>   
+  <tr>   
+    <td width="8%" valign="top"></td>   
+    <td width="7%">b1</td>   
+    <td width="76%" colspan="2">      
+DB　10h</td>
+  </tr>
+  <tr>
+    <td width="8%">DATA1</td>
+    <td width="83%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="2" valign="top">DATA2</td>
+    <td width="83%" colspan="3">   
+SEGMENT</td>
+  </tr>
+  <tr>
+    <td width="7%">b2</td>
+    <td width="76%" colspan="2">   
+DB　23h</td>
+  </tr>
+  <tr>
+    <td width="8%">DATA2</td>
+    <td width="83%" colspan="3">   
+ENDS</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="2" valign="top">CODE1</td>
+    <td width="83%" colspan="3">   
+SEGMENT</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">ASSUME　CS:CODE1, DS:GSEG</td>                                    
+  </tr>    
+  <tr>    
+    <td width="8%" rowspan="7" valign="top">START:</td>    
+    <td width="7%">       
+MOV</td>    
+    <td width="76%" colspan="2">       
+AX, GSEG</td>       
+  </tr>      
+  <tr>      
+    <td width="7%">MOV</td>      
+    <td width="18%">DS, AX&nbsp;</td>                                     
+    <td width="58%">;把段组<font color="#FF0000">GSEG</font>的段值赋给段寄存器<font color="#FF0000">DS</font></td>     
+  </tr>     
+  <tr>    
+    <td width="83%" colspan="3">…</td>    
+  </tr>    
+  <tr>    
+    <td width="6%">MOV</td>    
+    <td width="19%">BL, b1</td>     
+    <td width="58%">;引用<font color="#FF0000">DS</font>来访问DATA1中的变量b1</td>     
+  </tr>     
+  <tr>     
+    <td width="83%" valign="top" colspan="3">…</td>     
+  </tr>     
+  <tr>    
+    <td width="6%" valign="top">MOV</td>    
+    <td width="19%" valign="top">AL, b2</td>    
+    <td width="58%"> ;引用<font color="#FF0000">DS</font>来访问DATA2中的变量b2</td>    
+  </tr>   
+  <tr>    
+    <td width="83%" colspan="3">…</td>    
+  </tr>     
+  <tr>   
+    <td width="8%" rowspan="2" valign="top">CODE1</td>   
+    <td width="83%" colspan="3">      
+ENDS</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">END</td>   
+    <td width="76%" colspan="2"> START</td>   
+  </tr>   
+</table>   
+<p style="text-indent: 21.25pt">定义段组后，段组内各段所定义的标号和变量，除了与定义它们的段起始点相关外，还与段组的起始点相关。规定如下：</p>     
+<table border="0" width="100%" cellspacing="0">
+  <tr>
+    <td width="9%" valign="top">
+      <p align="right"><img border="0" src="TextBookIMG/Ball3.gif" width="12">、</td>
+    <td width="91%">如果在<font color="#FF0000">ASSUME</font>伪指令中说明段组与段寄存器相对应，那么，有关标号或变量的偏移量就相对于段组起点计算；</td>
+  </tr>
+  <tr>
+    <td width="9%" valign="top">
+      <p align="right">
+<img border="0" src="TextBookIMG/Ball3.gif" width="12">、</td>
+    <td width="91%">如果在<font color="#FF0000">ASSUME</font>伪指令中说明段组内的某各段与段寄存器相对应，那么，有关标号或变量的偏移量就相对于该段的起点。</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">所以，在使用段组后，程序员要谨慎使用<font color="#FF0000">ASSUME</font>伪指令，并保证段寄存器的值与段组或段相一致。</p>    
+        
+<p align="right">                   
+<a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=6&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="06-3-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="06-4.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                   
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>         

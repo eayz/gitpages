@@ -1,0 +1,608 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.1 系统功能的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能25H</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">设置中断向量表</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝中断号<br>
+      DS:DX＝中断处理程序的入口地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">无</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="30H">(2)、功能</a></font><a name="30H"><font color="#FF00FF" face="Arial">30H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">取MS-DOS操作系统的版本号</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝30H</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝0——V 1.0；对其它高版本有：AL＝主要版本号<br>        
+      AH＝次版本号(MS-DOS 3.1＝0AH，...)<br>        
+      BH＝OEM的序列号(Original Equipment Manufacturer)<br>        
+      BL:CX＝24位用户序列号</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="33H">(3)、功能</a></font><a name="33H"><font color="#FF00FF" face="Arial">33H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%" valign="top">功能描述：</td>
+    <td width="81%">获得或改变操作系统中断的状态。在功能调用期间，将影响^C的检测</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝33H<br>
+      AL＝00H——取状态<br>
+      　＝01H——设置状态，DL＝00/01表示置该状态OFF/ON</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">取状态时，DL＝00/01——分别表示OFF/ON<br>
+      说明：<br>
+      　1、若AL中存入其它的功能号，则返回时，AL的值为0FFH；<br>
+      　2、若置AL为5，则启动驱动器号返回在DL中(1-A，2-B，…)
+    </td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="34H">(4)、功能</a></font><a name="34H"><font color="#FF00FF" face="Arial">34H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">获得InDos标志的远地址，它由DOS维护表示DOS时活跃的</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝34H</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">ES:BX＝InDos标志的远地址<br>
+      若该单元值为1，表示DOS功能在执行，否则，则不是。</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="35H">(5)、功能</a></font><a name="35H"><font color="#FF00FF" face="Arial">35H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">取指定中断号的入口地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝35H<br>
+      AL＝中断号</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">ES:BX＝中断处理程序的入口地址</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="38H">(6)、功能</a></font><a name="38H"><font color="#FF00FF" face="Arial">38H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">读取或设置国家信息</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝38H
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="100%" colspan="2">当读取国家信息时</td>
+        </tr>
+        <tr>
+          <td width="6%"></td>
+          <td width="94%">DS:DX＝存放返回信息的地址<br>
+            AL＝0——取当前国家信息<br>
+            AL＝1~0FEH——取国家代码小于255的国家信息<br>
+            AL＝0FFH——取代码大于等于255的国家信息，BX＝国家代码</td>
+        </tr>
+        <tr>
+          <td width="100%" colspan="2">设置国家信息时</td>
+        </tr>
+        <tr>
+          <td width="6%"></td>
+          <td width="94%">DX＝0FFFFH<br>
+            AL＝0~0FEH——设置国家代码小于255的国家信息<br>
+            AL＝0FFH——置代码大于等于255的国家信息，BX＝国家代码</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——调用成功，BX＝国家代码，否则。AX＝错误代码(02H)，其含义见错误代码表
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="100%" valign="top" colspan="2">
+            <p>说明国家信息如下所示：</td>
+        </tr>
+        <tr>
+          <td width="25%" valign="top" align="right">字节0-1H：</td>
+          <td width="75%">日期格式：0—mdy、1—dmy、2—ymd</td>
+        </tr>
+        <tr>
+          <td width="25%" valign="top" align="right">字节2-6H：</td>
+          <td width="75%">货币字符</td>
+        </tr>
+        <tr>
+          <td width="25%" valign="top" align="right">字节7-8H：</td>
+          <td width="75%">数值千位分割符</td>
+        </tr>
+        <tr>
+          <td width="25%" valign="top" align="right">字节9-0AH：</td>
+          <td width="75%">数值精度分割符</td>
+        </tr>
+        <tr>
+          <td width="25%" valign="top" align="right">字节0B-0CH：</td>
+          <td width="75%">日期间隔符</td>
+        </tr>
+        <tr>
+          <td width="25%" valign="top" align="right">字节0D-0EH：</td>
+          <td width="75%">时间间隔符</td>
+        </tr>
+        <tr>
+          <td width="25%" valign="top" align="right">字节0FH：</td>
+          <td width="75%">货币格式<br>
+            位0=0——货币符号在前，否则，货币符号在后<br>
+            位1=0——货币符号和数据之间无空格，否则，二者之间有一个空格<br>
+            位2=0——货币符号和小数点分开，否则，货币符号代替小数点</td>
+        </tr>
+        <tr>
+          <td width="25%" valign="top" align="right">字节10H：</td>
+          <td width="75%">货币的小数位数</td>
+        </tr>
+        <tr>
+          <td width="25%" valign="top" align="right">字节11H：</td>
+          <td width="75%">时间格式。位0=0—12小时制，否则，24小时制</td>
+        </tr>
+        <tr>
+          <td width="25%" valign="top" align="right">字节12~15H：</td>
+          <td width="75%">Case-Map调用地址</td>
+        </tr>
+        <tr>
+          <td width="25%" valign="top" align="right">字节16~17H：</td>
+          <td width="75%">字符串分割符</td>
+        </tr>
+        <tr>
+          <td width="25%" valign="top" align="right">字节18~21H：</td>
+          <td width="75%">保留</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="44H">(7)、功能</a></font><a name="44H"><font color="#FF00FF" face="Arial">44H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">输入/输出控制，其子功能描述：</td>
+  </tr>
+  <tr>
+    <td width="100%" valign="top" colspan="3">
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="52%">　00H—取设备信息</td>
+          <td width="48%">01H—取设备信息</td>
+        </tr>
+        <tr>
+          <td width="52%">　02H—从字符设备驱动器接受控制数据</td>
+          <td width="48%">03H—发送控制数据到字符设备驱动器</td>
+        </tr>
+        <tr>
+          <td width="52%">　04H—从块设备驱动器接受控制数据&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td width="48%">05H—发送控制数据到块设备驱动器</td>
+        </tr>
+        <tr>
+          <td width="52%">　06H—检查输入状态</td>
+          <td width="48%">07H—检查输出状态</td>
+        </tr>
+        <tr>
+          <td width="52%">　08H—检查块设备是否为可拆卸设备</td>
+          <td width="48%">09H—检查设备是否为远程设备</td>
+        </tr>
+        <tr>
+          <td width="52%">　0AH—检查句柄是否为远程对象</td>
+          <td width="48%">0BH—改变共享访问入口数</td>
+        </tr>
+        <tr>
+          <td width="52%">　0CH—字符设备的一般I/O控制信息</td>
+          <td width="48%">0DH—块设备的一般I/O控制信息</td>
+        </tr>
+        <tr>
+          <td width="52%">　0EH—读取逻辑驱动器映射关系</td>
+          <td width="48%">0FH—设置逻辑驱动器映射关系</td>
+        </tr>
+        <tr>
+          <td width="100%" colspan="2">说明：输入/输出子功能中的00H、06H和07H仅针对文件句柄，子功能00H~    
+            08H不支持网络设备。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="50H">(8)、功能</a></font><a name="50H"><font color="#FF00FF" face="Arial">50H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">设置程序段前缀(PSP)地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝50H<br>
+      BX＝新的PSP地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">无</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="51H">(9)、功能</a></font><a name="51H"><font color="#FF00FF" face="Arial">51H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">读取程序段前缀(PSP)地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝51H</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">BX＝PSP地址</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="59H">(10)、功能</a></font><a name="59H"><font color="#FF00FF" face="Arial">59H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">读取扩展的错误信息</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝59H<br>
+      BX＝00H</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AX＝扩展的错误代码，其含义见错误代码表<br>
+      BH＝错误类型，其定义如下：
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="53%">01h—资源短缺</td>
+          <td width="47%">02h—处于临时状态而非错误</td>
+        </tr>
+        <tr>
+          <td width="53%">03h—权限问题</td>
+          <td width="47%">04h—系统软件内部错误</td>
+        </tr>
+        <tr>
+          <td width="53%" valign="top">05h—硬件失败</td>
+          <td width="47%">06h—系统软件失败，但不是活跃进程失败</td>
+        </tr>
+        <tr>
+          <td width="53%">07h—应用程序错</td>
+          <td width="47%">08h—文件或数据项未发现</td>
+        </tr>
+        <tr>
+          <td width="53%">09h—文件或数据项类型或格式错</td>
+          <td width="47%">0Ah—文件或数据项相互加锁</td>
+        </tr>
+        <tr>
+          <td width="100%" colspan="2">0Bh—驱动器中坏磁盘，磁盘中坏区域或存储问题</td>
+        </tr>
+        <tr>
+          <td width="100%" colspan="2">0Ch—其它错误</td>
+        </tr>
+      </table>
+      <p>BL＝建议采用的措施，其定义如下：<br>
+      　01h — 重试若干次后，再选"终止"或"忽略"<br>     
+      　02h — 重试若干次(二次之间要等待)后，再选"终止"或"忽略"<br>     
+      　03h — 从用户获取正确的信息<br>     
+      　04h — 终止应用程序，并清除其所使用资源<br>     
+      　05h — 立即终止程序，但没有清除其资源<br>     
+      　06h — 忽略错误<br>     
+      　07h — 消除错误原因，再重试</p>     
+      <p>CH＝错误地点，其定义如下：<br>
+      　01h — 不知道<br>     
+      　02h — 块设备(磁盘或磁盘模拟器)<br>     
+      　03h — 网络<br>     
+      　04h — 串行设备<br>     
+      　05h — 内存</p>     
+      <p>ES:DI＝插入磁盘标签的字符串，若AX＝0022h(非法改变磁盘)</td>
+  </tr>
+</table>
+<p><a name="5EH"><font color="#FF00FF">(11)、功能5EH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top"></td>
+    <td width="14%" valign="top">功能描述：</td>
+    <td width="81%">读取机器名，读取/设置打印机配置
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="21%" align="center">子功能号</td>
+          <td width="79%">功能描述</td>
+        </tr>
+        <tr>
+          <td width="21%" align="center"><a href="#子功能1">00h</a></td>
+          <td width="79%">读取机器名</td>
+        </tr>
+        <tr>
+          <td width="21%" align="center"><a href="#子功能2">02h</a></td>
+          <td width="79%">设置打印机安装字符串</td>
+        </tr>
+        <tr>
+          <td width="21%" align="center"><a href="#子功能3">03h</a></td>
+          <td width="79%">读取打印机安装字符串</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="9"></td>
+    <td width="95%" colspan="2"><a name="子功能1">①、子功能1</a></td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝5EH<br>
+      AL＝00H<br>
+      DS:DX＝接受字符串缓冲区的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝1——操作失败，AX＝错误号(01H)，其含义见错误代码表，否则，<br>
+      CH＝00H——机器名未定义，否则，机器名已定义<br>
+      CL＝NetBIOS名称号(当CH≠00H时)<br>
+      DS:DX＝标识符地址(当CH≠00H时)</td>
+  </tr>
+  <tr>
+    <td width="95%" valign="top" colspan="2"><a name="子功能2">②、子功能2</a></td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%">AH＝5EH<br>
+      AL＝02H<br>
+      BX＝重定向列表索引<br>
+      CX＝安装字符串的长度<br>
+      DS:SI＝安装字符串的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——操作成功，否则，AX＝错误号(01H)，其含义见错误代码表</td>
+  </tr>
+  <tr>
+    <td width="95%" valign="top" colspan="2"><a name="子功能3">③、子功能3</a></td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%">AH＝5EH<br>
+      AL＝03H<br>
+      BX＝重定向列表索引<br>
+      ES:DI＝接受字符串缓冲区的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——操作成功，CX＝接受字符串的长度，否则，AX＝错误号(01H)，其含义见错误代码表</td>
+  </tr>
+</table>
+<p><a name="5FH"><font color="#FF00FF">(12)、功能5FH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="7"></td>
+    <td width="14%" valign="top">功能描述：</td>
+    <td width="81%">设备重定向
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="26%" align="center">子功能号</td>
+          <td width="74%">功能描述</td>
+        </tr>
+        <tr>
+          <td width="26%" align="center"><a href="#子功能21">02h</a></td>
+          <td width="74%">读取重定向列表索引</td>
+        </tr>
+        <tr>
+          <td width="26%" align="center"><a href="#子功能22">03h</a></td>
+          <td width="74%">重定向设备</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="95%" valign="top" colspan="2"><a name="子功能21">①、子功能1</a></td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%">AH＝5FH<br>
+      AL＝02H<br>
+      BX＝重定向列表索引<br>
+      DS:SI＝接受本地设备名的16字节存储区地址<br>
+      ES:DI＝接受网络名的128字节存储区地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝1——操作失败，AX＝错误号(01H或12H)，其含义见错误代码表，否则，BH位0＝0H——设备合法，否则，设备非法<br>
+      BL＝设备类型——03H：打印机，04H：驱动器<br>
+      CX＝存储参数值<br>
+      DX＝被破坏<br>
+      BP＝被破坏<br>
+      DS:SI＝存放本地设备名的地址<br>
+      ES:DI＝存放网络名的地址</td>
+  </tr>
+  <tr>
+    <td width="95%" valign="top" colspan="2"><a name="子功能22">②、子功能2</a></td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%">AH＝5FH<br>
+      AL＝03H<br>
+      BL＝设备类型——03H：打印机，04H：驱动器<br>
+      CX＝调用者保存的参数<br>
+      DS:SI＝本地设备名的16字节存储区地址<br>
+      ES:DI＝网络名的128字节存储区地址，紧跟其后是密码</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——操作成功，否则，AX＝错误号(01H、03H、05H、08H、0FH或12H)，其含义见错误代码表</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="63H">(13)、功能</a></font><a name="63H"><font color="#FF00FF" face="Arial">63H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">读取前导字节表</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝63H
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="5%" valign="top">AL</td>
+          <td width="95%">＝子功能<br>
+            ＝00H—读取系统前导字节表地址<br>
+            ＝01H—设置/清除临时控制台标志(DL＝00H/01H—清除/设置标志)<br>
+            ＝02H—读取临时控制台标志值</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">BX＝1——操作失败，AX＝错误号(01H)，其含义见错误代码表，否则，调用时，<br>
+      　　　若AL＝00H，则，DS:SI＝系统前导字节表地址；<br>
+      　　　若AL＝02H，则，DL＝临时控制台标志值
+    </td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="65H">(14)、功能</a></font><a name="65H"><font color="#FF00FF" face="Arial">65H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">读取扩展的国家信息</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝65H<br>
+      BX＝代码页(-1＝活跃的CON设备)<br>
+      CX＝接受信息的缓冲区大小<br>
+      DX＝国家标识(-1＝缺省)<br>
+      ES:DI＝接受信息的缓冲区地址
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="6%" valign="top">AL</td>
+          <td width="94%">＝子功能<br>
+            ＝01H——读取一般的国家信息<br>
+            ＝02H——读取指向大写字母表的指针<br>
+            ＝04H——读取指向文件名大写字母表的指针<br>
+            ＝06H——读取指向校对表的指针<br>
+            ＝07H——读取指向DBCS向量的指针</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——操作成功，需要的数据存入调用的缓冲区，否则，AX＝错误号(02H)，其含义见错误代码表</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="66H">(15)、功能</a></font><a name="66H"><font color="#FF00FF" face="Arial">66H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">读取/设置代码页</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝66H<br>
+      AL＝子功能号：01H——读取代码页，02H——选择代码页<br>
+      BX＝选择的代码页(当AL＝02H)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——操作成功，当调用子功能01H时，BX＝活跃的代码页，DX＝缺省的代码页，否则，AX＝错误号(02H或65H)，其含义见错误代码表</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="5D0AH">(16)、功能</a></font><a name="5D0AH"><font color="#FF00FF" face="Arial">5D0AH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">设置扩展的错误信息</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AX＝5D0AH<br>
+      DS:DX＝扩展错误结构的地址，该结构的说明如下：
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="24%" valign="top">EXTEND_ERR&nbsp;</td>
+          <td width="76%">STRUCT<br>
+            RAx　WORD　?　;AX<br>
+            RBx　WORD　?　;BX<br>
+            RCx　WORD　?　; CX<br>    
+            RDx　WORD　?　; DX<br>    
+            RSi　WORD　?　; SI<br>    
+            RDi　WORD　?　; DI<br>    
+            RDs　WORD　?　; DS<br>    
+            REs　WORD　?　; ES<br>    
+            Pad　WORD　3 DUP(0)</td>     
+        </tr>
+        <tr>
+          <td width="24%">EXTEND_ERR</td>
+          <td width="76%">ENDS</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">无</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

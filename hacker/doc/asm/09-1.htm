@@ -1,0 +1,210 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>第9章 宏</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter09.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle09.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    </td>                         
+    <td width="50%">          
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<h1 align="center">第9章 宏</h1>                                                            
+                             
+<p style="text-indent: 21.25pt">宏是程序设计的另一个基本概念，它是把一段程序代码用一个特定标识符(即：宏名)来表示。这样，在编写源程序时，程序员就可以直接使用该标识符来代替一段代码的编写，从而减少了重复代码的编写工作，也为减少错误，提高程序的可维护性提供了帮助。宏在高级语言(如：<font color="#FF0000">C/C++</font>等)也有广泛的使用。</p>  
+<h2>9.1 宏的定义和引用</h2>                                
+<p style="text-indent: 21.25pt">通常情况下，宏是用来代表一个具有特定功能的程序段，它只需在源程序中定义一次，但可在源程序中引用多次。只要在编写程序时需要，就可以直接使用它。</p>  
+<h3><a name="宏的定义">9.1.1 宏的定义</a></h3>                                
+<p style="text-indent: 21.25pt">在使用宏之前必须先定义宏，定义宏一般格式如下：</p>  
+<table border="0" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="7%" rowspan="3" valign="top"></td>  
+    <td width="7%" rowspan="3" valign="top">宏名</td>  
+    <td width="86%" colspan="2"><font color="#FF0000">MACRO</font>　[形参1, 形参2, ……]</td>                                  
+  </tr>   
+  <tr>   
+    <td width="25%">…</td>  
+    <td width="61%">;宏的定义体</td>  
+  </tr>  
+  <tr>  
+    <td width="86%" colspan="2"><font color="#FF0000">ENDM</font></td>  
+  </tr>  
+</table>  
+<p style="text-indent: 21.25pt">在书写宏定义时，必须遵照下列规定：</p>  
+<table border="0" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="6%" rowspan="6" valign="top"></td>  
+    <td width="94%">
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、<font color="#FF0000">MACRO</font>和<font color="#FF0000">ENDM</font>是二个必须成对出现的关键字，它们分别表示宏定义的开始和结束；</td>  
+  </tr>  
+  <tr>  
+    <td width="94%">  
+      <p style="text-indent: -25pt; margin-left: 25pt">
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、<font color="#FF0000">MACRO</font>和<font color="#FF0000">ENDM</font>之间的部分是宏的定义体，它是由指令、伪指令或引用其它宏所组成的程序片段，是宏所包含的具体内容；</td>  
+  </tr>  
+  <tr>  
+    <td width="94%">
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、“宏名”是由程序员指定的一个合法的标识符，它代表该宏；</td>  
+  </tr>  
+  <tr>  
+    <td width="94%">
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、宏名可以与指令助忆符、伪指令名相同。在这种情况下，宏指令优先，而同名的指令或伪指令都失效；</td> 
+  </tr> 
+  <tr> 
+    <td width="94%">
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、在<font color="#FF0000">ENDM</font>的前面不要再写一次宏名，这与段或子程序定义的结束方式有所不同；</td> 
+  </tr> 
+  <tr> 
+    <td width="94%">
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、在宏定义的首部可以列举若干个形式参数，每个参数之间要用逗号分隔。</td> 
+  </tr> 
+</table> 
+<p style="text-indent: 21.25pt">根据上述规定，我们提倡宏名尽可能不要与指令助忆符、伪指令相名，以免引起不必要的误会。</p> 
+<p>例9.1 定义一个把16位数据寄存器压栈的宏。</p>                          
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="6%" rowspan="6" valign="top"></td> 
+    <td width="8%" rowspan="6" valign="top">PUSHR</td> 
+    <td width="86%" colspan="2">  
+MACRO</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">PUSH</td> 
+    <td width="79%">AX</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">PUSH</td> 
+    <td width="79%">  
+BX</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">PUSH</td> 
+    <td width="79%">CX</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">PUSH</td> 
+    <td width="79%">  
+DX</td> 
+  </tr> 
+  <tr> 
+    <td width="86%" colspan="2">ENDM</td> 
+  </tr> 
+</table> 
+<p><a name="例9.2">例9.2</a> 定义二个字存储变量相加的宏。</p>                          
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="6%" rowspan="4" valign="top"></td> 
+    <td width="8%" rowspan="4" valign="top">MADDM</td> 
+    <td width="86%" colspan="2">MACRO　OPRD1, OPRD2</td>                                  
+  </tr>   
+  <tr>   
+    <td width="7%">MOV</td>  
+    <td width="79%">   
+AX, OPRD2</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">ADD</td>  
+    <td width="79%">   
+OPRD1, AX</td>   
+  </tr>   
+  <tr>   
+    <td width="86%" colspan="2">ENDM</td>  
+  </tr>  
+</table>  
+<p style="text-indent: 21.25pt">上述宏定义虽然能满足题目的要求，但由于在定义体中改变了寄存器<font color="#FF0000">AX</font>的值，这就使宏的引用产生了一定的副作用。为了使寄存器<font color="#FF0000">AX</font>的使用变得透明，可把该宏定义改成如下形式：</p>  
+<table border="0" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="6%" rowspan="6" valign="top"></td>  
+    <td width="8%" rowspan="6" valign="top">MADDM</td> 
+    <td width="86%" colspan="2">MACRO　OPRD1, OPRD2</td>                                  
+  </tr>   
+  <tr>   
+    <td width="7%">PUSH</td>  
+    <td width="79%">   
+AX</td>  
+  </tr>  
+  <tr>  
+    <td width="7%">MOV</td>  
+    <td width="79%">   
+AX, OPRD2</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">ADD</td>  
+    <td width="79%">   
+OPRD1, AX</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">POP</td>  
+    <td width="79%">   
+AX</td>  
+  </tr>  
+  <tr>  
+    <td width="86%" colspan="2">ENDM</td>  
+  </tr>  
+</table>  
+<p style="text-indent: 21.25pt">通过在宏定义的开始和结尾分别增加对所用寄存器的保护和恢复指令，就使得：对该宏的任意引用都不会产生任何副作用。</p>  
+                           
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=9&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="08-Exercise.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="09-1-2.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+      
+</body>      
+      
+</html>

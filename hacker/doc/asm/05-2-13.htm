@@ -1,0 +1,96 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>5.2.13 处理器指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter05.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle05.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="05-2.htm">指令系统</a> → 处理器指令</td>                                        
+    <td width="50%">              
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<h3>5.2.13 处理器指令</h3>                             
+<p style="text-indent: 21.25pt">处理器指令是一组控制<font color="#FF0000">CPU</font>工作方式的指令。这组指令的使用频率不高。</p>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、空操作指令NOP(No Operation Instruction)</font></p>                               
+<p style="text-indent: 21.25pt">该指令没有的显式操作数，主要起延迟下一条指令的执行。通常用执行指令“<font color="#FF0000">XCHG     
+AX, AX</font>”来代表它的执行。<font color="#FF0000">NOP</font>指令的执行不影响任何标志位。</p>   
+<p style="margin-left: 40pt">指令的格式：NOP</p>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、<a name="WAIT">等待指令</a>WAIT(Put Processor in Wait State                                
+Instruction)</font></p>     
+<p style="text-indent: 21.25pt">该指令使<font color="#FF0000">CPU</font>处于等待状态，直到协处理器(<font color="#FF0000">Coprocessor</font>)完成运算，并用一个重启信号唤醒<font color="#FF0000">CPU</font>为止。该指令的执行不影响任何标志位。</p>   
+<p style="margin-left: 40pt">指令的格式：WAIT</p>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">3、<a name="HLT">暂停指令</a>HLT(Enter Halt State                                
+Instruction)</font></p>     
+<p style="text-indent: 21.25pt">在等待中断信号时，该指令使<font color="#FF0000">CPU</font>处于暂停工作状态，<font color="#FF0000">CS:IP</font>指向下一条待执行的指令。当产生了中断信号，<font color="#FF0000">CPU</font>把<font color="#FF0000">CS</font>和<font color="#FF0000">IP</font>压栈，并转入中断处理程序。在中断处理程序执行完后，中断返回指令<font color="#FF0000">IRET</font>弹出<font color="#FF0000">IP</font>和<font color="#FF0000">CS</font>，并唤醒<font color="#FF0000">CPU</font>执行下条指令。</p>   
+<p style="margin-left: 40pt">指令的格式：HLT</p>   
+<p style="text-indent: 21.25pt">指令的执行不影响任何标志位。</p>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">4、<a name="LOCK">封锁数据指令</a>LOCK(Lock Bus Instruction)</font></p>                               
+<p style="text-indent: 21.25pt">该指令是一个前缀指令形式，在其后面跟一个具体的操作指令。<font color="#FF0000">LOCK</font>指令可以保证是在其后指令执行过程中，禁止协处理器修改数据总线上的数据，起到独占总线的作用。该指令的执行不影响任何标志位。</p>   
+<p style="margin-left: 40pt">指令的格式：LOCK INSTRUCTION</p>                               
+           
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=5&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="05-2-122.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="05-Exercise.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a> 
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->   
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

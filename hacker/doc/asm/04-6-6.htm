@@ -1,0 +1,137 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>4.6.6 强制属性操作符</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter04.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle04.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="04-56.htm#变量和标号的属性">变量和标号的属性</a>                 
+      → 强制属性操作符</td>                                       
+    <td width="50%">             
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+    
+<h3>4.6.6 强制属性操作符</h3>                             
+<p style="text-indent: 21.25pt">在程序中，我们有时需要对同一个存储单元以不同的属性来访问，或对一些不确定的存储属性需要显式指定等，这时，我们就需要强制属性操作符<font color="#FF0000">PTR</font>。该操作符的作用有点象<font color="#FF0000">C</font>语言中的类型强制方法。</p>   
+<p style="text-indent: 21.25pt">对于指令：MOV [BX], 1H，其目标操作数[BX]是寄存器间接寻址方式，它指向一个存储单元。在作传送操作时，是把“1H”扩展成8位作字节传送，还是扩展成16位作字传送呢？这就使该指令具有二义性，因为[BX]指向的存储单元可以字节或字的首地址。含有该指令的程序在汇编时，可能会产生警告或出错信息。</p>        
+<p style="text-indent: 21.25pt">为了使指令中存储单元操作数具有明确的属性，我们可以使用强制属性操作符<font color="#FF0000">PTR</font>。其一般格式为：</p>   
+<p style="margin-left: 40pt">数据类型　<font color="#FF0000">PTR</font>　地址表达式</p>
+<p>其中：数据类型是前面所学的各种数据类型，常用的数据类型有：<font color="#FF0000">BYTE</font>、<font color="#FF0000">WORD</font>、<font color="#FF0000">DWORD</font>、<font color="#FF0000">NEAR</font>和<font color="#FF0000">FAR</font>等。</p>
+<p style="text-indent: 21.25pt">为了明确指令中存储单元的属性，可把指令“MOV           
+[BX], 1H”可改写成：</p>          
+<p style="margin-left: 40pt">MOV&nbsp; <font color="#FF0000">byte ptr</font> [BX], 1H&nbsp;　　或　　MOV&nbsp;            
+<font color="#FF0000">word             
+ptr</font> [BX], 1H</p>             
+<p style="text-indent: 21.25pt">在指令中用操作符PTR强制后，不管其后的地址表达式原数据类型是什么，在本指令中就以PTR前面的类型为准。该强制属性只在本指令有效，是一种临时性的属性，它不会改变原内存单元的定义属性。</p>   
+<table border="0" width="100%" cellspacing="0" cellpadding="2">   
+  <tr>   
+    <td width="100%" valign="top" colspan="4"><p style="text-indent: 21.25pt">例如：</td>   
+  </tr>   
+  <tr>   
+    <td width="11%" valign="top" rowspan="9"></td>   
+    <td width="7%">W1</td>   
+    <td width="82%" colspan="2">DW　1234H, 5678H</td>             
+  </tr>        
+  <tr>        
+    <td width="7%">B1</td>       
+    <td width="82%" colspan="2">DB　2</td>
+  </tr>
+  <tr>
+    <td width="7%"></td>   
+    <td width="82%" colspan="2">DB　5</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">D1</td>   
+    <td width="82%" colspan="2">DD　23456789H</td>   
+  </tr>   
+  <tr>   
+    <td width="89%" colspan="3">…</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">MOV</td>   
+    <td width="20%"> AX, <font color="#FF0000"> word ptr</font> b1</td>     
+    <td width="62%">;把B1开始的二个字节拼接成一个字，执行后，(AX)=0502H</td>   
+  </tr>   
+  <tr>
+    <td width="7%">MOV</td>   
+    <td width="20%"> BH, <font color="#FF0000"> byte ptr </font> w1&nbsp;</td>               
+    <td width="62%">;把字W1的低字节传送给BH，执行后，(BH)=34H</td>      
+  </tr>   
+  <tr>   
+    <td width="7%">MOV</td>      
+    <td width="20%"> CH, <font color="#FF0000"> byte ptr</font> w1+1</td>        
+    <td width="62%">;把字W1的高字节传送给CH，执行后，(CH)=12H</td>      
+  </tr>   
+  <tr>   
+    <td width="7%">MOV</td>      
+    <td width="20%"><font color="#FF0000"> word</font> <font color="#FF0000"> ptr            
+      </font>d1, 12H&nbsp;</td>               
+    <td width="62%">;把双字D1的低字修改成0012H，执行后，(D1)=23450012H</td>      
+  </tr>   
+</table>      
+<p style="text-indent: 21.25pt">上面指令中的强制属性是临时属性，它不能改变这些变量在定义时的永久属性。</p>   
+                           
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=4&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="04-6-3.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="04-6-7.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                       
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2>                            
+    <option selected value="#">课件章节</option>          
+    <option value="course.htm">课件目录</option>          
+    <option value="01-1.htm">第1章 预备知识</option>                
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>                
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>                
+    <option value="04-1.htm">第4章 标识符和表达式</option>                
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>                
+    <option value="06-1.htm">第6章 程序的基本结构</option>                
+    <option value="07-1.htm">第7章 子程序和库</option>                
+    <option value="08-1.htm">第8章 输入输出和中断</option>                
+    <option value="09-1.htm">第9章 宏</option>                
+    <option value="10-1.htm">第10章 应用程序的设计</option>                
+    <option value="11-1.htm">第11章 数值运算协处理器</option>          
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>          
+  </select></p>             
+                  
+</body>                  
+                  
+</html>                  

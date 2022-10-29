@@ -1,0 +1,522 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>汇编语言网络课件目录</title>
+<base target="main">
+<link rel=stylesheet href="Assember.css">
+</head>
+
+<body background="Appendix/image/background.gif">
+<p style="LINE-HEIGHT: 100%; MARGIN-LEFT: 0px; MARGIN-TOP: 10px">
+<SCRIPT LANGUAGE=javascript>
+<!--
+
+NS4 = (document.layers) ? 1 : 0;
+IE4 = (document.all) ? 1 : 0;
+ver4 = (NS4 || IE4) ? 1 : 0;
+
+function arrange() {
+    nextY = document.layers[firstInd].pageY +document.layers[firstInd].document.height;
+    for (i = firstInd+1; i < document.layers.length; i++) {
+        whichEl = document.layers[i];
+        if (whichEl.visibility != "hide") {
+            whichEl.pageY = nextY;
+            nextY += whichEl.document.height;
+        }
+    }
+}
+
+function expandIt(el) {
+	if (!ver4) return;
+
+	img = eval("img"+el);
+	temp = img.src;
+	len = temp.length;
+	temp = temp.substring(len-10,len-4);
+	if (temp == "fclose") img.src = "images\\fopens.gif";
+	else if (temp == "fopens") img.src = "images\\fclose.gif";
+	else if (temp == "closed") img.src = "images\\fopend.gif";
+	else img.src = "images\\closed.gif";
+
+	if (IE4) {classname = "M" + el;
+			  len = classname.length
+			  divColl = document.all.tags("DIV");
+			  for (i=0; i < divColl.length; i++) {
+                  whichEl = divColl(i);
+                  TClassName = whichEl.className
+                  k = TClassName.length;
+				  if (k >len && TClassName.substring(0,len)==classname)
+				     {if (whichEl.style.display == "block") whichEl.style.display = "none";
+					  else if (k == len+1) whichEl.style.display = "block";
+					  
+					  img = eval("img" + TClassName.substring(7,k));
+					  temp = img.src;
+					  k = temp.length;
+					  temp = temp.substring(k-10,k-4);
+					  if (temp == "fopens") img.src = "images\\fclose.gif";
+					  else if (temp == "fopend") img.src = "images\\closed.gif";
+					 }
+	             }
+	         }
+    else {whichEl = eval("document." + "M" + el);
+		  for(i=1;i<=document.layers.length;i++){
+			  whichEl = eval("document." + scores[i] + "Child");
+			  if(whichEl!=whichEl1) whichEl.visibility = "hide";
+			 }
+          if (whichEl.visibility == "hide") whichEl.visibility = "show";
+          else whichEl.visibility = "hide";
+
+          arrange();
+	     };
+}
+
+function killErrors() {
+  return true;
+}
+
+window.onerror = killErrors;
+
+// -->
+</SCRIPT>
+
+<center><font color=red size=7>&nbsp;<br>&nbsp;<br>汇 编 语 言<br><br>&nbsp;<br>&nbsp;<br></font>
+<b>来自网上: </b><a href=http://www.mdjx.net/course/hep/huibianyuyan/course.htm>http://www.mdjx.net/course/hep/huibianyuyan/course.htm</a><br>&nbsp;<br>
+</center>
+    <TABLE border=0 cellPadding=0 cellSpacing=0 width=230>
+  <TBODY>
+  <TR>
+    <TD width="230">
+<a href="Assember.htm" target="main">课程介绍</a>
+<div id='M01' class='M01'><A href="#" onclick="expandIt('01'); return false">
+<IMG border=0 id=img01 src="images/fclose.gif" width=32></A><a href="chapter01.htm" target="main">第1章 预备知识</a></div> 
+<div id='M011' class='M011' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('011'); return false"><IMG border=0  id=img011 src="images/fclose.gif" width=32></A><a href="01-1.htm" target="_top">1.1 汇编语言的由来及其特点</a> 
+</div>
+<div id='M0111' class='M0111' style="DISPLAY: none">
+　　<IMG border=0 id=img0111 src="images/fmid.gif" width=32><a href="01-1.htm" target="_top">1 机器语言</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="01-1.htm#汇编语言" target="_top">2 汇编语言</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width="32"><a href="01-1.htm#汇编程序" target="_top">3 汇编程序</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="01-1-4.htm" target="_top">4 汇编语言的主要特点</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="01-1-5.htm" target="_top">5 汇编语言的使用领域</a> 
+</div>
+<div id='M012' class='M012' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('012'); return false"><IMG border=0 id=img012 src="images/closed.gif" width=32></A><a href="01-2.htm" target="_top">1.2 数据的表示和类型</a> 
+</div>
+<div id='M0121' class='M0121' style="DISPLAY: none">
+　　<IMG border=0 id=img0121 src="images/fmid.gif" width=32><A href="01-2.htm" target=_top>1 数值数据的表示</A><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="01-2-2.htm" target="_top">2 非数值数据的表示</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="01-2-3.htm" target="_top">3 基本的数据类型</a> 
+</div>
+<div id='M013' class='M013' style="DISPLAY: none">
+　<IMG border=0 id=img013 src="images/fend.gif" width=32><a href="01-Exercise.htm" target="_top">1.3 习题</a> 
+</div>
+<div id='M02' class='M02'><A href="#" onclick="expandIt('02'); return false">
+<IMG border=0 id=img02 src="images/fclose.gif" width=32></A><a href="chapter02.htm" target="main">第2章 CPU资源和存储器</a></div> 
+<div id='M021' class='M021' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('021'); return false"><IMG border=0 id=img021 src="images/fclose.gif" width=32></A><a href="02-1-1.htm" target="_top">2.1 寄存器组</a> 
+</div>
+<div id='M0211' class='M0211' style="DISPLAY: none">
+　　<IMG border=0 id=img0211 src="images/fmid.gif" width="32"><a href="02-1.htm#REGISTERS" target="_top">1 寄存器组</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="02-1-1.htm" target="_top">2 通用寄存器的作用</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="02-1-2.htm" target="_top">3 专用寄存器的作用</a> 
+</div>
+<div id='M022' class='M022' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('022'); return false"><IMG border=0 id=img022 src="images/fclose.gif" width=32></A><a href="02-2.htm" target="_top">2.2 存储器的管理模式</a> 
+</div>
+<div id='M0221' class='M0221' style="DISPLAY: none">
+　　<IMG border=0 id=img0221 src="images/fmid.gif" width=32><a href="02-2.htm" target="_top">1 16位微机的内存管理模式</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="02-2-4.htm" target="_top">2 32位微机的内存管理模式</a> 
+</div>
+<div id='M023' class='M023' style="DISPLAY: none">
+　<IMG border=0 id=img023 src="images/fend.gif" width="32"><a href="02-Exercise.htm" target="_top">2.3 习题</a> 
+</div>
+<div id='M03' class='M03'><A href="#" onclick="expandIt('03'); return false">
+<IMG border=0 id=img03 src="images/fclose.gif" width=32></A><a href="chapter03.htm" target="main">第3章 操作数的寻址方式</a></div> 
+<div id='M031' class='M031' style="DISPLAY: none">
+　<IMG border=0 id=img031 src="images/fmid.gif" width=32><a href="03-1.htm" target="_top">3.1 立即寻址方式</a><br> 
+　<IMG border=0 src="images/fmid.gif" width=32><a href="03-2.htm" target="_top">3.2 寄存器寻址方式</a><br> 
+　<IMG border=0 src="images/fmid.gif" width=32><a href="03-3.htm" target="_top">3.3 直接寻址方式</a><br> 
+　<IMG border=0 src="images/fmid.gif" width=32><a href="03-4.htm" target="_top">3.4 寄存器间接寻址方式</a><br> 
+　<IMG border=0 src="images/fmid.gif" width=32><a href="03-5.htm" target="_top">3.5 寄存器相对寻址方式</a><br> 
+　<IMG border=0 src="images/fmid.gif" width=32><a href="03-6.htm" target="_top">3.6 基址加变址寻址方式</a><br> 
+　<IMG border=0 src="images/fmid.gif" width="32"><a href="03-7.htm" target="_top">3.7 相对基址加变址寻址方式</a><br> 
+　<IMG border=0 src="images/fmid.gif" width=32><a href="03-8.htm" target="_top">3.8 32位地址的寻址方式</a><br> 
+　<IMG border=0 src="images/fmid.gif" width=32><a href="03-8.htm#寻址方式的小结" target="_top">3.9 操作数寻址方式的小结<br> 
+</a>
+　<IMG border=0 src="images/fend.gif" width=32><a href="03-Exercise.htm" target="_top">3.10 习题</a> 
+</div>
+<div id='M04' class='M04'><A href="#" onclick="expandIt('04'); return false">
+<IMG border=0 id=img04 src="images/fclose.gif" width=32></A><a href="chapter04.htm" target="main">第4章 标识符和表达式</a> 
+</div>
+<div id='M041' class='M041' style="DISPLAY: none">
+　<IMG border=0 id=img041 src="images/fmid.gif" width=32><a href="04-1.htm" target="_top">4.1 标识符</a> 
+</div>
+<div id='M042' class='M042' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('042'); return false"><IMG border=0 id=img042 src="images/fclose.gif" width=32></A><a href="04-1.htm#简单变量的定义" target="_top">4.2 简单内存变量的定义</a> 
+</div>
+<div id='M0421' class='M0421' style="DISPLAY: none">
+　　<IMG border=0 id=img0421 src="images/fmid.gif" width=32><a href="04-1.htm#变量定义的形式" target="_top">1 内存变量定义的一般形式</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-2-2.htm" target="_top">2 字节变量</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width="32"><a href="04-2-3.htm" target="_top">3 字变量</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-2-3.htm#DD">4 双字变量</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-2-4.htm" target="_top">5 六字节变量</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-2-4.htm#DQ" target="_top">6 八字节变量</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="04-2-4.htm#DT" target="_top">7 十字节变量</a> 
+</div>
+<div id='M043' class='M043' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('043'); return false"><IMG border=0 id=img043 src="images/fclose.gif" width=32></A><a href="04-3.htm" target="_top">4.3 调整偏移量伪指令</a> 
+</div>
+<div id='M0431' class='M0431' style="DISPLAY: none">
+　　<IMG border=0 id=img0431 src="images/fmid.gif" width=32><a href="04-3.htm" target="_top">1 偶对齐伪指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-3.htm#ALIGN" target="_top">2 对齐伪指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-3-3.htm" target="_top">3 调整偏移量伪指令</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="04-3-3.htm#偏移量计数器的值" target="_top">4 偏移量计数器的值</a> 
+</div>
+<div id='M044' class='M044' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('044'); return false"><IMG border=0 id=img044 src="images/fclose.gif" width=32></A><a href="04-4.htm" target="_top">4.4 复合内存变量的定义</a> 
+</div>
+<div id='M0441' class='M0441' style="DISPLAY: none">
+　　<IMG border=0 id=img0441 src="images/fmid.gif" width=32><a href="04-4.htm" target="_top">1 重复说明符</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-4-2.htm" target="_top">2 结构类型的定义</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-4-3.htm" target="_top">3 联合类型的定义</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-4-4.htm" target="_top">4 记录类型的定义</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="04-4-5.htm" target="_top">5 数据类型的自定义</a> 
+</div>
+<div id='M045' class='M045' style="DISPLAY: none">
+　<IMG border=0 id=img045 src="images/fmid.gif" width=32><a href="04-56.htm" target="_top">4.5 标号</a> 
+</div>
+<div id='M046' class='M046' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('046'); return false"><IMG border=0 id=img046 src="images/fclose.gif" width=32></A><a href="04-56.htm#变量和标号的属性" target="_top">4.6 内存变量和标号的属性</a> 
+</div>
+<div id='M0461' class='M0461' style="DISPLAY: none">
+　　<IMG border=0 id=img0461 src="images/fmid.gif" width=32><a href="04-56.htm#SEG" target="_top">1 段属性操作符</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-56.htm#OFFSET" target="_top">2 偏移量属性操作符</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-6-3.htm" target="_top">3 类型属性操作符</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-6-3.htm#length" target="_top">4 长度属性操作符</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-6-3.htm#size" target="_top">5 容量属性操作符</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-6-6.htm" target="_top">6 强制属性操作符</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="04-6-7.htm" target="_top">7 存储单元别名操作符</a> 
+</div>
+<div id='M047' class='M047' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('047'); return false"><IMG border=0 id=img047 src="images/fclose.gif" width=32></A><a href="04-7.htm" target="_top">4.7 表达式</a> 
+</div>
+<div id='M0471' class='M0471' style="DISPLAY: none">
+　　<IMG border=0 id=img0471 src="images/fmid.gif" width=32><a href="04-7.htm" target="_top">1 进制伪指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-7-1.htm" target="_top">2 数值表达式</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="04-7-2.htm" target="_top">3 地址表达式</a> 
+</div>
+<div id='M048' class='M048' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('048'); return false"><IMG border=0 id=img048 src="images/fclose.gif" width=32></A><a href="04-8.htm" target="_top">4.8 符号定义语句</a> 
+</div>
+<div id='M0481' class='M0481' style="DISPLAY: none">
+　　<IMG border=0 id=img0481 src="images/fmid.gif" width=32><a href="04-8.htm" target="_top">1 等价语句</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="04-8-1.htm" target="_top">2 等号语句</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="04-8-1.htm#LABEL" target="_top">3 符号名定义语句</a> 
+</div>
+<div id='M049' class='M049' style="DISPLAY: none">
+　<IMG border=0 id=img049 src="images/fend.gif" width=32><a href="04-Exercise.htm" target="_top">4.9 习题</a> 
+</div>
+<div id='M05' class='M05'><A href="#" onclick="expandIt('05'); return false"><IMG border=0 id=img05 src="images/fclose.gif" width=32></A><a href="chapter05.htm" target="main">第5章 微机CPU的指令系统</a> 
+</div>
+<div id='M051' class='M051' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('051'); return false"><IMG border=0 id=img051 src="images/fclose.gif" width=32></A><a href="05-1.htm" target="_top">5.1 汇编语言指令格式</a> 
+</div>
+<div id='M0511' class='M0511' style="DISPLAY: none">
+　　<IMG border=0 id=img0511 src="images/fmid.gif" width=32><a href="05-1.htm" target="_top">1 指令格式</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="05-1.htm#Aspect" target="_top">2 了解指令的几个方面</a> 
+</div>
+<div id='M052' class='M052' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('052'); return false"><IMG border=0 id=img052 src="images/fclose.gif" width=32></A><a href="05-2.htm" target="_top">5.2 指令系统</a> 
+</div>
+<div id='M0521' class='M0521' style="DISPLAY: none">
+　　<IMG border=0 id=img0521 src="images/fmid.gif" width=32><a href="05-2.htm" target="_top">1 数据传送指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="05-2-02.htm" target="_top">2 标志位操作指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="05-2-03.htm" target="_top">3 算术运算指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="05-2-04.htm" target="_top">4 逻辑运算指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><A href="05-2-05.htm" target="_top">5 移位操作指令</A><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="05-2-06.htm" target="_top">6 位操作指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="05-2-07.htm" target="_top">7 比较运算指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="05-2-08.htm" target="_top">8 循环指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="05-2-09.htm" target="_top">9 转移指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="05-2-10.htm" target="_top">10 条件设置字节指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="05-2-11.htm" target="_top">11 字符串操作指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="05-2-12.htm" target="_top">12  
+ASCII-BCD码调整指令</a><br>
+　　<IMG border=0 src="images/fend.gif" width=32><a href="05-2-13.htm" target="_top">13 处理器指令</a> 
+</div>
+<div id='M053' class='M053' style="DISPLAY: none">
+　<IMG border=0 id=img053 src="images/fend.gif" width=32><a href="05-Exercise.htm" target="_top">5.3 习题</a> 
+</div>
+
+<div id='M06' class='M06'><A href="#" onclick="expandIt('06'); return false">
+<IMG border=0 id=img06 src="images/fclose.gif" width=32></A><a href="chapter06.htm" target="main">第6章 程序的基本结构</a> 
+</div>
+<div id='M061' class='M061' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('061'); return false"><IMG border=0 id=img061 src="images/fclose.gif" width=32></A><a href="06-1.htm" target="_top">6.1 程序的基本组成</a> 
+</div>
+<div id='M0611' class='M0611' style="DISPLAY: none">
+　　<IMG border=0 id=img0611 src="images/fmid.gif" width=32><a href="06-1.htm" target="_top">1 段的定义</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="06-1-2.htm" target="_top">2 段寄存器的说明语句</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="06-1-3.htm" target="_top">3 堆栈段的说明</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="06-1-4.htm" target="_top">4 源程序的结构</a> 
+</div>
+<div id='M062' class='M062' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('062'); return false"><IMG border=0 id=img062 src="images/fclose.gif" width="32"></A><a href="06-2-1.htm" target="_top">6.2 程序的基本结构</a> 
+</div>
+<div id='M0621' class='M0621' style="DISPLAY: none">
+　　<IMG border=0 id=img0621 src="images/fmid.gif" width=32><a href="06-2-1.htm" target="_top">1 顺序结构</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="06-2-2.htm" target="_top">2 分支结构</a><br> 
+　　<IMG border=0 src="images/fend.gif" width="32"><a href="06-2-3.htm" target="_top">3 循环结构</a> 
+</div>
+<div id='M063' class='M063' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('063'); return false"><IMG border=0 id=img063 src="images/fclose.gif" width=32></A><a href="06-3-1.htm" target="_top">6.3 段的基本属性</a> 
+</div>
+<div id='M0631' class='M0631' style="DISPLAY: none">
+　　<IMG border=0 id=img0631 src="images/fmid.gif" width=32><a href="06-3-1.htm#ALIGN" target="_top">1 对齐类型</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="06-3-1.htm#COMBINE" target="_top">2 组合类型</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="06-3-2.htm" target="_top">3 类别</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="06-3-2.htm#GROUP" target="_top">4 段组</a> 
+</div>
+<div id='M064' class='M064' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('064'); return false"><IMG border=0 id=img064 src="images/fclose.gif" width=32></A><a href="06-4.htm" target="_top">6.4 简化的段定义</a> 
+</div>
+<div id='M0641' class='M0641' style="DISPLAY: none">
+　　<IMG border=0 id=img0641 src="images/fmid.gif" width=32><a href="06-4.htm" target="_top">1 存储模型说明伪指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="06-4-2.htm" target="_top">2 简化段定义伪指令</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="06-4-3.htm" target="_top">3 简化段段名的引用</a> 
+</div>
+<div id='M065' class='M065' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('065'); return false"><IMG border=0 id=img065 src="images/fclose.gif" width=32></A><a href="06-5.htm" target="_top">6.5 源程序的辅助说明伪指令</a> 
+</div>
+<div id='M0651' class='M0651' style="DISPLAY: none">
+　　<IMG border=0 id=img0651 src="images/fmid.gif" width=32><a href="06-5.htm" target="_top">1 模块名定义伪指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="06-5.htm#PAGE" target="_top">2 页面定义伪指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="06-5.htm#TITLE" target="_top">3 标题定义伪指令</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="06-5.htm#SUBTTL" target="_top">4 子标题定义伪指令</a> 
+</div>
+<div id='M066' class='M066' style="DISPLAY: none">
+　<IMG border=0 id=img066 src="images/fend.gif" width=32><a href="06-Exercise.htm" target="_top">6.6 习题</a> 
+</div>
+
+<div id='M07' class='M07'><A href="#" onclick="expandIt('07'); return false">
+<IMG border=0 id=img07 src="images/fclose.gif" width=32></A><a href="chapter07.htm" target="main">第7章 子程序和库</a> 
+</div>
+<div id='M071' class='M071' style="DISPLAY: none">
+　<IMG border=0 id=img071 src="images/fmid.gif" width=32><a href="07-1.htm" target="_top">7.1 子程序的定义</a> 
+</div>
+<div id='M072' class='M072' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('072'); return false"><IMG border=0 id=img072 src="images/fclose.gif" width=32></A><a href="07-2.htm" target="_top">7.2 子程序的调用和返回指令</a> 
+</div>
+<div id='M0721' class='M0721' style="DISPLAY: none">
+　　<IMG border=0 id=img0721 src="images/fmid.gif" width=32><a href="07-2.htm" target="_top">1 调用指令</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="07-2-2.htm" target="_top">2 返回指令</a> 
+</div>
+<div id='M073' class='M073' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('073'); return false"><IMG border=0 id=img073 src="images/fclose.gif" width=32></A><a href="07-3.htm" target="_top">7.3 子程序的参数传递</a> 
+</div>
+<div id='M0731' class='M0731' style="DISPLAY: none">
+　　<IMG border=0 id=img0731 src="images/fmid.gif" width=32><a href="07-3.htm" target="_top">1 寄存器传递参数</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="07-3-2.htm" target="_top">2 存储单元传递参数</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="07-3-3.htm" target="_top">3 堆栈传递参数</a> 
+</div>
+<div id='M074' class='M074' style="DISPLAY: none">
+　<IMG border=0 id=img074 src="images/fmid.gif" width=32><a href="07-4.htm" target="_top">7.4 寄存器的保护与恢复</a> 
+</div>
+<div id='M075' class='M075' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('075'); return false"><IMG border=0 id=img075 src="images/closed.gif" width=32></A><a href="07-5-01.htm" target="_top">7.5 子程序的完全定义</a> 
+</div>
+<div id='M0751' class='M0751' style="DISPLAY: none">
+　　<IMG border=0 id=img0751 src="images/fmid.gif" width=32><a href="07-5-01.htm" target="_top">1 子程序完全定义格式</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="07-5-02.htm" target="_top">2 子程序的位距</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="07-5-02.htm#Language" target="_top">3 子程序的语言类型</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="07-5-04.htm" target="_top">4 子程序的可见性</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="07-5-04.htm#起始和结束操作" target="_top">5 子程序的起始和结束操作</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="07-5-06.htm" target="_top">6 寄存器的保护和恢复</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="07-5-07.htm" target="_top">7 子程序的参数传递</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="07-5-07.htm#proto" target="_top">8 子程序的原型说明</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="07-5-09.htm" target="_top">9 子程序的调用伪指令</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="07-5-10.htm" target="_top">10 局部变量的定义</a> 
+</div>
+<div id='M076' class='M076' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('076'); return false"><IMG border=0 id=img076 src="images/closed.gif" width=32></A><a href="07-6.htm" target="_top">7.6 子程序库</a> 
+</div>
+<div id='M0761' class='M0761' style="DISPLAY: none">
+　　<IMG border=0 id=img0761 src="images/fmid.gif" width=32><a href="07-6.htm" target="_top">1 建立库文件命令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="07-6.htm#example" target="_top">2 建立库文件举例</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="07-6-3.htm" target="_top">3 库文件的应用</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="07-6-4.htm" target="_top">4 库文件的好处</a> 
+</div>
+<div id='M077' class='M077' style="DISPLAY: none">
+　<IMG border=0 id=img077 src="images/fend.gif" width=32><a href="07-Exercise.htm" target="_top">7.7 习题</a> 
+</div>
+
+<div id='M08' class='M08'><A href="#" onclick="expandIt('08'); return false">
+<IMG border=0 id=img08 src="images/fclose.gif" width=32></A><a href="chapter08.htm" target="main">第8章 输入输出和中断</a> 
+</div>
+<div id='M081' class='M081' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('081'); return false"><IMG border=0 id=img081 src="images/fclose.gif" width="32"></A><a href="08-1.htm" target="_top">8.1 输入输出的基本概念</a> 
+</div>
+<div id='M0811' class='M0811' style="DISPLAY: none">
+　　<IMG border=0 id=img0811 src="images/fmid.gif" width=32><a href="08-1.htm#I/O地址" target="_top">1 I/O端口地址</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="08-1-1.htm" target="_top">2 I/O指令</a> 
+</div>
+<div id='M082' class='M082' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('082'); return false"><IMG border=0 id=img082 src="images/fclose.gif" width="32"></A><a href="08-2.htm" target="_top">8.2 中断</a> 
+</div>
+<div id='M0821' class='M0821' style="DISPLAY: none">
+　　<IMG border=0 id=img0821 src="images/fmid.gif" width=32><a href="08-2.htm" target="_top">1 中断的基本概念</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="08-2-2.htm" target="_top">2 中断指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="08-2-3.htm" target="_top">3 中断返回指令</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="08-2-3.htm#中断和子程序" target="_top">4 中断和子程序</a> 
+</div>
+<div id='M083' class='M083' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('083'); return false"><IMG border=0 id=img083 src="images/fclose.gif" width=32></A><a href="08-3.htm" target="_top">8.3 中断的分类</a> 
+</div>
+<div id='M0831' class='M0831' style="DISPLAY: none">
+　　<IMG border=0 id=img0831 src="images/fmid.gif" width=32><a href="08-3-1.htm" target="_top">1 键盘输入的中断功能</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="08-3-2.htm" target="_top">2 屏幕显示的中断功能</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="08-3-3.htm" target="_top">3 打印输出的中断功能</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="08-3-4.htm" target="_top">4 串行通信口的中断功能</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="08-3-5.htm" target="_top">5 鼠标的中断功能</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="08-3-6.htm" target="_top">6 目录和文件的中断功能</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="08-3-7.htm" target="_top">7 内存管理的中断功能</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="08-3-7.htm#中断向量" target="_top">8 读取和设置中断向量</a> 
+</div>
+<div id='M084' class='M084' style="DISPLAY: none">
+　<IMG border=0 id=img084 src="images/fend.gif" width=32><a href="08-Exercise.htm" target="_top">8.4 习题</a> 
+</div>
+
+<div id='M09' class='M09'><A href="#" onclick  ="expandIt('09'); return false">
+<IMG border=0 id=img09 src="images/fclose.gif" width=32></A><a href="chapter09.htm" target="main">第9章 宏</a></div> 
+<div id='M091' class='M091' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('091'); return false"><IMG border=0 id=img091 src="images/fclose.gif" width=32></A><a href="09-1.htm" target="_top">9.1 宏的定义和引用</a> 
+</div>
+<div id='M0911' class='M0911' style="DISPLAY: none">
+　　<IMG border=0 id=img0911 src="images/fmid.gif" width=32><a href="09-1.htm" target="_top">1 宏的定义</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="09-1-2.htm" target="_top">2 宏的引用</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="09-1-2.htm#PARA" target="_top">3 宏的参数传递方式</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="09-1-4.htm" target="_top">4 宏的嵌套定义</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="09-1-5.htm" target="_top">5 宏与子程序的区别</a> 
+</div>
+<div id='M092' class='M092' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('092'); return false"><IMG border=0 id=img092 src="images/fclose.gif" width=32></A><a href="09-2-1.htm" target="_top">9.2 宏参数的特殊运算符</a> 
+</div>
+<div id='M0921' class='M0921' style="DISPLAY: none">
+　　<IMG border=0 id=img0921 src="images/fmid.gif" width=32><a href="09-2-1.htm" target="_top">1 连接运算符</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="09-2-1.htm#STRING" target="_top">2 字符串整体传递运算符</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="09-2-3.htm" target="_top">3 字符转义运算符</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="09-2-3.htm#calc" target="_top">4 计算表达式运算符</a> 
+</div>
+<div id='M093' class='M093' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('093'); return false"><IMG border=0 id=img093 src="images/fclose.gif" width=32></A><a href="09-3.htm" target="_top">9.3 与宏有关的伪指令</a> 
+</div>
+<div id='M0931' class='M0931' style="DISPLAY: none">
+　　<IMG border=0 id=img0931 src="images/fmid.gif" width=32><a href="09-3.htm" target="_top">1 局部标号伪指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="09-3-3.htm" target="_top">2 取消宏定义伪指令</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="09-3-3.htm#exitm" target="_top">3 中止宏扩展伪指令</a> 
+</div>
+<div id='M094' class='M094' style="display: none">
+　<A href="#" onclick="expandIt('094'); return false"><IMG border=0 id=img094 src="images/fclose.gif" width=32></A><a href="09-4.htm" target="_top">9.4 重复汇编伪指令</a> 
+</div>
+<div id='M0941' class='M0941' style="DISPLAY: none">
+　　<IMG border=0 id=img0941 src="images/fmid.gif" width="32"><a href="09-4.htm" target="_top">1 伪指令REPT</a><br>
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="09-4-2.htm" target="_top">2 伪指令IRP</a><br>
+　　<IMG border=0 src="images/fend.gif" width=32><a href="09-4-2.htm#IRPC" target="_top">3 伪指令IRPC</a> 
+</div>
+<div id='M095' class='M095' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('095'); return false"><IMG border=0 id=img095 src="images/fclose.gif" width=32></A><a href="09-5.htm" target="_top">9.5 条件汇编伪指令</a> 
+</div>
+<div id='M0951' class='M0951' style="DISPLAY: none">
+　　<IMG border=0 id=img0951 src="images/fmid.gif" width=32><a href="09-5.htm" target="_top">1 条件汇编伪指令的功能</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="09-5.htm#Example" target="_top">2 条件汇编伪指令的举例</a> 
+</div>
+<div id='M096' class='M096' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('096'); return false"><IMG border=0 id=img096 src="images/fclose.gif" width=32></A><a href="09-6.htm" target="_top">9.6 宏的扩充</a> 
+</div>
+<div id='M0961' class='M0961' style="DISPLAY: none">
+　　<IMG border=0 id=img0961 src="images/fmid.gif" width=32><a href="09-6.htm#FORM" target="_top">1 宏定义形式</a><br>
+　　<IMG border=0 id=img0961 src="images/fmid.gif" width=32><a href="09-6.htm#REPEAT" target="_top">2 重复伪指令REPEAT</a><br>
+　　<IMG border=0 id=img0961 src="images/fmid.gif" width=32><a href="09-6.htm#WHILE" target="_top">3 循环伪指令WHILE</a><br>
+　　<IMG border=0 id=img0961 src="images/fmid.gif" width=32><a href="09-6-4.htm" target="_top">4 循环伪指令FOR</a><br>
+　　<IMG border=0 id=img0961 src="images/fmid.gif" width=32><a href="09-6-4.htm#FORC" target="_top">5 循环伪指令FORC</a><br>
+　　<IMG border=0 id=img0961 src="images/fmid.gif" width=32><a href="09-6-6.htm" target="_top">6 转移伪指令GOTO</a><br>
+　　<IMG border=0 id=img0961 src="images/fmid.gif" width=32><a href="09-6-6.htm#Example" target="_top">7 宏扩充的举例</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="09-6-8.htm" target="_top">8 系统定义的宏</a> 
+</div>
+<div id='M097' class='M097' style="DISPLAY: none">
+　<IMG border=0 id=img097 src="images/fend.gif" width=32><a href="09-Exercise.htm" target="_top">9.7 习题</a> 
+</div>
+
+<div id='M10' class='M10'><A href="#" onclick  ="expandIt('10'); return false">
+<IMG border=0 id=img10 src="images/fclose.gif" width=32></A><a href="chapter10.htm" target="main">第10章 应用程序的设计</a></div> 
+<div id='M101' class='M101' style="DISPLAY: none">
+　<IMG border=0 id=img101 src="images/fmid.gif" width=32><a href="10-1.htm" target="_top">10.1 字符串的处理程序</a><br> 
+　<IMG border=0 src="images/fmid.gif" width=32><a href="10-2.htm" target="_top">10.2 数据的分类统计程序</a><br> 
+　<IMG border=0 src="images/fmid.gif" width=32><a href="10-3.htm" target="_top">10.3 数据转换程序</a><br> 
+　<IMG border=0 src="images/fmid.gif" width=32><a href="10-4.htm" target="_top">10.4 文件操作程序</a><br> 
+　<IMG border=0 src="images/fmid.gif" width=32><a href="10-5.htm" target="_top">10.5 动态数据的编程</a><br> 
+　<IMG border=0 src="images/fmid.gif" width=32><a href="10-6.htm" target="_top">10.6 COM文件的编程</a><br> 
+　<IMG border=0 src="images/fmid.gif" width=32><a href="10-7.htm" target="_top">10.7 驻留程序</a> 
+</div>
+<div id='M108' class='M108' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('108'); return false"><IMG border=0 id=img108 src="images/fclose.gif" width=32></A><a href="10-8.htm" target="_top">10.8 程序段前缀及其应用</a> 
+</div>
+<div id='M1081' class='M1081' style="DISPLAY: none">
+　　<IMG border=0 id=img1081 src="images/fmid.gif" width=32><a href="10-8.htm" target="_top">1 程序段前缀的字段含义</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="10-8-2.htm" target="_top">2 程序段前缀的应用</a> 
+</div>
+<div id='M109' class='M109' style="DISPLAY: none">
+　<IMG border=0 id=img109 src="images/fend.gif" width=32><a href="10-Exercise.htm" target="_top">10.9 习题</a> 
+</div>
+
+<div id='M11' class='M11'><A href="#" onclick="expandIt('11'); return false">
+<IMG border=0 id=img11 src="images/fclose.gif" width=32></A><a href="chapter11.htm" target="main">第11章 数值运算协处理器</a></div> 
+<div id='M111' class='M111' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('111'); return false"><IMG border=0 id=img111 src="images/fclose.gif" width=32></A><a href="11-1.htm" target="_top">11.1 协处理器的数据格式</a> 
+</div>
+<div id='M1111' class='M1111' style="DISPLAY: none">
+　　<IMG border=0 id=img1111 src="images/fmid.gif" width=32><a href="11-1.htm" target="_top">1 有符号整数</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="11-1.htm#BCD码数据" target="_top">2 BCD码数据</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="11-1-1.htm" target="_top">3 浮点数</a> 
+</div>
+<div id='M112' class='M112' style="DISPLAY: none">
+　<IMG border=0 id=img112 src="images/fmid.gif" width=32><a href="11-2.htm" target="_top">11.2 协处理器的结构</a> 
+</div>
+<div id='M113' class='M113' style="DISPLAY: none">
+　<A href="#" onclick="expandIt('113'); return false"><IMG border=0 id=img113 src="images/fclose.gif" width=32></A><a href="11-3.htm" target="_top">11.3 协处理器的指令系统</a> 
+</div>
+<div id='M1131' class='M1131' style="DISPLAY: none">
+　　<IMG border=0 id=img1131 src="images/fmid.gif" width=32><a href="11-3.htm" target="_top">1 操作符的命名规则</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="11-3.htm#数据传送指令" target="_top">2 数据传送指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="11-3-3.htm" target="_top">3 数学运算指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="11-3-4.htm" target="_top">4 比较运算指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="11-3-4.htm#超越函数运算指令" target="_top">5 超越函数运算指令</a><br> 
+　　<IMG border=0 src="images/fmid.gif" width=32><a href="11-3-4.htm#常数操作指令" target="_top">6 常数操作指令</a><br> 
+　　<IMG border=0 src="images/fend.gif" width=32><a href="11-3-7.htm" target="_top">7 协处理器控制指令</a> 
+</div>
+<div id='M114' class='M114' style="DISPLAY: none">
+　<IMG border=0 id=img114 src="images/fmid.gif" width=32><a href="11-4.htm" target="_top">11.4 协处理器的编程举例</a> 
+<br>
+　<IMG border=0 src="images/fend.gif" width=32><a href="11-Exercise.htm" target="_top">11.5 习题</a> 
+</div>
+
+<div id='M12' class='M12'><A href="#" onclick="expandIt('12'); return false">
+<IMG border=0 id=img12 src="images/fclose.gif" width=32></A><a href="chapter12.htm" target="main">第12章 汇编语言和C语言</a></div> 
+<div id='M121' class='M121' style="DISPLAY: none">
+　<IMG border=0 id=img121 src="images/fmid.gif" width=32><a href="12-1.htm" target="_top">12.1 汇编语言的嵌入</a><br> 
+　<IMG border=0 src="images/fmid.gif" width=32><a href="12-2.htm" target="_top">12.2 C语言程序的汇编输出</a><br>
+　<IMG border=0 src="images/fmid.gif" width=32><a href="12-3.htm" target="_top">12.3 一个具体的例子</a><br>
+　<IMG border=0 src="images/fend.gif" width=32><a href="12-Exercise.htm" target="_top">12.4 习题</a>
+</div>
+<div id='M13' class='M13'>
+<IMG border=0 id=img13 src="images/fend.gif" width=32><a href="appendix.htm" target="main">附录</a></div>
+
+</TD></TR>
+  </TBODY></TABLE>
+<br><p align=right>
+本帮助文件由<font color=red> 怜香 </font>制作<br>
+欢迎访问<a href=http://www.aogosoft.com><font color=red>AoGo汇编网站</font></a><br>
+2004/4/22</p>
+<center><font size=1>建议在 1024×768 或以上分辨率下使用</font></center>
+</body>
+</html>

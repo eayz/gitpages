@@ -1,0 +1,343 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>12.3 简单的屏幕编辑程序 </title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter12.js"></script>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+function Address1_onmouseover() {
+	Address1.src="TextbookIMG\\03-1-d.gif" 
+}
+
+function Address1_onmouseout() {
+	Address1.src="TextbookIMG\\03-1.gif" 
+}
+
+function expandIt(el) {
+    whichEl = eval(el);
+	if (whichEl.style.display == "block") whichEl.style.display = "none";
+    else whichEl.style.display = "block"
+}
+//-->
+</SCRIPT>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle12.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><A href="index.htm"><IMG border=0 id=Home0 language=javascript onmouseout="return Home0_onmouseout()" onmouseover="return Home0_onmouseover()" src="Button/home1.gif" width="96"></a><A href="homework.htm"><IMG border=0 id=Homework language=javascript  onmouseout ="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96" ></a><A href="bbs/index.asp"><IMG border=0 id=Discuss language=javascript  onmouseout ="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" ></a><A href="question.htm"><IMG border=0 id=Problem language=javascript  onmouseout ="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96" ></a><A href="test.asp"><IMG border=0 id=Test language=javascript  onmouseout ="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96" ></a><A href="search.htm"><IMG border=0 id=Search language=javascript  onmouseout ="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96" ></a></p></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    →    
+      简单的屏幕编辑程序</td>                                              
+    <td width="50%">              
+      <p align="right">&nbsp;<!--webbot bot="Validation"
+      b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p></td>
+  </tr>
+</table>
+    
+<h2>
+12.3 简单的屏幕编辑程序                                                       
+</h2>        
+<p style="TEXT-INDENT: 21.25pt">下面是一个简单的屏幕编辑的C语言程序，它不仅涉及到键盘处理、光标定位、屏幕输出、字符颜色等，而且还运用了C语言和汇编语言的混合编程方法。若读者能把它改写成相同功能的汇编语言程序，那么，可以说，你已基本掌握了中断的使用方法，也对计算机输入输出的工作方式有了更进一步的认识。
+</p>        
+<p style="margin-left: 21.25pt">该程序的功能：
+  <br>
+  <font face="宋体">◆</font> 可用移动光标键↑、↓、←和→移动光标1行或1列，也可用TAB/Shift+TAB、Home和End键跳跃地移动光标；                                                      
+  <br>
+  <font face="宋体">◆</font> 当光标已在第1行，再向上移动时，这时，光标被定位到第25行，反之也然；                                                      
+  <br>
+  <font face="宋体">◆</font> 当光标已在第0列，还要向左移动时，光标被定位到第79列，反之也然；                                                      
+  <br>
+  <font face="宋体">◆</font> 当按下^W或^Z时，屏幕将向上或向下滚动1行；                                                      
+  <br>
+  <font face="宋体">◆</font> 显示当前键盘的状态：大小写状态、数字键盘状态和插入/修改状态；                                                      
+  <br>
+  <font face="宋体">◆</font> 如果按普通的键，将在屏幕上显示该字符，如果按下用Alt、Ctrl或Shift组合的组合键，则显示该按键的扫描码；                                                      
+  <br>
+  <font face="宋体">◆</font> 用Esc键来结束程序的运行。                                                    
+</p>        
+<p style="margin-left: 21.25pt">C语言的源程序清单： </p>        
+             
+<p style="margin-left: 21.25pt">
+  #define　NUM_KEY　0x20　　　　　　/*　键盘状态字宏定义　*/<br>    
+  #define　CAPS_KEY　0x40<br>                         
+  #define　ESCAPE　27　　　　　　　　/*　几个功能键的宏定义　*/<br>    
+  #define　TAB_KEY　9<br>                         
+  #define　SHIFT_TAB　15<br>                         
+  #define　CTRL_W　23<br>                         
+  #define　CTRL_Z　26<br>                         
+  #define　UP_ARROW　72<br>                         
+  #define　DOWN_ARROW　80<br>                         
+  #define　LEFT_ARROW　75<br>                         
+  #define　RIGHT_ARROW　77<br>                         
+  #define　INSERT　82<br>                         
+  #define　END_KEY　79<br>                         
+  #define　HOME_KEY　71<br>                         
+  #define　UP_SCROLL　6　　　　　　/*　屏幕滚动宏定义　*/<br>    
+  #define　DOWN_SCROLL　7 </p>                               
+             
+<p style="margin-left: 21.25pt">                         
+  #include &lt;dos.h><br>                          
+  int insert, cap_key, num_key; </p>                                
+             
+<p style="margin-left: 21.25pt">/* up_down：屏幕滚动方式：6-向上滚; 7-向下滚<br>                                                      
+　(l_row, l_col)-(r_row, r_col)：滚动矩形的对角线坐标<br>                                                      
+　num：屏幕滚动的行数，0-清屏<br>
+　attr：滚动后所剩下行的属性　*/<br>                  
+<A href="#" onclick="expandIt('CLS');return false">cls(int up_down, int l_row, int l_col, int r_row, int r_col, int num, int  
+attr)</A>          
+<div id='CLS' class='CLS' style="display: none; width: 768; height: 111">
+<p style="margin-left: 30pt">
+{union REGS in, out;<br>                                                   
+<br>  
+  &nbsp;in.h.ah = up_down;　in.h.al = num;<br>                                                      
+  &nbsp;in.h.ch = l_row;　　　in.h.cl = l_col;<br>                                                      
+  &nbsp;in.h.dh = r_row;　　　in.h.dl = r_col;<br>                                                      
+  &nbsp;in.h.bh = attr;<br>                                                      
+  &nbsp;int86(0x10, &amp;in, &amp;out);<br>                                                      
+  }</div>     
+<p>　　<A href="#" onclick="expandIt('Get_Cursor');return false">get_cursor(int *x, int *y)</A>　　/* 取当前光标的位置，并分别存入变量x和y中                                             
+*/           
+<div id='Get_Cursor' class='Get_Cursor' style="display: none; width: 768">
+  <p style="margin-left: 30pt">  
+  {union REGS in, out;<br>                                        
+  <br>          
+  &nbsp;in.h.ah = 3;　in.h.bh = 0;<br>                                                  
+  &nbsp;int86(0x10, &amp;in, &amp;out);<br>                                                  
+  &nbsp;*x = out.h.dh;　*y = out.h.dl;<br>                                                  
+  }</div>
+<p>　　<A href="#" onclick="expandIt('locate');return false">locate(int row, int col)</A>　　/* 把光标设置在(row, col)位置 */                                                    
+<div id='locate' class='locate' style="display: none; width: 768">
+  <p style="margin-left: 30pt">  
+  {union REGS in, out;<br>                                         
+  <br>          
+  &nbsp;in.h.ah = 2;　　in.h.bh = 0;<br>                                                     
+  &nbsp;in.h.dh = row;　in.h.dl = col;<br>                                                     
+  &nbsp;int86(0x10, &amp;in, &amp;out);<br>                                                   
+  }</div>
+<p>　　<A href="#" onclick="expandIt('disp_string');return false">disp_string(int row, int col, char string[])</A>　　/* 在(row, col)位置显示字符串string */                                                    
+<div id='disp_string' class='disp_string' style="display: none; width: 768">
+  <p style="margin-left: 30pt">  
+  {struct REGPACK in, out;<br>                                                      
+  &nbsp;int x, y;<br>                                       
+  <br>               
+  &nbsp;get_cursor(&amp;x, &amp;y);<br>                                                      
+  &nbsp;locate(row, col);<br>                                                      
+  &nbsp;in.r_ds = FP_SEG(string);　in.r_dx = FP_OFF(string);　in.r_ax = 0x900;　intr(0x21, &amp;in);<br>                                                      
+  &nbsp;locate(x, y);<br>                                                      
+  }</div>
+<p>　　<A href="#" onclick="expandIt('check_key_state');return false">check_key_state()</A>　　/* 在(row, col)位置以属性attr显示字符ch */                                                    
+<div id='check_key_state' class='check_key_state' style="display: none; width: 768">
+  <p style="margin-left: 30pt">  
+  {char state;<br>                              
+  <br>                  
+  &nbsp;state = bioskey(2);<br>                                                
+  &nbsp;if (state &amp; CAPS_KEY)<br>                                                
+  　 {if (!cap_key) {cap_key = 1; disp_string(24, 66, "CAP$");}<br>                                                
+  　 }<br>                             
+  else if (cap_key) {cap_key = 0; disp_string(24, 66, " $");}<br>                                                
+  if (state &amp; NUM_KEY)<br>                                                
+  　{if (!num_key) {num_key = 1; disp_string(24, 70, "NUM$");}<br>                                                
+  　}<br>
+  else if (num_key) {num_key = 0; disp_string(24, 70, " $");}<br>                                                
+  }</div>
+<p>　　<A href="#" onclick="expandIt('insert_key');return false">insert_key()</A>　　/* 在最后一行显示插入/修改状态标志，并改变光标形状 */                                                    
+<div id='insert_key' class='insert_key' style="display: none; width: 768">
+  <p style="margin-left: 30pt">  
+  {union REGS in, out;<br>                              
+  <br>                        
+  &nbsp;insert = 1 - insert;<br>                                                      
+  &nbsp;disp_string(24, 74, (insert ? "INS$" : " $"));　　/* 显示插入/修改标志 */<br>                                                      
+  &nbsp;in.h.ah = 1;<br>                                                      
+  &nbsp;in.h.ch = (insert ? 0 : 14); in.h.cl = 15;　　　　/* 改变光标的形状 */<br>                                                      
+  &nbsp;int86(0x10, &amp;in, &amp;out);<br>                                                      
+  }</div>
+<p>　　<A href="#" onclick="expandIt('move_right');return false">move_right(int row, int col, int len)</A>　　/* 在(row, col)位置之后的字符和属性向后移len个位置 */                                                    
+<div id='move_right' class='move_right' style="display: none; width: 768">
+  <p style="margin-left: 30pt">  
+  {int j, attr;<br>                                                      
+  &nbsp;char ch;<br>                                   
+  <br>                   
+  &nbsp;for (j = 79; j >= col+len; j--)<br>                                                      
+  　　{read_char_attr(row, j-len, &amp;ch, &amp;attr);<br>                                                      
+  　　 write_char_attr(row, j, ch, attr);<br>                                                      
+  　　}<br>
+  }</div>
+<p>　　<A href="#" onclick="expandIt('read_char_attr');return false">read_char_attr(int row, int col, char *ch, int *attr)</A>　　/* 在读(row, col)位置字符和属性，并分别存入ch和attr */                                                    
+<div id='read_char_attr' class='read_char_attr' style="display: none; width: 768">
+  <p style="margin-left: 30pt">  
+  {union REGS in, out;<br>                                      
+  <br>          
+  &nbsp;locate(i, j);<br>                                                   
+  &nbsp;in.h.ah = 8; in.h.bh = 0;<br>                                                   
+  &nbsp;int86(0x10, &amp;in, &amp;out);<br>                                                   
+  &nbsp;*ch = out.h.al; *attr = out.h.ah;<br>                                                   
+  }</div>
+<p>　　<A href="#" onclick="expandIt('write_char_attr');return false">write_char_attr(int row, int col, char ch, int attr)</A>　　/* 在(row, col)位置以属性attr显示字符ch */                                                    
+<div id='write_char_attr' class='write_char_attr' style="display: none; width: 768">
+  <p style="margin-left: 30pt">  
+  {union REGS in, out;<br>                                       
+  <br>          
+  &nbsp;locate(row, col);<br>                                                    
+  &nbsp;in.h.ah = 9; in.h.al = ch;<br>                                                    
+  &nbsp;in.h.bh = 0; in.h.bl = attr; in.x.cx = 1;<br>                                                    
+  &nbsp;int86(0x10, &amp;in, &amp;out);<br>                                                    
+  }</div>
+<p>　　<A href="#" onclick="expandIt('ctos');return false">ctos(char ascii, char str[])</A>　　/* 把字符的ASCII码转换成字符串 */                                                    
+<div id='ctos' class='ctos' style="display: none; width: 768">
+  <p style="margin-left: 30pt">  
+  {int i;<br>                              
+  <br>                       
+  &nbsp;i = 2;<br>                                                     
+  &nbsp;do {str[i--] = ascii%10 + '0';<br>                                                     
+  　　ascii /= 10;<br>                                                     
+  &nbsp;} while (ascii > 0);<br>                                                     
+  &nbsp;for (; i >= 0; i--) str[i] = ' ';<br>                                                     
+  }</div>
+             
+<p style="margin-left: 10pt">
+  main()<br>
+  {int k, key, row, col;<br>                                                      
+&nbsp;char ch1, ch2, str[]=" $";　　　/*　前面有3个空格　*/<br>                         
+&nbsp;char msg1[]="This is a simple screen edidtor.$",<br>                                                      
+&nbsp;msg2[]="You can move cursor by Arrow keys, TAB/Shift-TAB, Home and End.$",<br>                                                      
+&nbsp;msg3[]="You can press ^W for scroll up or ^Z for scroll down.$",<br>                                                      
+&nbsp;msg4[]="It has some functions, such as insert/modify a char.$",<br>                                                      
+&nbsp;msg5[]="If you press a function key, or key combined with Alt, Ctrl, Shift, it will display the key's scan code.$",<br>                                                      
+&nbsp;msg6[]="The program exits when you press ESCAPE.$"; </p>                                     
+             
+<p style="margin-left: 10pt">                         
+  cls(UP_SCROLL, 0, 0, 24, 79, 0, 7);<br>                          
+  disp_string(0, 0, msg1); disp_string(2, 0, msg2);<br>                          
+  disp_string(4, 0, msg3); disp_string(6, 0, msg4);<br>                          
+  disp_string(8, 0, msg5); disp_string(11, 0, msg6);<br>                          
+  row = col = ch1 = insert = 0;<br>                          
+  locate(row, col); </p>         
+             
+<p style="margin-left: 10pt">                         
+  while (ch1 != ESCAPE)<br>                                                      
+  　{while (ch1 != ESCAPE)<br>                                                      
+  　　{if (!bioskey(1)) {check_key_state(); continue;}<br>                                                      
+  　　 key = bioskey(0);<br>                                                      
+  　　 ch1 = key; ch2 = key >> 8;<br>                                                      
+  　　 if (ch1 != 0)<br>                                                      
+  　　　 {switch(ch1)<br>                           
+  　　　　{case TAB_KEY:<br>                                                      
+  　　　　　　　 col = ((col&amp;0xFFF8) + 8) %80;<br>                                                      
+  　　　　　　　 break;<br>           
+  　　　　case CTRL_W:<br>                                                      
+  　　　　　　　cls(DOWN_SCROLL, 0, 0, 24, 79, 1, 7);<br>                                                      
+  　　　　　　　row = row + 1;<br>                                                      
+  　　　　　　　break;<br>
+  　　　　case CTRL_Z:<br>                                                      
+  　　　　　　　cls(UP_SCROLL, 0, 0, 24, 79, 1, 7);<br>                                                      
+  　　　　　　　break;<br>
+  　　　　default:<br>                
+  　　　　　　　if (ch1 == ESCAPE) continue;<br>                                                      
+  　　　　　　　if (insert) move_right(row, col, 1);<br>                                                      
+  　　　　　　　write_char_attr(row, col, ch1, 31);<br>                                                      
+  　　　　　　　col = (col+1+80) % 80;<br>                                                      
+  　　　　　　　break;<br>
+  　　　}<br>                
+  　　　locate(row, col);<br>                                                      
+  　　　continue;<br>                
+  　　 } </p>                                   
+             
+<p style="margin-left: 36pt">
+  switch (ch2)<br>                                                      
+&nbsp;{case UP_ARROW:<br>                                                      
+  　　　 row = (row-1+25) % 25;<br>                                                      
+  　　　 break;<br>                           
+&nbsp; case DOWN_ARROW:<br>                                                      
+  　　　 row = (row+1+25) % 25;<br>                                                      
+  　　　 break;<br>                           
+&nbsp; case LEFT_ARROW:<br>                                                      
+  　　　 col = (col-1+80) % 80;<br>                                                      
+  　　　 break;<br>                           
+&nbsp; case RIGHT_ARROW:<br>                                                      
+  　　　 col = (col+1+80) % 80;<br>                                                      
+  　　　 break;<br>                           
+&nbsp; case SHIFT_TAB:<br>                                                      
+  　　　 k = col &amp; 0xFFF8;<br>                                                      
+  　　　 col = (col - ((k==0)? 8:k+80)) % 80;<br>                                                      
+  　　　 break;<br>                           
+&nbsp; case HOME_KEY:<br>                                                      
+  　　　 col = 0;<br>                                                      
+  　　　 break;<br>                           
+&nbsp; case END_KEY:<br>                                                      
+  　　　 col = 79;<br>                                                      
+  　　　 break;<br>                           
+&nbsp; case INSERT:<br>                                                      
+  　　　 insert_key(&amp;insert);<br>                           
+  　　　 break;<br>                           
+&nbsp; default:<br>                           
+  　　　 ctos(ch2, str);<br>                                                      
+  　　　 k = strlen(str)-1;<br>                                                      
+  　　　 if (insert) move_right(row, col, k);<br>                                                      
+  　　　 disp_string(row, col, str);<br>                                                      
+  　　　 col = (col + k + 80) % 80;<br>                                                      
+  　　　 break;<br>                           
+&nbsp;} </p>        
+             
+<p style="margin-left: 10pt">　　locate(row, col);<br>                                                      
+　 }<br>                           
+　}<br>                
+&nbsp;cls(UP_SCROLL, 0, 0, 24, 79, 0, 7);<br>                                                      
+  } </p>        
+             
+<p align="right"><A href="index.htm"><IMG border=0 id=Home language=javascript onmouseout="return Home_onmouseout()" onmouseover="return Home_onmouseover()" src="Button/home1.gif" width="96"></a><a href="asp/QuestionIndex.asp-chapter=12&amp;sort=date"><IMG border=0 id=Question  language=javascript onmouseout="return Question_onmouseout()" onmouseover="return Question_onmouseover()" src="Button/question1.gif" width="96"></a><a href="12-2.htm"><IMG border=0 id=PrevPage language=javascript onmouseout="return PrevPage_onmouseout()" onmouseover="return PrevPage_onmouseover()" src="Button/prevpage1.gif" width="96"></a><a href="12-Exercise.htm"><IMG border=0 id=NextPage language=javascript onmouseout="return NextPage_onmouseout()" onmouseover="return NextPage_onmouseover()" src="Button/NextPage1.gif" width="96"></a> 
+ <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">          
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>       
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>       
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>       
+    <option value="04-1.htm">第4章 标识符和表达式</option>       
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>       
+    <option value="06-1.htm">第6章 程序的基本结构</option>       
+    <option value="07-1.htm">第7章 子程序和库</option>       
+    <option value="08-1.htm">第8章 输入输出和中断</option>       
+    <option value="09-1.htm">第9章 宏</option>       
+    <option value="10-1.htm">第10章 应用程序的设计</option>       
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+                
+</body>         
+         
+</html>

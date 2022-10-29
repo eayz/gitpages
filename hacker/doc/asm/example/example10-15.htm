@@ -1,0 +1,290 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例10.15</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p>例10.15 在NumLock处于“开状态”时，每按小键盘(Numeric        
+Keypad)上的数字键，给出“啪啪”响声。  
+</p>  
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" colspan="5">解：</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="58" valign="top"></td> 
+    <td width="8%" rowspan="2" valign="top">CSEG</td> 
+    <td width="84%" colspan="3">SEGMENT　'CODE'</td>
+  </tr>
+  <tr>
+    <td width="84%" colspan="3">ORG　100H</td>
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">start:</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="2" valign="top"></td>
+    <td width="7%">JMP</td>
+    <td width="77%" colspan="2">init</td>
+  </tr>
+  <tr>
+    <td width="7%">INT9</td>
+    <td width="77%" colspan="2">DD　?</td>
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">TSR:</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="23" valign="top"></td>
+    <td width="7%">PUSH</td>
+    <td width="77%" colspan="2">AX</td>
+  </tr>
+  <tr>
+    <td width="7%">PUSH</td>
+    <td width="77%" colspan="2">CX</td>
+  </tr>
+  <tr>
+    <td width="7%">PUSH</td>
+    <td width="24%">DS</td>
+    <td width="53%">;保存寄存器</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">AH, 2</td> 
+  </tr>
+  <tr>
+    <td width="7%">INT</td>
+    <td width="24%">16H</td>
+    <td width="53%">;读取键盘当前状态</td>
+  </tr>
+  <tr>
+    <td width="7%">TEST</td>
+    <td width="24%">AL,   
+      00100000B</td>
+    <td width="53%">;检测NumLock的状态</td>
+  </tr>
+  <tr>
+    <td width="7%">JZ</td>
+    <td width="77%" colspan="2">TSRExit</td>
+  </tr>
+  <tr>
+    <td width="7%">IN</td>
+    <td width="77%" colspan="2">AL, 60H</td> 
+  </tr>
+  <tr>
+    <td width="7%">CMP</td>
+    <td width="77%" colspan="2">AL, 71</td> 
+  </tr>
+  <tr>
+    <td width="7%">JL</td>
+    <td width="77%" colspan="2">TSRExit</td>
+  </tr>
+  <tr>
+    <td width="7%">CMP</td>
+    <td width="77%" colspan="2">AL, 83</td> 
+  </tr>
+  <tr>
+    <td width="7%">JG</td>
+    <td width="77%" colspan="2">TSRExit</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">AL, 10110110B</td> 
+  </tr>
+  <tr>
+    <td width="7%">OUT</td>
+    <td width="24%">43H, AL</td> 
+    <td width="53%">;向端口43H送特定的数0B6H</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">AX, 1000</td> 
+  </tr>
+  <tr>
+    <td width="7%">OUT</td>
+    <td width="77%" colspan="2">42H, AL</td> 
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">AL,   
+      AH</td>
+  </tr>
+  <tr>
+    <td width="7%">OUT</td>
+    <td width="24%">42H, AL</td> 
+    <td width="53%">;向端口42H送声音频率</td>
+  </tr>
+  <tr>
+    <td width="7%">IN</td>
+    <td width="24%">AL, 61H</td> 
+    <td width="53%">;读取扬声器的当前状态</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="24%">AH, AL</td> 
+    <td width="53%">;把扬声器的状态保存在AH中</td>
+  </tr>
+  <tr>
+    <td width="7%">OR</td>
+    <td width="77%" colspan="2">AL, 03</td>
+  </tr>
+  <tr>
+    <td width="7%">OUT</td>
+    <td width="24%">61H,     
+      AL</td>
+    <td width="53%">;开声音</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">CX, 9000</td> 
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">delay:</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="3" valign="top"></td>
+    <td width="7%">LOOP</td>
+    <td width="24%">delay</td>
+    <td width="53%">;声音延迟</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">AL, AH</td> 
+  </tr>
+  <tr>
+    <td width="7%">OUT</td>
+    <td width="24%">61H,     
+      AL</td>
+    <td width="53%">;恢复扬声器原来的状态，即关声音</td>
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">TSRExit:</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="4" valign="top"></td>
+    <td width="7%">POP</td>
+    <td width="77%" colspan="2">DS</td>
+  </tr>
+  <tr>
+    <td width="7%">POP</td>
+    <td width="77%" colspan="2">CX</td>
+  </tr>
+  <tr>
+    <td width="7%">POP</td>
+    <td width="24%">AX&nbsp;</td>
+    <td width="53%">;恢复寄存器</td>
+  </tr>
+  <tr>
+    <td width="7%">JMP</td>
+    <td width="24%">CS:INT9</td>
+    <td width="53%">;转向中断9H原来的处理程序</td>
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">init:</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="17" valign="top"></td>
+    <td width="31%" colspan="2">CLI</td>
+    <td width="53%">;关中断</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">AH,      
+      35H</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">AL,     
+      09H</td>
+  </tr>
+  <tr>
+    <td width="7%">INT</td>
+    <td width="77%" colspan="2">21H</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2">WORD     
+      PTR INT9, BX</td> 
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="24%">WORD     
+      PTR INT9+2, ES</td> 
+    <td width="53%">;保存中断9H原处理程序入口地址</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV&nbsp;</td>
+    <td width="77%" colspan="2">AH,         
+      25H</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="77%" colspan="2">AL,      
+      09H</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">LEA</td> 
+    <td width="77%" colspan="2">DX,       
+      TSR</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">INT</td> 
+    <td width="24%">21H</td> 
+    <td width="53%">;设置中断9H新的处理程序入口地址</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">STI</td> 
+    <td width="24%"></td> 
+    <td width="53%">;开中断</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">LEA</td> 
+    <td width="77%" colspan="2">DX, init</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">ADD</td> 
+    <td width="77%" colspan="2">DX,    
+      15</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="24%">CL,       
+      4</td> 
+    <td width="53%">;把init的偏移量转换成“节数”</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">SHR</td> 
+    <td width="24%">DX,       
+      CL</td> 
+    <td width="53%">;每节内有16个字节</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="77%" colspan="2">AX,    
+      3100H</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">INT</td> 
+    <td width="77%" colspan="2">21H</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="2" valign="top">CSEG</td> 
+    <td width="84%" colspan="3">ENDS</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">END</td> 
+    <td width="77%" colspan="2">start</td> 
+  </tr> 
+</table> 
+ 
+<p align="center"><a href="javascript:close();">关　闭</a></p>
+  
+</body>
+
+</html>

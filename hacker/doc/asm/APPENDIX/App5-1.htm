@@ -1,0 +1,546 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录5.1 ASCII码、字母和空格按键的编码表</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="image/background.gif">
+
+<p style="text-indent: 21.25pt">本附录中的各表列举了键盘按键扫描码和其<font color="#FF0000">ASCII</font>码之间的对照关系，表中数据都是十六进制形式。</p>
+
+<p style="text-indent: 21.25pt">在用中断<font  color="#FF0000">16H</font>的<font color="#FF0000">0</font>号功能时，当按下任意一个键或组合键时，寄存器<font color="#FF0000">AH</font>和<font color="#FF0000">AL</font>分别保存着该按键的扫描码和<font color="#FF0000">ASCII</font>码。</p>
+
+<h2>表1、ASCII码的编码方案</h2>
+<div align="center">
+<table border="1" width="90%" cellspacing="0" cellpadding="0">
+  <tr>
+<td width="53" align="center" bgcolor="#FFFF00">
+  <p>&nbsp; 高位<br>       
+  &nbsp;低位&nbsp;   
+</td>   
+  <center>   
+<td width="54" align="center" bgcolor="#FFFF00">000</td>   
+<td width="54" align="center" bgcolor="#FFFF00">001</td>   
+<td width="54" align="center" bgcolor="#FFFF00">010</td>   
+<td width="54" align="center" bgcolor="#FFFF00">011</td>   
+<td width="54" align="center" bgcolor="#FFFF00">100</td>   
+<td width="54" align="center" bgcolor="#FFFF00">101</td>   
+<td width="54" align="center" bgcolor="#FFFF00">110</td>   
+<td width="54" align="center" bgcolor="#FFFF00">111</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center" bgcolor="#00FFFF">0000</td>    
+<td width="54" align="center" bgcolor="#00FFFF">NUL</td>    
+<td width="54" align="center" bgcolor="#00FFFF">DEL</td>   
+<td width="54" align="center" bgcolor="#00FFFF">SP</td>   
+<td width="54" align="center" bgcolor="#00FFFF">0</td>   
+<td width="54" align="center" bgcolor="#00FFFF">@</td>   
+<td width="54" align="center" bgcolor="#00FFFF">P</td>   
+<td width="54" align="center" bgcolor="#00FFFF">`</td>   
+<td width="54" align="center" bgcolor="#00FFFF">p</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center">0001</td>    
+    
+  </center>    
+<td width="54" align="center">SOH</td>    
+  <center>   
+<td width="54" align="center">DC1</td>    
+<td width="54" align="center">!</td>    
+<td width="54" align="center">1</td>    
+<td width="54" align="center">A</td>    
+<td width="54" align="center">Q</td>    
+<td width="54" align="center">a</td>    
+<td width="54" align="center">q</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center" bgcolor="#00FFFF">0010</td>    
+<td width="54" align="center" bgcolor="#00FFFF">STX</td>    
+<td width="54" align="center" bgcolor="#00FFFF">DC2</td>    
+<td width="54" align="center" bgcolor="#00FFFF">“</td>    
+<td width="54" align="center" bgcolor="#00FFFF">2</td>    
+<td width="54" align="center" bgcolor="#00FFFF">B</td>    
+<td width="54" align="center" bgcolor="#00FFFF">R</td>    
+<td width="54" align="center" bgcolor="#00FFFF">b</td>    
+<td width="54" align="center" bgcolor="#00FFFF">r</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center">0011</td>    
+<td width="54" align="center">ETX</td>    
+<td width="54" align="center">DC3</td>    
+<td width="54" align="center">#</td>    
+<td width="54" align="center">3</td>    
+<td width="54" align="center">C</td>    
+<td width="54" align="center">S</td>    
+<td width="54" align="center">c</td>    
+<td width="54" align="center">s</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center" bgcolor="#00FFFF">0100</td>    
+<td width="54" align="center" bgcolor="#00FFFF">EOT</td>    
+<td width="54" align="center" bgcolor="#00FFFF">DC4</td>    
+<td width="54" align="center" bgcolor="#00FFFF">$</td>    
+<td width="54" align="center" bgcolor="#00FFFF">4</td>    
+<td width="54" align="center" bgcolor="#00FFFF">D</td>    
+<td width="54" align="center" bgcolor="#00FFFF">T</td>    
+<td width="54" align="center" bgcolor="#00FFFF">d</td>    
+<td width="54" align="center" bgcolor="#00FFFF">t</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center">0101</td>    
+<td width="54" align="center">ENQ</td>    
+<td width="54" align="center">NAK</td>    
+<td width="54" align="center">%</td>    
+<td width="54" align="center">5</td>    
+<td width="54" align="center">E</td>    
+<td width="54" align="center">U</td>    
+<td width="54" align="center">e</td>    
+<td width="54" align="center">u</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center" bgcolor="#00FFFF">0110</td>    
+<td width="54" align="center" bgcolor="#00FFFF">ACK</td>    
+<td width="54" align="center" bgcolor="#00FFFF">SYN</td>    
+<td width="54" align="center" bgcolor="#00FFFF">&amp;</td>    
+<td width="54" align="center" bgcolor="#00FFFF">6</td>    
+<td width="54" align="center" bgcolor="#00FFFF">F</td>    
+<td width="54" align="center" bgcolor="#00FFFF">V</td>    
+<td width="54" align="center" bgcolor="#00FFFF">f</td>    
+<td width="54" align="center" bgcolor="#00FFFF">v</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center">0111</td>    
+<td width="54" align="center">BEL</td>    
+<td width="54" align="center">ETB</td>    
+<td width="54" align="center">‘</td>    
+<td width="54" align="center">7</td>    
+<td width="54" align="center">G</td>    
+<td width="54" align="center">W</td>    
+<td width="54" align="center">g</td>    
+<td width="54" align="center">w</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center" bgcolor="#00FFFF">1000</td>    
+<td width="54" align="center" bgcolor="#00FFFF">BS</td>    
+<td width="54" align="center" bgcolor="#00FFFF">CAN</td>    
+<td width="54" align="center" bgcolor="#00FFFF">(</td>    
+<td width="54" align="center" bgcolor="#00FFFF">8</td>    
+<td width="54" align="center" bgcolor="#00FFFF">H</td>    
+<td width="54" align="center" bgcolor="#00FFFF">X</td>    
+<td width="54" align="center" bgcolor="#00FFFF">h</td>    
+<td width="54" align="center" bgcolor="#00FFFF">x</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center">1001</td>    
+<td width="54" align="center">HT</td>    
+<td width="54" align="center">EM</td>    
+<td width="54" align="center">)</td>    
+<td width="54" align="center">9</td>    
+<td width="54" align="center">I</td>    
+<td width="54" align="center">Y</td>    
+<td width="54" align="center">i</td>    
+<td width="54" align="center">y</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center" bgcolor="#00FFFF">1010</td>    
+<td width="54" align="center" bgcolor="#00FFFF">LF</td>    
+<td width="54" align="center" bgcolor="#00FFFF">SUB</td>    
+<td width="54" align="center" bgcolor="#00FFFF">*</td>    
+<td width="54" align="center" bgcolor="#00FFFF">:</td>    
+<td width="54" align="center" bgcolor="#00FFFF">J</td>    
+<td width="54" align="center" bgcolor="#00FFFF">Z</td>    
+<td width="54" align="center" bgcolor="#00FFFF">j</td>    
+<td width="54" align="center" bgcolor="#00FFFF">z</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center">1011</td>    
+<td width="54" align="center">VT</td>    
+<td width="54" align="center">ESC</td>    
+<td width="54" align="center">+</td>    
+<td width="54" align="center">;</td>    
+<td width="54" align="center">K</td>    
+<td width="54" align="center">[</td>    
+<td width="54" align="center">k</td>    
+<td width="54" align="center">{</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center" bgcolor="#00FFFF">1100</td>    
+<td width="54" align="center" bgcolor="#00FFFF">FF</td>    
+<td width="54" align="center" bgcolor="#00FFFF">FS</td>    
+<td width="54" align="center" bgcolor="#00FFFF">　</td>    
+<td width="54" align="center" bgcolor="#00FFFF">&lt;</td>    
+<td width="54" align="center" bgcolor="#00FFFF">L</td>    
+<td width="54" align="center" bgcolor="#00FFFF">\</td>    
+<td width="54" align="center" bgcolor="#00FFFF">l</td>    
+<td width="54" align="center" bgcolor="#00FFFF">|</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center">1101</td>    
+<td width="54" align="center">CR</td>    
+<td width="54" align="center">GS</td>    
+<td width="54" align="center">-</td>    
+<td width="54" align="center">=</td>    
+<td width="54" align="center">M</td>    
+<td width="54" align="center">]</td>    
+<td width="54" align="center">m</td>    
+<td width="54" align="center">}</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center" bgcolor="#00FFFF">1110</td>    
+<td width="54" align="center" bgcolor="#00FFFF">SO</td>    
+<td width="54" align="center" bgcolor="#00FFFF">RS</td>    
+<td width="54" align="center" bgcolor="#00FFFF">.</td>    
+<td width="54" align="center" bgcolor="#00FFFF">&gt;</td>    
+<td width="54" align="center" bgcolor="#00FFFF">N</td>    
+<td width="54" align="center" bgcolor="#00FFFF">^</td>    
+<td width="54" align="center" bgcolor="#00FFFF">n</td>    
+<td width="54" align="center" bgcolor="#00FFFF">~</td>    
+  </tr>    
+  <tr>    
+<td width="53" align="center">1111</td>    
+<td width="54" align="center">SI</td>    
+<td width="54" align="center">US</td>    
+<td width="54" align="center">/</td>    
+<td width="54" align="center">?</td>    
+<td width="54" align="center">O</td>    
+<td width="54" align="center">_</td>    
+<td width="54" align="center">o</td>    
+<td width="54" align="center">Del</td>    
+  </tr>    
+</table>    
+    
+  </center>    
+</div>    
+    
+<h2><a name="字母和空格按键的编码表">表2、字母和空格按键的编码表</a></h2>  
+   
+<div align="center">  
+  <center>    
+<table border="1" width="100%" cellspacing="0" cellpadding="0">    
+  <tr>    
+<td rowspan="2" width="93" align="center" bgcolor="#FFFF00">按　键</td>     
+<td colspan="2" width="140" align="center" bgcolor="#FFFF00">单　键</td>     
+<td colspan="2" width="142" align="center" bgcolor="#FFFF00">SHIFT</td>     
+<td colspan="2" width="142" align="center" bgcolor="#FFFF00">CTRL</td>     
+<td colspan="2" width="142" align="center" bgcolor="#FFFF00">ALT<o:p>     
+</td>     
+  </tr>     
+  <tr>    
+<td width="71" align="center" bgcolor="#FFFF00">扫描码</td>     
+<td width="71" align="center" bgcolor="#FFFF00">ASCII码</td>     
+<td width="72" align="center" bgcolor="#FFFF00">扫描码</td>     
+<td width="72" align="center" bgcolor="#FFFF00">ASCII码</td>     
+<td width="72" align="center" bgcolor="#FFFF00">扫描码</td>     
+<td width="72" align="center" bgcolor="#FFFF00">ASCII码</td>     
+<td width="72" align="center" bgcolor="#FFFF00">扫描码</td>     
+<td width="72" align="center" bgcolor="#FFFF00">ASCII码   
+</td>     
+  </tr>     
+  <tr>    
+<td width="93" align="center" bgcolor="#00FFFF">a and A</td>     
+<td width="71" align="center" bgcolor="#00FFFF">1E</td>  
+<td width="71" align="center" bgcolor="#00FFFF">61</td>  
+<td width="72" align="center" bgcolor="#00FFFF">1E</td>  
+<td width="72" align="center" bgcolor="#00FFFF">41</td>  
+<td width="72" align="center" bgcolor="#00FFFF">1E</td>  
+<td width="72" align="center" bgcolor="#00FFFF">01</td>  
+<td width="72" align="center" bgcolor="#00FFFF">1E</td>  
+<td width="72" align="center" bgcolor="#00FFFF">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center">b and B</td>  
+<td width="71" align="center">30</td>  
+<td width="71" align="center">62</td>  
+<td width="72" align="center">30</td>  
+<td width="72" align="center">42</td>  
+<td width="72" align="center">30</td>  
+<td width="72" align="center">02</td>  
+<td width="72" align="center">30</td>  
+<td width="72" align="center">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center" bgcolor="#00FFFF">c and C</td>  
+<td width="71" align="center" bgcolor="#00FFFF">2E</td>  
+<td width="71" align="center" bgcolor="#00FFFF">63</td>  
+<td width="72" align="center" bgcolor="#00FFFF">2E</td>  
+<td width="72" align="center" bgcolor="#00FFFF">43</td>  
+<td width="72" align="center" bgcolor="#00FFFF">2E</td>  
+<td width="72" align="center" bgcolor="#00FFFF">03</td>  
+<td width="72" align="center" bgcolor="#00FFFF">2E</td>  
+<td width="72" align="center" bgcolor="#00FFFF">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center">d and D</td>  
+<td width="71" align="center">20</td>  
+<td width="71" align="center">64</td>  
+<td width="72" align="center">20</td>  
+<td width="72" align="center">44</td>  
+<td width="72" align="center">20</td>  
+<td width="72" align="center">04</td>  
+<td width="72" align="center">20</td>  
+<td width="72" align="center">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center" bgcolor="#00FFFF">e and E</td>  
+<td width="71" align="center" bgcolor="#00FFFF">12</td>  
+<td width="71" align="center" bgcolor="#00FFFF">65</td>  
+<td width="72" align="center" bgcolor="#00FFFF">12</td>  
+<td width="72" align="center" bgcolor="#00FFFF">45</td>  
+<td width="72" align="center" bgcolor="#00FFFF">12</td>  
+<td width="72" align="center" bgcolor="#00FFFF">05</td>  
+<td width="72" align="center" bgcolor="#00FFFF">12</td>  
+<td width="72" align="center" bgcolor="#00FFFF">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center">f and F</td>  
+<td width="71" align="center">21</td>  
+<td width="71" align="center">66</td>  
+<td width="72" align="center">21</td>  
+<td width="72" align="center">46</td>  
+<td width="72" align="center">21</td>  
+<td width="72" align="center">06</td>  
+<td width="72" align="center">21</td>  
+<td width="72" align="center">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center" bgcolor="#00FFFF">g and G</td>  
+<td width="71" align="center" bgcolor="#00FFFF">22</td>  
+<td width="71" align="center" bgcolor="#00FFFF">67</td>  
+<td width="72" align="center" bgcolor="#00FFFF">22</td>  
+<td width="72" align="center" bgcolor="#00FFFF">47</td>  
+<td width="72" align="center" bgcolor="#00FFFF">22</td>  
+<td width="72" align="center" bgcolor="#00FFFF">07</td>  
+<td width="72" align="center" bgcolor="#00FFFF">22</td>  
+<td width="72" align="center" bgcolor="#00FFFF">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center">h and H</td>  
+<td width="71" align="center">23</td>  
+<td width="71" align="center">68</td>  
+<td width="72" align="center">23</td>  
+<td width="72" align="center">48</td>  
+<td width="72" align="center">23</td>  
+<td width="72" align="center">08</td>  
+<td width="72" align="center">23</td>  
+<td width="72" align="center">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center" bgcolor="#00FFFF">i and I</td>  
+<td width="71" align="center" bgcolor="#00FFFF">17</td>  
+<td width="71" align="center" bgcolor="#00FFFF">69</td>  
+<td width="72" align="center" bgcolor="#00FFFF">17</td>  
+<td width="72" align="center" bgcolor="#00FFFF">49</td>  
+<td width="72" align="center" bgcolor="#00FFFF">17</td>  
+<td width="72" align="center" bgcolor="#00FFFF">09</td>  
+<td width="72" align="center" bgcolor="#00FFFF">17</td>  
+<td width="72" align="center" bgcolor="#00FFFF">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center">j an1 J</td>  
+<td width="71" align="center">24</td>  
+<td width="71" align="center">6A</td>  
+<td width="72" align="center">24</td>  
+<td width="72" align="center">4A</td>  
+<td width="72" align="center">24</td>  
+<td width="72" align="center">0A</td>  
+<td width="72" align="center">24</td>  
+<td width="72" align="center">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center" bgcolor="#00FFFF">k and K</td>  
+<td width="71" align="center" bgcolor="#00FFFF">25</td>  
+<td width="71" align="center" bgcolor="#00FFFF">6B</td>  
+<td width="72" align="center" bgcolor="#00FFFF">25</td>  
+<td width="72" align="center" bgcolor="#00FFFF">4B</td>  
+<td width="72" align="center" bgcolor="#00FFFF">25</td>  
+<td width="72" align="center" bgcolor="#00FFFF">0B</td>  
+<td width="72" align="center" bgcolor="#00FFFF">25</td>  
+<td width="72" align="center" bgcolor="#00FFFF">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center">l and L</td>  
+<td width="71" align="center">26</td>  
+<td width="71" align="center">6C</td>  
+<td width="72" align="center">26</td>  
+<td width="72" align="center">4C</td>  
+<td width="72" align="center">26</td>  
+<td width="72" align="center">0C</td>  
+<td width="72" align="center">26</td>  
+<td width="72" align="center">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center" bgcolor="#00FFFF">m and M</td>  
+<td width="71" align="center" bgcolor="#00FFFF">32</td>  
+<td width="71" align="center" bgcolor="#00FFFF">6D</td>  
+<td width="72" align="center" bgcolor="#00FFFF">32</td>  
+<td width="72" align="center" bgcolor="#00FFFF">4D</td>  
+<td width="72" align="center" bgcolor="#00FFFF">32</td>  
+<td width="72" align="center" bgcolor="#00FFFF">0D</td>  
+<td width="72" align="center" bgcolor="#00FFFF">32</td>  
+<td width="72" align="center" bgcolor="#00FFFF">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center">n and N</td>  
+<td width="71" align="center">31</td>  
+<td width="71" align="center">6E</td>  
+<td width="72" align="center">31</td>  
+<td width="72" align="center">4E</td>  
+<td width="72" align="center">31</td>  
+<td width="72" align="center">0E</td>  
+<td width="72" align="center">31</td>  
+<td width="72" align="center">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center" bgcolor="#00FFFF">o and O</td>  
+<td width="71" align="center" bgcolor="#00FFFF">18</td>  
+<td width="71" align="center" bgcolor="#00FFFF">6F</td>  
+<td width="72" align="center" bgcolor="#00FFFF">18</td>  
+<td width="72" align="center" bgcolor="#00FFFF">4F</td>  
+<td width="72" align="center" bgcolor="#00FFFF">18</td>  
+<td width="72" align="center" bgcolor="#00FFFF">0F</td>  
+<td width="72" align="center" bgcolor="#00FFFF">18</td>  
+<td width="72" align="center" bgcolor="#00FFFF">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center">  
+p and P</td>  
+<td width="71" align="center">19</td>  
+<td width="71" align="center">70</td>  
+<td width="72" align="center">19</td>  
+<td width="72" align="center">50</td>  
+<td width="72" align="center">19</td>  
+<td width="72" align="center">10</td>  
+<td width="72" align="center">19</td>  
+<td width="72" align="center">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center" bgcolor="#00FFFF">q and Q</td>  
+<td width="71" align="center" bgcolor="#00FFFF">10</td>  
+<td width="71" align="center" bgcolor="#00FFFF">71</td>  
+<td width="72" align="center" bgcolor="#00FFFF">10</td>  
+<td width="72" align="center" bgcolor="#00FFFF">51</td>  
+<td width="72" align="center" bgcolor="#00FFFF">10</td>  
+<td width="72" align="center" bgcolor="#00FFFF">11</td>  
+<td width="72" align="center" bgcolor="#00FFFF">10</td>  
+<td width="72" align="center" bgcolor="#00FFFF">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center">r and R</td>  
+<td width="71" align="center">13</td>  
+<td width="71" align="center">72</td>  
+<td width="72" align="center">13</td>  
+<td width="72" align="center">52</td>  
+<td width="72" align="center">13</td>  
+<td width="72" align="center">12</td>  
+<td width="72" align="center">13</td>  
+<td width="72" align="center">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center" bgcolor="#00FFFF">s and S</td>  
+<td width="71" align="center" bgcolor="#00FFFF">1F</td>  
+<td width="71" align="center" bgcolor="#00FFFF">73</td>  
+<td width="72" align="center" bgcolor="#00FFFF">1F</td>  
+<td width="72" align="center" bgcolor="#00FFFF">53</td>  
+<td width="72" align="center" bgcolor="#00FFFF">1F</td>  
+<td width="72" align="center" bgcolor="#00FFFF">13</td>  
+<td width="72" align="center" bgcolor="#00FFFF">1F</td>  
+<td width="72" align="center" bgcolor="#00FFFF">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center">t and T</td>  
+<td width="71" align="center">14</td>  
+<td width="71" align="center">74</td>  
+<td width="72" align="center">14</td>  
+<td width="72" align="center">54</td>  
+<td width="72" align="center">14</td>  
+<td width="72" align="center">14</td>  
+<td width="72" align="center">14</td>  
+<td width="72" align="center">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center" bgcolor="#00FFFF">u and U</td>  
+<td width="71" align="center" bgcolor="#00FFFF">16</td>  
+<td width="71" align="center" bgcolor="#00FFFF">75</td>  
+<td width="72" align="center" bgcolor="#00FFFF">16</td>  
+<td width="72" align="center" bgcolor="#00FFFF">55</td>  
+<td width="72" align="center" bgcolor="#00FFFF">16</td>  
+<td width="72" align="center" bgcolor="#00FFFF">15</td>  
+<td width="72" align="center" bgcolor="#00FFFF">16</td>  
+<td width="72" align="center" bgcolor="#00FFFF">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center">v and V</td>  
+<td width="71" align="center">2F</td>  
+<td width="71" align="center">76</td>  
+<td width="72" align="center">2F</td>  
+<td width="72" align="center">56</td>  
+<td width="72" align="center">2F</td>  
+<td width="72" align="center">16</td>  
+<td width="72" align="center">2F</td>  
+<td width="72" align="center">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center" bgcolor="#00FFFF">w and W</td>  
+<td width="71" align="center" bgcolor="#00FFFF">11</td>  
+<td width="71" align="center" bgcolor="#00FFFF">77</td>  
+<td width="72" align="center" bgcolor="#00FFFF">11</td>  
+<td width="72" align="center" bgcolor="#00FFFF">57</td>  
+<td width="72" align="center" bgcolor="#00FFFF">11</td>  
+<td width="72" align="center" bgcolor="#00FFFF">17</td>  
+<td width="72" align="center" bgcolor="#00FFFF">11</td>  
+<td width="72" align="center" bgcolor="#00FFFF">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center">x and X</td>  
+<td width="71" align="center">2D</td>  
+<td width="71" align="center">78</td>  
+<td width="72" align="center">2D</td>  
+<td width="72" align="center">58</td>  
+<td width="72" align="center">2D</td>  
+<td width="72" align="center">18</td>  
+<td width="72" align="center">2D</td>  
+<td width="72" align="center">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center" bgcolor="#00FFFF">y and Y</td>  
+<td width="71" align="center" bgcolor="#00FFFF">15</td>  
+<td width="71" align="center" bgcolor="#00FFFF">79</td>  
+<td width="72" align="center" bgcolor="#00FFFF">15</td>  
+<td width="72" align="center" bgcolor="#00FFFF">59</td>  
+<td width="72" align="center" bgcolor="#00FFFF">15</td>  
+<td width="72" align="center" bgcolor="#00FFFF">19</td>  
+<td width="72" align="center" bgcolor="#00FFFF">15</td>  
+<td width="72" align="center" bgcolor="#00FFFF">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center">z and Z</td>  
+<td width="71" align="center">2C</td>  
+<td width="71" align="center">7A</td>  
+<td width="72" align="center">2C</td>  
+<td width="72" align="center">5A</td>  
+<td width="72" align="center">2C</td>  
+<td width="72" align="center">1A</td>  
+<td width="72" align="center">2C</td>  
+<td width="72" align="center">00</td>  
+  </tr>  
+  <tr>  
+<td width="93" align="center" bgcolor="#00FFFF">SpaceBar</td>  
+<td width="71" align="center" bgcolor="#00FFFF">39</td>  
+<td width="71" align="center" bgcolor="#00FFFF">20</td>  
+<td width="72" align="center" bgcolor="#00FFFF">39</td>  
+<td width="72" align="center" bgcolor="#00FFFF">20</td>  
+<td width="72" align="center" bgcolor="#00FFFF">39</td>  
+<td width="72" align="center" bgcolor="#00FFFF">20</td>  
+<td width="72" align="center" bgcolor="#00FFFF">39</td>  
+<td width="72" align="center" bgcolor="#00FFFF">20</td>  
+  </tr>  
+</table>  
+  </center>    
+</div>    
+</body>   
+   
+</html>   

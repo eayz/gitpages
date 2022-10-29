@@ -1,0 +1,201 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>11.1 浮点数转化为十进制数</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter11.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle11.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="59%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="11-1.htm">浮点数的数据格式</a> <font face="Arial">→ </font> 浮点数转换成十进制数</td>                                
+    <td width="41%">          
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<p style="text-indent: 21.25pt"><font color="#FF00FF">二、浮点数转换成十进制数的步骤</font></p>   
+<p style="margin-left: 21.25pt">该步骤与前面“十进制数转换成浮点数”的步骤是互逆的，其具体步骤如下：<br>
+1、分割数字的符号、阶码和有效数字；<br>
+2、将偏移阶码减去偏移，得到真正的阶码；<br>
+3、把数字写成规格化的二进制数形式；<br>
+4、把规格化的二进制数改变成非规格化的二进制数；<br>
+5、把非规格化的二进制数转换成十进制数。</p>   
+<p>例11.2 把协处理器中的浮点数1100000111001001000000000000转换成十进制数</p>                                
+<table border="0" width="100%"> 
+  <tr> 
+    <td width="100%" colspan="2">
+      <p>解</p>
+    </td> 
+  </tr> 
+  <tr>
+    <td width="4%" rowspan="6" valign="top">
+      <p>
+    </td> 
+    <td width="96%">
+      1、把浮点数1100000111001001000000000000分割成三部分，可得：
+    </td> 
+  </tr>
+  <tr> 
+    <td width="96%">
+      <p>&nbsp;&nbsp;&nbsp;&nbsp; 符号位是1，阶码是10000011，尾数是1001001000000000000</p>                               
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="96%">
+      <p>2、还原阶码：10000011 – 01111111＝100</p>                                
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="96%">
+      <p>3、该浮点数的规格化形式：1.1001001×2<sup>4</sup>　　　　(其中前面的“1.”从隐含位而来)</p>
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="96%">
+      <p>4、该浮点数的非规格化形式：11001.001</p>
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="96%">
+      <p>5、该浮点数的十进制数为-25.125　　　　　　　　(因为符号位为1，所以，该数是负数)</p>
+    </td> 
+  </tr> 
+</table> 
+<p style="text-indent: 21.25pt">下面是学习和掌握十进制数转化为浮点数的控件，它可按步骤演示整个转换过程。</p>            
+<p align="center">
+<object classid="clsid:11F8E598-4816-4ED9-8A8E-6404224AA038" id="FTOD1" width="673" height="232">
+</object>
+</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">三、浮点数说明形式</font></p>
+<p style="text-indent: 21.25pt">在汇编语言中，可用DD、DQ和DT来分别说明单精度、双精度和扩展精度的浮点数。</p> 
+<p style="text-indent: 21.25pt">在MASM                                   
+6.0系统中，正浮点数前面不能书写‘+’，但MASM                                   
+6.11系统更正了这种错误，并提供了新的浮点数说明方法，即：可用REAL4、REAL8和REAL10来分别代替DD、DQ和DT。</p> 
+<p style="text-indent: 21.25pt">在定义浮点数时，要使用伪指令.8087、.287或.387等。</p> 
+<p style="text-indent: 21.25pt">例如：</p> 
+<table border="0" width="100%"> 
+  <tr> 
+    <td width="7%" rowspan="5" valign="top">
+      <p></td> 
+    <td width="94%" colspan="4">
+      <p>.387</p>
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="7%">
+      <p>data1</p>
+    </td> 
+    <td width="9%">
+      <p>DD</p>
+    </td> 
+    <td width="23%">
+      <p>123, -543</p>   
+    </td>   
+    <td width="55%">
+      <p>;定义单精度浮点数</p>
+    </td>  
+  </tr>  
+  <tr>  
+    <td width="7%">
+      <p>data2</p>
+    </td>  
+    <td width="9%">
+      <p>REAL4</p>
+    </td>  
+    <td width="23%">
+      <p>3.345E+3</p>
+    </td>  
+    <td width="55%">
+      <p>;定义单精度浮点数</p>
+    </td>  
+  </tr>  
+  <tr>  
+    <td width="7%">
+      <p>data3</p>
+    </td>  
+    <td width="9%">
+      <p>REAL8</p>
+    </td>  
+    <td width="23%">
+      <p>321.545</p>
+    </td>  
+    <td width="55%">
+      <p>;定义双精度浮点数</p>
+    </td>  
+  </tr>  
+  <tr>  
+    <td width="7%">
+      <p>data4</p>
+    </td>  
+    <td width="9%">
+      <p>REAL10</p>
+    </td>  
+    <td width="23%">
+      <p>254.555</p>
+    </td>  
+    <td width="55%">
+      <p>;定义扩展精度浮点数</p>
+    </td>  
+  </tr>  
+</table>  
+                              
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=11&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="11-1-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="11-2.htm"><img border="0" src="Button/NextPage1.gif" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">           
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>    
+        
+</body>        
+        
+</html>

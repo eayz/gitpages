@@ -1,0 +1,262 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>6.3 段的基本属性</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter06.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle06.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → 段的基本属性</td>                           
+    <td width="50%">              
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h2>6.3 段的基本属性</h2>                               
+<p style="text-indent: 21.25pt">在通常情况下，一个复杂的应用程序会由若干个模块组成，一个模块又会含有多个段。而不同模块的段之间、同一模块的段之间往往存在某种联系，这种联系就要体现在段属性的说明上。</p>      
+<table border="0" width="100%" cellspacing="0" cellpadding="0">     
+  <tr>     
+    <td width="100%" colspan="3">     
+<p style="text-indent: 21.25pt">段定义的一般格式如下：</p>     
+    </td>     
+  </tr>     
+  <tr>     
+    <td width="6%" rowspan="3" valign="top"></td>     
+    <td width="6%" rowspan="2" valign="top">段名</td>     
+    <td width="88%"> SEGMENT　[<a href="#ALIGN">对齐类型</a>]　[<a href="#COMBINE">组合类型</a>]　[<a href="06-3-2.htm">类别</a>]</td>
+  </tr>
+  <tr>
+    <td width="88%">…</td>
+  </tr>
+  <tr>
+    <td width="6%">段名</td>
+    <td width="88%"> ENDS</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">段属性“对齐类型”、“组合类型”和“类别”要按此顺序说明，但这些可选项可根据需要选择书写。如果源程序中不指定某个属性，那么，汇编程序将使用该属性的缺省值。</p>
+<p style="text-indent: 21.25pt">程序中的段名可以是唯一的，也可以与其它段同名。在同一模块中，如果有二个段同名，则后者被认为是前段的后续，这样，它们就属同一段。</p>
+<p style="text-indent: 21.25pt">当同一模块出现二个同名段时，则后者的可选项属性要么与前者相同，要么不写其属性而选用前者的段属性。</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="4"><p>例6.13 同段名的作用</p></td>                     
+  </tr>
+  <tr>
+    <td width="9%" rowspan="20" valign="top"></td>
+    <td width="8%" rowspan="2" valign="top">DATA1</td>
+    <td width="83%" colspan="2">SEGMENT　　　　　　　　;第一个数据段</td>
+  </tr>
+  <tr>
+    <td width="7%">MSG</td>
+    <td width="76%">DB "Hello, "</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">DATA1</td>
+    <td width="83%" colspan="2">ENDS</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="2" valign="top">CODE1</td>
+    <td width="83%" colspan="2">SEGMENT　　　　　　　　;第一个代码段</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="2">ASSUME　CS:CODE1, DS:DATA1</td>                               
+  </tr>      
+  <tr>      
+    <td width="8%" rowspan="5" valign="top">START:</td>     
+    <td width="7%">MOV</td>     
+    <td width="76%">AX, DATA1</td>      
+  </tr>      
+  <tr>      
+    <td width="7%">MOV</td>     
+    <td width="76%"> DS, AX</td>      
+  </tr>      
+  <tr>      
+    <td width="7%">MOV</td>     
+    <td width="76%"> DX, offset MSG</td>      
+  </tr>      
+  <tr>      
+    <td width="7%">MOV</td>     
+    <td width="76%"> AH, 9</td>      
+  </tr>      
+  <tr>      
+    <td width="7%">INT</td>     
+    <td width="76%"> 21H</td>     
+  </tr>     
+  <tr>     
+    <td width="8%">CODE1</td>     
+    <td width="83%" colspan="2">ENDS</td>     
+  </tr>     
+  <tr>     
+    <td width="8%" rowspan="2" valign="top">DATA1</td>     
+    <td width="83%" colspan="2">SEGMENT　　　　　　　　;第二个数据段</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="2">　DB "World.$"</td>                    
+  </tr>     
+  <tr>     
+    <td width="8%">DATA1</td>     
+    <td width="83%" colspan="2">ENDS</td>     
+  </tr>     
+  <tr>     
+    <td width="8%" rowspan="3" valign="top">CODE1</td>     
+    <td width="83%" colspan="2">SEGMENT　　　　　　　　;第二个代码段</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="76%"> AX, 4C00H</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">INT</td>
+    <td width="76%">21H</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="3" valign="top">CODE1</td>
+    <td width="83%" colspan="2">ENDS</td>
+  </tr>
+  <tr>
+    <td width="7%">END</td>
+    <td width="76%"> START</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="2">END</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">在上面的例子中，第二个数据段是第一个数据段的后续，汇编程序把它们是合二为一，上述的代码段也如此。</p>  
+<p style="text-indent: 21.25pt">下面，详细说明段属性的含义及其作用。</p>  
+<h3><a name="ALIGN">6.3.1 对齐类型(ALIGN)</a></h3>                          
+<p style="text-indent: 21.25pt">对齐类型表示当前段对起始地址的要求，连接程序(LINK.EXE)按表6.1的地址格式来定位段的起始地址。在进行段定位时，会根据其定位类型进行定位的，所以，各段之间就有可能出现一些空闲字节，即可能浪费几个字节单元。</p> 
+<p style="text-indent: 21.25pt">段对齐类型<font color="#FF0000">PARA</font>是一个适用于所有段类型的对齐类型，它也是缺省的对齐类型。对齐类型<font color="#FF0000">BYTE</font>和<font color="#FF0000">WORD</font>通常用于数据段的定位，对齐类型<font color="#FF0000">DWORD</font>通常用于<font color="#FF0000">80386</font>及其以后<font color="#FF0000">CPU</font>代码段的定位。</p>
+<p align="center">表6.1                           
+段对齐类型与段起始地址之间的对应关系</p> 
+<div align="center">
+  <center>
+  <table border="0" width="70%" cellpadding="0">
+    <tr>
+      <td align="center" width="70" bgcolor="#FFFF00">对齐类型</td>
+      <td align="center" width="186" bgcolor="#FFFF00">起始地址(二进制)</td>
+      <td align="center" width="109" bgcolor="#FFFF00">功能说明</td>
+      <td align="center" width="124" bgcolor="#FFFF00">最多的空闲字节数</td>
+    </tr>
+    <tr>
+      <td align="center" width="70" bgcolor="#00FFFF">BYTE</td>
+      <td align="center" width="186" bgcolor="#00FFFF">xxxx xxxx xxxx xxxx xxxx</td> 
+      <td width="109" bgcolor="#00FFFF"><p style="margin-left: 4pt">下一个字节地址</td>
+      <td align="center" width="124" bgcolor="#00FFFF">0</td>
+    </tr>
+    <tr>
+      <td align="center" width="70">WORD</td>
+      <td align="center" width="186">xxxx xxxx xxxx xxxx xxx0</td> 
+      <td width="109"><p style="margin-left: 4pt">下一个字地址</td>
+      <td align="center" width="124">1</td>
+    </tr>
+    <tr>
+      <td align="center" width="70" bgcolor="#00FFFF">DWORD</td>
+      <td align="center" width="186" bgcolor="#00FFFF">xxxx xxxx xxxx xxxx xx00</td> 
+      <td width="109" bgcolor="#00FFFF"><p style="margin-left: 4pt">下一个双字地址</td>
+      <td align="center" width="124" bgcolor="#00FFFF">3</td>
+    </tr>
+    <tr>
+      <td align="center" width="70">PARA</td>
+      <td align="center" width="186">xxxx xxxx xxxx xxxx 0000</td> 
+      <td width="109"><p style="margin-left: 4pt">下一个节地址</td>
+      <td align="center" width="124">15</td>
+    </tr>
+    <tr>
+      <td align="center" width="70" bgcolor="#00FFFF">PAGE</td>
+      <td align="center" width="186" bgcolor="#00FFFF">xxxx xxxx xxxx 0000 0000</td> 
+      <td width="109" bgcolor="#00FFFF"><p style="margin-left: 4pt">下一个页地址</td>
+      <td align="center" width="124" bgcolor="#00FFFF">127</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<h3><a name="COMBINE">6.3.2 组合类型(COMBINE)</a></h3>                          
+<p style="text-indent: 21.25pt">组合类型是告诉连接程序如何把不同模块中段名相同的段合并在一起。具体的组合类型如下：</p> 
+<table border="0" width="100%" cellpadding="0" cellspacing="3">
+  <tr>
+    <td width="7%" rowspan="5" valign="top"></td>
+    <td width="14%" valign="top" bgcolor="#00FFFF">NONE</td>
+    <td width="79%" bgcolor="#00FFFF"> 
+<p>表示当前段在逻辑上独立于其它模块，并有其自己的基地址。NONE是缺省的组合类型。</p> 
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">PUBLIC</td>
+    <td width="79%">表示当前段与其它模块中同段名的PUBLIC类型段组合成一个段。组合的先后次序取决于LINK程序中目标模块排列的次序。在组合时，后续段的起始地址要按其对齐类型进行定位，所以，同名段之间可能有间隔。</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top" bgcolor="#00FFFF">COMMON</td>
+    <td width="79%" bgcolor="#00FFFF">表示当前段与其它模块中同名段重叠，也就是说，它们的起始地址相同。最终段的长度是同名段的最大长度。由于段覆盖，所以，前一同名段中的初始化数据被后续段的初始数据覆盖掉。</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">STACK</td>
+    <td width="79%">组合类型STACK表示当前段是堆栈栈，其组合情况与PUBLIC相同。</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top" bgcolor="#00FFFF">AT 数值表达式</td>                    
+    <td width="79%" bgcolor="#00FFFF">该数值表达式是当前段所指定的绝对起始地址的段地址。</td>
+  </tr>
+</table>
+        
+<p align="right">                
+<a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=6&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="06-2-3-2.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="06-3-2.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>         

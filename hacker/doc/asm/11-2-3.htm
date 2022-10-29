@@ -1,0 +1,232 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>11.2 协处理器的结构</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter11.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle11.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="11-2.htm">协处理器的结构</a>&nbsp;                      
+      <font face="Arial">→ </font> 控制寄存器</td>              
+    <td width="50%">             
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h3>11.2.3 控制寄存器</h3>                           
+<p style="text-indent: 21.25pt">控制寄存器主要用于浮点数精度选择的控制、四舍五入的控制和无穷大的控制等，其低6位还可用来决定是否屏蔽协处理器的异常。指令FLDCW可用来设置控制寄存器的值。控制寄存器中控制位的分布如图11.6所示，其控制位的含义如表11.3所列。</p>
+<div align="center">
+  <center>
+  <table border="0" width="60%" cellspacing="1">
+    <tr>
+      <td width="6%" align="center">15</td>
+      <td width="6%" align="center">14</td>
+      <td width="6%" align="center">13</td>
+      <td width="6%" align="center">12</td>
+      <td width="6%" align="center">11</td>
+      <td width="6%" align="center">10</td>
+      <td width="6%" align="center">9</td>
+      <td width="6%" align="center">8</td>
+      <td width="6%" align="center">7</td>
+      <td width="6%" align="center">6</td>
+      <td width="6%" align="center">5</td>
+      <td width="6%" align="center">4</td>
+      <td width="7%" align="center">3</td>
+      <td width="7%" align="center">2</td>
+      <td width="7%" align="center">1</td>
+      <td width="7%" align="center">0</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<div align="center">
+  <center>
+  <table border="1" width="60%" cellspacing="0">
+    <tr>
+      <td width="6%" align="center">　</td>
+      <td width="6%" align="center">　</td>
+      <td width="6%" align="center">　</td>
+      <td width="6%" align="center">
+        <p align="center">IC</td>
+    </center>
+    <td width="12%" align="right">
+      <p align="center">RC</td>
+    <center>
+    <td width="12%" align="center">PC</td>
+    <td width="6%" align="center">　</td>
+    <td width="6%" align="center">　</td>
+    <td width="6%" align="center">PM</td>
+    <td width="6%" align="center">UM</td>
+    <td width="7%" align="center">OM</td>
+    <td width="7%" align="center">ZM</td>
+    <td width="7%" align="center">DM</td>
+    <td width="7%" align="center">IM</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="center">图11.6 控制寄存器的控制位分布示意图</p>                           
+<p align="center">表11.3 控制寄存器中控制位的含义</p>                           
+<div align="center">
+  <center>
+  <table border="0" width="62%" cellpadding="2" cellspacing="0">
+    <tr>
+      <td width="25%" align="center" valign="middle" bgcolor="#FFFF00">控制位</td>
+    </center>
+    <td width="75%" colspan="2" valign="middle" bgcolor="#FFFF00">
+      <p align="center">控制功能说明</td>
+  </tr>
+  <center>
+  <tr>
+    <td width="25%" valign="top" align="center" bgcolor="#00FFFF">IC(无穷大控制)</td>
+    <td width="75%" colspan="2" bgcolor="#00FFFF">
+      <p style="margin-left: 5">0—投影，假定是无符号无穷；<br>
+      1—仿射，允许正、负无穷</td>
+  </tr>
+  <tr>
+    <td width="25%" align="center">RC(舍入控制)</td>
+    <td width="75%" colspan="2">
+      <p style="margin-left: 5">00—最接近或偶数，01—舍入成负无穷，<br>
+      11—舍入成负无穷，10—截成0</td>
+  </tr>
+  <tr>
+    <td width="25%" align="center" bgcolor="#00FFFF">PC(精度控制)</td>
+    <td width="75%" colspan="2" bgcolor="#00FFFF">
+      <p style="margin-left: 5">00—单精度，01—保留，11—双精度，10—扩展精度</td>
+  </tr>
+  <tr>
+    <td width="25%" align="center" valign="middle">PM</td>
+    <td width="34%" valign="middle">
+      <p style="margin-left: 5pt">精度错误屏蔽位</td>
+    <td width="41%" rowspan="6">
+      <p style="text-indent: 21.25pt">若屏蔽位的值为1，则状态寄存器的相应位被屏蔽。</td>
+  </tr>
+  <tr>
+    <td width="25%" align="center" valign="middle" bgcolor="#00FFFF">UM</td>
+    <td width="34%" valign="middle" bgcolor="#00FFFF">
+      <p style="margin-left: 5pt">下溢出屏蔽位</td>
+  </tr>
+  <tr>
+    <td width="25%" align="center" valign="middle">OM</td>
+    <td width="34%" valign="middle">
+      <p style="margin-left: 5pt">上溢出屏蔽位</td>
+  </tr>
+  <tr>
+    <td width="25%" align="center" valign="middle" bgcolor="#00FFFF">ZM</td>
+    <td width="34%" valign="middle" bgcolor="#00FFFF">
+      <p style="margin-left: 5pt">除数为0屏蔽位</td>
+  </tr>
+  <tr>
+    <td width="25%" align="center" valign="middle">DM</td>
+    <td width="34%" valign="middle">
+      <p style="margin-left: 5pt">非规格化操作数屏蔽位</td>
+  </tr>
+  <tr>
+    <td width="25%" align="center" valign="middle" bgcolor="#00FFFF">IM</td>
+    <td width="34%" valign="middle" bgcolor="#00FFFF">
+      <p style="margin-left: 5pt">非法操作屏蔽位</td>
+  </tr>
+  </table>
+  </center>
+</div>
+<h3><a name="标记寄存器">11.2.4 标记寄存器</a></h3>                           
+<p style="text-indent: 21.25pt">标记寄存器用来表明协处理器堆栈中各存储单元内容的状态，也就是说，该寄存器可表明堆栈中的数据是合法的，还是非法的，是无穷，还是0或空等。该标记寄存器的结构如图11.7所示。</p>
+<div align="center">
+  <center>
+  <table border="0" width="60%" cellspacing="1">
+    <tr>
+      <td width="12%">15</td>
+      <td width="12%">13</td>
+      <td width="12%">11</td>
+      <td width="12%">9</td>
+      <td width="12%">7</td>
+      <td width="12%">5</td>
+      <td width="13%">3</td>
+      <td width="13%">
+        <p align="center">1　0</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<div align="center">
+  <center>
+  <table border="1" width="60%" cellspacing="0">
+    <tr>
+      <td width="12%" align="center">TAG(7)</td>
+      <td width="12%" align="center">TAG(6)</td>
+      <td width="12%" align="center">TAG(5)</td>
+      <td width="12%" align="center">TAG(4)</td>
+      <td width="13%" align="center">TAG(3)</td>
+      <td width="13%" align="center">TAG(2)</td>
+      <td width="13%" align="center">TAG(1)</td>
+      <td width="13%" align="center">TAG(0)</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="center">图11.7 标记寄存器结构示意图</p>                           
+<p>其中：TAG(i)的取值含义：00—合法，01—0，10—非法或无穷，11—空</p>
+<p style="text-indent: 21.25pt">在协处理器中，查看标记寄存器的方法是使用指令FSTENV、FSAVE或FRSTOR，它们都能使标记寄存器与其它协处理器数据一起转存。</p>
+             
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=11&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="11-2-2.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="11-3.htm"><img border="0" src="Button/NextPage1.gif" width="96"></a>      
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">           
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>    
+        
+</body>        
+        
+</html>        

@@ -1,0 +1,1511 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN"><HTML><HEAD><meta name="GENERATOR" content="http://www.vchm.com/&reg; Visual CHM V3.10 "><!-- Sitemap 1.0 --></HEAD><BODY><OBJECT type="text/site properties">
+</OBJECT><UL>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="1.1.4 汇编语言的特点">
+<param name="Local" value="01-1-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="1.1.5 汇编语言的应用领域">
+<param name="Local" value="01-1-5.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第1章 预备知识">
+<param name="Local" value="01-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="1.2.1 数值表示及其扩展">
+<param name="Local" value="01-2-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="1.2.2 非数值数据的表示">
+<param name="Local" value="01-2-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="1.2.3 基本的数据类型">
+<param name="Local" value="01-2-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="1.2 数据地表示和类型">
+<param name="Local" value="01-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="1.3 习题">
+<param name="Local" value="01-Exercise.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="2.1.2 程序状态字">
+<param name="Local" value="02-1-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第2章 CPU资源和存储器">
+<param name="Local" value="02-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="2.2.1 物理地址的形成方式">
+<param name="Local" value="02-2-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="2.2.1 段寄存器的引用">
+<param name="Local" value="02-2-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="2.2.1 存储单元的内容">
+<param name="Local" value="02-2-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="2.2.2 32位微机存储器的管理模式">
+<param name="Local" value="02-2-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="2.2 16位微机存储器的管理模式">
+<param name="Local" value="02-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="2.3 习题">
+<param name="Local" value="02-Exercise.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="3.1 立即数寻址方式">
+<param name="Local" value="03-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="3.2 寄存器寻址方式">
+<param name="Local" value="03-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="3.3 直接寻址方式">
+<param name="Local" value="03-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="3.4 寄存器间接寻址方式">
+<param name="Local" value="03-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="3.5 寄存器相对寻址方式">
+<param name="Local" value="03-5.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="3.6 基址加变址寻址方式">
+<param name="Local" value="03-6.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="3.7 相对基址加变址寻址方式">
+<param name="Local" value="03-7.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="3.8 32位地址的寻址方式">
+<param name="Local" value="03-8.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="3.10 习题">
+<param name="Local" value="03-Exercise.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第4章 标识符和表达式">
+<param name="Local" value="04-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.2.2 字节变量的定义">
+<param name="Local" value="04-2-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.2.3-4 字/双字变量的定义">
+<param name="Local" value="04-2-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.2.5 多字变量的定义">
+<param name="Local" value="04-2-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.3.3 调整偏移量伪指令ORG">
+<param name="Local" value="04-3-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.3 调整偏移量的伪指令">
+<param name="Local" value="04-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.4.2 结构类型的定义">
+<param name="Local" value="04-4-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.4.2 结构变量的定义">
+<param name="Local" value="04-4-21.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.4.3 联合类型的定义">
+<param name="Local" value="04-4-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.4.3 联合变量的定义">
+<param name="Local" value="04-4-31.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.4.3 记录类型的定义">
+<param name="Local" value="04-4-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.4.3 记录类型的定义">
+<param name="Local" value="04-4-41.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.4.5 数据类型的自定义">
+<param name="Local" value="04-4-5.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.4 复合内存变量的定义">
+<param name="Local" value="04-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.5 标号、属性">
+<param name="Local" value="04-56.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.6.3 类型属性操作符">
+<param name="Local" value="04-6-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.6.6 强制属性操作符">
+<param name="Local" value="04-6-6.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.6.7 存储单元别名操作符">
+<param name="Local" value="04-6-7.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.7.2 数值表达式">
+<param name="Local" value="04-7-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.7.3 地址表达式">
+<param name="Local" value="04-7-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.7 表达式">
+<param name="Local" value="04-7.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.8.2 等号语句">
+<param name="Local" value="04-8-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.8 符号定义语句">
+<param name="Local" value="04-8.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="4.9 习题">
+<param name="Local" value="04-Exercise.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第5章 微机CPU的指令系统">
+<param name="Local" value="05-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.1-传送－填充指令">
+<param name="Local" value="05-2-011.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.1-取有效地址指令">
+<param name="Local" value="05-2-012.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.1-堆栈操作指令">
+<param name="Local" value="05-2-013.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.2 标志位操作指令">
+<param name="Local" value="05-2-02.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.3 算术运算指令">
+<param name="Local" value="05-2-03.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.3-2减法指令">
+<param name="Local" value="05-2-031.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.3-3乘法指令">
+<param name="Local" value="05-2-032.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.3-4 除法指令">
+<param name="Local" value="05-2-033.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.3 类型转换指令">
+<param name="Local" value="05-2-034.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.4 逻辑运算指令">
+<param name="Local" value="05-2-04.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.5 移位操作指令">
+<param name="Local" value="05-2-05.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.5 逻辑移位指令">
+<param name="Local" value="05-2-051.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.5 双精度移位指令">
+<param name="Local" value="05-2-052.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.5 循环移位指令">
+<param name="Local" value="05-2-053.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.5 带进位的循环移位指令">
+<param name="Local" value="05-2-054.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.6 位操作指令">
+<param name="Local" value="05-2-06.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.6 位操作指令">
+<param name="Local" value="05-2-061.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.7 比较运算指令">
+<param name="Local" value="05-2-07.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.8 循环指令">
+<param name="Local" value="05-2-08.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.8-循环指令">
+<param name="Local" value="05-2-081.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.9 转移指令">
+<param name="Local" value="05-2-09.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.9-条件转移指令">
+<param name="Local" value="05-2-091.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.10 条件设置字节指令">
+<param name="Local" value="05-2-10.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.11-字符串操作指令">
+<param name="Local" value="05-2-11.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.11-字符串比较指令">
+<param name="Local" value="05-2-111.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.11-重复字符串操作指令">
+<param name="Local" value="05-2-112.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.12-ASCII-BCD调整指令">
+<param name="Local" value="05-2-12.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.12-乘、除法调整指令">
+<param name="Local" value="05-2-121.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.12-十进制调整指令">
+<param name="Local" value="05-2-122.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2.13 处理器指令">
+<param name="Local" value="05-2-13.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.2 指令系统">
+<param name="Local" value="05-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="5.3 习题">
+<param name="Local" value="05-Exercise.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.1.2 段寄存器的说明语句">
+<param name="Local" value="06-1-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.1.3 堆栈段的说明">
+<param name="Local" value="06-1-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.1.4 源程序的结构">
+<param name="Local" value="06-1-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第6章 程序的基本结构">
+<param name="Local" value="06-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.2 程序的基本结构">
+<param name="Local" value="06-2-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.2 程序的基本结构举例">
+<param name="Local" value="06-2-11.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.2.2 分支结构">
+<param name="Local" value="06-2-2-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.2.2 用伪指令实现分支结构">
+<param name="Local" value="06-2-2-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.2.2 分支结构">
+<param name="Local" value="06-2-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.2.3 伪指令实现的循环结构">
+<param name="Local" value="06-2-3-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.2.3 辅助循环伪指令">
+<param name="Local" value="06-2-3-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.2.3 循环结构">
+<param name="Local" value="06-2-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.3 段的基本属性">
+<param name="Local" value="06-3-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.3.3 段的类别和段组">
+<param name="Local" value="06-3-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.4.2 段简化定义伪指令">
+<param name="Local" value="06-4-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.4.3 简化段段名的引用">
+<param name="Local" value="06-4-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.4 简化的段定义">
+<param name="Local" value="06-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.5 源程序的辅助说明伪指令">
+<param name="Local" value="06-5.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="6.6 习题">
+<param name="Local" value="06-Exercise.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第7章 子程序和库">
+<param name="Local" value="07-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.2.2 子程序的返回指令">
+<param name="Local" value="07-2-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.2.2 子程序的举例">
+<param name="Local" value="07-2-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.2 子程序的调用和返回">
+<param name="Local" value="07-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.3.2 存储单元传递参数">
+<param name="Local" value="07-3-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.3.3 堆栈传递参数">
+<param name="Local" value="07-3-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.3 子程序的参数传递">
+<param name="Local" value="07-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.4 寄存器的保护与恢复">
+<param name="Local" value="07-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.5 子程序的完整定义">
+<param name="Local" value="07-5-01.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.5.2 子程序的位距和语言类型">
+<param name="Local" value="07-5-02.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.5.4 子程序的可见性和首尾宏操作">
+<param name="Local" value="07-5-04.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.5.6 寄存器的保护与恢复">
+<param name="Local" value="07-5-06.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.5.7 子程序参数传递">
+<param name="Local" value="07-5-07.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.5.9 子程序调用伪指令">
+<param name="Local" value="07-5-09.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.5.10 局部变量的定义">
+<param name="Local" value="07-5-10.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.6.3 库文件的应用">
+<param name="Local" value="07-6-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.6.3 库文件的应用举例">
+<param name="Local" value="07-6-31.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.6.4 库文件的好处">
+<param name="Local" value="07-6-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.5 子程序库">
+<param name="Local" value="07-6.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="7.7 习题">
+<param name="Local" value="07-Exercise.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.1.2 I/O指令">
+<param name="Local" value="08-1-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第8章 输入输出和中断">
+<param name="Local" value="08-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.2.2 中断指令">
+<param name="Local" value="08-2-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.2.3 中断返回指令">
+<param name="Local" value="08-2-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.2 中断">
+<param name="Local" value="08-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.3.2 键盘中断的处理过程">
+<param name="Local" value="08-3-1-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.3.2 键盘中断举例">
+<param name="Local" value="08-3-1-7.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.3.2 键盘输入中断">
+<param name="Local" value="08-3-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.3.2 屏幕中断功能">
+<param name="Local" value="08-3-2-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.3.2 屏幕中断功能">
+<param name="Local" value="08-3-2-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.3.2 屏幕中断功能">
+<param name="Local" value="08-3-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.3.3 屏幕显示中断">
+<param name="Local" value="08-3-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.3.4 串行口中断功能">
+<param name="Local" value="08-3-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.3.5 鼠标功能中断">
+<param name="Local" value="08-3-5.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.3.6 通信口输入输出中断">
+<param name="Local" value="08-3-6.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.3.8 设置中断向量">
+<param name="Local" value="08-3-7-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.3.7 内存管理的中断功能">
+<param name="Local" value="08-3-7-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.3.7 内存管理的中断功能">
+<param name="Local" value="08-3-7.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.3 中断功能的分类">
+<param name="Local" value="08-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="8.4 习题">
+<param name="Local" value="08-Exercise.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.1.2 宏的引用">
+<param name="Local" value="09-1-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.1.4 宏的嵌套定义">
+<param name="Local" value="09-1-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.1.5 宏与子程序的区别">
+<param name="Local" value="09-1-5.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第9章 宏">
+<param name="Local" value="09-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.2 宏参数的特殊运算符">
+<param name="Local" value="09-2-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.2.3 字符转义运算符">
+<param name="Local" value="09-2-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.3 与宏有关的伪指令">
+<param name="Local" value="09-3-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.3 与宏有关的伪指令">
+<param name="Local" value="09-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.4 重复汇编伪指令">
+<param name="Local" value="09-4-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.4 重复汇编伪指令">
+<param name="Local" value="09-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.5 条件汇编伪指令">
+<param name="Local" value="09-5.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.6 宏的扩展——FOR/FORC">
+<param name="Local" value="09-6-4.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.6 宏的扩展——GOTO">
+<param name="Local" value="09-6-6.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.6 宏的扩展——系统定义的宏">
+<param name="Local" value="09-6-8.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.6 宏的扩展——REPEAT/WHILE">
+<param name="Local" value="09-6.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="9.7 习题">
+<param name="Local" value="09-Exercise.HTM">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.1 字符串的处理程序">
+<param name="Local" value="10-1-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.1 字符串的处理程序">
+<param name="Local" value="10-1-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.1 字符串的处理程序">
+<param name="Local" value="10-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.2 分类统计程序举例">
+<param name="Local" value="10-2-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.2 数据的分类统计程序">
+<param name="Local" value="10-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.3 数据转换程序举例">
+<param name="Local" value="10-3-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.3 数据转换程序举例">
+<param name="Local" value="10-3-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.3 数据转换程序举例">
+<param name="Local" value="10-3-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.3 数据转换程序">
+<param name="Local" value="10-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.4 文件操作程序举例">
+<param name="Local" value="10-4-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.4 文件操作程序">
+<param name="Local" value="10-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.5 动态数据的编程">
+<param name="Local" value="10-5.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.6 COM文件的编程">
+<param name="Local" value="10-6.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.7 驻留程序">
+<param name="Local" value="10-7.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.8.2 程序段前缀的应用">
+<param name="Local" value="10-8-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.8 程序段前缀及其应用">
+<param name="Local" value="10-8.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10.9 习题">
+<param name="Local" value="10-Exercise.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11.1.3 浮点数">
+<param name="Local" value="11-1-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11.1 浮点数转化为十进制数">
+<param name="Local" value="11-1-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11.1 协处理器的数据格式">
+<param name="Local" value="11-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11.2.2 状态寄存器">
+<param name="Local" value="11-2-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11.2.2 存取状态寄存器">
+<param name="Local" value="11-2-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11.2 协处理器的结构">
+<param name="Local" value="11-2-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11.2 协处理器的结构">
+<param name="Local" value="11-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11.3.2 数据传送类指令">
+<param name="Local" value="11-3-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11.3.3 数学运算类指令">
+<param name="Local" value="11-3-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11.3.4 比较类指令等">
+<param name="Local" value="11-3-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11.3.6 常数操作指令等">
+<param name="Local" value="11-3-7.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11.3 协处理器的指令系统">
+<param name="Local" value="11-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11.4 协处理器的编程举例 ">
+<param name="Local" value="11-4.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11.5 习题 ">
+<param name="Local" value="11-Exercise.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="12.2 C语言源程序的汇编输出">
+<param name="Local" value="12-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="12.3 简单的屏幕编辑程序 ">
+<param name="Local" value="12-3.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="12.4 习题 ">
+<param name="Local" value="12-Exercise.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="Assember课程介绍">
+<param name="Local" value="Assember.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第1章的学习要求">
+<param name="Local" value="chapter01.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第2章的学习要求">
+<param name="Local" value="chapter02.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第3章的学习要求">
+<param name="Local" value="chapter03.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第4章的学习要求">
+<param name="Local" value="chapter04.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第5章的学习要求">
+<param name="Local" value="chapter05.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第6章的学习要求">
+<param name="Local" value="chapter06.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第7章的学习要求">
+<param name="Local" value="chapter07.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第8章的学习要求">
+<param name="Local" value="chapter08.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第9章的学习要求">
+<param name="Local" value="chapter09.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第10章的学习要求">
+<param name="Local" value="chapter10.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第11章的学习要求">
+<param name="Local" value="chapter11.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第12章的学习要求">
+<param name="Local" value="chapter12.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="汇编语言网络课件目录">
+<param name="Local" value="content.html">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="第12章 汇编语言和C语言">
+<param name="Local" value="12-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="01-1-d.gif">
+<param name="Local" value="TEXTBOOKIMG/01-1-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="01-1.gif">
+<param name="Local" value="TEXTBOOKIMG/01-1.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="01-2.gif">
+<param name="Local" value="TEXTBOOKIMG/01-2.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="01-3.gif">
+<param name="Local" value="TEXTBOOKIMG/01-3.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="01-4.gif">
+<param name="Local" value="TEXTBOOKIMG/01-4.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="01-5.gif">
+<param name="Local" value="TEXTBOOKIMG/01-5.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="02-1-1.gif">
+<param name="Local" value="TEXTBOOKIMG/02-1-1.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="02-1-2.gif">
+<param name="Local" value="TEXTBOOKIMG/02-1-2.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="02-1-3.gif">
+<param name="Local" value="TEXTBOOKIMG/02-1-3.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="02-4.gif">
+<param name="Local" value="TEXTBOOKIMG/02-4.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="02-5.gif">
+<param name="Local" value="TEXTBOOKIMG/02-5.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="02-6.gif">
+<param name="Local" value="TEXTBOOKIMG/02-6.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="02-7-d.gif">
+<param name="Local" value="TEXTBOOKIMG/02-7-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="02-7.gif">
+<param name="Local" value="TEXTBOOKIMG/02-7.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="02-8.gif">
+<param name="Local" value="TEXTBOOKIMG/02-8.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-1-d.gif">
+<param name="Local" value="TEXTBOOKIMG/03-1-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-1.gif">
+<param name="Local" value="TEXTBOOKIMG/03-1.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-2-d.gif">
+<param name="Local" value="TEXTBOOKIMG/03-2-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-2.gif">
+<param name="Local" value="TEXTBOOKIMG/03-2.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-3-1.gif">
+<param name="Local" value="TEXTBOOKIMG/03-3-1.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-3-d.gif">
+<param name="Local" value="TEXTBOOKIMG/03-3-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-3.gif">
+<param name="Local" value="TEXTBOOKIMG/03-3.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-4-d.gif">
+<param name="Local" value="TEXTBOOKIMG/03-4-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-4.gif">
+<param name="Local" value="TEXTBOOKIMG/03-4.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-5-1.gif">
+<param name="Local" value="TEXTBOOKIMG/03-5-1.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-5-d.gif">
+<param name="Local" value="TEXTBOOKIMG/03-5-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-5.gif">
+<param name="Local" value="TEXTBOOKIMG/03-5.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-6-1.gif">
+<param name="Local" value="TEXTBOOKIMG/03-6-1.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-6-d.gif">
+<param name="Local" value="TEXTBOOKIMG/03-6-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-6.gif">
+<param name="Local" value="TEXTBOOKIMG/03-6.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-7-1.gif">
+<param name="Local" value="TEXTBOOKIMG/03-7-1.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-7-d.gif">
+<param name="Local" value="TEXTBOOKIMG/03-7-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-7.gif">
+<param name="Local" value="TEXTBOOKIMG/03-7.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="03-8.gif">
+<param name="Local" value="TEXTBOOKIMG/03-8.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="04-10.gif">
+<param name="Local" value="TEXTBOOKIMG/04-10.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="04-11.gif">
+<param name="Local" value="TEXTBOOKIMG/04-11.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="04-2.gif">
+<param name="Local" value="TEXTBOOKIMG/04-2.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="04-3-d.gif">
+<param name="Local" value="TEXTBOOKIMG/04-3-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="04-3.gif">
+<param name="Local" value="TEXTBOOKIMG/04-3.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="04-4.gif">
+<param name="Local" value="TEXTBOOKIMG/04-4.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="04-5.gif">
+<param name="Local" value="TEXTBOOKIMG/04-5.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="04-6.gif">
+<param name="Local" value="TEXTBOOKIMG/04-6.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="04-8.gif">
+<param name="Local" value="TEXTBOOKIMG/04-8.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="04-9.gif">
+<param name="Local" value="TEXTBOOKIMG/04-9.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-01.gif">
+<param name="Local" value="TEXTBOOKIMG/05-01.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-02A-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-02A-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-02A.gif">
+<param name="Local" value="TEXTBOOKIMG/05-02A.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-02B-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-02B-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-02B.gif">
+<param name="Local" value="TEXTBOOKIMG/05-02B.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-03.gif">
+<param name="Local" value="TEXTBOOKIMG/05-03.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-04-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-04-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-04.gif">
+<param name="Local" value="TEXTBOOKIMG/05-04.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-05A-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-05A-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-05A.gif">
+<param name="Local" value="TEXTBOOKIMG/05-05A.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-05B-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-05B-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-05B.gif">
+<param name="Local" value="TEXTBOOKIMG/05-05B.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-06-2.gif">
+<param name="Local" value="TEXTBOOKIMG/05-06-2.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-06-AND.gif">
+<param name="Local" value="TEXTBOOKIMG/05-06-AND.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-06-NOT.gif">
+<param name="Local" value="TEXTBOOKIMG/05-06-NOT.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-06-OR.gif">
+<param name="Local" value="TEXTBOOKIMG/05-06-OR.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-06-XOR.gif">
+<param name="Local" value="TEXTBOOKIMG/05-06-XOR.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-06.gif">
+<param name="Local" value="TEXTBOOKIMG/05-06.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-10A-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-10A-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-10A.gif">
+<param name="Local" value="TEXTBOOKIMG/05-10A.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-10B-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-10B-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-10B.gif">
+<param name="Local" value="TEXTBOOKIMG/05-10B.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-11-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-11-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-11.gif">
+<param name="Local" value="TEXTBOOKIMG/05-11.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-12-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-12-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-12.gif">
+<param name="Local" value="TEXTBOOKIMG/05-12.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-13-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-13-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-13.gif">
+<param name="Local" value="TEXTBOOKIMG/05-13.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-14.gif">
+<param name="Local" value="TEXTBOOKIMG/05-14.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-15-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-15-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-15.gif">
+<param name="Local" value="TEXTBOOKIMG/05-15.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-16-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-16-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-16.gif">
+<param name="Local" value="TEXTBOOKIMG/05-16.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-17-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-17-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-17.gif">
+<param name="Local" value="TEXTBOOKIMG/05-17.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-18.gif">
+<param name="Local" value="TEXTBOOKIMG/05-18.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-19-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-19-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-19.gif">
+<param name="Local" value="TEXTBOOKIMG/05-19.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-20-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-20-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-20.gif">
+<param name="Local" value="TEXTBOOKIMG/05-20.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-21-d.gif">
+<param name="Local" value="TEXTBOOKIMG/05-21-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="05-21.gif">
+<param name="Local" value="TEXTBOOKIMG/05-21.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="06-1.gif">
+<param name="Local" value="TEXTBOOKIMG/06-1.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="06-2-2.gif">
+<param name="Local" value="TEXTBOOKIMG/06-2-2.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="06-2A-d.gif">
+<param name="Local" value="TEXTBOOKIMG/06-2A-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="06-2A.gif">
+<param name="Local" value="TEXTBOOKIMG/06-2A.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="06-2B-d.gif">
+<param name="Local" value="TEXTBOOKIMG/06-2B-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="06-2B.gif">
+<param name="Local" value="TEXTBOOKIMG/06-2B.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="06-3A-d.gif">
+<param name="Local" value="TEXTBOOKIMG/06-3A-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="06-3A.gif">
+<param name="Local" value="TEXTBOOKIMG/06-3A.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="06-3B-d.gif">
+<param name="Local" value="TEXTBOOKIMG/06-3B-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="06-3B.gif">
+<param name="Local" value="TEXTBOOKIMG/06-3B.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-1-d.gif">
+<param name="Local" value="TEXTBOOKIMG/07-1-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-1.gif">
+<param name="Local" value="TEXTBOOKIMG/07-1.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-2-d.gif">
+<param name="Local" value="TEXTBOOKIMG/07-2-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-2.gif">
+<param name="Local" value="TEXTBOOKIMG/07-2.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-3-d.gif">
+<param name="Local" value="TEXTBOOKIMG/07-3-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-3.gif">
+<param name="Local" value="TEXTBOOKIMG/07-3.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-4-d.gif">
+<param name="Local" value="TEXTBOOKIMG/07-4-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-4.gif">
+<param name="Local" value="TEXTBOOKIMG/07-4.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-5-d.gif">
+<param name="Local" value="TEXTBOOKIMG/07-5-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-5.gif">
+<param name="Local" value="TEXTBOOKIMG/07-5.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-6a.gif">
+<param name="Local" value="TEXTBOOKIMG/07-6a.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-6B-d.gif">
+<param name="Local" value="TEXTBOOKIMG/07-6B-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-6b.gif">
+<param name="Local" value="TEXTBOOKIMG/07-6b.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-7A.gif">
+<param name="Local" value="TEXTBOOKIMG/07-7A.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-7B-d.gif">
+<param name="Local" value="TEXTBOOKIMG/07-7B-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-7B.gif">
+<param name="Local" value="TEXTBOOKIMG/07-7B.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-8.gif">
+<param name="Local" value="TEXTBOOKIMG/07-8.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="07-9.gif">
+<param name="Local" value="TEXTBOOKIMG/07-9.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="08-1.gif">
+<param name="Local" value="TEXTBOOKIMG/08-1.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="08-10.gif">
+<param name="Local" value="TEXTBOOKIMG/08-10.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="08-11.gif">
+<param name="Local" value="TEXTBOOKIMG/08-11.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="08-2.gif">
+<param name="Local" value="TEXTBOOKIMG/08-2.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="08-3-d.gif">
+<param name="Local" value="TEXTBOOKIMG/08-3-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="08-3.gif">
+<param name="Local" value="TEXTBOOKIMG/08-3.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="08-4.gif">
+<param name="Local" value="TEXTBOOKIMG/08-4.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="08-5.gif">
+<param name="Local" value="TEXTBOOKIMG/08-5.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="08-6.gif">
+<param name="Local" value="TEXTBOOKIMG/08-6.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="08-7.gif">
+<param name="Local" value="TEXTBOOKIMG/08-7.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="08-8.gif">
+<param name="Local" value="TEXTBOOKIMG/08-8.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="08-9.gif">
+<param name="Local" value="TEXTBOOKIMG/08-9.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10-13.gif">
+<param name="Local" value="TEXTBOOKIMG/10-13.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="10-9.gif">
+<param name="Local" value="TEXTBOOKIMG/10-9.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11-1A.gif">
+<param name="Local" value="TEXTBOOKIMG/11-1A.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11-1B.gif">
+<param name="Local" value="TEXTBOOKIMG/11-1B.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11-1C.gif">
+<param name="Local" value="TEXTBOOKIMG/11-1C.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11-3A.gif">
+<param name="Local" value="TEXTBOOKIMG/11-3A.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11-3B.gif">
+<param name="Local" value="TEXTBOOKIMG/11-3B.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11-3C.gif">
+<param name="Local" value="TEXTBOOKIMG/11-3C.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11-4_c1.gif">
+<param name="Local" value="TEXTBOOKIMG/11-4_c1.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11-4_c2.gif">
+<param name="Local" value="TEXTBOOKIMG/11-4_c2.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="11-7.gif">
+<param name="Local" value="TEXTBOOKIMG/11-7.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="Arrow.gif">
+<param name="Local" value="TEXTBOOKIMG/Arrow.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="background.GIF">
+<param name="Local" value="TEXTBOOKIMG/background.GIF">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="ball.gif">
+<param name="Local" value="TEXTBOOKIMG/ball.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="Ball3.gif">
+<param name="Local" value="TEXTBOOKIMG/Ball3.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="bk-FLAGS.gif">
+<param name="Local" value="TEXTBOOKIMG/bk-FLAGS.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="bk-REG.gif">
+<param name="Local" value="TEXTBOOKIMG/bk-REG.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="DISK.gif">
+<param name="Local" value="TEXTBOOKIMG/DISK.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="menu.gif">
+<param name="Local" value="TEXTBOOKIMG/menu.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="rcl-d.gif">
+<param name="Local" value="TEXTBOOKIMG/rcl-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="rcl.gif">
+<param name="Local" value="TEXTBOOKIMG/rcl.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="rcr-d.gif">
+<param name="Local" value="TEXTBOOKIMG/rcr-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="rcr.gif">
+<param name="Local" value="TEXTBOOKIMG/rcr.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="redball.gif">
+<param name="Local" value="TEXTBOOKIMG/redball.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="redpoint.gif">
+<param name="Local" value="TEXTBOOKIMG/redpoint.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="rol-d.gif">
+<param name="Local" value="TEXTBOOKIMG/rol-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="rol.gif">
+<param name="Local" value="TEXTBOOKIMG/rol.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="ror-d.gif">
+<param name="Local" value="TEXTBOOKIMG/ror-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="ror.gif">
+<param name="Local" value="TEXTBOOKIMG/ror.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="sal-d.gif">
+<param name="Local" value="TEXTBOOKIMG/sal-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="sal.gif">
+<param name="Local" value="TEXTBOOKIMG/sal.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="sar-d.gif">
+<param name="Local" value="TEXTBOOKIMG/sar-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="sar.gif">
+<param name="Local" value="TEXTBOOKIMG/sar.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="shld-d.gif">
+<param name="Local" value="TEXTBOOKIMG/shld-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="shld.gif">
+<param name="Local" value="TEXTBOOKIMG/shld.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="shr-d.gif">
+<param name="Local" value="TEXTBOOKIMG/shr-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="shr.gif">
+<param name="Local" value="TEXTBOOKIMG/shr.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="shrd-d.gif">
+<param name="Local" value="TEXTBOOKIMG/shrd-d.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="shrd.gif">
+<param name="Local" value="TEXTBOOKIMG/shrd.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="Thumbs.db">
+<param name="Local" value="TEXTBOOKIMG/Thumbs.db">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="UP_ARROW.gif">
+<param name="Local" value="TEXTBOOKIMG/UP_ARROW.gif">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="附录1 汇编语言的编程和调试工具">
+<param name="Local" value="appendix.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="附录1 汇编语言的编程和调试工具">
+<param name="Local" value="APPENDIX/App1-1.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="编程集成环境PWB">
+<param name="Local" value="APPENDIX/App1-2.htm">
+</OBJECT>
+<LI><OBJECT type="text/sitemap">
+<param name="Keyword" value="2.1.1 存储器组">
+<param name="Local" value="02-1-1.htm">
+</OBJECT>
+</UL></BODY></HTML>

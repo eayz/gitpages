@@ -1,0 +1,170 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录4.1 控制台输入和输出的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<h3><a name="1.1">1.1、@GetChar：从键盘读字符</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="7" valign="top"></td>
+    <td width="15%">使用语法：</td>
+    <td width="80%" colspan="2">@GetChar &nbsp;[echo] [，[break] [，clearbuf]]</td>       
+  </tr>
+  <tr>
+    <td width="15%" rowspan="3" valign="top">参数说明：</td>
+    <td width="16%">&lt;echo&gt;</td>
+    <td width="64%">常量，非零表示“回显”，缺省值为“回显”</td>
+  </tr>
+  <tr>
+    <td width="16%">&lt;break&gt;</td>
+    <td width="64%">常量，非零表示接受“^C”，缺省值为“接受”</td>
+  </tr>
+  <tr>
+    <td width="16%">&lt;clearbuf&gt;&nbsp;</td>
+    <td width="64%">常量，非零表示清键盘缓冲区，缺省值为“不清”</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">AL＝ASCII码</td>
+  </tr>
+  <tr>
+    <td width="15%">内容破坏：</td>
+    <td width="80%" colspan="2">AX，DL(若回显，且不接受^C)</td>
+  </tr>
+  <tr>
+    <td width="15%">参见内容：</td>
+    <td width="80%" colspan="2">INT 21h — 01h、07h、08h和0Ch，<a href="#1.2">@GetStr</a></td>          
+  </tr>
+</table>
+<h3>1.2<a name="1.2">、@GetStr：从键盘读字符串</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="8" valign="top"></td>
+    <td width="15%">使用语法：</td>
+    <td width="82%" colspan="2">@GetStr buffer [，[terminator] [，[limit] [，segment]]]</td>       
+  </tr>
+  <tr>
+    <td width="15%" rowspan="4" valign="top">参数说明：</td>
+    <td width="16%" valign="top">&lt;buffer&gt;</td>
+    <td width="66%"> 字符串的偏移量，必须是偏移量地址<br>
+      字节1 — 调用前，字符串的最大长度<br>       
+      字节2 — 调用后，字符串的实际长度<br>       
+      字节3 — 存放着字符串</td>        
+  </tr>
+  <tr>
+    <td width="16%">&lt;terminator&gt;</td>
+    <td width="66%">常量/寄存器，不能是存储单元，终止字节为0或’$’</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">&lt;limit&gt;</td>
+    <td width="66%"> 常量，字符串的最大长度。若未指定该参数，则调用前，其必须在缓冲区</td>
+  </tr>
+  <tr>
+    <td width="16%">&lt;segment&gt;</td>
+    <td width="66%">缓冲区的段地址，若未指定，缺省值是DS</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">返回参数：</td>
+    <td width="82%" colspan="2">SI＝指向字符串，BX＝字符串长度</td>
+  </tr>
+  <tr>
+    <td width="15%">内容破坏：</td>
+    <td width="82%" colspan="2">AX、DX、BX和SI</td>
+  </tr>
+  <tr>
+    <td width="15%">参见内容：</td>
+    <td width="82%" colspan="2">Int 21h — 0Ah，<a href="#1.1">@GetChar</a></td>          
+  </tr>
+</table>
+<h3>1.<a name="1.3">3、@ShowChar：在屏幕上显示若干个字符</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="15%">使用语法：</td>
+    <td width="80%" colspan="2">@ShowChar char [，char]...</td>           
+  </tr>
+  <tr>
+    <td width="15%" valign="top">参数说明：</td>
+    <td width="16%" valign="top">&lt;char&gt;</td>
+    <td width="64%"> ASCII码</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">无</td>
+  </tr>
+  <tr>
+    <td width="15%">内容破坏：</td>
+    <td width="80%" colspan="2">AX和DL</td>
+  </tr>
+  <tr>
+    <td width="15%">参见内容：</td>
+    <td width="80%" colspan="2">Int 21h — 02h</td>           
+  </tr>
+</table>
+<h3>1.<a name="1.4">4、@PrtChar：向LPT1输出若干个字符</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="15%">使用语法：</td>
+    <td width="80%" colspan="2">@PrtChar char [，char]...</td>           
+  </tr>
+  <tr>
+    <td width="15%" valign="top">参数说明：</td>
+    <td width="16%" valign="top">&lt;char&gt;</td>
+    <td width="64%"> ASCII码</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">无</td>
+  </tr>
+  <tr>
+    <td width="15%">内容破坏：</td>
+    <td width="80%" colspan="2">AX和DL</td>
+  </tr>
+  <tr>
+    <td width="15%">参见内容：</td>
+    <td width="80%" colspan="2">Int 21h — 05h，<a href="#1.3">@ShowStr</a></td>          
+  </tr>
+</table>
+<h3>1.<a name="1.5">5、@ShowStr：显示用”$”结束的字符串</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="6" valign="top"></td>
+    <td width="15%">使用语法：</td>
+    <td width="80%" colspan="2">@ShowStr address [，segment]</td>         
+  </tr>
+  <tr>
+    <td width="15%" rowspan="2" valign="top">参数说明：</td>
+    <td width="16%" valign="top">&lt;address&gt;</td>
+    <td width="64%">字符串的偏移量，该字符串由&quot;$&quot;结束</td>
+  </tr>
+  <tr>
+    <td width="16%">&lt;segment&gt;&nbsp;</td>
+    <td width="64%">字符串的段，若未指定，则其缺省值为DS</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">无</td>
+  </tr>
+  <tr>
+    <td width="15%">内容破坏：</td>
+    <td width="80%" colspan="2">AX、DX、DS(若段改变了)</td>
+  </tr>
+  <tr>
+    <td width="15%">参见内容：</td>
+    <td width="80%" colspan="2">Int 21h — 09h</td>         
+  </tr>
+</table>
+        
+</body>        
+        
+</html>        

@@ -1,0 +1,114 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>8.3.2 键盘输入中断</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter08.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle08.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" ><img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a> 
+      → <a href="08-3.htm"> 中断功能的分类</a>                       
+      → 键盘的中断功能</td>                                   
+    <td width="50%">           
+      <p align="right">  
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+     
+<h3>8.3.1 键盘输入的中断功能</h3>                         
+<p style="text-indent: 21.25pt">  
+键盘输入是绝大多数程序的主要输入方式，学习和掌握有关键盘输入中断的使用方法对编写交互式程序是非常重要的，也能更进一步理解计算机是如何接受键盘输入的。</p>  
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、键盘缓冲区</font></p>  
+<p style="text-indent: 21.25pt">键盘缓冲区是一个先进先出的环形队列，其所占内存区域如下：</p>  
+<table border="0" width="100%" cellpadding="0">  
+  <tr>  
+    <td width="7%" rowspan="3" valign="top"></td>  
+    <td width="9%">  
+KBHead</td>  
+    <td width="20%"> DW　?</td>
+    <td width="64%"> ;其内存地址为0000:041AH，缓冲区头指针</td>
+  </tr>
+  <tr>
+    <td width="9%">
+KBTail</td>
+    <td width="20%"> DW　?</td>
+    <td width="64%"> ;其内存地址为0000:041CH，缓冲区尾指针</td>
+  </tr>
+  <tr>
+    <td width="9%">
+KBBuff</td>
+    <td width="20%"> DW　16 DUP(?)</td>                       
+    <td width="64%"> ;其内存地址为0000:041EH，该缓冲区的缺省长度为16个字</td>  
+  </tr>  
+</table>  
+<p style="text-indent: 21.25pt">与键盘有关的其它地址请见附录6之<a href="Appendix/App6-1.htm" target="_blank">键盘地址</a>。</p>
+<p style="text-indent: 21.25pt">
+键盘缓冲区是一个环形队列，其性质与《数据结构》课程中对“环形队列”所描述的性质完全一致。虽然缓冲区的本身长度为16个字，但出于判断“对列满”的考虑，它最多只能保存15个键盘信息。当缓冲区满时，系统将不再接受按键信息，而会发出“嘟”的声音，以示要暂缓按键。当KBHead＝KBTail时，表示无键盘输入。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、键盘状态字</font></p>
+<p style="text-indent: 21.25pt">
+在计算机键盘上除了可输入各种字符(字母、数字和符号等)的按键之外，还有一些功能键(如：F1、F2、…等)、控制键(如：Ctrl、Alt、Shift等)、双态键(如：Num                           
+Lock、Caps Lock等)和特殊请求键(如：Print Screen、Scroll Lock等)。</p>                          
+<p style="text-indent: 21.25pt">  
+键盘中的控制键和双态键是非打印按键，它们是起控制或转换作用的。当使用者按下控制键或双态键时，系统要记住其所按下的按键。为此，在计算机系统中，特意安排的一个字来标志这些按键的状态，我们称该字为键盘状态字。</p>  
+<p style="text-indent: 21.25pt">键盘状态字的各位含义如图8.5所示。</p>  
+<p align="center"><img border="0" src="TextBookIMG/08-5.gif" width="542"></p>   
+<p align="center">  
+图8.5 键盘状态字的各位含义</p>                       
+          
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=8&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="08-3.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="08-3-1-3.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+       
+</body>       
+       
+</html>

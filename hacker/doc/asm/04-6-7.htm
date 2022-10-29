@@ -1,0 +1,132 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>4.6.7 存储单元别名操作符</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter04.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle04.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="55%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="04-56.htm#变量和标号的属性">变量和标号的属性</a>                      
+      → 存储单元别名操作符</td>                                           
+    <td width="45%">             
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+    
+<h3>4.6.7 存储单元别名操作符</h3>                         
+<p style="text-indent: 21.25pt">由上一节的内容，我们知道：在程序中，如果需要以另一种数据类型来访问某一存储单元时，可用强制属性操作符<font color="#FF0000">PTR</font>来实现。但如果在程序中要经常以某种其它的数据类型来访问该存储单元的话，那么，就必须在每次访问时都要加上强制属性操作符<font color="#FF0000">PTR</font>。这样做虽然可行，但在编写程序时就显得比较麻烦。</p>   
+<p style="text-indent: 21.25pt">为了克服上述不便，汇编语言提供了另一种操作符<font color="#FF0000">THIS</font>，它为同一存储单元取另一别名，该别名可具有其自身的数据属性，但其段地址和偏移量是不变的。</p>   
+<p style="text-indent: 21.25pt">操作符<font color="#FF0000">THIS</font>的一般格式为：</p>   
+<p style="margin-left: 40pt"><font color="#FF0000">THIS</font>    
+ 数据类型</p>        
+<p>其中：数据类型是前面所学的各种数据类型，常用的数据类型有：<font color="#FF0000">BYTE</font>、<font color="#FF0000">WORD</font>、<font color="#FF0000">DWORD</font>、<font color="#FF0000">NEAR</font>和<font color="#FF0000">FAR</font>等。</p>   
+<table border="0" width="100%" cellspacing="0" cellpadding="2">   
+  <tr>   
+    <td width="100%" valign="top" colspan="5"><p style="text-indent: 21.25pt">例如：</td>   
+  </tr>   
+  <tr>   
+    <td width="8%" valign="top" rowspan="2"></td>   
+    <td width="10%">WBUFFER</td>   
+    <td width="6%">EQU</td>    
+    <td width="14%">THIS WORD</td>       
+    <td width="62%">;<a href="04-8.htm#EQU">EQU</a>是一个等价符号定义语句，在后面有介绍</td>     
+  </tr>     
+  <tr>    
+    <td width="10%">BUFFER</td>       
+    <td width="6%">DB</td>       
+    <td width="76%" colspan="2">20 DUP(?)</td>         
+  </tr>     
+</table>        
+<p style="text-indent: 21.25pt">上述定义后，它们的逻辑关系如图4.11所示。</p>
+<div align="center">
+  <center>
+  <table border="1" width="50%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="12%" align="center">……</td>
+      <td width="12%" align="center">　</td>
+      <td width="12%" align="center">　</td>
+      <td width="25%" align="center">……</td>
+      <td width="13%" align="center">　</td>
+      <td width="13%" align="center">　</td>
+      <td width="13%" align="center">……</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<div align="center">
+  <center>
+  <table border="0" width="50%" cellspacing="1">
+    <tr>
+      <td width="100%"><img border="0" src="TextBookIMG/04-11.gif" width="204"></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="center">图4.11 存储单元别名操作符THIS的效果示意图 
+<p style="text-indent: 21.25pt">如图4.11所示，这样就给同一片存储单元，取了二个具有不同数据类型的变量名。于是，在指令中，引用不同的变量名，就使用其不同的数据属性：</p>
+<p style="margin-left: 22pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、如果引用变量名WBUFFER，则是按“字”属性来访问；<br>
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、如果引用变量名BUFFER，则是按“字节”属性来访问。</p>
+<p style="text-indent: 21.25pt">如此一来，指令“MOV　AX, word ptr BUFFER”和“MOV　AX, WBUFFER”是等效的，所不同的是：当以“字”属性访问BUFFER存储区时，不必使用强制属性符PTR，而改用“字”属性变量WBUFFER即可。</p>  
+                         
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=4&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="04-6-6.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="04-7.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                      
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2>                             
+    <option selected value="#">课件章节</option>          
+    <option value="course.htm">课件目录</option>          
+    <option value="01-1.htm">第1章 预备知识</option>                
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>                
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>                
+    <option value="04-1.htm">第4章 标识符和表达式</option>                
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>                
+    <option value="06-1.htm">第6章 程序的基本结构</option>                
+    <option value="07-1.htm">第7章 子程序和库</option>                
+    <option value="08-1.htm">第8章 输入输出和中断</option>                
+    <option value="09-1.htm">第9章 宏</option>                
+    <option value="10-1.htm">第10章 应用程序的设计</option>                
+    <option value="11-1.htm">第11章 数值运算协处理器</option>          
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>          
+  </select></p>             
+                  
+</body>                  
+                  
+</html>                  

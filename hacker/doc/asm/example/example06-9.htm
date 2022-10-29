@@ -1,0 +1,152 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例6.9</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+<body  background="../TextBookIMG/background.gif">
+<p>例6.9 根据当前计算机的时间和日期，显示上午(AM)或下午(PM)，以及所在的季节。</p>                               
+<p>解：</p> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="9%" rowspan="34" valign="top"></td> 
+    <td width="8%">DATA1</td> 
+    <td width="83%" colspan="3">SEGMENT</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="7" valign="top"></td> 
+    <td width="8%">MSG</td> 
+    <td width="75%" colspan="2">DB　&quot;Time:                                   
+      &quot;</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">AmPm</td> 
+    <td width="75%" colspan="2">DB　&quot;AM&quot;, 13, 10                                
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="8%"></td> 
+    <td width="75%" colspan="2">DB　&quot;Season:                                   
+      $&quot;</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">winter</td> 
+    <td width="75%" colspan="2">DB　&quot;Winter$&quot;</td>
+  </tr>
+  <tr>
+    <td width="8%">spring</td>
+    <td width="75%" colspan="2">DB　&quot;Spring$&quot;</td>
+  </tr>
+  <tr>
+    <td width="8%">summer</td>
+    <td width="75%" colspan="2">DB　&quot;Summer$&quot;</td>
+  </tr>
+  <tr>
+    <td width="8%">autumn</td>
+    <td width="25%">DB　&quot;Autumn$&quot;</td>
+    <td width="50%"></td>
+  </tr>
+  <tr>
+    <td width="8%">DATA1</td>
+    <td width="83%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="8%">CODE1</td>
+    <td width="83%" colspan="3">SEGMENT</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="24" valign="top"></td>
+    <td width="83%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="33%" colspan="2">MOV　AH, 2CH</td>                               
+    <td width="50%">;取当前系统时间</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">INT　21H</td>
+  </tr>
+  <tr>
+    <td width="33%" colspan="2">.IF CH &gt;= 12&nbsp;</td>                               
+    <td width="50%">;下午时间</td> 
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">　　MOV AmPm, 'P'&nbsp;</td>                                  
+    <td width="50%">;为显示PM作安排</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">.ENDIF</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">MOV　DX, OFFSET MSG</td>                               
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">MOV　AH, 09H</td>                               
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">INT　21H</td>
+    <td width="50%">;显示字符串MSG，直到'$'结束</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">MOV　AH, 2AH</td>                                  
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">INT　21H</td>
+    <td width="50%">;取当前系统日期</td>
+  </tr>
+  <tr>
+    <td width="33%" colspan="2">.IF (DH == 12) || (DH &lt; 3)&nbsp;</td>                                  
+    <td width="50%">;判断是否为12月，1月和2月</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">　　MOV　DX, OFFSET winter</td>                                  
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">.ELSEIF (DH &gt;= 3)   
+      &amp;&amp; (DH &lt; 6)</td>  
+    <td width="50%">;判断是否为3、4和5月</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">　　MOV　DX, OFFSET spring</td>                                  
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">.ELSEIF (DH &gt;= 6)   
+      &amp;&amp; (DH &lt; 9)</td>  
+    <td width="50%">;判断是否为6、7和8月</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">　　MOV　DX, OFFSET summer</td>                                  
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">.ELSE</td> 
+    <td width="50%">;9、10和11月</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">　　MOV DX, OFFSET autumn</td>                                  
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">.ENDIF</td> 
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">MOV AH, 09H</td>  
+    <td width="50%">;显示季度名称</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">INT 21H</td>                              
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">…</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">END</td> 
+  </tr> 
+</table> 
+              
+<p align="center"><a href="javascript:close();">关　闭</a></p>  
+             
+</body>  
+  
+</html>  

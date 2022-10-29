@@ -1,0 +1,249 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>8.3.5 鼠标功能中断</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter08.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle08.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="08-3.htm"> 中断功能的分类</a>  → 鼠标的中断功能</td>                                    
+    <td width="50%">           
+      <p align="right">   
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+     
+<h3>8.3.5 鼠标的中断功能</h3>                          
+<p style="text-indent: 21.25pt">   
+鼠标是现在计算机系统中的一个常用输入设备，它为使用计算机带来了很大的方便，鼠标指针的各种表现形式还反映了系统(或应用程序)当前处于什么样的工作状态。许多计算机使用者为体现其个性化还选择各自喜欢的鼠标图形，所以，了解和掌握计算机系统对鼠标所提供的功能对理解鼠标的各种操作也是有一定的帮助。</p>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、鼠标中断的常用功能</font></p>   
+<p style="text-indent: 21.25pt">BIOS系统提供了中断33H来实现鼠标中断功能，其常用的功能如下：</p>   
+<table border="0" width="100%" cellspacing="1" cellpadding="0">   
+  <tr>   
+    <td width="7%" valign="top"></td>   
+    <td width="33%"> 00H—初始化鼠标<br>   
+ 01H—显示鼠标指针<br>   
+ 02H—隐藏鼠标指针<br>   
+ 03H—读取鼠标位置及其按钮状态<br>   
+ 04H—设置鼠标指针位置<br>   
+ 05H—读取鼠标按键信息<br>   
+ 06H—读取鼠标按钮释放信息<br>   
+ 07H—设置鼠标水平边界<br>   
+ 08H—设置鼠标垂直边界<br>   
+ 09H—设置图形鼠标形状</td>   
+    <td width="60%"> 0AH—设置本文鼠标形状<br>   
+ 0BH—读取鼠标移动计数<br>   
+ 0CH—为鼠标事件设置处理程序<br>   
+ 0FH—设置鼠标计数与象素比<br>   
+ 10H—设置鼠标指针隐藏区域<br>   
+ 14H—替换鼠标事件中断<br>   
+ 18H—为鼠标事件设置替换处理程序<br>   
+ 19H—读取替换处理程序的地址<br>   
+ 1DH—为鼠标指针选择显示页<br>   
+ 1EH—读取鼠标指针的显示页</td>   
+  </tr>   
+</table>   
+<p style="text-indent: 21.25pt">   
+有关中断功能的详细描述和调用参数在此从略，需要查阅者可参阅附录3之<a href="Appendix/App32-1.htm" target="_blank">鼠标功能中断</a>。</p> 
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、鼠标指针的设置</font></p> 
+<p style="text-indent: 21.25pt"> 
+鼠标指针主要有二种表现形式：文本鼠标和图形鼠标。文本鼠标又分为软指针和硬指针。软指针是用各种字符来作鼠标指针，而硬指针是用方块光标的大小来表示鼠标指针，其效果类似于INT                            
+10H之功能01H——设置光标类型。</p>   
+<p style="text-indent: 21.25pt">   
+图形鼠标的表现形式与文本鼠标相比就显得更加丰富多彩，可用各种不同的指针形状来反映系统当前所处的工作状态和所能进行的操作。在Windows操作系统及其应用程序中使用了很多指针形状的变化来表达各种有用信息。</p>   
+<p style="text-indent: 21.25pt">   
+鼠标的文本软指针与图形指针的形成过程相一致，它需要两部分信息：象素掩码和光标掩码。其指针形成过程如下：</p>   
+<p style="margin-left: 21.25pt">1)、用象素掩码与当前鼠标所处位置的象素信息进行“逻辑与”运算；<br>   
+2)、光标掩码与步骤1的运算结果再进行“异或”操作，该操作所得到的16×16位的0/1信息就构成了当前鼠标指针的形状。</p>      
+<p style="text-indent: 21.25pt">   
+假设象素掩码为全0。全0的象素掩码与屏幕上的显示信息“逻辑与”后，所得结果仍为全0，全0的运算结果再和“光标掩码”进行“异或”操作，这时，所得结果显然与“光标掩码”完全一样，所以，看到的鼠标指针形状就是光标掩码所表达的指针形状。</p>   
+<p style="text-indent: 21.25pt">   
+综合上述，可得结论：若象素掩码为全0，那么，鼠标的形状就是16×16位光标掩码所表示的指针形状，鼠标所到之处就看不到该区域内(16×16点阵范围)的其它显示信息。</p>   
+<p style="text-indent: 21.25pt">   
+在Windows操作系统及其应用程序中，在16×16点阵范围内，除了看不见被各种形状指针覆盖的部分之外，还能看见其它小区域，这是因为鼠标的“象素掩码”取其“光标掩码”的反相点阵所致。感兴趣的读者可验证或证明之。</p>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">(1)、硬指针的设置</font></p>      
+<p style="text-indent: 21.25pt">设置鼠标硬指针的中断功能使用方式：</p>   
+<table border="0" width="100%" cellpadding="0">   
+  <tr>   
+    <td width="8%" rowspan="5" valign="top"></td>   
+    <td width="6%">MOV</td>   
+    <td width="17%"> BX, 1</td>   
+    <td width="69%"> ;硬指针</td>   
+  </tr>   
+  <tr>   
+    <td width="6%">MOV</td>   
+    <td width="17%"> CX, 01H</td>   
+    <td width="69%"> ;鼠标硬指针的起始扫描线</td>   
+  </tr>   
+  <tr>   
+    <td width="6%">MOV</td>   
+    <td width="17%"> DX, 0FH</td>   
+    <td width="69%"> ;鼠标硬指针的结束扫描线</td>   
+  </tr>   
+  <tr>   
+    <td width="6%">MOV</td>   
+    <td width="17%"> AX, 0AH</td>    
+    <td width="69%"> ;设置文本鼠标指针</td>   
+  </tr>   
+  <tr>   
+    <td width="6%">INT</td>   
+    <td width="86%" colspan="2">33H</td>   
+  </tr>   
+</table>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">(2)、软指针的设置</font></p>      
+<p style="text-indent: 21.25pt">设置鼠标软指针的中断功能使用方式：</p>   
+<table border="0" width="100%" cellpadding="0" cellspacing="0">   
+  <tr>   
+    <td width="8%" rowspan="6" valign="top"></td>   
+    <td width="6%">MOV</td>   
+    <td width="17%"> BX, 0</td>   
+    <td width="69%"> ;软指针</td>   
+  </tr>   
+  <tr>   
+    <td width="6%">MOV</td>   
+    <td width="17%"> DL, 'A'</td>   
+    <td width="69%"> ;用字符'A'作为鼠标指针符号</td>   
+  </tr>   
+  <tr>   
+    <td width="6%">MOV</td>   
+    <td width="17%"> DH, 07FH</td>   
+    <td width="69%"> ;置鼠标的颜色</td>   
+  </tr>   
+  <tr>   
+    <td width="6%">MOV</td>   
+    <td width="17%"> CX, 0</td>   
+    <td width="69%"> ;置象素位掩码</td>   
+  </tr>   
+  <tr>   
+    <td width="6%">MOV</td>   
+    <td width="86%" colspan="2"> AX, 0AH</td>    
+  </tr>   
+  <tr>   
+    <td width="6%">INT</td>   
+    <td width="17%">33H</td>   
+    <td width="69%"> ;设置文本鼠标指针</td>   
+  </tr>   
+</table>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">(3)、图形指针的设置</font></p>      
+<p style="text-indent: 21.25pt">设置鼠标软指针的中断功能使用方式：</p>   
+<table border="0" width="100%" cellpadding="0" cellspacing="0">   
+  <tr>   
+    <td width="8%" rowspan="11" valign="top"></td>   
+    <td width="92%" colspan="3">……</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">PMask</td>   
+    <td width="16%"> DW　16  dup(?)</td>                     
+    <td width="69%"> ;象素位掩码，PMask可以是~CMask</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">CMask</td>   
+    <td width="16%"> DW　16 dup(?)</td>                     
+    <td width="69%"> ;光标掩码，二者紧相邻</td>   
+  </tr>   
+  <tr>   
+    <td width="92%" colspan="3">……</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">MOV</td>   
+    <td width="85%" colspan="2"> AX, DS</td>    
+  </tr>   
+  <tr>   
+    <td width="7%">MOV</td>   
+    <td width="85%" colspan="2"> ES, AX</td>    
+  </tr>   
+  <tr>   
+    <td width="7%">LEA</td>   
+    <td width="16%"> DX, PMask</td>    
+    <td width="69%">;ES:DX＝象素位掩码的起始地址</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">MOV</td>   
+    <td width="85%" colspan="2"> BX, 0</td>    
+  </tr>   
+  <tr>   
+    <td width="7%">MOV</td>   
+    <td width="16%"> CX, 0</td>   
+    <td width="69%"> ;在鼠标指针范围内，(0,0)点为指示点</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">MOV</td>   
+    <td width="85%" colspan="2"> AX, 09H</td>    
+  </tr>   
+  <tr>   
+    <td width="7%">INT</td>   
+    <td width="16%">33H</td>   
+    <td width="69%"> ;设置图形鼠标指针</td>   
+  </tr>   
+</table>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">3、鼠标功能的应用举例</font></p>   
+<p style="text-indent: -36pt; margin-left: 36pt">例8.11                            
+在屏幕的右上角动态显示文本鼠标的位置，即：鼠标的任何移动都将马上显示其所处位置，按鼠标左键结束程序的运行。</p>   
+<p>解：<a href="example/example08-11.htm" target="_blank">显示解答</a></p>      
+<p style="text-indent: -36pt; margin-left: 36pt">例8.12                            
+编写可随时修改文本鼠标指针符号的程序，即要求：在程序运行过程中，随时在键盘上按什么字符，即以该字符为鼠标指针符号。</p>   
+<p>解：<a href="example/example08-12.htm" target="_blank">显示解答</a></p>  
+<p style="text-indent: 21.25pt">  
+读者可把例8.11和8.12结合在一起，使之：一方面，可动态显示鼠标的位置，另一方面，也可随时修改文本鼠标的指针符号。</p>  
+<p style="text-indent: 21.25pt">  
+改变图形鼠标指针是许多计算机使用者体现其个性的方法之一，读者可参考例8.12和前面的“图形指针的设置”部分的叙述，编写一个显示自己设计的鼠标指针的程序。在学习了有关文件操作知识之后，还可利用现有的鼠标指针文件来显示鼠标指针。</p>  
+       
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=8&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="08-3-4.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="08-3-6.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+       
+</body>       
+       
+</html>

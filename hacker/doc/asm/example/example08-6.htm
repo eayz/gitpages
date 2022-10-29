@@ -1,0 +1,169 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例8.6</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p style="text-indent: -30pt; margin-left: 30pt">例8.6     
+在256色320×200的图形显示模式下，从屏幕顶到屏幕底依次画横线(从最左边到最右边)，线的颜色从1依次加1。要求用直接操作显示缓冲区的方法来画线。</p> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" valign="top" colspan="5">解：</td> 
+  </tr> 
+  <tr> 
+    <td width="7%" valign="top" rowspan="32"></td> 
+    <td width="93%" colspan="4">.MODEL SMALL<br>   
+      .DATA<br> 
+      　 mode　DB　?　　　　　　　　　　;保存当前显示模式<br>
+      .CODE</td>
+  </tr>
+  <tr>
+    <td width="8%" valign="top" rowspan="5">HLine</td>
+    <td width="25%" colspan="2"> PROC Near USES CX DI</td> 
+    <td width="60%">;画一条横线，DI—横线所在行，AL—线的颜色</td>
+  </tr>
+  <tr>
+    <td width="6%">IMUL</td>
+    <td width="19%"> DI, 320</td> 
+    <td width="60%">  
+;跳过前面横所对应的字节，每行320个字节</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="79%" colspan="2"> CX, 320</td> 
+  </tr>
+  <tr>
+    <td width="6%">REP</td>
+    <td width="19%"> STOSB</td>
+    <td width="60%"> ;重复设置AL的值</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">RET</td>
+  </tr>
+  <tr>
+    <td width="8%" valign="top">HLine</td>
+    <td width="85%" colspan="3"> ENDP</td>
+  </tr>
+  <tr>
+    <td width="8%" valign="top" rowspan="12"></td>
+    <td width="85%" colspan="3">.STARTUP</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="79%" colspan="2"> AH, 0FH</td> 
+  </tr>
+  <tr>
+    <td width="6%">INT</td>
+    <td width="79%" colspan="2"> 10H</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="19%"> mode, AL</td> 
+    <td width="60%">  
+;保存当前显示模式，在程序结束前恢复之</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="79%" colspan="2"> AH, 0</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="79%" colspan="2"> AL, 13H</td> 
+  </tr>
+  <tr>
+    <td width="6%">INT</td>
+    <td width="19%"> 10H</td>
+    <td width="60%">  
+;设置256色320×200的图形显示模式</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="79%" colspan="2"> AX, 0A000H</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="19%"> ES, AX</td> 
+    <td width="60%">  
+;图形模式的段地址为0A000H</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">CLD</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="79%" colspan="2"> DI, 0</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="19%"> AL, 01H</td> 
+    <td width="60%"> ;CX＝线所在列，AL＝线的颜色</td>
+  </tr>
+  <tr>
+    <td width="93%" valign="top" colspan="4">draw:</td>
+  </tr>
+  <tr>
+    <td width="8%" valign="top" rowspan="12"></td>
+    <td width="6%">CALL</td>
+    <td width="79%" colspan="2"> HLine</td>
+  </tr>
+  <tr>
+    <td width="6%">INC</td>
+    <td width="79%" colspan="2"> AL</td>
+  </tr>
+  <tr>
+    <td width="6%">INC</td>
+    <td width="79%" colspan="2"> DI</td>
+  </tr>
+  <tr>
+    <td width="6%">CMP</td>
+    <td width="79%" colspan="2"> DI, 200</td> 
+  </tr>
+  <tr>
+    <td width="6%">JL</td>
+    <td width="19%"> draw</td>
+    <td width="60%">  
+;从上到下画200条横线</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="79%" colspan="2"> AH, 0</td> 
+  </tr>
+  <tr>
+    <td width="6%">INT</td>
+    <td width="19%"> 16H</td>
+    <td width="60%">  
+;等待一个按键</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="79%" colspan="2"> AL, mode</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="79%" colspan="2"> AH, 0</td> 
+  </tr>
+  <tr>
+    <td width="6%">INT</td>
+    <td width="19%"> 10H</td>
+    <td width="60%">  
+;恢复原来的屏幕显示模式</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">.EXIT　0</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">END</td>
+  </tr>
+</table>
+  
+<p align="center"><a href="javascript:close();">关　闭</a></p>  
+             
+</body>  
+  
+</html>  

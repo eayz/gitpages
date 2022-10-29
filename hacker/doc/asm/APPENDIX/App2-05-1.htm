@@ -1,0 +1,188 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录2.5 循环移位指令</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body background="image/background.gif">
+
+<h3>5.7、循环左移指令</h3>
+         
+<div align="center">
+  <center>
+         
+  <table border="1" width="90%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="226"><p style="MARGIN-LEFT: 4pt">指令的语法</p></td>
+      <td width="305"><p style="MARGIN-LEFT: 4pt">举例</p></td>
+      <td width="139"><p style="MARGIN-LEFT: 4pt">周期数</p></td>
+    </tr>
+    <tr>
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ROL reg,1</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rol ax,1</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+    </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ROL mem,1</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rol bits,1</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ROL reg,CL</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rol ax,cl</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ROL mem,CL</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rol color,cl</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ROL reg,immed8</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rol ax,13</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ROL mem,immed8</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rol byte ptr [bx],10</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+</table> 
+ 
+  </center> 
+</div> 
+ 
+<h3>5.8、循环右移指令</h3> 
+          
+<div align="center"> 
+  <center> 
+          
+<table border="1" width="90%" cellspacing="0" cellpadding="0">
+  
+  <TR> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ROR reg,1</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">ror ax,1</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ROR mem,1</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">ror word ptr [bx],1</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ROR reg,CL</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">ror dx,cl</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ROR mem,CL</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">ror color,cl</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">5</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ROR reg,immed8</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">ror bl,3</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ROR mem,immed8</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">ror bits,6</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+</table> 
+ 
+  </center> 
+</div> 
+ 
+<h3>5.9、带进位的循环左移指令</h3> 
+          
+<div align="center"> 
+  <center> 
+          
+<table border="1" width="90%" cellspacing="0" cellpadding="0">
+  
+  <TR> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RCL reg,1</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rcl dx,1</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RCL mem,1</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rcl WORD PTR [si],1</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RCL reg,CL</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rcl dx,cl</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7-24</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RCL mem,CL</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rcl masker,cl</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">9-26</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RCL reg,immed8</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rcl bx,5</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">8-25</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RCL mem,immed8</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rcl word ptr [bp+8],3</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">10-27</p></td> 
+  </tr> 
+</table> 
+ 
+  </center> 
+</div> 
+ 
+<h3>5.10、带进位的循环右移指令</h3> 
+          
+<div align="center"> 
+  <center> 
+          
+<table border="1" width="90%" cellspacing="0" cellpadding="0">
+  
+  <TR> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RCR reg,1</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rcr bl,1</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RCR mem,1</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rcr word ptr m32[0],1</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RCR reg,CL</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rcr bl,cl</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7-24</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RCR mem,CL</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rcl word ptr [bx=di],cl</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">9-26</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RCR reg,immed8</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rcr si,9</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">8-25</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RCR mem,immed8</p></td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">rcr masker,3</p></td>   
+    <td width="139"><p style="MARGIN-LEFT: 4pt">10-27</p></td> 
+  </tr> 
+</table> 
+ 
+  </center> 
+</div> 
+ 
+<p align="center"><A href="App2-05.htm"><IMG language=javascript id=PrevPage onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" height=28 src ="../Button/prevpage1.gif" width=96 border=0></A>　　　<A href="App2-06.htm"><IMG language=javascript id=NextPage onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" height=28 src ="../Button/NextPage1.gif" width=96 border=0></A></p>
+         
+</body>        
+        
+</html>        

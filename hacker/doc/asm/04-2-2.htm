@@ -1,0 +1,210 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>4.2.2 字节变量的定义</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter04.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle04.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="04-1.htm#简单内存变量的定义">内存变量定义</a>                                     
+      → 字节变量</td>                                            
+    <td width="50%">           
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+    
+<h3>4.2.2 字节变量</h3>                                      
+<p style="text-indent: 21.25pt">定义字节变量的定义符为<font color="#FF0000">DB</font>/<font color="#FF0000">BYTE</font>(Define           
+Byte)，每个字节只占一个字节单元。其中：<font color="#FF0000">BYTE</font>是<font color="#FF0000">MASM        
+6.0</font>及其以后版本的数据类型说明符，随后的其它类型说明符同此说明。</p>       
+<p style="text-indent: 21.25pt">例如：</p>       
+<table border="0" width="100%" cellspacing="0" cellpadding="0">      
+  <tr>      
+    <td width="13%" align="right" rowspan="2" valign="top">COUNTER</td>     
+    <td width="87%">　DB　6</td>
+  </tr>
+  <tr>
+    <td width="87%">
+<p>　DB　'A', 'D',               
+0Dh, '$'</p>               
+    </td>      
+  </tr>      
+  <tr>      
+    <td width="13%" align="right">TABLE</td>      
+    <td width="87%">　DB　1, 3, 5, 7, 9, 11</td>                 
+  </tr>        
+</table>        
+<p style="text-indent: 21.25pt">上面的定义语句经汇编后所产生出的内存单元分配情况如图4.1所示。图中的数据是用十六进制表示的(以后也如此，不再说明)，由引号括起来的字符在内存中是存放其<font color="#FF0000">ASCII</font>码值。所以，'D'和0Dh是不同的，前者是字符'D'，后者是数值12的十六进制编码。</p>      
+             
+<div align="center">    
+  <center>    
+  <table border="1" width="60%" cellspacing="0" cellpadding="0">    
+    <tr>    
+      <td align="center">     
+<p>…</p>    
+           
+      </td>    
+      <td align="center">     
+<p>06</p>    
+           
+      </td>    
+      <td align="center">     
+<p>41</p>    
+           
+      </td>    
+      <td align="center">     
+<p>44</p>    
+           
+      </td>    
+      <td align="center">     
+<p>0D</p>    
+           
+      </td>    
+      <td align="center">     
+<p>24</p>    
+           
+      </td>    
+      <td align="center">     
+<p>01</p>    
+           
+      </td>    
+      <td align="center">     
+<p>03</p>    
+           
+      </td>    
+      <td align="center">     
+<p>05</p>    
+           
+      </td>    
+      <td align="center">     
+<p>07</p>    
+           
+      </td>    
+      <td align="center">     
+<p>09</p>    
+           
+      </td>    
+      <td align="center">     
+<p>0B</p>    
+           
+      </td>    
+      <td align="center">     
+<p>…</p>    
+           
+      </td>    
+    </tr>    
+  </table>    
+  </center>    
+</div>    
+            
+<div align="center">    
+  <center>    
+  <table border="0" width="461" cellspacing="1" cellpadding="0">    
+    <tr>    
+      <td width="28" rowspan="2" valign="top"></td>    
+      <td width="176"><img border="0" src="TextBookIMG/UP_ARROW.gif" width="11"></td>    
+      <td width="243"><img border="0" src="TextBookIMG/UP_ARROW.gif" width="11"></td>    
+    </tr>    
+    <tr>    
+      <td width="176">COUNTER</td>    
+      <td width="243">TABLE</td>    
+    </tr>    
+  </table>    
+  </center>    
+</div>    
+<p align="center">图4.1 内存单元的分配情况示意图</p>             
+<p style="text-indent: 21.25pt">注意：在上例中，说明语句“DB               
+'A', 'D', 0Dh, '$'”之前并没有给出变量名，但我们可以从前面的变量名COUNTER一直往后数，或从TABLE往前数，来访问某存储单元，因为它们是一片连续的存储单元，这和高级语言的变量定义有点区别的。在高级语言中，我们一定要用某个标识符来说明变量，也必须用该变量名来访问其所对应的存储单元。</p>             
+<p style="text-indent: 21.25pt">用定义符<font color="#FF0000">DB</font>还可定义一种特殊的数据形式——字符串。在定义字符串时，必须用成对的单引号或双引号把所要的字符括起来，括号内字符的<font color="#FF0000">ASCII</font>码将依次存放在相应的字节单元内。例如：</p>     
+<p style="text-indent: 40pt">MSG1　DB　'I am a student.'</p>            
+<p style="text-indent: 21.25pt">该说明语句所对应的存储单元分布如下所示。为了看起来方便，并没有用字符的<font color="#FF0000">ASCII</font>码来存放在相应的存储单元内，而直接用该字符，请不要引起误解。</p>    
+<div align="center">    
+  <center>    
+  <table border="1" width="70%" cellspacing="0" cellpadding="0">    
+    <tr>    
+      <td align="center" width="38">…</td>    
+      <td align="center" width="38">'I'</td>    
+      <td align="center" width="38">' '</td>     
+      <td align="center" width="38">'a'</td>    
+      <td align="center" width="38">'m'</td>    
+      <td align="center" width="38">' '</td>     
+      <td align="center" width="38">'a'</td>    
+      <td align="center" width="38">' '</td>    
+      <td align="center" width="38">'s'</td>    
+      <td align="center" width="38">'t'</td>    
+      <td align="center" width="38">'u'</td>    
+      <td align="center" width="38">'d'</td>    
+      <td align="center" width="39">'e'</td>    
+      <td align="center" width="39">'n'</td>    
+      <td align="center" width="39">'t'</td>    
+      <td align="center" width="39">…</td>    
+    </tr>    
+  </table>    
+  </center>    
+</div>    
+<p style="text-indent: 21.25pt">上面的例子也可改写为另一种等价的语句：</p>    
+<p style="text-indent: 40pt">MSG1　DB　'I', ' ', 'a', 'm', ' ', 'a', ' ', 's', 't', 'u', 'd', 'e', 'n', 't', '.'</p>        
+<p style="text-indent: 21.25pt">显然，前者的说明要比后者方便得多，所以，在程序中都采用前者的书写方式。</p>    
+            
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=4&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="04-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="04-2-3.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2>                            
+    <option selected value="#">课件章节</option>         
+    <option value="course.htm">课件目录</option>         
+    <option value="01-1.htm">第1章 预备知识</option>               
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>               
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>               
+    <option value="04-1.htm">第4章 标识符和表达式</option>               
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>               
+    <option value="06-1.htm">第6章 程序的基本结构</option>               
+    <option value="07-1.htm">第7章 子程序和库</option>               
+    <option value="08-1.htm">第8章 输入输出和中断</option>               
+    <option value="09-1.htm">第9章 宏</option>               
+    <option value="10-1.htm">第10章 应用程序的设计</option>               
+    <option value="11-1.htm">第11章 数值运算协处理器</option>         
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>         
+  </select></p>            
+                 
+</body>                 
+                 
+</html>                 

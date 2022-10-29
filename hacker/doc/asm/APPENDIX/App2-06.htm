@@ -1,0 +1,230 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录2.6 位操作指令</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body background="image/background.gif">
+
+<h2>6、位操作指令</h2>
+<h3>6.1、正向位扫描指令</h3>
+<div align="center">
+  <center>
+  <table border="1" width="90%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="226"><p style="MARGIN-LEFT: 4pt">指令的语法</p></td>
+      <td width="305"><p style="MARGIN-LEFT: 4pt">举例</p></td>
+      <td width="139"><p style="MARGIN-LEFT: 4pt">周期数</p></td>
+    </tr>
+  <tr>
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BSF reg16,reg16</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bsf cx,bx</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">6-34</p></td>   
+  </tr>   
+  <tr>   
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BSF reg32,reg32</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bsf cx,bx</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">6-42</p></td>   
+  </tr>   
+  <tr>   
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BSF reg16,mem16</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bsf ecx,bitmask</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">6-35</p></td>   
+  </tr>   
+  <tr>   
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BSF reg32,mem32</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bsf ecx,bitmask</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">6-43</p></td>   
+  </tr>   
+</table>   
+  </center>  
+</div>  
+<h3>6.2、正向位扫描指令</h3>  
+<div align="center">  
+  <center>  
+<table border="1" width="90%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BSR reg16,reg16</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bsr cx,dx</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7-39</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BSR reg32,reg32</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bsr ecx, edx</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7-71</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BSR reg16,mem16</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bsr ax,bitmask</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7-40</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BSR reg32,mem32</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bsr eax,bitmask</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7-72</p></td>  
+  </tr>  
+</table>  
+  
+  </center>  
+</div>  
+  
+<h3>6.3、正向位扫描指令</h3>  
+           
+<div align="center">  
+  <center>  
+           
+<table border="1" width="90%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BT reg16,immed8*(注)</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bt ax,4</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>   
+  </tr>   
+  <tr>   
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BT mem16,immed8</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bt [bx],4</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>   
+  </tr>   
+  <tr>   
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BT reg16,reg16</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bt ax,bx</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>   
+  </tr>   
+  <tr>   
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BT mem16,reg16</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bt [bx],dx</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">9</p></td>   
+  </tr>   
+</table>   
+  </center>  
+</div>  
+<p>(注) 操作数也可以是32位数。</p>      
+<h3>6.4、正向位扫描指令</h3>   
+<div align="center">  
+  <center>   
+<table border="1" width="90%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BTC reg16,immed8*</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">btc edi,4</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BTC mem16,immed8*</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">btc color[di],4</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">8</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BTC reg16,reg16*</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">btc eax,ebx</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BTC mem16,reg16*</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">btc [bp+8],si</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">13</p></td>    
+  </tr>    
+</table>    
+  </center>  
+</div>  
+<h3>6.5、正向位扫描指令</h3>   
+<div align="center">  
+  <center>   
+<table border="1" width="90%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BTR reg16,immed8*</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">btr bx,17</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BTR mem16,immed8*</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">btr [bx],27</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">8</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BTR reg16,reg16*</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">btr cx,di</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BTR mem16,reg16*</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">btr rotate,cx</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">13</p></td>    
+  </tr>    
+</table>    
+  </center>  
+</div>  
+<h3>6.6、正向位扫描指令</h3>   
+<div align="center">  
+  <center>   
+<table border="1" width="90%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BTS reg16,immed8*</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bts ax,4</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BTS mem16,immed8*</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bts maskit,4</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">8</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BTS reg16,reg16*</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bts bx,ax</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">BTS mem16,reg16*</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">bts flags[bx],cx</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">13</p></td>    
+  </tr>    
+</table>    
+    
+  </center>  
+</div>  
+    
+<h3>6.7、正向位扫描指令</h3>   
+            
+<div align="center">  
+  <center>   
+            
+<table border="1" width="90%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="226"><p style="MARGIN-LEFT: 4pt">TEST reg,reg</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">test dx,bx</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">TEST mem,reg</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">test flags,dx</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">TEST reg,immed</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">test cx,30h</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">TEST mem,immed</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">test masker,1</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">TEST accum,immed</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">test ax,90h</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>    
+  </tr>    
+</table>    
+             
+  </center>  
+</div>  
+             
+<p align="center"><A href="App2-05-1.htm"><IMG language=javascript id=PrevPage onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" height=28 src ="../Button/prevpage1.gif" width=96 border=0></A>　　　<A href="App2-07.htm"><IMG language=javascript id=NextPage onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" height=28 src ="../Button/NextPage1.gif" width=96 border=0></A></p>
+         
+</body>        
+        
+</html>        

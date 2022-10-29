@@ -1,0 +1,373 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录2.1 数据传送指令</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body background="image/background.gif">
+
+<h2>1、数据传送指令</h2>
+         
+<h3>1.1、传送指令</h3>
+         
+  <table border="1" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="251"><p style="MARGIN-LEFT: 4pt">指令的语法</p></td>  
+      <td width="179"><p style="MARGIN-LEFT: 4pt">举例</p></td>  
+      <td width="242"><p style="MARGIN-LEFT: 4pt">周期数</p></td> 
+    </tr>  
+    <tr>  
+      <td width="251"><p style="MARGIN-LEFT: 4pt">MOV reg,reg</p></td>           
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov bp,sp</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">1</p></td>       
+    <tr>       
+      <td width="251"><p style="MARGIN-LEFT: 4pt">MOV mem,reg</p></td>         
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov array[di],bx</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">1</p></td>       
+    </tr>       
+    <tr>       
+      <td width="251"><p style="MARGIN-LEFT: 4pt">MOV reg,mem</p></td>         
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov bx,pointer</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">1</p></td>       
+    </tr>       
+    <tr>       
+      <td width="251"><p style="MARGIN-LEFT: 4pt">MOV mem,immed</p></td>         
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov [bx],15</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">1</p></td>       
+    </tr>       
+    <tr>       
+      <td width="251"><p style="MARGIN-LEFT: 4pt">MOV reg,immed</p></td>         
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov cx,256</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">1</p></td>       
+    </tr>       
+    <tr>       
+      <td width="251"><p style="MARGIN-LEFT: 4pt">MOV mem,accum</p></td>         
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov total,ax</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">1</p></td>       
+    </tr>       
+    <tr>       
+      <td width="251"><p style="MARGIN-LEFT: 4pt">MOV accum,mem</p></td>         
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov al,string</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">1</p></td>       
+    </tr>       
+    <tr>       
+      <td width="251"><p style="MARGIN-LEFT: 4pt">MOV segreg,reg16</p></td>         
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov ds,ax</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">2, 3</p></td>         
+    </tr>        
+    <tr>        
+      <td width="251"><p style="MARGIN-LEFT: 4pt">MOV segreg,mem16</p></td>         
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov es,psp</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">2, 3</p></td>         
+    </tr>        
+    <tr>        
+      <td width="251"><p style="MARGIN-LEFT: 4pt">MOV reg16,segreg</p></td>         
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov ax,ds</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">1</p></td>       
+    </tr>       
+    <tr>       
+      <td width="251"><p style="MARGIN-LEFT: 4pt">MOV mem16,segreg</p></td>         
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov stack_save,ss</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">1</p></td>       
+    </tr>       
+    <tr>       
+      <td rowspan="4" valign="top" width="251"><p style="MARGIN-LEFT: 4pt">MOV reg32,controlreg</p></td>         
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov eax,cr0</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">22</p></td>       
+    </tr>       
+    <tr>       
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov eax,cr2</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">12</p></td>       
+    </tr>       
+    <tr>       
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov eax,cr3</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">21, 46</p></td>         
+    </tr>        
+    <tr>        
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov eax,cr4</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">14</p></td>       
+    </tr>       
+    <tr>       
+      <td width="251"><p style="MARGIN-LEFT: 4pt">MOV controlreg,reg32</p></td>         
+      <td width="179"><p style="MARGIN-LEFT: 4pt">mov cr0,eax</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">4</p></td>       
+    </tr>       
+    <tr>       
+      <td rowspan="2" valign="top" width="251"><p style="MARGIN-LEFT: 4pt">MOV reg32,debugreg</p></td>         
+      <td valign="top" rowspan="2" width="179"><p style="MARGIN-LEFT: 4pt">mov edx,dr0</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">DR0-DR3, DR6,DR7=11</p></td>         
+    </tr>        
+    <tr>        
+      <td width="242"><p style="MARGIN-LEFT: 4pt">DR4,DR5=12</p></td>       
+    </tr>       
+    <tr>       
+      <td rowspan="2" valign="top" width="251"><p style="MARGIN-LEFT: 4pt">MOV debugreg,reg32</p> </td>         
+      <td valign="top" rowspan="2" width="179"><p style="MARGIN-LEFT: 4pt">mov dr0,ecx</p></td>         
+      <td width="242"><p style="MARGIN-LEFT: 4pt">DR0-DR3,</p></td>       
+    </tr>       
+    <tr>       
+      <td width="242">       
+        <p style="MARGIN-LEFT: 4pt">DR4,DR5=12 DR6,DR7=11</p></td>         
+    </tr>        
+  </table>        
+                
+<h3>1.2、传送-填充指令</h3>     
+  <table border="1" width="100%" cellspacing="0" cellpadding="0">     
+    <tr>     
+      <td width="253"><p style="MARGIN-LEFT: 4pt">MOVSX reg,reg</p></td>           
+      <td width="204"><p style="MARGIN-LEFT: 4pt">movsx bx,al</p></td>        
+      <td width="291"><p style="MARGIN-LEFT: 4pt">3</p></td>      
+    </tr>      
+    <tr>      
+      <td width="253"><p style="MARGIN-LEFT: 4pt">MOVSX reg,mem</p></td>        
+      <td width="204"><p style="MARGIN-LEFT: 4pt">movsx eax,bsign</p></td>        
+      <td width="291"><p style="MARGIN-LEFT: 4pt">3</p></td>      
+    </tr>      
+    <tr>      
+      <td width="253"><p style="MARGIN-LEFT: 4pt">MOVZX reg,reg</p></td>        
+      <td width="204"><p style="MARGIN-LEFT: 4pt">movzx bx,al</p></td>        
+      <td width="291"><p style="MARGIN-LEFT: 4pt">3</p></td>      
+    </tr>      
+    <tr>      
+      <td width="253"><p style="MARGIN-LEFT: 4pt">MOVZX reg,mem</p></td>        
+      <td width="204"><p style="MARGIN-LEFT: 4pt">movzx eax,bunsign</p></td>        
+      <td width="291"><p style="MARGIN-LEFT: 4pt">3</p></td>      
+    </tr>      
+  </table>      
+<h3>1.3、交换指令</h3>    
+  <table border="1" width="100%" cellspacing="0" cellpadding="0">    
+    <tr>    
+      <td width="226"><p style="MARGIN-LEFT: 4pt">XCHG reg,reg</p></td>           
+      <td width="183"><p style="MARGIN-LEFT: 4pt">xchg cx,dx</p></td>        
+      <td width="261"><p style="MARGIN-LEFT: 4pt">3</p></td>      
+    </tr>      
+    <tr>      
+      <td width="226"><p style="MARGIN-LEFT: 4pt">XCHG reg,mem</p></td>        
+      <td width="183"><p style="MARGIN-LEFT: 4pt">xchg bx,pointer</p></td>        
+      <td width="261"><p style="MARGIN-LEFT: 4pt">3</p></td>      
+    </tr>      
+    <tr>      
+      <td width="226"><p style="MARGIN-LEFT: 4pt">XCHG mem,reg</p></td>        
+      <td width="183"><p style="MARGIN-LEFT: 4pt">xchg [bx],ax</p></td>        
+      <td width="261"><p style="MARGIN-LEFT: 4pt">3</p></td>      
+    </tr>      
+    <tr>      
+      <td width="226"><p style="MARGIN-LEFT: 4pt">XCHG accum,reg</p></td>        
+      <td width="183"><p style="MARGIN-LEFT: 4pt">xchg ax,cx</p></td>        
+      <td width="261"><p style="MARGIN-LEFT: 4pt">2</p></td>      
+    </tr>      
+    <tr>      
+      <td width="226"><p style="MARGIN-LEFT: 4pt">XCHG reg,accum</p></td>        
+      <td width="183"><p style="MARGIN-LEFT: 4pt">xchg cx,ax</p></td>        
+      <td width="261"><p style="MARGIN-LEFT: 4pt">2</p></td>      
+    </tr>      
+  </table>      
+<h3>1.4、取段地址和有效地址指令</h3>    
+  <table border="1" width="100%" cellspacing="0" cellpadding="0">    
+    <tr>    
+      <td width="253"><p style="MARGIN-LEFT: 4pt">LDS reg,mem</p></td>           
+      <td width="204"><p style="MARGIN-LEFT: 4pt">lds si,fpointer</p></td>        
+      <td width="291"><p style="MARGIN-LEFT: 4pt">4</p></td>      
+    </tr>      
+    <tr>      
+      <td width="253"><p style="MARGIN-LEFT: 4pt">LES reg,mem</p></td>        
+      <td width="204"><p style="MARGIN-LEFT: 4pt">les di,fpointer</p></td>        
+      <td width="291"><p style="MARGIN-LEFT: 4pt">4</p></td>      
+    </tr>      
+    <tr>      
+      <td width="253"><p style="MARGIN-LEFT: 4pt">LFS reg,mem</p></td>        
+      <td width="204"><p style="MARGIN-LEFT: 4pt">lfs edi,fpointer</p></td>        
+      <td width="291"><p style="MARGIN-LEFT: 4pt">4</p></td>      
+    </tr>      
+    <tr>      
+      <td width="253"><p style="MARGIN-LEFT: 4pt">LGS reg,mem</p></td>        
+      <td width="204"><p style="MARGIN-LEFT: 4pt">lgs bx,fpointer</p></td>        
+      <td width="291"><p style="MARGIN-LEFT: 4pt">4</p></td>      
+    </tr>      
+    <tr>      
+      <td width="253"><p style="MARGIN-LEFT: 4pt">LSS reg,mem</p></td>        
+      <td width="204"><p style="MARGIN-LEFT: 4pt">lss bp, fpointer</p></td>        
+      <td width="291"><p style="MARGIN-LEFT: 4pt">4, pm=8</p></td>        
+    </tr>       
+    <tr>       
+      <td width="253"><p style="MARGIN-LEFT: 4pt">LEA reg,mem</p></td>        
+      <td width="204"><p style="MARGIN-LEFT: 4pt">lea bx,npointer</p></td>        
+      <td width="291"><p style="MARGIN-LEFT: 4pt">1</p></td>      
+    </tr>      
+  </table>      
+<h3>1.5、进栈指令</h3>    
+  <table border="1" width="100%" cellspacing="0" cellpadding="0">    
+    <tr>     
+      <td width="225"><p style="MARGIN-LEFT: 4pt">PUSH reg</p></td>          
+      <td width="183"><p style="MARGIN-LEFT: 4pt">push dx</p></td>       
+      <td width="262"><p style="MARGIN-LEFT: 4pt">1</p></td>     
+    </tr>     
+    <tr>     
+      <td width="225"><p style="MARGIN-LEFT: 4pt">PUSH mem</p></td>       
+      <td width="183"><p style="MARGIN-LEFT: 4pt">push [di]</p></td>       
+      <td width="262"><p style="MARGIN-LEFT: 4pt">2</p></td>     
+    </tr>     
+    <tr>     
+      <td width="225"><p style="MARGIN-LEFT: 4pt">PUSH segreg</p></td>       
+      <td width="183"><p style="MARGIN-LEFT: 4pt">push es</p></td>       
+      <td width="262"><p style="MARGIN-LEFT: 4pt">1</p></td>     
+    </tr>     
+    <tr>     
+      <td width="225"><p style="MARGIN-LEFT: 4pt">PUSH immed</p></td>       
+      <td width="183"><p style="MARGIN-LEFT: 4pt">push 15000</p></td>       
+      <td width="262"><p style="MARGIN-LEFT: 4pt">1</p></td>     
+    </tr>     
+    <tr>     
+      <td width="225"><p style="MARGIN-LEFT: 4pt">PUSHA</p></td>     
+      <td width="183"><p style="MARGIN-LEFT: 4pt">pusha</p></td>     
+      <td width="262"><p style="MARGIN-LEFT: 4pt">5</p></td>     
+    </tr>     
+    <tr>     
+      <td width="225"><p style="MARGIN-LEFT: 4pt">PUSHAD</p></td>     
+      <td width="183"><p style="MARGIN-LEFT: 4pt">pushad</p></td>     
+      <td width="262"><p style="MARGIN-LEFT: 4pt">5</p></td>     
+    </tr>     
+    <tr>     
+      <td width="225"><p style="MARGIN-LEFT: 4pt">PUSHF</p></td>     
+      <td width="183"><p style="MARGIN-LEFT: 4pt">pushf</p></td>     
+      <td width="262"><p style="MARGIN-LEFT: 4pt">4, pm=3</p></td>       
+    </tr>      
+    <tr>      
+      <td width="225"><p style="MARGIN-LEFT: 4pt">PUSHFD</p></td>     
+      <td width="183"><p style="MARGIN-LEFT: 4pt">pushfd</p></td>     
+      <td width="262"><p style="MARGIN-LEFT: 4pt">4, pm=3</p></td>       
+    </tr>      
+  </table>      
+<h3>1.6、出栈指令</h3>    
+  <table border="1" width="100%" cellspacing="0" cellpadding="0">    
+    <tr>    
+      <td width="224"><p style="MARGIN-LEFT: 4pt">POP reg</p></td>           
+      <td width="184"><p style="MARGIN-LEFT: 4pt">pop cx</p></td>         
+      <td width="262"><p style="MARGIN-LEFT: 4pt">1</p></td>     
+    </tr>     
+    <tr>     
+      <td width="224"><p style="MARGIN-LEFT: 4pt">POP mem</p></td>         
+      <td width="184"><p style="MARGIN-LEFT: 4pt">pop param</p></td>         
+      <td width="262"><p style="MARGIN-LEFT: 4pt">3</p></td>     
+    </tr>     
+    <tr>     
+      <td width="224"><p style="MARGIN-LEFT: 4pt">POP segreg</p></td>         
+      <td width="184"><p style="MARGIN-LEFT: 4pt">pop es</p></td>         
+      <td width="262"><p style="MARGIN-LEFT: 4pt">3</p></td>     
+    </tr>     
+    <tr>     
+      <td width="224"><p style="MARGIN-LEFT: 4pt">POPA</p></td>     
+      <td width="184"><p style="MARGIN-LEFT: 4pt">popa</p></td>     
+      <td width="262"><p style="MARGIN-LEFT: 4pt">5</p></td>     
+    </tr>     
+    <tr>     
+      <td width="224"><p style="MARGIN-LEFT: 4pt">POPAD</p></td>     
+      <td width="184"><p style="MARGIN-LEFT: 4pt">popad</p></td>     
+      <td width="262"><p style="MARGIN-LEFT: 4pt">5</p></td>     
+    </tr>     
+    <tr>     
+      <td width="224"><p style="MARGIN-LEFT: 4pt">POPF</p></td>     
+      <td width="184"><p style="MARGIN-LEFT: 4pt">popf</p></td>     
+      <td width="262"><p style="MARGIN-LEFT: 4pt">6, pm=4</p></td>         
+    </tr>        
+    <tr>        
+      <td width="224"><p style="MARGIN-LEFT: 4pt">POPFD</p></td>     
+      <td width="184"><p style="MARGIN-LEFT: 4pt">popfd</p></td>     
+      <td width="262"><p style="MARGIN-LEFT: 4pt">6, pm=4</p></td>         
+    </tr>        
+  </table>        
+<h3>1.7、转换指令</h3>     
+  <table border="1" width="100%" cellspacing="0" cellpadding="0">     
+    <tr>     
+      <td width="224"><p style="MARGIN-LEFT: 4pt">XLAT [[segreg:]mem]</p></td>           
+      <td width="184"><p style="MARGIN-LEFT: 4pt">xlat</p></td>      
+      <td width="262"><p style="MARGIN-LEFT: 4pt">4</p></td>      
+    </tr>      
+    <tr>      
+      <td width="224"><p style="MARGIN-LEFT: 4pt">XLATB [[segreg:]mem]</p></td>        
+      <td width="184"><p style="MARGIN-LEFT: 4pt">xlatb es:table</p></td>        
+      <td width="262"><p style="MARGIN-LEFT: 4pt">4</p></td>      
+    </tr>      
+  </table>      
+<h3>1.8、输入指令</h3>    
+  <table border="1" width="100%" cellspacing="0" cellpadding="0">    
+    <tr>    
+      <td width="223"><p style="MARGIN-LEFT: 4pt">IN accum,immed</p></td>           
+      <td width="184"><p style="MARGIN-LEFT: 4pt">in ax,60h</p></td>         
+      <td width="263"><p style="MARGIN-LEFT: 4pt">7,    
+        pm=4,21*(注), vm=19</p></td>           
+    </tr>        
+    <tr>        
+      <td width="223"><p style="MARGIN-LEFT: 4pt">IN accum,DX</p></td>         
+      <td width="184"><p style="MARGIN-LEFT: 4pt">in ax,dx</p></td>         
+      <td width="263"><p style="MARGIN-LEFT: 4pt">7, pm=4,21*, vm=19</p></td>         
+    </tr>        
+    <tr>        
+      <td width="223"><p style="MARGIN-LEFT: 4pt">INS [ES:]dest, DX</p></td>         
+      <td width="184"><p style="MARGIN-LEFT: 4pt">ins es:instr,dx</p></td>         
+      <td width="263"><p style="MARGIN-LEFT: 4pt">9, pm=6,24*, vm=22</p></td>         
+    </tr>        
+    <tr>        
+      <td width="223"><p style="MARGIN-LEFT: 4pt">INSB</p></td>     
+      <td width="184"><p style="MARGIN-LEFT: 4pt">Insb</p></td>     
+      <td width="263"><p style="MARGIN-LEFT: 4pt">9, pm=6,24*, vm=22</p></td>         
+    </tr>        
+    <tr>        
+      <td width="223"><p style="MARGIN-LEFT: 4pt">INSW</p></td>     
+      <td width="184"><p style="MARGIN-LEFT: 4pt">Insw</p></td>     
+      <td width="263"><p style="MARGIN-LEFT: 4pt">9, pm=6,24*, vm=22</p></td>         
+    </tr>        
+    <tr>        
+      <td width="223"><p style="MARGIN-LEFT: 4pt">INSD</p></td>     
+      <td width="184"><p style="MARGIN-LEFT: 4pt">Insd</p></td>     
+      <td width="263"><p style="MARGIN-LEFT: 4pt">9, pm=6,24*, vm=22</p></td>         
+    </tr>        
+  </table>        
+<p>注：当CPL≤IOPL时，执行时间是第一个时钟周期，否则是第二个时钟周期。</p>   
+           
+<h3>1.9、输出指令</h3>    
+  <table border="1" width="100%" cellspacing="0" cellpadding="0">    
+    <tr>     
+      <td width="258"><p style="MARGIN-LEFT: 4pt">OUT immed8,accum</p></td>         
+      <td width="161"><p style="MARGIN-LEFT: 4pt">out 60h,al</p></td>       
+      <td width="253"><p style="MARGIN-LEFT: 4pt">12, pm=9,26, VM=24</p></td>       
+    </tr>      
+    <tr>      
+      <td width="258"><p style="MARGIN-LEFT: 4pt">OUT DX,accum</p></td>       
+      <td width="161"><p style="MARGIN-LEFT: 4pt">out dx,ax</p></td>       
+      <td width="253"><p style="MARGIN-LEFT: 4pt">12, pm=9,25&nbsp;    
+        VM=24</p></td>       
+    </tr>       
+    <tr>       
+      <td width="258"><p style="MARGIN-LEFT: 4pt">OUTS DX,[segreg:]src</p></td>       
+      <td width="161"><p style="MARGIN-LEFT: 4pt">outs dx,buffer</p></td>       
+      <td width="253"><p style="MARGIN-LEFT: 4pt">13, pm=10,27, VM=24</p></td>       
+    </tr>      
+    <tr>      
+      <td width="258"><p style="MARGIN-LEFT: 4pt">OUTSB [DX,[segreg:]src]</p></td>       
+      <td width="161"><p style="MARGIN-LEFT: 4pt">outsb</p></td>     
+      <td width="253"><p style="MARGIN-LEFT: 4pt">13, pm=10,27, VM=24</p></td>       
+    </tr>      
+    <tr>      
+      <td width="258"><p style="MARGIN-LEFT: 4pt">OUTSW [DX,[segreg:]src]</p></td>       
+      <td width="161"><p style="MARGIN-LEFT: 4pt">outsw</p></td>     
+      <td width="253"><p style="MARGIN-LEFT: 4pt">13, pm=10,27, VM=24</p></td>       
+    </tr>      
+    <tr>      
+      <td width="258"><p style="MARGIN-LEFT: 4pt">OUTSD [DX,[segreg:]src]</p></td>     
+      <td width="161"><p style="MARGIN-LEFT: 4pt">outsd</p></td>     
+      <td width="253"><p style="MARGIN-LEFT: 4pt">13, pm=10,27, VM=24</p></td>       
+    </tr>      
+  </table>      
+           
+<p align="center"><A href="App2-02.htm"><IMG language=javascript id=NextPage onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" height=28 src ="../Button/NextPage1.gif" width=96 border=0></A></p>  
+           
+</body>           
+           
+</html>           

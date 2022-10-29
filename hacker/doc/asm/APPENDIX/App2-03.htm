@@ -1,0 +1,276 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录2.3 算术运算指令</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body background="image/background.gif">
+
+<h2>3、算术运算指令</h2>
+<h3>3.1、加法指令</h3>
+  <table border="1" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="226"><p style="MARGIN-LEFT: 4pt">指令的语法</p></td>
+      <td width="305"><p style="MARGIN-LEFT: 4pt">举例</p></td>
+      <td width="139"><p style="MARGIN-LEFT: 4pt">周期数</p></td>
+    </tr>
+  <tr>
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ADC reg,reg</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">adc dx,cx</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ADC mem,reg</p></td>    
+    <td width="305"><p style="MARGIN-LEFT: 4pt">adc word ptr m16[2],dx</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p> 
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ADC reg,mem</p></td>    
+    <td width="305"><p style="MARGIN-LEFT: 4pt">adc dx,dword ptr m32[2]</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ADD reg,reg</p></td>    
+    <td width="305"><p style="MARGIN-LEFT: 4pt">add ax,bx</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ADD mem,reg</p></td>    
+    <td width="305"><p style="MARGIN-LEFT: 4pt">add total, cx</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ADD reg,mem</p></td>    
+    <td width="305"><p style="MARGIN-LEFT: 4pt">add cx,incr</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ADD reg,immed</p></td>    
+    <td width="305"><p style="MARGIN-LEFT: 4pt">add bx,6</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ADD mem,immed</p></td>    
+    <td width="305"><p style="MARGIN-LEFT: 4pt">add pointers[bx][si],6</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">ADD accum,immed</p></td>    
+    <td width="305"><p style="MARGIN-LEFT: 4pt">add ax,10</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">INC reg</p></td>    
+    <td width="305"><p style="MARGIN-LEFT: 4pt">inc bx</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">INC mem</p></td>    
+    <td width="305"><p style="MARGIN-LEFT: 4pt">inc vpage</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">XADD reg,reg</p>    
+    </td>   
+    <td width="305"><p style="MARGIN-LEFT: 4pt">xadd dl,al</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">XADD mem,reg</p></td>    
+    <td width="305"><p style="MARGIN-LEFT: 4pt">xadd string,bl</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td> 
+  </tr> 
+</table> 
+<h3>3.2、减法指令</h3> 
+<table border="1" width="100%" cellspacing="0" cellpadding="0">
+  
+  <TR> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SUB reg,reg</p></td>       
+    <td width="304"><p style="MARGIN-LEFT: 4pt">sub ax,bx</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">1</p></td>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SUB mem,reg</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">sub array[di],bi</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">3</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SUB reg,mem</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">sub al,[bx]</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">2</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SUB reg,immed</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">sub bl,7</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">1</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SUB mem,immed</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">sub total,4000</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">3</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SUB accum,immed</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">sub ax,32000</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">1</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SBB accum,immed</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">sbb ax,320</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">1</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SBB reg,immed</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">sbb dx,45</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">1</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SBB mem,immed</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">sbb word ptr m32[2],40</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">3</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SBB reg,reg</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">sbb dx,cx</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">1</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SBB mem,reg</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">sbb word ptr m32[2],dx</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">3</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SBB reg,mem</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">sbb dx,word ptr m32[2]</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">2</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">DEC reg</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">dec ax</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">1</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">DEC mem</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">dec counter</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">3</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">NEG reg</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">neg ax</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">1</p></td>  
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">NEG mem</p></td>    
+    <td width="304"><p style="MARGIN-LEFT: 4pt">neg balance</p></td>    
+    <td width="140"><p style="MARGIN-LEFT: 4pt">3</p></td>  
+  </tr>  
+</table>  
+<h3>3.3、乘法指令</h3>  
+<table border="1" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">MUL reg</p></td>       
+    <td width="201"><p style="MARGIN-LEFT: 4pt">mul bx</p></td>    
+    <td width="294"><p style="MARGIN-LEFT: 4pt">　</p></td> 
+  </tr> 
+  <tr> 
+    <td width="253" rowspan="2" valign="top"><p style="MARGIN-LEFT: 4pt">MUL memX</p></td>       
+    <td width="201" rowspan="2" valign="top"><p style="MARGIN-LEFT: 4pt">mul word ptr [bx]</p></td>    
+    <td width="294"><p style="MARGIN-LEFT: 4pt">8,16-bit=11</p> 
+    </td>  
+  </tr>  
+  <tr>  
+    <td width="294"><p style="MARGIN-LEFT: 4pt">32-bit=10</p></td>  
+  </tr>  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">IMUL reg</p></td>    
+    <td width="201"><p style="MARGIN-LEFT: 4pt">imul dx</p></td>    
+    <td width="294"><p style="MARGIN-LEFT: 4pt">11</p></td>  
+  </tr>  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">IMUL mem</p></td>    
+    <td width="201"><p style="MARGIN-LEFT: 4pt">imul factor</p></td>    
+    <td width="294"><p style="MARGIN-LEFT: 4pt">11</p></td>  
+  </tr>  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">IMUL reg,immed</p></td>    
+    <td width="201"><p style="MARGIN-LEFT: 4pt">imul cx,25</p></td>    
+    <td width="294"><p style="MARGIN-LEFT: 4pt">10</p></td>  
+  </tr>  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">IMUL reg,reg,immed</p></td>    
+    <td width="201"><p style="MARGIN-LEFT: 4pt">imul dx,ax,18</p></td>    
+    <td width="294"><p style="MARGIN-LEFT: 4pt">10</p></td>  
+  </tr>  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">IMUL reg,mem,immed</p></td>    
+    <td width="201"><p style="MARGIN-LEFT: 4pt">imul bx,[si],60</p></td>    
+    <td width="294"><p style="MARGIN-LEFT: 4pt">10</p></td>  
+  </tr>  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">IMUL reg,reg</p></td>    
+    <td width="201"><p style="MARGIN-LEFT: 4pt">imul cx,ax</p></td>    
+    <td width="294"><p style="MARGIN-LEFT: 4pt">10</p></td>  
+  </tr>  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">IMUL reg,mem</p></td>    
+    <td width="201"><p style="MARGIN-LEFT: 4pt">imul dx,[si]</p></td>    
+    <td width="294"><p style="MARGIN-LEFT: 4pt">10</p></td>  
+  </tr>  
+</table>  
+<h3>3.4、除法指令</h3>  
+<table border="1" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">DIV reg</p></td>       
+    <td width="200"><p style="MARGIN-LEFT: 4pt">div cx</p></td>    
+    <td width="295"><p style="MARGIN-LEFT: 4pt">byte=17 word=25</p></td>    
+  </tr>   
+  <tr>   
+    <td width="253"><p style="MARGIN-LEFT: 4pt">DIV mem</p></td>    
+    <td width="200"><p style="MARGIN-LEFT: 4pt">div [bx]</p></td>    
+    <td width="295"><p style="MARGIN-LEFT: 4pt">dword=41</p></td>  
+  </tr>  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">IDIV reg</p></td>    
+    <td width="200"><p style="MARGIN-LEFT: 4pt">idiv dl</p></td>    
+    <td width="295"><p style="MARGIN-LEFT: 4pt">8-bit=22;16-bit=30</p></td>  
+  </tr>  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">IDIV mem</p></td>    
+    <td width="200"><p style="MARGIN-LEFT: 4pt">idiv itemp</p></td>    
+    <td width="295"><p style="MARGIN-LEFT: 4pt">32-bit=46</p></td>  
+  </tr>  
+</table>  
+<h3>3.5、类型转换指令</h3>  
+<table border="1" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">CBW</p></td>  
+    <td width="200"><p style="MARGIN-LEFT: 4pt">cbw</p></td>  
+    <td width="295"><p style="MARGIN-LEFT: 4pt">3</p></td>  
+  </tr>  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">CWD</p></td>  
+    <td width="200"><p style="MARGIN-LEFT: 4pt">cwd</p></td>  
+    <td width="295"><p style="MARGIN-LEFT: 4pt">2</p></td>  
+  </tr>  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">CWDE</p></td>  
+    <td width="200"><p style="MARGIN-LEFT: 4pt">cwde</p></td>  
+    <td width="295"><p style="MARGIN-LEFT: 4pt">3</p></td>  
+  </tr>  
+  <tr>  
+    <td width="253"><p style="MARGIN-LEFT: 4pt">CDQ</p></td>  
+    <td width="200"><p style="MARGIN-LEFT: 4pt">cdq</p></td>  
+    <td width="295"><p style="MARGIN-LEFT: 4pt">2</p></td>  
+  </tr>  
+</table>  
+<p align="center"><A href="App2-02.htm"><IMG language=javascript id=PrevPage onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" height=28 src ="../Button/prevpage1.gif" width=96 border=0></A>　　　<A href="App2-04.htm"><IMG language=javascript id=NextPage onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" height=28 src ="../Button/NextPage1.gif" width=96 border=0></A></p>
+         
+</body>        
+        
+</html>        

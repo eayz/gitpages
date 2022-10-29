@@ -1,0 +1,186 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>第6章 程序的基本结构</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter06.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle06.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    </td>                        
+    <td width="50%">         
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h1 align="center">第6章 程序的基本结构</h1>                                                             
+                             
+<p style="text-indent: 21.25pt">在前面几章，我们分别介绍了用汇编语言进行程序设计所需要的几个最基本的知识：内存单元的<a href="03-1.htm">寻址方式</a>，<a href="04-2-2.htm">变量定义</a>和<a href="05-1.htm">各种汇编指令格式</a>。在掌握了这些基本内容之后，就需要学习如何把它们组成一个完整的汇编语言程序。</p>   
+<h2>6.1 源程序的基本组成</h2>                                  
+<p style="text-indent: 21.25pt">汇编语言源程序的组成部分有：模块、段、<a href="07-1.htm">子程序</a>和<a href="09-1.htm">宏</a>等。一个模块对应一个目标文件，当开发较大型的应用程序时，该程序可能由若干个目标文件或库结合而成的。有关模块和子程序的知识和宏在第7章介绍，有关宏的知识将在第9章中叙述。</p>  
+<h3>6.1.1 段的定义</h3>                                  
+<p style="text-indent: 21.25pt">微机系统的内存是分段管理的，为了与之相对应，汇编语言源程序也分若干个段来构成。8086CPU有四个段寄存器，在该系统环境下运行的程序在某个时刻最多可访问四个段，而80386及其以后的CPU都含有六个段寄存器，于是，在这些系统环境下开发的运行程序在某个时刻最多可访问六个段。</p>  
+<p style="text-indent: 21.25pt">不论程序在某个时刻最多能访问多少个段，在编程序时，程序员都可以定义比该段数更多的段。在通常情况下，一个段的长度不能超过<font color="#FF0000">64K</font>，在80386及其以后系统的保护方式下，段基地址是32位，段的最大长度可达<font color="#FF0000">4G</font>。</p>  
+<p style="margin-left: 21.25pt">段的长度是指该段所占的字节数：</p>  
+<p style="margin-left: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、如果段是数据段，则其长度是其所有变量所占字节数的总和；<br>  
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、如果段是代码段，则其长度是其所有指令所占字节数的总和。</p>  
+<p style="text-indent: 21.25pt">在定义段时，每个段都有一个段名。在取段名时，要取一个具有一定含义的段名。</p>  
+<table border="0" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="100%" colspan="4">  
+<p style="text-indent: 21.25pt">段定义的一般格式如下：</p>  
+    </td>  
+  </tr>  
+  <tr>  
+    <td width="8%" rowspan="4" valign="top"></td>  
+    <td width="7%" rowspan="3" valign="top">段名</td>  
+    <td width="11%"> SEGMENT</td>  
+    <td width="74%">[对齐类型]&nbsp;                                     
+[组合类型]&nbsp; [类别]</td>                                   
+  </tr>   
+  <tr>   
+    <td width="11%">…</td>  
+    <td width="74%">;段内的具体内容</td>  
+  </tr>  
+  <tr>  
+    <td width="85%" colspan="2">…</td>  
+  </tr>  
+  <tr>  
+    <td width="7%">段名</td>  
+    <td width="85%" colspan="2"> ENDS</td>  
+  </tr>  
+</table>  
+<p>其中：“段名”必须是一个合法的<a href="04-1.htm">标识符</a>，前后二个段名要相同。可选项“<a href="06-3-1.htm#ALIGN">对齐类型</a>”、“<a href="06-3-1.htm#COMBINE">组合类型</a>”和“<a href="06-3-2.htm">类别</a>”的说明作用请见6.3节中的叙述。</p> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" colspan="5"> 
+<p style="text-indent: 21.25pt">一个数据段的定义例子：</p> 
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="5" valign="top"></td> 
+    <td width="7%" rowspan="4" valign="top">DATA1</td> 
+    <td width="85%" colspan="3"> SEGMENT</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">word1</td> 
+    <td width="5%">DW</td> 
+    <td width="73%">1, 9078H, ?</td>   
+  </tr>  
+  <tr>  
+    <td width="7%" rowspan="2" valign="top">byte1</td> 
+    <td width="5%">DB</td> 
+    <td width="73%">21, 'World'</td>   
+  </tr>  
+  <tr>  
+    <td width="5%">DD</td> 
+    <td width="73%">12345678H</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">DATA1</td> 
+    <td width="85%" colspan="3"> ENDS</td> 
+  </tr> 
+</table> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" valign="bottom" colspan="5"> 
+<p style="margin-left: 21.25pt"><br>
+一个代码段的例子：</p> 
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="7" valign="top" ></td> 
+    <td width="7%" rowspan="6" valign="top" >CODE1</td> 
+    <td width="85%" colspan="3"> SEGMENT</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="13%">AX, DATA1</td>  
+    <td width="65%"> ;把数据段DATA1的段值送<font color="#FF0000">AX</font></td>  
+  </tr>  
+  <tr>  
+    <td width="7%" valign="top">MOV</td> 
+    <td width="13%">DS, AX</td>  
+    <td width="65%">  
+;把<font color="#FF0000">AX</font>的值送给<font color="#FF0000">DS</font>，即：<font color="#FF0000">DS</font>存储数据段的段值</td>  
+  </tr>  
+  <tr>  
+    <td width="85%" valign="top" colspan="3">…</td> 
+  </tr> 
+  <tr> 
+    <td width="7%" valign="top">MOV</td> 
+    <td width="78%" colspan="2">AX, 4C00H</td>  
+  </tr> 
+  <tr> 
+    <td width="7%" valign="top">INT</td> 
+    <td width="13%">21H</td> 
+    <td width="65%">;调用<font color="#FF0000">DOS</font>功能，结束程序的运行</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">CODE1</td>
+    <td width="85%" colspan="3"> ENDS</td>
+  </tr>
+</table>
+       
+<p align="right">               
+<a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=6&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="05-Exercise.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="06-1-2.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>              
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>         

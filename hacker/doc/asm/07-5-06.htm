@@ -1,0 +1,131 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>7.5.6 寄存器的保护与恢复</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter07.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle07.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0"  id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="56%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="07-5-01.htm"> 子程序的完全定义</a>                           
+ → 寄存器的保护与恢复</td>                                 
+    <td width="44%">      
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<h3>7.5.6 寄存器的保护和恢复</h3>                   
+<p style="text-indent: 21.25pt">保护寄存器说明子句的说明格式：</p>
+<p style="margin-left: 40pt">USES&nbsp; 寄存器列表</p>                   
+<p style="text-indent: 21.25pt">该说明子句要求汇编程序为其生成保护和恢复寄存器的指令序列，即：在进入子程序执行指令之前，把寄存器列表中的寄存器压进堆栈，在结束子程序执行时，把先前压进堆栈的寄存器弹出，以达到保护寄存器的目的。</p>
+<p style="text-indent: 21.25pt">寄存器列表：列举出在子程序中需要保护的寄存器名，即：在子程序开始时需要把内容进栈的寄存器名。若有多个寄存器名，则在寄存器名之间要用“空格”来分开。</p>
+<p style="text-indent: 21.25pt">例如：</p>   
+<table border="0" width="100%">
+  <tr>
+    <td width="7%"></td>
+    <td width="4%">    
+      Dsip</td>
+    <td width="55%" colspan="2">PROC  
+      USES AX DX, FUNC:WORD, MSG:PTR BYTE</td> 
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="4%"></td>
+    <td width="1%">MOV</td>
+    <td width="57%">DX, MSG</td>    
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="4%"></td>
+    <td width="1%">MOV</td>
+    <td width="57%">AX, FUNC</td> 
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="4%"></td>
+    <td width="1%">INT</td>
+    <td width="57%">&nbsp;21H</td>
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="4%"></td>
+    <td width="58%" colspan="2">RET</td>
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="4%">    
+      Disp</td>
+    <td width="58%" colspan="2">ENDP</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">汇编程序在处理该子程序时，会根据子句USES的作用，在第一条指令“MOV                     
+DX, MSG”之前，插入把寄存器AX和DX进栈的指令序列，即：</p>                    
+<p style="margin-left: 40pt">PUSH　AX<br>
+PUSH　DX</p>
+<p style="text-indent: 21.25pt">而在返回指令RET之前插入把寄存器DX和AX的值弹出的指令序列，即：</p>
+<p style="margin-left: 40pt">POP　DX<br>
+POP　AX</p>
+<p style="text-indent: 21.25pt">注意：若子程序含有多个RET或IRET指令，那么，汇编程序在每个RET或IRET指令前都将增加相应的弹出堆栈指令序列。</p>
+<p style="text-indent: 21.25pt">从子句USES的功能来看，它与前面<a href="07-4.htm">7.4节</a>“寄存器的包含与恢复”中所用的方法完全一致，所不同的是：用USE子句进行寄存器保护和恢复的代码是由汇编程序自动产生的，程序员不用关心如何去做，有点象高级语言的编程风格，而7.4节中的代码则是由程序员自己来安排的。</p>
+      
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=7&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="07-5-04.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="07-5-07.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a> 
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->    
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+      
+</body>      
+      
+</html>      

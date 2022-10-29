@@ -1,0 +1,88 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.1 目录控制功能的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能39H</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">用指定的驱动器和路径创建一个新目录</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝39H<br>
+      DS:DX＝指定路径的字符串地址(以0为字符串的结束标志)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——创建成功，否则，AX＝错误号(03H或05H)，其含义见错误代码表</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="3AH">(2)、功能</a></font><a name="3AH"><font color="#FF00FF">3AH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">删除指定的驱动器和路径的目录</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝3AH<br>
+      DS:DX＝指定路径的字符串地址(以0为字符串的结束标志)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——删除成功，否则，AX＝错误号(03H或05H)，其含义见错误代码表</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="3BH">(3)、功能</a></font><a name="3BH"><font color="#FF00FF">3BH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">用指定的驱动器和路径设置为当前目录</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝3BH<br>
+      DS:DX＝指定路径的字符串地址(以0为字符串的结束标志)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——设置成功，否则，AX＝错误号(03H)，其含义见错误代码表</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="47H">(4)、功能</a></font><a name="47H"><font color="#FF00FF">47H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">取当前目录的完全路径字符串</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝47H<br>
+      DL＝驱动器号(0=缺省，1＝A，…)<br>
+      DS:SI＝存放当前目录字符串的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——读取成功，否则，AX＝错误号(0FH)，其含义见错误代码表</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

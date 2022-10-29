@@ -1,0 +1,146 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>4.4.3 记录类型的定义</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter04.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle04.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="04-4.htm"> 复合变量的定义</a>  → 记录类型的定义</td>                                         
+    <td width="50%">          
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+    
+<h3>4.4.4 记录类型的定义</h3>                                    
+<p style="text-indent: 21.25pt">1<font color="#FF00FF">、记录类型的说明</font></p>     
+<p style="text-indent: 21.25pt">汇编语言的记录类型与高级语言的记录类型不同，它是为按二进制位存取数据提供方便的。记录类型的说明要用到另一个保留字<font color="#FF0000">RECORD</font>，其说明格式如下：</p>     
+<p style="margin-left: 40pt">记录名　<font color="#FF0000">RECORD</font><font color="#FF0000">　</font>字段         
+[, 字段, ……]</p>                  
+<p style="text-indent: 21.25pt">其中“字段”代表：字段名:宽度[=初值表达式]</p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="2">     
+  <tr>     
+    <td width="10%" rowspan="5" valign="top">     
+      <p style="text-indent: 21.25pt">解释：</td>     
+    <td width="90%">1、记录名代表该记录类型；</td>     
+  </tr>     
+  <tr>     
+    <td width="90%">2、记录类型可以由多个字段组成，每个字段之间要用逗号','分开；</td>     
+  </tr>     
+  <tr>     
+    <td width="90%">3、字段的属性包括字段名、宽度和初值；</td>     
+  </tr>     
+  <tr>     
+    <td width="90%">     
+      <p style="text-indent: -15pt; margin-left: 15pt">4、字段的“宽度”表示该字段所占的二进制位数，它必须是一个常数，并且所有字段的宽度之和不能大于16；如果记录的总宽度大于8，则系统为该记录类型分配二个字节，否则，只分配一个字节；<br>     
+      记录的最后一个字段排在所分配空间的最低位，然后对记录中的字段依次“从右向左”分配二进制位，左边没有分完的二进制位补0；</td>     
+  </tr>     
+  <tr>     
+    <td width="90%">     
+      <p style="text-indent: -15pt; margin-left: 15pt">5、初值表达式给出的是该字段的缺省值。如果初值超过了该字段的表示范围，那么，在汇编时将产生错误提示信息；如果某字段没有初值表达式，则其初值为0。</td>     
+  </tr>     
+</table>     
+<p style="text-indent: 21.25pt">例如：</p>     
+<table border="0" width="100%" cellspacing="1">
+  <tr>
+    <td width="10%" rowspan="2" valign="top"></td>
+    <td width="7%">COLOR</td>
+    <td width="83%">RECORD　BLINK:1,             
+BACK:3=0, INTENSE:1=1, FORE:3</td>       
+  </tr>
+  <tr>
+    <td width="7%">     
+FLOAT</td>
+    <td width="83%">RECORD　DSIGN:1,                  
+DATA:8, ESIGN:1, EXP:4</td>       
+  </tr>
+</table>
+<table border="0" width="100%" cellspacing="0" cellpadding="3">      
+  <tr>      
+    <td width="50%" valign="middle">        
+<p style="text-indent: 21.25pt">记录类型COLOR有四个字段：BLINK、BACK、INTENSE和FORE，它们的宽度分别为：1、3、1和3，所以，该记录类型共有8位二进制，系统分配给它一个字节。</p>    
+<p style="text-indent: 21.25pt">记录类型COLOR的二进制位分布如右图4.9所示。</p>    
+    </td>   
+    <td width="50%">   
+      <p align="center"><img border="0" src="TextBookIMG/04-9.gif" width="324"></p>   
+<p align="center">图4.9 记录类型COLOR的二进制位分配示意图</p>            
+    </td>    
+  </tr>    
+  <tr>    
+    <td width="50%" valign="top">    
+<p style="text-indent: 21.25pt">记录类型FLOAT用来模仿《计算机原理》中的浮点数表示法，它也有四个字段：</p>    
+<p style="margin-left: 21.25pt">DSIGN                  
+(尾数的符号位)；<br>  
+DATA (尾数)；<br>    
+ESIGN (指数的符号位)；<br>    
+EXP (指数)。</p>      
+    </td>   
+    <td width="50%">   
+      <p align="center"><img border="0" src="TextBookIMG/04-10.gif" width="322"></p>   
+<p align="center">图4.10 记录类型FLOAT的二进制位分配示意图</p>            
+    </td>    
+  </tr>    
+</table>    
+<p style="text-indent: 21.25pt">它们的总宽度是14，所以，系统要给它分配二个字节。记录类型FLOAT的二进制位分布如右图4.10所示。</p>    
+                
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=4&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="04-4-31.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="04-4-41.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                       
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2>                               
+    <option selected value="#">课件章节</option>       
+    <option value="course.htm">课件目录</option>       
+    <option value="01-1.htm">第1章 预备知识</option>             
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>             
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>             
+    <option value="04-1.htm">第4章 标识符和表达式</option>             
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>             
+    <option value="06-1.htm">第6章 程序的基本结构</option>             
+    <option value="07-1.htm">第7章 子程序和库</option>             
+    <option value="08-1.htm">第8章 输入输出和中断</option>             
+    <option value="09-1.htm">第9章 宏</option>             
+    <option value="10-1.htm">第10章 应用程序的设计</option>             
+    <option value="11-1.htm">第11章 数值运算协处理器</option>       
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>       
+  </select></p>          
+               
+</body>               
+               
+</html>               

@@ -1,0 +1,182 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>10.1 字符串的处理程序</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter10.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle10.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="10-1.htm">字符串的处理</a> → 字符串的处理程序</td>                                                
+    <td width="50%">                          
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+         
+<p>例10.4                               
+编写一个把字符串中空格和TAB压缩掉的子程序Compress，字符串String是以ASCII码0为结束符。        
+</p>        
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="6">解：</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="23" valign="top"></td>
+    <td width="9%">.MODEL</td>
+    <td width="83%" colspan="4">SMALL, C</td> 
+  </tr>
+  <tr>
+    <td width="92%" colspan="5">.DATA</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 10pt">SPACE</td>
+    <td width="83%" colspan="4">EQU　20H</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 10pt">TAB</td>
+    <td width="83%" colspan="4">EQU　9H</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 10pt">Buff</td>
+    <td width="83%" colspan="4">DB　&quot;12                                
+      3 4&nbsp;&nbsp; Ab&nbsp; cdef&quot;, 0</td>                       
+  </tr>
+  <tr>
+    <td width="92%" colspan="5">.CODE</td>
+  </tr>
+  <tr>
+    <td width="9%" rowspan="12" valign="top">Compress</td>
+    <td width="83%" colspan="4">PROC　USES AX BX SI DS,                                
+      String:FAR PTR BYTE</td>                       
+  </tr>
+  <tr>
+    <td width="6%">LDS</td>
+    <td width="20%" colspan="2">SI, String</td> 
+    <td width="57%">;SI用于扫描字符串的指针</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="20%" colspan="2">BX, SI</td> 
+    <td width="57%">;BX用于存放结果的指针</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="4">.REPEAT</td>
+  </tr>
+  <tr>
+    <td width="6%">
+      <p style="margin-left: 11pt">MOV</td>
+    <td width="77%" colspan="3">AL, [SI]</td> 
+  </tr>
+  <tr>
+    <td width="6%">
+      <p style="margin-left: 11pt">INC</td>
+    <td width="77%" colspan="3">SI</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="4">
+      <p style="margin-left: 11pt">.IF AL!=SPACE &amp;&amp; AL!=TAB</td> 
+  </tr>
+  <tr>
+    <td width="6%" rowspan="2" valign="top"></td>
+    <td width="6%">MOV</td>
+    <td width="71%" colspan="2">[BX], AL</td> 
+  </tr>
+  <tr>
+    <td width="6%">INC</td>
+    <td width="14%">BX</td>
+    <td width="57%"></td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="4">
+      <p style="margin-left: 11pt">.ENDIF</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="4">.UNTIL AL==0</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="4">RET</td>
+  </tr>
+  <tr>
+    <td width="9%" rowspan="5" valign="top">Compress</td>
+    <td width="83%" colspan="4">ENDP</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="4">.STARTUP</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="4">INVOKE　Compress, ADDR Buff</td>                       
+  </tr>
+  <tr>
+    <td width="6%">.EXIT</td>
+    <td width="77%" colspan="3">         
+      0</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="4">END</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">从上面四个例子，我们不难看出处理字符串的一般方法，感兴趣的读者可自行编写实现字符串变小写、整体拷贝、逆转和查找等功能的子程序，甚至还可以建立起自己的字符串处理库文件。</p>      
+               
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=10&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="10-1-2.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="10-2.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a> 
+ <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">            
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>       
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>       
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>       
+    <option value="04-1.htm">第4章 标识符和表达式</option>       
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>       
+    <option value="06-1.htm">第6章 程序的基本结构</option>       
+    <option value="07-1.htm">第7章 子程序和库</option>       
+    <option value="08-1.htm">第8章 输入输出和中断</option>       
+    <option value="09-1.htm">第9章 宏</option>       
+    <option value="10-1.htm">第10章 应用程序的设计</option>       
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>

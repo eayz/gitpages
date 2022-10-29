@@ -1,0 +1,236 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.4 键盘服务的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能00H和10H</font></p>    
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">从键盘读入字符</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="7%" rowspan="2" valign="top">
+            <p align="right">AH</td>
+          <td width="93%">＝00H——读键盘</td>
+        </tr>
+        <tr>
+          <td width="93%">＝10H——读扩展键盘，可根据0000:0496H单元的内容判断：扩展键盘是否有效</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">AH＝键盘的扫描码<br>
+      AL＝字符的ASCII码</td>
+  </tr>
+</table>
+         
+<p><a name="01H和11H"><font color="#FF00FF">(2)、功能01H和11H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">读取键盘状态</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="7%" rowspan="2" valign="top" align="right">AH</td>
+          <td width="93%">＝01H——检查普通键盘</td>
+        </tr>
+        <tr>
+          <td width="93%">＝11H——检查扩展键盘</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">ZF＝1——无字符输入，否则，AH＝键盘的扫描码，AL＝ASCII码。</td>
+  </tr>
+</table>
+         
+<p><a name="02H和12H"><font color="#FF00FF">(3)、功能02H和12H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">读取键盘标志</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="7%" rowspan="2" valign="top" align="right">AH</td>
+          <td width="93%">＝02H——普通键盘的移位标志</td>
+        </tr>
+        <tr>
+          <td width="93%">＝12H——扩展键盘的移位标志</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">AL＝键盘标志(02H和12H都有效)，其各位之值为1时的含义如下：
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="49%">
+<p>位7—INS开状态</p>
+          </td>
+          <td width="51%"> 
+位3—ALT键按下</td>
+        </tr>
+        <tr>
+          <td width="49%">位6—CAPS LOCK开状态</td>   
+          <td width="51%"> 
+位2—CTRL键按下</td>
+        </tr>
+        <tr>
+          <td width="49%">位5—NUM LOCK开状态</td>   
+          <td width="51%"> 
+位1—左SHIFT键按下</td>
+        </tr>
+        <tr>
+          <td width="49%">位4—SCROLL LOCK开状态</td>   
+          <td width="51%"> 
+位0—右SHIFT键按下</td>
+        </tr>
+      </table>
+      <p>AH＝扩展键盘的标志(12H有效)，其各位之值为1时的含义如下：</p>
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="49%">位7—SysReq键按下</td>
+          <td width="51%"> 
+位3—右ALT键按下</td>
+        </tr>
+        <tr>
+          <td width="49%">位6—CAPS LOCK键按下</td>   
+          <td width="51%"> 
+位2—右CTRL键按下</td>
+        </tr>
+        <tr>
+          <td width="49%">位5—NUM LOCK键按下</td>   
+          <td width="51%"> 
+位1—左ALT键按下</td>
+        </tr>
+        <tr>
+          <td width="49%">位4—SCROLL键按下</td>
+          <td width="51%"> 
+位0—左CTRL键按下</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+         
+<p><a name="03H"><font color="#FF00FF">(4)、功能03H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">设置重复率</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝03H
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="32%" valign="top">对于PC/AT和PS/2：</td>
+          <td width="68%">AL＝05H<br>
+            BH＝重复延迟<br>
+            BL＝重复率</td>
+        </tr>
+        <tr>
+          <td width="32%" valign="top">对于PCjr：</td>
+          <td width="68%">
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="8%" valign="top">
+                  <p align="right">AL</td>
+                <td width="92%">＝00H——装入缺省的速率和延迟<br>
+                  ＝01H——增加初始延迟<br>
+                  ＝02H——重复频率降低一半<br>
+                  ＝03H——增加延迟和降低一半重复频率<br>
+                  ＝04H——关闭键盘重复功能</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+         
+<p><a name="04H"><font color="#FF00FF">(5)、功能04H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">设置键盘点击</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝04H
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="5%" rowspan="2" valign="top" align="right">AL</td>
+          <td width="95%">＝00H——关闭键盘点击功能</td>
+        </tr>
+        <tr>
+          <td width="95%">＝01H——打开键盘点击功能</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+         
+<p><a name="05H"><font color="#FF00FF">(6)、功能05H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">字符及其扫描码进栈</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝05H<br>
+      CH＝字符的描述码<br>
+      CL＝字符的ASCII码</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">CF＝1——操作成功，AL＝00H，否则，AL＝01H</td>
+  </tr>
+</table>
+         
+</body>        
+        
+</html>        

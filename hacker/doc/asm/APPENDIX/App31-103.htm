@@ -1,0 +1,148 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.1 进程控制功能的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能00H</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="16%">功能描述：</td>
+    <td width="79%">终止进程。这是程序可以使用的终止进程的方法之一</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">入口参数：</td>
+    <td width="79%" valign="top">AH＝00H<br>
+      CS＝代码段地址</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">出口参数：</td>
+    <td width="79%">无</td>
+  </tr>
+</table>
+
+<p><a name="26H"><font color="#FF00FF">(2)、功能26H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="16%" valign="top">功能描述：</td>
+    <td width="79%">把当前正在执行程序的程序段前缀(PSP)拷贝到内存中的指定地址中，并可改变其为其它程序所使用</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">入口参数：</td>
+    <td width="79%" valign="top">AH＝26H<br>
+      DX＝新程序段前缀的段地址</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">出口参数：</td>
+    <td width="79%">无</td>
+  </tr>
+</table>
+
+<p><a name="31H"><font color="#FF00FF">(3)、功能31H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="16%" valign="top">功能描述：</td>
+    <td width="79%">终止程序的运行，传递一个返回代码给其父进程，但该程序部分或全部驻留在内存中</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">入口参数：</td>
+    <td width="79%" valign="top">AH＝31H<br>
+      AL＝返回代码号<br>
+      DX＝驻留在内存中的字节数</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">出口参数：</td>
+    <td width="79%">无</td>
+  </tr>
+</table>
+
+<p><a name="4BH"><font color="#FF00FF">(4)、功能4BH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="16%">功能描述：</td>
+    <td width="79%">执行程序(EXEC)</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">入口参数：</td>
+    <td width="79%" valign="top">AH＝4BH<br>
+      ES:BX＝参数块的地址<br>
+      DS:DX＝程序的入口地址<br>
+      AL＝00H——装入并执行程序，03H——以覆盖的形式装入</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">出口参数：</td>
+    <td width="79%">CF＝0——操作成功，除CS和IP之外，其它寄存器的值都被破坏，否则，AX＝错误号(01H、02H、03H、05H、08H、0AH或0BH)，其含义见错误代码表</td>
+  </tr>
+</table>
+
+<p><a name="4CH"><font color="#FF00FF">(5)、功能4CH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="16%">功能描述：</td>
+    <td width="79%">终止程序的执行，并可返回一个代码</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">入口参数：</td>
+    <td width="79%" valign="top">AH＝4CH<br>
+      AL＝返回的代码</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">出口参数：</td>
+    <td width="79%">无</td>
+  </tr>
+</table>
+
+<p><a name="4DH"><font color="#FF00FF">(6)、功能4DH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="16%">功能描述：</td>
+    <td width="79%">父进程获取子进程的返回代码</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">入口参数：</td>
+    <td width="79%" valign="top">AH＝4DH</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">出口参数：</td>
+    <td width="79%">AH＝00H——用中断20H、中断21H的功能0或4C正常终止<br>
+      　 ＝01H——用户按^C终止<br> 
+      　 ＝02H——因致命错误而终止<br> 
+      　 ＝03H——用中断21H的功能31H，或中断27H终止<br> 
+      AL＝子进程的返回码：00H——子进程由中断20H、中断21H的功能0或4C终止</td>
+  </tr>
+</table>
+
+<p><a name="62H"><font color="#FF00FF">(7)、功能62H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="16%">功能描述：</td>
+    <td width="79%">读取PSP地址</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">入口参数：</td>
+    <td width="79%" valign="top">AH＝62H</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">出口参数：</td>
+    <td width="79%">BX＝PSP的偏移量</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

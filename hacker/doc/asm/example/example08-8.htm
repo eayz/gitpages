@@ -1,0 +1,158 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例8.8</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p>例8.8 当打印机不能正常打印(非硬件故障)时，提示使用者其原因，以便解决打印问题。</p>    
+<table border="0" width="100%" cellpadding="0" cellspacing="0"> 
+  <tr> 
+    <td width="100%" colspan="5">解：</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" valign="top" rowspan="31"></td> 
+    <td width="92%" colspan="4">.MODEL SMALL<br>   
+      .DATA<br> 
+      　 MSG1　DB　&quot;Time Out$”<br>   
+      　 MSG2　DB　&quot;I/O Error$”<br>   
+      　 MSG3　DB　&quot;Out of Paper$”<br>   
+      　 TOut　EQU　01H<br>
+      　 IOErr　EQU　08H<br>
+      　 OPaper　EQU　20H<br>
+      .CODE</td>
+  </tr>
+  <tr>
+    <td width="5%" rowspan="12" valign="top"></td>
+    <td width="87%" colspan="3">.STARTUP</td>
+  </tr>
+  <tr>
+    <td width="87%" colspan="3">……</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="81%" colspan="2"> AH, 1</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="81%" colspan="2"> DX, 0</td> 
+  </tr>
+  <tr>
+    <td width="6%">INT</td>
+    <td width="21%"> 17H</td>
+    <td width="60%">  
+;初始化连接在LPT1上的打印机</td>
+  </tr>
+  <tr>
+    <td width="87%" colspan="3">……</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="81%" colspan="2"> AH, 2</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="81%" colspan="2"> DX, 0</td> 
+  </tr>
+  <tr>
+    <td width="6%">INT</td>
+    <td width="21%"> 17H</td>
+    <td width="60%">  
+;读取LPT1打印机的状态字节</td>
+  </tr>
+  <tr>
+    <td width="6%">TEST</td>
+    <td width="81%" colspan="2"> AL, TOut or IOErr or OPaper</td> 
+  </tr>
+  <tr>
+    <td width="6%">JNZ</td>
+    <td width="81%" colspan="2"> ErrMsg</td>
+  </tr>
+  <tr>
+    <td width="87%" colspan="3">……</td>
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">ErrMsg:</td>
+  </tr>
+  <tr>
+    <td width="5%" rowspan="4" valign="top"></td>
+    <td width="6%">TEST</td>
+    <td width="81%" colspan="2"> AL, TOut</td> 
+  </tr>
+  <tr>
+    <td width="6%">JZ</td>
+    <td width="81%" colspan="2"> next1</td>
+  </tr>
+  <tr>
+    <td width="6%">LEA</td>
+    <td width="21%"> DX, MSG1</td> 
+    <td width="60%"> ;Time Out</td> 
+  </tr>
+  <tr>
+    <td width="6%">JMP</td>
+    <td width="81%" colspan="2"> disp</td>
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">next1:</td>
+  </tr>
+  <tr>
+    <td width="5%" rowspan="4" valign="top"></td>
+    <td width="6%">TEST</td>
+    <td width="81%" colspan="2"> AL, IOErr</td> 
+  </tr>
+  <tr>
+    <td width="6%">JZ</td>
+    <td width="81%" colspan="2"> next2</td>
+  </tr>
+  <tr>
+    <td width="6%">LEA</td>
+    <td width="21%"> DX, MSG2</td> 
+    <td width="60%"> ;I/O Error</td> 
+  </tr>
+  <tr>
+    <td width="6%">JMP</td>
+    <td width="81%" colspan="2"> disp</td>
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">next2:</td>
+  </tr>
+  <tr>
+    <td width="5%"></td>
+    <td width="6%">LEA</td>
+    <td width="21%"> DX, MSG3</td> 
+    <td width="60%"> ;Out of   
+Paper</td>
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">disp:</td>
+  </tr>
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="6%">MOV</td>
+    <td width="81%" colspan="2"> AH, 9H</td> 
+  </tr>
+  <tr>
+    <td width="6%">INT</td>
+    <td width="81%" colspan="2"> 21H</td>
+  </tr>
+  <tr>
+    <td width="87%" colspan="3">……</td>
+  </tr>
+  <tr>
+    <td width="87%" colspan="3">.EXIT　0</td>
+  </tr>
+  <tr>
+    <td width="87%" colspan="3">END</td>
+  </tr>
+</table>
+  
+<p align="center"><a href="javascript:close();">关　闭</a></p>  
+             
+</body>  
+  
+</html>  

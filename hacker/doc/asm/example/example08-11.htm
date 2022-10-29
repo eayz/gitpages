@@ -1,0 +1,268 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例8.11</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p style="text-indent: -36pt; margin-left: 36pt">例8.11           
+在屏幕的右上角动态显示文本鼠标的位置，即：鼠标的任何移动都将马上显示其所处位置，按鼠标左键结束程序的运行。</p> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0" > 
+  <tr> 
+    <td width="100%" colspan="5">解：</td> 
+  </tr> 
+  <tr> 
+    <td width="7%" rowspan="54" valign="top" ></td> 
+    <td width="93%" colspan="4"> .MODEL　SMALL, C<br>     
+      .DATA<br> 
+      　 OldAddr　DD　?<br>
+      　 MSG　LABEL　BYTE</td>
+  </tr>
+  <tr>
+    <td width="33%" colspan="3">　 XMSG　DB　'X='</td>
+    <td width="60%">;显示方式：X=** Y=**</td>     
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">　 XASC　DW　?<br>
+      　　　　　DB　' '<br>     
+      　 YMSG　DB　'Y='<br>
+      　 YASC　DW　?<br>
+      　 Count　EQU　$-MSG<br>
+      .STACK 128<br>     
+      .CODE</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">ClsScr</td> 
+    <td width="25%" colspan="2">PROC</td> 
+    <td width="60%"> ;清除整个屏幕</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="7" valign="bottom">ClsScr</td> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> AX, 0600H</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> BH, 30H</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> CX, 0</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> DX, 184FH</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">INT</td> 
+    <td width="79%" colspan="2"> 10H</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">RET</td> 
+    <td width="79%" colspan="2"></td> 
+  </tr> 
+  <tr> 
+    <td width="85%" colspan="3"> ENDP</td> 
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">;把两位十进制数Data转换成字符串放入以首地址Desc开始的缓冲区之中</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">BTOAsc</td> 
+    <td width="85%" colspan="3"> PROC USES AX CX DI Data:WORD, Desc:PTR BYTE</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="12" valign="bottom">BTOAsc</td> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> AX, Data</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> DI, Desc</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="19%"> word ptr [DI], 2020H</td>  
+    <td width="60%">;赋两个空格</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> CL, 10</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">DIV</td> 
+    <td width="79%" colspan="2"> CL</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">OR</td> 
+    <td width="79%" colspan="2"> AL, 30H</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> [DI], AL</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">INC</td> 
+    <td width="79%" colspan="2"> DI</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">OR</td> 
+    <td width="79%" colspan="2"> AH, 30H</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> [DI], AH</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">RET</td> 
+    <td width="79%" colspan="2"></td> 
+  </tr> 
+  <tr> 
+    <td width="85%" colspan="3"> ENDP</td> 
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">;把当前鼠标位置(CX，DX)显示在屏幕右上角，该子程序在本程序被设置为鼠标移动事<br> 
+      ;件的中断处理程序，所以，只要鼠标一移动，该子程序马上就被执行。</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">DispPos</td> 
+    <td width="85%" colspan="3"> PROC &nbsp;FAR</td>     
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="14" valign="bottom">DispPos</td> 
+    <td width="6%">SHR</td> 
+    <td width="79%" colspan="2"> CX, 3</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">SHR</td> 
+    <td width="79%" colspan="2"> DX, 3</td>  
+  </tr> 
+  <tr> 
+    <td width="85%" colspan="3">INVOKE　BTOAsc, CX, ADDR XASC<br>     
+      INVOKE　BTOAsc, DX, ADDR YASC</td>     
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> AH, 02H</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> BH, 0</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> DX, 046H</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">INT</td> 
+    <td width="19%">10H</td> 
+    <td width="60%"> ;设置字符串的显示位置</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> AH, 40H</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> BX, 01H</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> CX, COUNT</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">LEA</td> 
+    <td width="79%" colspan="2"> DX, MSG</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">INT</td> 
+    <td width="19%">21H</td> 
+    <td width="60%"> ;显示鼠标位置的字符串</td> 
+  </tr> 
+  <tr> 
+    <td width="85%" colspan="3">RET</td> 
+  </tr> 
+  <tr> 
+    <td width="85%" colspan="3"> ENDP</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="5" valign="top"></td> 
+    <td width="85%" colspan="3">.STARTUP</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">CALL</td> 
+    <td width="79%" colspan="2"> ClsScr</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="79%" colspan="2"> AX, 00</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">INT</td> 
+    <td width="79%" colspan="2"> 33H</td> 
+  </tr> 
+  <tr> 
+    <td width="85%" colspan="3">.IF　AX != 00<br>     
+      　　MOV　AX, 01H<br>     
+      　　INT　33H　　　　　　　　　　　　;显示鼠标指针<br>
+      　　MOV　AX, CS<br>     
+      　　MOV　ES, AX<br>     
+      　　LEA　DX, DispPos<br>     
+      　　MOV　AX, 14H<br>     
+      　　MOV　CX, 1　　　　　　　　　　　;把子程序DispPos设置成鼠标<br>
+      　　INT　33H　　　　　　　　　　　　 ;移动事件的中断服务程序<br>  
+      　　MOV　word ptr OldAddr, DX<br>     
+      　　MOV　word ptr OldAddr+2, ES　　 ;保存原移动事件处理程序的入口地址<br>  
+      　　.REPEAT<br>
+      　　　MOV　AX, 03H<br>     
+      　　　INT　33H<br> 
+      　　.UNTIL　BX==1　　　　　　　　　　;按下鼠标左键<br>
+      　　MOV　AX, 02H<br>     
+      　　INT　33H　　　　　　　　　　　　　;隐藏鼠标指针<br>
+      .ENDIF</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="8"></td>
+    <td width="6%">MOV</td>
+    <td width="79%" colspan="2"> DX, word ptr OldAddr</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="79%" colspan="2"> ES, word ptr OldAddr+2</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="79%" colspan="2"> CX, 1</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="79%" colspan="2"> AX, 0CH</td> 
+  </tr>
+  <tr>
+    <td width="6%">INT</td>
+    <td width="19%">33H</td>
+    <td width="60%"> ;恢复原鼠标移动的中断服务程序</td>
+  </tr>
+  <tr>
+    <td width="6%">CALL</td>
+    <td width="79%" colspan="2"> ClsScr</td>
+  </tr>
+  <tr>
+    <td width="6%">.EXIT</td>
+    <td width="79%" colspan="2"> 0</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">END</td>
+  </tr>
+</table>
+  
+<p align="center"><a href="javascript:close();">关　闭</a></p>  
+             
+</body>  
+  
+</html>  

@@ -1,0 +1,65 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Turbo Assember</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+  <h2><FONT>1.2、Turbo Assember</FONT></h2>       
+  <p style="TEXT-INDENT: 21.25pt">Turbo     
+  Assenmer系统是Borland C++程序设计系统的一部分，可有选择地安装它。该汇编系统的几个主要文件为：TASM.EXE、TLINK.EXE、TD.EXE和TD32.EXE。</p>   
+  <p style="TEXT-INDENT: 21.25pt">TD.EXE是16位程序的调试器，它只能显示16位寄存器，而TD32.EXE是32位程序的调试器。有关其显示画面请参见<A href="App1-7.htm">画面2.2和2.3</a>。</p> 
+  <p style="TEXT-INDENT: 21.25pt">Turbo Assenmer系统在汇编语言程序设计方面主要采用命令行的形式，当用其它文本编辑器编写好源程序(后缀为：.ASM)后，即可用TASM和TLINK文件来处理它。</p>  
+  <p style="TEXT-INDENT: 21.25pt"><font color="#ff00ff">1、汇编源程序</font></p> 
+  <p style="MARGIN-LEFT: 40pt">TASM.EXE　　　　　　　 ;16-bit real-mode assembler<br>   
+  TASMX.EXE　　　　　　　;16-bit protected-mode   
+  assembler<br>
+  TASM32.EXE　　　　　　 ;32-bit protected-mode        
+  assembler</p> 
+  <p>例1.9 查看<font  color="#ff0000">TASM</font>的功能选项</p>  
+  <p style="MARGIN-LEFT: 40pt">…&gt;<U>tasm /?</U> <br> 
+  Syntax:&nbsp; TASM [options] source [,object] [,listing] [,xref]<br>   
+  /zi,/zd,/zn　Debug info: zi=full, zd=line numbers        
+  only, zn=none</p>       
+  <p>例1.10 汇编已有源程序TEST.ASM</p> 
+  <p style="MARGIN-LEFT: 40pt">…&gt;<U>tasm test</U> </p>
+  <p style="TEXT-INDENT: 21.25pt">假如源文件TEST.ASM有语法错的话，可用下面命令来生成其列表文件TEST.LST。</p>
+  <p style="MARGIN-LEFT: 40pt">…&gt;<U>tasm test,,test</U> <br>     
+  …&gt;<U>type test.lst | more</U>     
+  </p>     
+  <p style="TEXT-INDENT: 21.25pt">假如源文件没有语法错，那么可用<font  color="#ff0000">TLINK.EXE</font>连接它，以生成可执行文件。</p> 
+  <p style="TEXT-INDENT: 21.25pt"><font color="#ff00ff">2、连接程序</font></p> 
+  <p>例1.11 查看TLINK的功能选项</p>    
+  <p style="MARGIN-LEFT: 40pt">…&gt;<U>tlink /?</U> <br> 
+  Turbo Link&nbsp; Version 6.00 Copyright (c) 1992, 1993 Borland International<br>   
+  Syntax: TLINK objfiles, exefile, mapfile, libfiles, deffile, resfiles<br>   
+  @xxxx indicates use response file xxxx<br>   
+  ……<br>
+  /v　Full symbolic debug information</p>       
+  <p>例1.12 连接汇编得到的目标文件TEST.OBJ</p>  
+  <p style="MARGIN-LEFT: 40pt">…&gt;<U>tlink test</U> </p> 
+  <p style="TEXT-INDENT: 21.25pt"><font color="#ff00ff">3、符号调试程序</font></p> 
+  <p style="TEXT-INDENT: 21.25pt">当程序的运行结果不是预期结果时，就需要调试程序，找出错误的语句或逻辑关系。<font  color="#ff0000">Turbo    
+  Assember</font>系统提供了可用于源程序一级的调试工具<font color="#ff0000"><A href="App1-7.htm">TD/TD32</a></font>(<font color="#ff0000">Turbo   
+  Debuger</font>)。</p> 
+  <p>例1.13 用符号调试工具<font  color="#ff0000">TD</font>来调试程序TEST.ASM所生成可执行文件。</p>
+  <p style="MARGIN-LEFT: 40pt">…&gt;<U>tasm /Zi /Zd test</U>    
+  　　　　　;假设其没有语法错<br>
+  …&gt;<U>tlink /v test</U>  <br>     
+  …&gt;<U>td 
+test.exe</U>     
+  </p>     
+          
+<p align="center"><A href="App1-3.htm"><IMG language=javascript id=PrevPage onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" height =28 src="../Button/prevpage1.gif" width=96 border=0></A>     
+<A href="App1-5.htm"><IMG language=javascript id=NextPage onmouseover="return NextPage_onmouseover()" onmouseout="return  NextPage_onmouseout()" height=28 src ="../Button/NextPage1.gif" width=96 border=0></A></p>       
+        
+</body>        
+        
+</html>        

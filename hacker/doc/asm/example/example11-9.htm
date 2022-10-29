@@ -1,0 +1,330 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例11.9</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p>例11.9 把内存单元DATA中存放的单精度浮点数以小数的形式显示在屏幕上。       
+</p>   
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" colspan="5">解：</td> 
+  </tr> 
+  <tr> 
+    <td width="9%" rowspan="77" valign="top"></td> 
+    <td width="91%" colspan="4">.MODEL　SMALL</td>
+  </tr>
+  <tr>
+    <td width="91%" colspan="4">.386</td>
+  </tr>
+  <tr>
+    <td width="91%" colspan="4">.387</td>
+  </tr>
+  <tr>
+    <td width="91%" colspan="4">.DATA</td>
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 12pt">DATA</td>
+    <td width="81%" colspan="3">DD　-1234.75</td>
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 12pt">STATUS</td>
+    <td width="81%" colspan="3">DW　?</td>
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 12pt">WHOLE</td>
+    <td width="81%" colspan="3">DD　?</td>
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 12pt">FRACT</td>
+    <td width="81%" colspan="3">DD　?</td>
+  </tr>
+  <tr>
+    <td width="91%" colspan="4">.CODE</td>
+  </tr>
+  <tr>
+    <td width="10%" rowspan="5" valign="top">DISPS</td>
+    <td width="29%" colspan="2">PROC　NEAR</td>
+    <td width="52%">;子程序：显示AL中的字符</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="73%" colspan="2">AH, 6</td> 
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="73%" colspan="2">DL, AL</td> 
+  </tr>
+  <tr>
+    <td width="8%">INT</td>
+    <td width="73%" colspan="2">21H</td>
+  </tr>
+  <tr>
+    <td width="81%" colspan="3">RET</td>
+  </tr>
+  <tr>
+    <td width="10%">DISPS</td>
+    <td width="81%" colspan="3">ENDP</td>
+  </tr>
+  <tr>
+    <td width="10%" rowspan="13" valign="top"></td>
+    <td width="81%" colspan="3">.STARTUP</td>
+  </tr>
+  <tr>
+    <td width="8%">FSTCW</td>
+    <td width="21%">STATUS</td>
+    <td width="52%">;以小数形式显示浮点数DATA</td>
+  </tr>
+  <tr>
+    <td width="8%">OR</td>
+    <td width="21%">STATUS,0C00H</td>
+    <td width="52%">;设定截取舍入方式</td>
+  </tr>
+  <tr>
+    <td width="8%">FLDCW</td>
+    <td width="73%" colspan="2">STATUS</td>
+  </tr>
+  <tr>
+    <td width="8%">FLD</td>
+    <td width="73%" colspan="2">DATA</td>
+  </tr>
+  <tr>
+    <td width="81%" colspan="3">FTST</td>
+  </tr>
+  <tr>
+    <td width="8%">FSTSW</td>
+    <td width="73%" colspan="2">AX</td>
+  </tr>
+  <tr>
+    <td width="8%">AND</td>
+    <td width="73%" colspan="2">AX, 4500H</td> 
+  </tr>
+  <tr>
+    <td width="8%">CMP</td>
+    <td width="73%" colspan="2">AX, 0100H</td> 
+  </tr>
+  <tr>
+    <td width="8%">JNZ</td>
+    <td width="73%" colspan="2">Positive</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="73%" colspan="2">AL, ‘-‘</td>  
+  </tr>
+  <tr>
+    <td width="8%">CALL</td>
+    <td width="73%" colspan="2">DISPS</td>
+  </tr>
+  <tr>
+    <td width="81%" colspan="3">FABS</td>
+  </tr>
+  <tr>
+    <td width="91%" colspan="4">Positive:</td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top" rowspan="10"></td>
+    <td width="8%">FLD</td>
+    <td width="73%" colspan="2">ST</td>
+  </tr>
+  <tr>
+    <td width="81%" colspan="3">FRNDINT</td>
+  </tr>
+  <tr>
+    <td width="8%">FIST</td>
+    <td width="21%">WHOLE</td>
+    <td width="52%">;保存整数部分</td>
+  </tr>
+  <tr>
+    <td width="81%" colspan="3">FSUBR</td>
+  </tr>
+  <tr>
+    <td width="81%" colspan="3">FABS</td>
+  </tr>
+  <tr>
+    <td width="8%">FSTP</td>
+    <td width="21%">FRACT</td>
+    <td width="52%">;保存小数部分</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="73%" colspan="2">EAX, WHOLE</td>  
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="73%" colspan="2">EBX, 10</td> 
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="73%" colspan="2">CX, 0</td> 
+  </tr>
+  <tr>
+    <td width="8%">PUSH</td>
+    <td width="73%" colspan="2">BX</td>
+  </tr>
+  <tr>
+    <td width="91%" colspan="4">Again1:</td>
+  </tr>
+  <tr>
+    <td width="10%" rowspan="7" valign="top"></td>
+    <td width="8%">MOV</td>
+    <td width="73%" colspan="2">EDX, 0</td> 
+  </tr>
+  <tr>
+    <td width="8%">DIV</td>
+    <td width="73%" colspan="2">EBX</td>
+  </tr>
+  <tr>
+    <td width="8%">ADD</td>
+    <td width="73%" colspan="2">DL, 30H</td> 
+  </tr>
+  <tr>
+    <td width="8%">PUSH</td>
+    <td width="73%" colspan="2">DX</td>
+  </tr>
+  <tr>
+    <td width="8%">INC</td>
+    <td width="73%" colspan="2">CX</td>
+  </tr>
+  <tr>
+    <td width="8%">CMP</td>
+    <td width="73%" colspan="2">EAX, 0</td> 
+  </tr>
+  <tr>
+    <td width="8%">JNZ</td>
+    <td width="73%" colspan="2">Again1</td>
+  </tr>
+  <tr>
+    <td width="91%" colspan="4">Disp1:</td>
+  </tr>
+  <tr>
+    <td width="10%" rowspan="18" valign="top"></td>
+    <td width="8%">POP</td>
+    <td width="73%" colspan="2">AX</td>
+  </tr>
+  <tr>
+    <td width="8%">CALL</td>
+    <td width="21%">DISPS</td>
+    <td width="52%">;显示整数部分</td>
+  </tr>
+  <tr>
+    <td width="8%">LOOP</td>
+    <td width="73%" colspan="2">Disp1</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="73%" colspan="2">AL, ‘.’</td> 
+  </tr>
+  <tr>
+    <td width="8%">CALL</td>
+    <td width="21%">DISPS</td>
+    <td width="52%">;显示小数点</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="73%" colspan="2">EAX, FRACT</td> 
+  </tr>
+  <tr>
+    <td width="8%">FSTCW</td>
+    <td width="73%" colspan="2">STATUS</td>
+  </tr>
+  <tr>
+    <td width="8%">XOR</td>
+    <td width="73%" colspan="2">STATUS, 0C00H</td> 
+  </tr>
+  <tr>
+    <td width="8%">FLDCW</td>
+    <td width="73%" colspan="2">STATUS</td>
+  </tr>
+  <tr>
+    <td width="8%">FLD</td>
+    <td width="73%" colspan="2">FRACT</td>
+  </tr>
+  <tr>
+    <td width="81%" colspan="3">FXTRACT</td>
+  </tr>
+  <tr>
+    <td width="8%">FSTP</td>
+    <td width="73%" colspan="2">FRACT</td>
+  </tr>
+  <tr>
+    <td width="81%" colspan="3">FABS</td>
+  </tr>
+  <tr>
+    <td width="8%">FISTP</td>
+    <td width="73%" colspan="2">WHOLE</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="73%" colspan="2">ECX, WHOLE</td> 
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="73%" colspan="2">EAX, FRACT</td> 
+  </tr>
+  <tr>
+    <td width="8%">SHL</td>
+    <td width="73%" colspan="2">EAX, 9</td> 
+  </tr>
+  <tr>
+    <td width="8%">RCR</td>
+    <td width="73%" colspan="2">EAX, CL</td> 
+  </tr>
+  <tr>
+    <td width="91%" colspan="4">Again2:</td>
+  </tr>
+  <tr>
+    <td width="10%" rowspan="10" valign="top"></td>
+    <td width="8%">MUL</td>
+    <td width="73%" colspan="2">EBX</td>
+  </tr>
+  <tr>
+    <td width="8%">PUSH</td>
+    <td width="73%" colspan="2">EAX</td>
+  </tr>
+  <tr>
+    <td width="8%">XCHG</td>
+    <td width="73%" colspan="2">EAX, EDX</td> 
+  </tr>
+  <tr>
+    <td width="8%">ADD</td>
+    <td width="73%" colspan="2">AL, 30H</td> 
+  </tr>
+  <tr>
+    <td width="8%">CALL</td>
+    <td width="73%" colspan="2">DISPS</td>
+  </tr>
+  <tr>
+    <td width="8%">POP</td>
+    <td width="73%" colspan="2">EAX</td>
+  </tr>
+  <tr>
+    <td width="8%">CMP</td>
+    <td width="73%" colspan="2">EAX, 0</td> 
+  </tr>
+  <tr>
+    <td width="8%">JNZ</td>
+    <td width="73%" colspan="2">Again2</td>
+  </tr>
+  <tr>
+    <td width="81%" colspan="3">.EXIT　0</td>
+  </tr>
+  <tr>
+    <td width="81%" colspan="3">END</td>
+  </tr>
+</table>
+  
+<p align="center"><a href="javascript:close();">关　闭</a></p>
+  
+</body> 
+ 
+</html> 

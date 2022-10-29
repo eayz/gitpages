@@ -1,0 +1,266 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Debug</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<h2>2、调试工具</h2>
+<h3>2.1、DEBUG</h3>
+<p style="TEXT-INDENT: 21.25pt">启动<font color="#ff0000">DEBUG</font>的一般命令如下：</p>
+<p style="MARGIN-LEFT: 40pt"><font color="#ff0000">DEBUG</font>&nbsp; 文件名 [参数表]</p>            
+<p style="TEXT-INDENT: 21.25pt">其中：文件名指定被调试的文件，其包括名和后缀，参数表是被调试文件运行时所需要的参数。</p> 
+<p style="TEXT-INDENT: 21.25pt">被调试的文件可以是系统中的任何文件，但通常它们的后缀为<font color="#ff0000">EXE</font>或<font color="#ff0000">COM</font>。当<font color="#ff0000">DEBUG</font>启动成功后，将显示连接符“<font  color="#ff0000">-</font>”，这时，可输入各种命令。</p> 
+<p align="center">表1 <font color="#ff0000"> DEBUG</font>中标志位的符号表示</p>           
+<div align="center">     
+  <center>     
+  <table border="0" width="100%" cellspacing="0" cellpadding="0">     
+    <tr>     
+      <td align="center" bgcolor="#ffff00">标志名称</td>     
+      <td align="center" bgcolor="#ffff00">溢出OF</td> 
+      <td align="center" bgcolor="#ffff00">方向DF</td> 
+      <td align="center" bgcolor="#ffff00">中断IF</td> 
+      <td align="center" bgcolor="#ffff00">负号SF</td> 
+      <td align="center" bgcolor="#ffff00">零ZF</td> 
+      <td align="center" bgcolor="#ffff00">辅助进位AF</td> 
+      <td align="center" bgcolor="#ffff00">奇偶PF</td> 
+      <td align="center" bgcolor="#ffff00">进位CF</td> 
+    </tr> 
+    <tr> 
+      <td align="center" bgcolor="#ffff00">置位状态</td> 
+      <td align="center" bgcolor="#00ffff">OV</td> 
+      <td align="center" bgcolor="#00ffff">DN</td> 
+      <td align="center" bgcolor="#00ffff">EI</td> 
+      <td align="center" bgcolor="#00ffff">NG</td> 
+      <td align="center" bgcolor="#00ffff">ZR</td> 
+      <td align="center" bgcolor="#00ffff">AC</td> 
+      <td align="center" bgcolor="#00ffff">PE</td> 
+      <td align="center" bgcolor="#00ffff">CY</td> 
+    </tr> 
+    <tr> 
+      <td align="center" bgcolor="#ffff00">复位状态</td> 
+      <td align="center">NV</td> 
+      <td align="center">UP</td> 
+      <td align="center">DI</td> 
+      <td align="center">PL</td> 
+      <td align="center">NZ</td> 
+      <td align="center">NA</td> 
+      <td align="center">PO</td> 
+      <td align="center">NC</td> 
+    </tr> 
+  </table> 
+  </center> 
+</div> 
+     
+<p align="center">表2 <font color="#ff0000"> DEBUG</font>命令及其含义</p>                    
+              
+  <div align="center">    
+    <center>             
+             
+<table border="1" width="100%" cellspacing="0" cellpadding="0">    
+  <tr>    
+    <td width="269" bgcolor="#ffff00">　命令格式</td> 
+    <td width="313" bgcolor="#ffff00">功能说明</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">A [地址]</td>       
+    <td width="313">输入汇编指令</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">C [范围]&nbsp; 起始地址</td>      
+    <td width="313">对由“范围”指定的区域与“起始地址”指定的同大小区域进行比较，显示不相同的单元</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">D [范围]</td>       
+    <td width="313">显示指定范围内的内存单元内容</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">E 地址&nbsp; 字节值表</td>       
+    <td width="313">用值表中的值替换从“地址”开始的内存单元内容</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">F 范围&nbsp; 字节值表</td>       
+    <td width="313">用指定的字节值表来填充内存区域</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">G [=起始地址] &nbsp;[断点地址]</td>        
+    <td width="313">从起点(或当前地点)开始执行，到终点结束</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">H 数值1&nbsp; 数值2</td>      
+    <td width="313">显示二个十六进制数值之和、差</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">I 端口地址</td>       
+    <td width="313">从端口输入</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">L [地址 [驱动器号 扇区 扇区数]]</td>         
+    <td width="313">从磁盘读</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">M 范围&nbsp; 地址</td>       
+    <td width="313">把“范围”内的字节值传送到从“地址”开始的单元</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">N 文件标识符 [文件标识符…]</td>         
+    <td width="313">指定文件名，为读/写文件做准备</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">O 端口地址&nbsp; 字节值</td>       
+    <td width="313">向端口输出</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">P [=地址]&nbsp;       
+      [指令数]</td> 
+    <td width="313">按执行过程，但不进入子程序调用或软中断</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">Q</td> 
+    <td width="313">退出DEBUG，不保存正在调试的文件</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">R [寄存器名]</td>        
+    <td width="313">显示和修改寄存器内容</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">S 范围&nbsp; 字节值表</td>       
+    <td width="313">在内存区域内搜索指定的字节值表。如果找到，显示起始地址，否则，什么也不显示</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">T [=地址]&nbsp;       
+      [指令数]</td> 
+    <td width="313">跟踪执行，从起点(或当前地点)执行若干条指令</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">U [范围]</td>       
+    <td width="313">反汇编，显示机器码所对应的汇编指令</td> 
+  </tr> 
+  <tr> 
+    <td width="269" valign="top">W [地址 [驱动器号&nbsp; 扇区 扇区数]]</td>         
+    <td width="313">向磁盘写内容，(BX、CX)为写入字节数</td> 
+  </tr> 
+</table> 
+    </center> 
+  </div> 
+<p style="TEXT-INDENT: 21.25pt">关于参数的几点说明：</p> 
+  <table border="0" width="100%" cellspacing="0" cellpadding="2"> 
+    <tr> 
+      <td width="100%"><p style="TEXT-INDENT: 21.25pt">1、进制：在<font color="#ff0000">DEBUG</font>中输入或显示的数据都是十六进制形式；</p> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td width="100%"> 
+<p style="TEXT-INDENT: 21.25pt">2、分隔：命令和参数、参数和参数之间要用空格、逗号或制表符等分隔；</p> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td width="100%"><p style="text-indent: -48pt; margin-left: 69.25pt">3、地址：用“段值：偏移量”的形式来表示地址，也可用段寄存器来代表“段值”；例如：1000:0，ds:10，cs:30等；</p> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td width="100%"> 
+<p style="text-indent: -48pt; margin-left: 69.25pt">4、范围：用来表示地址范围，从哪个地址开始，到哪个地址结束。它有二种表示方式：</p> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td width="100%"> 
+<p style="text-indent: -69pt; margin-left: 137pt">地址 地址——前者表示起始地址，要用“段值：偏移量”来表达，后者表示终止地址，只用“偏移量”来表示；</p>           
+      </td> 
+    </tr> 
+    <tr> 
+      <td width="100%"> 
+<p style="text-indent: -69pt; margin-left: 137pt">地址 长度——前者表示起始地址，要用“段值：偏移量”来表达，后者表示该区域的大小，用字母’L’开头的数值来表示</p>            
+<p style="text-indent: -32pt; margin-left: 95pt">例如：100:50 100——段值为100，偏移量从50到100的内存区域，<br>        
+100:50 L100——段值为100，偏移量从50开始的100个字节区域。</p>        
+      </td>  
+    </tr>  
+    <tr>  
+      <td width="100%"> 
+<p style="TEXT-INDENT: 21.25pt">5、端口地址：二位十六进制数值</p> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td width="100%"> 
+<p style="TEXT-INDENT: 21.25pt">6、字节值：二位十六进制数值</p> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td width="100%"> 
+<p style="TEXT-INDENT: 21.25pt">7、字节值表：由若干个字节值组成，也可以是用引号括起来的字符串</p> 
+      </td> 
+    </tr> 
+    <tr> 
+      <td width="100%"> 
+<p style="TEXT-INDENT: 21.25pt">8、驱动器号：0—驱动器A、1—驱动器B、2—驱动器C、3—驱动器D等</p> 
+      </td> 
+    </tr> 
+  </table> 
+<p style="TEXT-INDENT: 21.25pt">关于使用命令的几点说明：</p> 
+<table border="0" width="100%" cellspacing="1">
+  <tr>
+    <td width="8%" align="right" valign="top"><img border="0" src="../TextBookIMG/redpoint.gif" width="20"></td>
+    <td width="92%">在<font color="#ff0000">DEBUG</font>中的提示符“<font  color="#ff0000">-</font>”下才能输入命令，在按“回车”键后，该命令才开始执行</td>
+  </tr>
+  <tr>
+    <td width="8%" align="right" valign="top"><img border="0" src="../TextBookIMG/redpoint.gif" width="20"></td>
+    <td width="92%">命令是单个字母，命令和参数的大小写可混合输入</td>
+  </tr>
+  <tr>
+    <td width="8%" align="right" valign="top"><img border="0" src="../TextBookIMG/redpoint.gif" width="20"></td>
+    <td width="92%">可用<font color="#ff0000">F1</font>、<font color="#ff0000">F2</font>、<font color="#ff0000">F3</font>、<font color="#ff0000">Ins</font>、<font color="#ff0000">Del</font>和光标移动键等来编辑本行命令</td>
+  </tr>
+  <tr>
+    <td width="8%" align="right" valign="top"><img border="0" src="../TextBookIMG/redpoint.gif" width="20"></td>
+    <td width="92%">当命令出现语法错误时，将在出错位置显示“<font color="#ff0000">^   
+      Error</font>”</td>
+  </tr>
+  <tr>
+    <td width="8%" align="right" valign="top"><img border="0" src="../TextBookIMG/redpoint.gif" width="20"></td>
+    <td width="92%">可用<font color="#ff0000">^C</font>或<font color="#ff0000">^Break</font>来终止当前命令的执行，还可用<font color="#ff0000">^S</font>来暂停屏幕显示(当连续不断地显示信息时)</td>
+  </tr>
+</table>
+<p>例2.1 启动<font color="#ff0000">DEBUG</font>，并装入test.exe文件(假设该文件已存在)。</p>   
+  <table border="0" width="100%" cellspacing="0" cellpadding="2"> 
+    <tr> 
+      <td width="10%" rowspan="4" valign="top">解：</td> 
+      <td width="35%">方法1：</td> 
+      <td width="55%">方法2：</td> 
+    </tr> 
+    <tr> 
+      <td width="35%" rowspan="3" valign="top">…\&gt;debug test.exe</td>            
+      <td width="55%">…\&gt;debug</td>   
+    </tr>   
+    <tr>   
+      <td width="55%">-n test.exe</td>      
+    </tr>     
+    <tr>     
+      <td width="55%">-l</td>   
+    </tr>   
+  </table>   
+<p>例2.2 比较以DS为段值，偏移量从10到50的内存区域与从地址100:20开始的内存区域。<br>   
+解：-C DS:10 50 100:20　　或　　-C DS:10 L41 100:20</p>            
+<p>例2.3 显示以DS为段值，偏移量从10到50内存区域的单元内容，然后用’abc’来填充它。<br>   
+解：-D DS:10 50　　或　　-D DS:10 L41<br>        
+　　-F DS:10 50 'abc'</p>            
+<p>例2.4 显示十六进制1234与3421之和、差。<br>   
+解：-H 1234 4321</p>            
+<p>例2.5 把数据段区域DS:0-40内的内容传送给从附加段ES:10开始的内存中。<br>   
+解：-M DS:0 40 ES:10</p>            
+<p>例2.6 在数据段区域DS:0-40内查找是否有字符串'CIH'。<br>   
+解：-S DS:0 40 'CIH'</p>            
+              
+<p align="center">                            
+ <A href="App1-4.htm"><IMG language=javascript id=PrevPage onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" height=28 src ="../Button/prevpage1.gif" width=96 border=0></A>          
+<A href="App1-6.htm"><IMG language=javascript id=NextPage onmouseover="return NextPage_onmouseover()" onmouseout="return  NextPage_onmouseout()" height=28 src ="../Button/NextPage1.gif" width=96 border=0></A></p>      
+        
+</body>        
+        
+</html>        

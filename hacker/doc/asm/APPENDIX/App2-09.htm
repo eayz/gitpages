@@ -1,0 +1,227 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录2.9-10 转移、条件设置字节指令</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body background="image/background.gif">
+
+<h2>9、转移指令</h2>
+         
+<h3>9.1、无条件转移指令</h3>
+         
+<div align="center">
+  <center>
+         
+  <table border="1" width="90%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="226"><p style="MARGIN-LEFT: 4pt">指令的语法</p></td>
+      <td width="305"><p style="MARGIN-LEFT: 4pt">举例</p></td>
+      <td width="139"><p style="MARGIN-LEFT: 4pt">周期数</p></td>
+    </tr>
+  <tr>
+    <td width="226" rowspan="2" valign="top"><p style="MARGIN-LEFT: 4pt">JMP label</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">jmp NEAR PTR distant</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>    
+  </tr>    
+  <tr>    
+    <td width="305"><p style="MARGIN-LEFT: 4pt">jmp distant</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">JMP reg16</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">jmp ax</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">JMP mem16</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">jmp table[di]</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">JMP reg32</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">jmp eax</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">JMP mem32</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">jmp fpointer[si]</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">JMP mem48</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">jmp FWORD PTR [di]</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>    
+  </tr>    
+</table>    
+    
+  </center>   
+</div>   
+    
+<h3>9.2、条件转移指令</h3>  
+           
+<div align="center">  
+  <center>  
+           
+<table border="1" width="90%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">Jcondition label</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">je next</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>     
+  </tr>     
+</table>     
+     
+  </center>    
+</div>    
+ 
+<h3>9.3、子程序调用指令</h3>
+         
+<div align="center">
+  <center>
+         
+<table border="1" width="90%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="226" rowspan="2" valign="top"><p style="MARGIN-LEFT: 4pt">CALL label</p></td>            
+    <td width="306" valign="top"><p style="MARGIN-LEFT: 4pt">call upcase</p></td>           
+    <td width="138"><p style="MARGIN-LEFT: 4pt">1</p></td>         
+  </tr>         
+  <tr>         
+    <td width="306"><p style="MARGIN-LEFT: 4pt">call distant</p></td>           
+    <td width="138"><p style="MARGIN-LEFT: 4pt">4</p></td>         
+  </tr>         
+  <tr>         
+    <td width="226"><p style="MARGIN-LEFT: 4pt">CALL reg</p></td>           
+    <td width="306"><p style="MARGIN-LEFT: 4pt">call ax</p></td>           
+    <td width="138"><p style="MARGIN-LEFT: 4pt">2</p></td>         
+  </tr>         
+  <tr>         
+    <td width="226"><p style="MARGIN-LEFT: 4pt">CALL mem32</p></td>           
+    <td width="306"><p style="MARGIN-LEFT: 4pt">call [bx]</p></td>           
+    <td width="138"><p style="MARGIN-LEFT: 4pt">2</p></td>         
+  </tr>         
+  <tr>         
+    <td width="226"><p style="MARGIN-LEFT: 4pt">CALL mem32</p></td>           
+    <td width="306"><p style="MARGIN-LEFT: 4pt">call dword ptr [bx]</p></td>           
+    <td width="138"><p style="MARGIN-LEFT: 4pt">5</p></td>         
+  </tr>         
+</table>         
+  </center>   
+</div>   
+   
+<h3>9.4、子程序返回指令</h3>  
+           
+<div align="center">  
+  <center>  
+<table border="1" width="90%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RETN</p></td>  
+    <td width="306"><p style="MARGIN-LEFT: 4pt">retn</p></td> 
+    <td width="138"><p style="MARGIN-LEFT: 4pt">2</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RETN immed16</p></td>   
+    <td width="306"><p style="MARGIN-LEFT: 4pt">retn 8</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RETF</p></td> 
+    <td width="306"><p style="MARGIN-LEFT: 4pt">retf</p></td> 
+    <td width="138"><p style="MARGIN-LEFT: 4pt">4, 23</p></td>   
+  </tr>  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">RETF immed16</p></td>   
+    <td width="306"><p style="MARGIN-LEFT: 4pt">retf 32</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">4, 23</p></td>   
+  </tr>  
+</table>  
+  
+  </center>  
+</div>  
+  
+<h3>9.5、中断指令</h3> 
+          
+<div align="center"> 
+  <center> 
+          
+<table border="1" width="90%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">INT immed8</p></td>      
+    <td width="231"><p style="MARGIN-LEFT: 4pt">int 25h</p></td>     
+    <td width="215"><p style="MARGIN-LEFT: 4pt">16, pm=31, 48*(注)</p></td>     
+  </tr>   
+  <tr>   
+    <td width="226"> <p style="MARGIN-LEFT: 4pt">INT 3</p></td>    
+    <td width="231"> <p style="MARGIN-LEFT: 4pt">int 3</p></td>    
+    <td width="215"> <p style="MARGIN-LEFT: 4pt">13, pm=27, 44*</p></td>     
+  </tr>    
+  <tr>    
+    <td width="226">  <p style="MARGIN-LEFT: 4pt">INTO</p></td>  
+    <td width="231"><p style="MARGIN-LEFT: 4pt">Into</p></td>  
+    <td width="215"><p style="MARGIN-LEFT: 4pt">13, pm=27, 44*</p></td>     
+  </tr>    
+</table>    
+  </center>   
+</div>   
+<p>注：第一时间是同等优先级的中断时间，第二时间为高优先级的中断时间。</p>        
+<h3>9.6、中断返回指令</h3> 
+          
+<div align="center">  
+  <center>        
+<table border="1" width="90%" cellspacing="0" cellpadding="0">       
+  <tr>       
+    <td width="225"><p style="MARGIN-LEFT: 4pt">IRET</p></td>       
+    <td width="255"><p style="MARGIN-LEFT: 4pt">Iret</p></td>       
+    <td width="190"><p style="MARGIN-LEFT: 4pt">8*(注),10, pm=27</p>           </td>            
+  </tr>          
+  <tr>          
+    <td width="225"><p style="MARGIN-LEFT: 4pt">IRETD</p></td>        
+    <td width="255"><p style="MARGIN-LEFT: 4pt">Iretd</p></td>        
+    <td width="190"><p style="MARGIN-LEFT: 4pt">10, pm=27</p></td>           
+  </tr>          
+  <tr>          
+    <td width="225"><p style="MARGIN-LEFT: 4pt">IRETF</p></td>        
+    <td width="255"><p style="MARGIN-LEFT: 4pt">Iretf</p></td>        
+    <td width="190"><p style="MARGIN-LEFT: 4pt">&nbsp;</p></td>     
+  </tr>     
+  <tr>     
+    <td width="225"><p style="MARGIN-LEFT: 4pt">IRETDF</p></td>     
+    <td width="255"><p style="MARGIN-LEFT: 4pt">Iretdf</p></td>     
+    <td width="190"><p style="MARGIN-LEFT: 4pt">&nbsp;</p></td>     
+  </tr>     
+</table>     
+  </center>
+</div>
+<p>注：实方式或虚拟<font color="#ff0000">8086</font>方式。</p>     
+              
+<h3>10、<a name="set">条件设置字节指令</a></h3> 
+          
+<div align="center"> 
+  <center> 
+          
+<table border="1" width="90%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SETcondition reg8</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">setc dh</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>   
+  </tr>   
+  <tr>   
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SETcondition mem8</p></td>      
+    <td width="305"><p style="MARGIN-LEFT: 4pt">setle flag</p></td>      
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td>   
+  </tr>   
+</table>   
+   
+  </center>  
+</div>  
+           
+<p align="center"><A href="App2-07.htm"><IMG language=javascript id=PrevPage onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" height=28 src ="../Button/prevpage1.gif" width=96 border=0></A>　　　<A href="App2-11.htm"><IMG language=javascript id=NextPage onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" height=28 src ="../Button/NextPage1.gif" width=96 border=0></A></p>
+         
+</body>        
+        
+</html>        

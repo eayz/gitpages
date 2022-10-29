@@ -1,0 +1,190 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>8.3.7 内存管理的中断功能</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter08.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle08.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="56%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="08-3.htm"> 中断功能的分类</a>  → 内存管理的中断功能</td>                                    
+    <td width="44%">          
+      <p align="right">  
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+     
+<h3>8.3.7 内存管理的中断功能</h3>                        
+<p style="text-indent: 21.25pt">  
+在C/C++语言环境中，若事先不知道数据的容量，那么，可通过动态申请空间的方法来解决数据的存储问题，这种动态数据结构可用中断21H所提供的存储管理功能来实现。</p>  
+<p style="text-indent: 21.25pt">中断21H在内存管理方面所提供的主要功能如下：</p>  
+<p style="margin-left: 40pt">48H——分配内存块<br>  
+49H——释放内存块<br>  
+4AH——重定义内存块的大小<br>  
+58H——读取/设置内存分配策略，其最基本的分配策略有三种：第一满足、最好满足和最后满足</p>     
+<p style="text-indent: 21.25pt">  
+有关中断功能的详细描述和调用参数在此从略，需要查阅者可参阅附录3之<a href="Appendix/App31-081.htm" target="_blank">内存分配功能</a>。</p>
+<p style="text-indent: 21.25pt">有关存储分配策略的含义可参阅《操作系统》课程中“内存管理”部分的介绍。</p>
+<h3><a name="中断向量">8.3.8 读取和设置中断向量</a></h3>                          
+<p style="text-indent: 21.25pt">  
+中断向量是系统用来存放中断服务程序或系统参数的入口地址。在通常情况下，程序员不需要对中断向量表作任何操作，但在开发程序时，若要为某种特殊需要而提供新的中断处理程序时，则其就必须要操作中断向量表。</p>  
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、读取中断向量</font></p>  
+<p style="text-indent: 21.25pt"><font color="#FF00FF">(1)、DOS功能调用的方法</font></p>  
+<p style="text-indent: 21.25pt">  
+DOS提供了用系统调用的方法来读取中断向量，其中断21H之功能35H就能读取指定中断号的入口地址。其使用参数如下：</p>  
+<p style="margin-left: 40pt">入口参数：AH＝35H，AL＝中断号<br>  
+出口参数：ES:BX＝中断处理程序的入口地址</p>  
+<p>例8.15 用功能调用的方法把中断n的入口地址保存到双字变量OldAddr中。</p>                            
+<table border="0" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="100%" colspan="4">解：</td>  
+  </tr>  
+  <tr>  
+    <td width="7%" rowspan="7" valign="top"></td>  
+    <td width="93%" colspan="3">……<br>  
+      　OldAddr　DD　?<br>
+      ……</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="27%"> AL,       
+n</td>
+    <td width="60%"> ;这里的n要用具体的中断号来定</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="87%" colspan="2"> AH, 35H</td> 
+  </tr>
+  <tr>
+    <td width="6%">INT</td>
+    <td width="87%" colspan="2"> 21H</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="87%" colspan="2"> word ptr OldAddr, BX</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="27%"> word ptr OldAddr+2,       
+ES</td>
+    <td width="60%"> ;把其入口地址保存在存储单元中</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="3">……</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">(2)、直接访问存储单元的方法</font></p>
+<p style="text-indent: 21.25pt">
+由前面的图8.2不难看出：中断向量表是存储在内存的第0段。若中断号为n，那么，其入口地址在表内的偏移量为4n。</p>
+<p>例8.16 用直接访问存储单元的方法把中断n的入口地址保存到双字变量OldAddr中。</p>                            
+<table border="0" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="100%" colspan="4">解：</td>  
+  </tr>  
+  <tr>  
+    <td width="7%" rowspan="9" valign="top"></td>  
+    <td width="93%" colspan="3">……<br>  
+      　OldAddr　DD　?<br>
+      ……</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="87%" colspan="2"> AX, 0H</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="27%"> ES,       
+AX</td>
+    <td width="60%"> ;中断向量表存储在第0段内</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="87%" colspan="2"> BX, 4*n</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="27%"> AX, ES:[BX]</td> 
+    <td width="60%">      
+;读取中断入口地址的偏移量</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="27%"> word ptr OldAddr, AX</td> 
+    <td width="60%">      
+;保存中断入口地址的偏移量</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="27%"> AX, ES:[BX+2]</td> 
+    <td width="60%">      
+;读取中断入口地址的段地址</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="27%"> word ptr OldAddr+2, ES</td> 
+    <td width="60%">      
+;保存中断入口地址的段地址</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="3">……</td>
+  </tr>
+</table>
+        
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=8&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="08-3-6.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="08-3-7-1.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+       
+</body>       
+       
+</html>

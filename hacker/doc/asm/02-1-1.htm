@@ -1,0 +1,190 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>2.1.1 存储器组</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter02.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.GIF">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle02.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" ><img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="02-1.htm">寄存器组</a> → 通用寄存器的作用</td>                                                                                       
+    <td width="50%">                                              
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=chapter1 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<h3>2.1.2、通用寄存器的作用</h3>                                    
+                                    
+<p style="text-indent: 21.25pt">通用寄存器可用于传送和暂存数据，也可参与算术逻辑运算，并保存运算结果。除此之外，它们还各自具有一些特殊功能。汇编语言程序员必须熟悉每个寄存器的一般用途和特殊用途，只有这样，才能在程序中做到正确、合理地使用它们。</p>                                     
+                                     
+<p align="center">表2.1 通用寄存器的主要用途</p>                                                                              
+<div align="center">                                           
+  <center>                                           
+  <table border="0" width="614" cellpadding="0" cellspacing="1">                                           
+    <tr>                                           
+      <td width="157" align="center" bgcolor="#FFFF00" colspan="2">寄存器的分类</td>                                          
+      <td width="91" align="center" bgcolor="#FFFF00">寄存器</td>                                          
+      <td width="360" bgcolor="#FFFF00"><p align="center">主　要　用　途</td>                                         
+    </tr>                                         
+    <tr>                                         
+      <td width="70" align="center" bgcolor="#00FFFF" rowspan="11">通 
+        <p>用</p> 
+        <p>寄     
+        <p>存     
+        <p>器</td>                                         
+      <td width="85" align="center" rowspan="7" bgcolor="#FFFF00">数据 
+        <p>　</p> 
+        <p>寄存器</td>                                         
+      <td width="91" align="center" bgcolor="#00FFFF">AX</td>                                         
+      <td width="360" bgcolor="#00FFFF"><p style="text-indent: 3pt">乘、除运算，字的输入输出，中间结果的缓存</td>                                         
+    </tr>                                         
+    <tr>                                         
+      <td width="91" align="center">AL</td>                                         
+      <td width="360"><p style="text-indent: 3pt">字节的乘、除运算，字节的输入输出，十进制算术运算</td>                                         
+    </tr>                                         
+    <tr>                                         
+      <td width="91" align="center" bgcolor="#00FFFF">AH</td>                                         
+      <td width="360" bgcolor="#00FFFF"><p style="text-indent: 3pt">字节的乘、除运算，存放中断的功能号</td>                                         
+    </tr>                                         
+    <tr>                                         
+      <td width="91" align="center">BX</td>                                         
+      <td width="360"><p style="text-indent: 3pt">存储器指针</td>                                         
+    </tr>                                         
+    <tr>                                         
+      <td width="91" align="center" bgcolor="#00FFFF">CX</td>                                         
+      <td width="360" bgcolor="#00FFFF"><p style="text-indent: 3pt">串操作、循环控制的计数器</td>                                         
+    </tr>                                         
+    <tr>                                         
+      <td width="91" align="center">CL</td>                                         
+      <td width="360"><p style="text-indent: 3pt">移位操作的计数器</td>                                         
+    </tr>                                         
+    <tr>                                         
+      <td width="91" align="center" bgcolor="#00FFFF">DX</td>                                         
+      <td width="360" bgcolor="#00FFFF"><p style="text-indent: 3pt">字的乘、除运算，间接的输入输出</td>                                         
+    </tr>                                         
+    <tr>                                         
+      <td width="85" align="center" rowspan="2" bgcolor="#FF00FF">变址<br>     
+        寄存器</td>                                         
+      <td width="91" align="center">SI</td>                                         
+      <td width="360"><p style="text-indent: 3pt">存储器指针、串指令中的源操作数指针</td>                                         
+    </tr>                                         
+    <tr>                                         
+      <td width="91" align="center" bgcolor="#00FFFF">DI</td>                                         
+      <td width="360" bgcolor="#00FFFF"><p style="text-indent: 3pt">存储器指针、串指令中的目的操作数指针</td>                                         
+    </tr>                                         
+    <tr>                                         
+      <td width="85" align="center" rowspan="2" bgcolor="#FFFF00">变址<br>     
+        寄存器</td>                                         
+      <td width="91" align="center">BP</td>                                         
+      <td width="360"><p style="text-indent: 3pt">存储器指针、存取堆栈的指针</td>                                         
+    </tr>                                         
+    <tr>     
+      <td width="91" align="center" bgcolor="#00FFFF">SP</td>                                         
+      <td width="360" bgcolor="#00FFFF"><p style="text-indent: 3pt">堆栈的栈顶指针</td>                                         
+    </tr>     
+    <tr>                                         
+      <td width="155" valign="top" colspan="2" bgcolor="#FF00FF"> 
+        <p align="center">指令指针</p>
+      </td>                                        
+      <td width="91" align="center">IP/EIP</td>                                        
+      <td width="360">&nbsp;</td>                                        
+    </tr>                                        
+    <tr>                                        
+      <td width="155" valign="top" colspan="2" align="center" bgcolor="#FFFF00">标志位寄存器</td>                                        
+      <td width="91" align="center" bgcolor="#00FFFF">Flag/EFlag</td>                                    
+      <td width="360" bgcolor="#00FFFF">&nbsp;</td>                                    
+    </tr>                                    
+    <tr>                                    
+      <td width="70" align="center" bgcolor="#00FFFF" rowspan="6">32位
+        <p>CPU的</p>
+        <p>段寄存器</td>                                    
+      <td width="85" align="center" rowspan="4" bgcolor="#FF00FF">16位CPU的
+        <p>段寄存器</td>                                    
+      <td width="91" align="center">ES</td>                                    
+      <td width="360">&nbsp;附加段寄存器</td>                                    
+    </tr>                                    
+    <tr>                                    
+      <td width="91" align="center" bgcolor="#00FFFF">CS</td>                                    
+      <td width="360" bgcolor="#00FFFF">&nbsp;代码段寄存器</td>                                    
+    </tr>                                    
+    <tr>                                    
+      <td width="91" align="center">SS</td>                                    
+      <td width="360">&nbsp;堆栈段寄存器</td>                                    
+    </tr>                                    
+    <tr>                                    
+      <td width="91" align="center" bgcolor="#00FFFF">DS</td>                                    
+      <td width="360" bgcolor="#00FFFF">&nbsp;数据段寄存器</td>                                    
+    </tr>                                    
+    <tr>                                    
+      <td width="85" align="center" rowspan="2" bgcolor="#FFFF00">新增加的<br>
+        段寄存器</td>                                    
+      <td width="91" align="center">FS</td>                                    
+      <td width="360">&nbsp;附加段寄存器</td>                                    
+    </tr>                                    
+    <tr>                                    
+      <td width="91" align="center" bgcolor="#00FFFF">GS</td>                                    
+      <td width="360" bgcolor="#00FFFF">&nbsp;附加段寄存器</td>                                    
+    </tr>                                    
+  </table>                                    
+  </center>                                    
+</div>                                    
+<p style="text-indent: 21.25pt">更详细的内容请点击：<a href="registers.htm">通用寄存器功能的说明</a>。</p>                
+                                  
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><A href="asp/QuestionIndex.asp-chapter=2&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="02-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="02-1-2.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>      
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

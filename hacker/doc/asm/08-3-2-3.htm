@@ -1,0 +1,232 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>8.3.2 屏幕中断功能</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter08.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle08.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="08-3.htm"> 中断功能的分类</a> → 屏幕显示的中断功能</td>                                         
+    <td width="50%">                 
+      <p align="right">        
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+     
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、显示缓冲区</font></p>
+<p style="text-indent: 21.25pt">
+显示缓冲区是用来记录屏幕显示信息的。在文本显示方式下，这些显示信息包括：每个显示字符的ASCII码及其显示属性，<a href="08-3-2.htm#文本显示方式">如图8.7所示</a>。在图形显示方式下，显示缓冲区内存储每个象素的显示颜色。</p>
+<p style="text-indent: 21.25pt">在图8.7中，我们并没有给出具体的段地址，只用"XXXX"来表示其段地址。在常用的VGA显示方式下，计算机系统规定：</p>
+<p style="margin-left: 40pt"><img border="0" src="TextBookIMG/ball.gif" width="12">文本显示方式下，单色显示器的显示缓冲区段地址为0B000H；<br>
+<img border="0" src="TextBookIMG/ball.gif" width="12">文本显示方式下，彩色显示器显示缓冲区段地址为0B800H；<br>
+<img border="0" src="TextBookIMG/ball.gif" width="12">图形显示方式下，其显示缓冲区段地址为0A000H。</p> 
+<p style="text-indent: 21.25pt"><font color="#FF00FF">3、DOS功能中的屏幕输出</font></p>
+<p style="text-indent: 21.25pt">屏幕输出是最常用的一种输出形式，DOS操作系统提供了几种实现屏幕输出的功能调用。INT                                
+21H中的相关功能如下：</p>        
+<p style="margin-left: 40pt">02H——显示的字符<br>        
+06H——控制台的输入/输出：当DL≠0FFH，表示显示字符<br>        
+09H——在屏幕上显示一个字符串</p>         
+<p style="text-indent: 21.25pt">    
+有关中断功能的详细描述和调用参数在此从略，需要查阅者可参阅附录3之<a href="Appendix/App31-011.htm" target="_blank">字符功能调用类</a>。</p>  
+<p style="text-indent: 21.25pt"><font color="#FF00FF">4、BIOS中的屏幕操作功能</font></p>     
+<p style="text-indent: 21.25pt">BIOS系统提供了中断10H来实现各种屏幕处理功能。其具体的功能如下：</p>     
+<table border="0" width="90%" cellpadding="0">     
+  <tr>     
+    <td width="8%" rowspan="8" valign="top"></td>     
+    <td width="37%" bgcolor="#00FFFF"> 00H——设置显示器模式</td>     
+    <td width="45%" bgcolor="#00FFFF"> 01H——设置光标形状</td>     
+  </tr>     
+  <tr>     
+    <td width="37%"> 02H——设置光标位置</td>     
+    <td width="45%"> 03H——读取光标信息</td>     
+  </tr>     
+  <tr>     
+    <td width="37%" bgcolor="#00FFFF"> 05H——设置显示页</td>     
+    <td width="45%" bgcolor="#00FFFF"> 06H、07H——初始化或滚屏(向上滚屏和向下滚屏)</td>     
+  </tr>     
+  <tr>     
+    <td width="37%"> 08H——读光标处的字符及其属性</td>     
+    <td width="45%"> 09H——在当前光标处按指定属性显示字符</td>     
+  </tr>     
+  <tr>     
+    <td width="37%" bgcolor="#00FFFF"> 0AH——在当前光标处显示字符</td>     
+    <td width="45%" bgcolor="#00FFFF"> 0CH——写图形象素</td>     
+  </tr>     
+  <tr>     
+    <td width="37%"> 0DH——读图形象素</td>     
+    <td width="45%"> 0EH——在Teletype模式下显示字符</td>     
+  </tr>     
+  <tr>     
+    <td width="37%" bgcolor="#00FFFF"> 0FH——读取显示器模式</td>     
+    <td width="45%" bgcolor="#00FFFF"> 10H——颜色</td>     
+  </tr>     
+  <tr>     
+    <td width="82%" colspan="2"> 13H——在Teletype模式下显示字符串</td>     
+  </tr>     
+</table>     
+<p style="text-indent: 21.25pt">  
+有关中断功能的详细描述和调用参数在此从略，需要查阅者可参阅附录3之<a href="Appendix/App34-11.htm" target="_blank">显示服务</a>。</p>  
+<p style="text-indent: 21.25pt"><font color="#FF00FF">5、屏幕输出的举例</font></p>     
+<p>例8.2 用直接写屏方式在屏幕第5行、第10列以黄色(0EH)显示字符串"Hello"。</p>                               
+<p style="text-indent: -22pt; margin-left: 22pt">        
+解：在文本显示方式下，每行显示80个字符，每个字符占2个字节，所以，显示一行需要160个字节。若在第m行、第n列位置显示字符，则该位置所对应存储单元的偏移量为：m×160                                
++ n×2。</p>                               
+<table border="0" width="100%" cellpadding="0" cellspacing="0">        
+  <tr>        
+    <td width="7%" rowspan="17" valign="top"></td>        
+    <td width="93%" colspan="3">.MODEL SMALL<br>                             
+      .DATA<br>        
+      　Yellow　EQU　0EH<br>
+      　MSG1　DB　&quot;Welcome...&quot;<br>
+      　Count　EQU　$-MSG1<br>
+      .CODE<br>
+      　.STARTUP</td>
+  </tr>
+  <tr>
+    <td width="7%">　MOV</td>
+    <td width="86%" colspan="2"> AX, 0B800H</td> 
+  </tr>
+  <tr>
+    <td width="7%">　MOV</td>
+    <td width="16%"> ES, AX</td> 
+    <td width="70%">   
+;彩色显示器的显示缓冲区段地址</td>
+  </tr>
+  <tr>
+    <td width="7%">　MOV</td>
+    <td width="86%" colspan="2"> DI, 5</td> 
+  </tr>
+  <tr>
+    <td width="7%">　IMUL</td>
+    <td width="16%"> DI, 160</td> 
+    <td width="70%">   
+;5行所跳过的显示存储单元</td>
+  </tr>
+  <tr>
+    <td width="7%">　MOV</td>
+    <td width="86%" colspan="2"> CX, 10</td> 
+  </tr>
+  <tr>
+    <td width="7%">　SHL</td>
+    <td width="16%"> CX, 1</td> 
+    <td width="70%">   
+;10列所跳过的显示存储单元</td>
+  </tr>
+  <tr>
+    <td width="7%">　ADD</td>
+    <td width="16%"> DI, CX</td> 
+    <td width="70%">   
+;第5行、第10列之前所跳过的所有显示单元</td>
+  </tr>
+  <tr>
+    <td width="7%">　MOV</td>
+    <td width="86%" colspan="2"> CX, Count</td> 
+  </tr>
+  <tr>
+    <td width="7%">　LEA</td>
+    <td width="16%"> SI, MSG1</td> 
+    <td width="70%"> ;CX:字符个数，SI:显示字符首地址</td>
+  </tr>
+  <tr>
+    <td width="7%">　MOV</td>
+    <td width="16%"> AH, Yellow</td> 
+    <td width="70%">   
+;设置显示属性，即显示颜色</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="3">　.REPEAT</td>
+  </tr>
+  <tr>
+    <td width="23%" colspan="2">　　LODSB</td>
+    <td width="70%">   
+;取显示字符</td>
+  </tr>
+  <tr>
+    <td width="23%" colspan="2">　　STOSW</td>
+    <td width="70%">   
+;向显示缓冲区设置显示字符和属性</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="3">　.UNTILCXZ</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="3">　.EXIT　0</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="3">　END</td>
+  </tr>
+</table>
+        
+<p>例8.3 用“霓虹灯”的显示方式显示字符串"Hello"，按ESC键时结束程序的运行。</p>                              
+<p>解：<a href="example/example08-3.htm" target="_blank">显示解答</a></p>       
+<p>例8.4 编写一个输入密码的程序，该程序的具体要求如下：</p>                             
+<p style="margin-left: 21.25pt">1、每输入一个字符，显示字符"#"表示之；<br>        
+2、密码最多只有10个字符，多余的按键被丢弃；<br>        
+3、若输入的字符串为"HELLO"，则以蓝色显示"Welcome…"，否则，以闪烁、亮红色在显示"Invalid Password"。</p>                            
+<p>解：<a href="example/example08-4.htm" target="_blank">显示解答</a></p>       
+<p style="text-indent: -30pt; margin-left: 30pt">例8.5                              
+在256色320×200的图形显示模式下，从屏幕最左边向最右边，依次画竖线(从顶到底)，线的颜色从1依次加1。要求用中断调用的方法来画线。</p>        
+<p>解：<a href="example/example08-5.htm" target="_blank">显示解答</a></p>       
+<p style="text-indent: -30pt; margin-left: 30pt">例8.6                              
+在256色320×200的图形显示模式下，从屏幕顶到屏幕底依次画横线(从最左边到最右边)，线的颜色从1依次加1。要求用直接操作显示缓冲区的方法来画线。</p>        
+<p>解：<a href="example/example08-6.htm" target="_blank">显示解答</a></p>       
+               
+<p style="text-indent: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=8&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="08-3-2-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="08-3-3.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+       
+</body>       
+       
+</html>

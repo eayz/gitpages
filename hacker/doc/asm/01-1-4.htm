@@ -1,0 +1,113 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>1.1.4 汇编语言的特点</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter01.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle01.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="54%" valign="middle"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="01-1.htm">汇编语言的由来及其特点</a>                                          
+      → 主要特点</td>                                              
+    <td width="46%">         
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<h3>1.1.4 汇编语言的主要特点</h3>                                           
+<p style="text-indent: 21.25pt">一方面，汇编语言指令是用一些具有相应含义的助忆符来表达的，所以，它要比机器语言容易掌握和运用，但另一方面，它要直接使用<font color="#FF0000">CPU</font>的资源，相对高级程序设计语言来说，它又显得难掌握。</p>       
+<p style="text-indent: 21.25pt">汇编语言程序归纳起来大概有以下几个主要特性。</p>       
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、与机器相关性</font></p>      
+<p style="text-indent: 21.25pt">汇编语言指令是机器指令的一种符号表示，而不同类型的<font color="#FF0000" face="Arial">CPU</font>有不同的机器指令系统，也就有不同的汇编语言，所以，汇编语言程序与机器有着密切的关系。</p>     
+<p style="text-indent: 21.25pt">由于汇编语言程序与机器的相关性，所以，除了同系列、不同型号<font color="#FF0000" face="Arial">CPU</font>之间的汇编语言程序有一定程度的可移植性之外，其它不同类型(如：小型机和微机等)<font color="#FF0000" face="Arial">CPU</font>之间的汇编语言程序是无法移植的，也就是说，汇编语言程序的通用性和可移植性要比高级语言程序低。</p>     
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、执行的高效率</font></p>     
+<p style="text-indent: 21.25pt">正因为汇编语言有“与机器相关性”的特性，程序员用汇编语言编写程序时，可充分发挥自己的聪明才智，对机器内部的各种资源进行合理的安排，让它们始终处于最佳的使用状态，这样做的最终效果就是：程序的执行代码短，执行速度快。</p>     
+<p style="text-indent: 21.25pt">现在，高级语言的编译程序在进行寄存器分配和目标代码生成时，也都有一定程度的优化(在后续课程《编译原理》的有关章节会有详细介绍)，但由于所使用的“优化策略”要适应各种不同的情况，所以，这些优化策略只能在宏观上，不可能在微观上、细节上进行优化。而用汇编语言编写程序几乎是程序员直接在写执行代码，程序员可以在程序的每个具体细节上进行优化，这也是汇编语言程序执行高效率的原因之一。</p>     
+<p style="text-indent: 21.25pt"><font color="#FF00FF">3、编写程序的复杂性</font></p>     
+<p style="text-indent: 21.25pt">汇编语言是一种面向机器的语言，其汇编指令与机器指令基本上一一对应，所以，汇编指令也同机器指令一样具有功能单一、具体的特点。要想完成某件工作(如计算：<font color="#FF0000">A+B+C</font>等)，就必须安排<font color="#FF0000" face="Arial">CPU</font>的每步工作(如：先计算<font color="#FF0000">A+B</font>，再把<font color="#FF0000">C</font>加到前者的结果上)。另外，在编写汇编语言程序时，还要考虑机器资源的限制、汇编指令的细节和限制等等。</p>     
+<p style="text-indent: 21.25pt">由于汇编语言程序要安排运算的每一个细节，这就使得编写汇编语言程序比较繁琐、复杂。一个简单的计算公式或计算方法，也要用一系列汇编指令一步一步来实现。</p>     
+<p style="text-indent: 21.25pt"><font color="#FF00FF">4、调试的复杂性</font></p>     
+<table border="0" width="100%" cellspacing="3" cellpadding="0">   
+  <tr>   
+    <td width="100%" colspan="2">     
+<p style="text-indent: 21.25pt">在通常情况下，调试汇编语言程序要比调试高级语言程序困难，其主要原因有四：</p>     
+    </td>   
+  </tr>   
+  <tr>   
+    <td width="6%" align="right"><img border="0" src="TextBookIMG/Ball3.gif" width="12"> </td>   
+    <td width="94%">汇编语言指令涉及到机器资源的细节，在调试过程中，要清楚每个资源的变化情况；</td>   
+  </tr>   
+  <tr>   
+    <td width="6%" valign="top" align="right"><img border="0" src="TextBookIMG/Ball3.gif" width="12"> </td>   
+    <td width="94%">程序员在编写汇编语言程序时，为了提高资源的利用率，可以使用各种实现技巧，而这些技巧完全有可能破坏程序的可读性。这样，在调试过程中，除了要知道每条指令的执行功能，还要清楚它在整个解题过程中的作用；</td>   
+  </tr>   
+  <tr>   
+    <td width="6%" valign="top" align="right"><img border="0" src="TextBookIMG/Ball3.gif" width="12"> </td>   
+    <td width="94%"> 高级语言程序几乎不显式地使用“转移语句”，但汇编语言程序要用到大量的、各类转移指令，这些跳转指令大大地增加了调试程序的难度。如果在汇编语言程序中也强调不使用“转移指令”，那么，汇编语言程序就会变成功能单调的顺序程序，这显然是不现实的；</td>   
+  </tr>   
+  <tr>   
+    <td width="6%" align="right" valign="top"><img border="0" src="TextBookIMG/Ball3.gif" width="12"> </td>   
+    <td width="94%"> 调试工具落后，高级语言程序可以在源程序级进行符号跟踪，而汇编语言程序只能跟踪机器指令。不过，现在这方面也有所改善，<font color="#FF0000"><a href="Appendix/App1-6.htm">CV</a></font>(CodeView)、<a href="Appendix/App1-7.htm">TD</a>(Turbo                                           
+      Debug)等软件也可在源程序级进行符号跟踪了。</td>    
+  </tr>    
+</table>    
+     
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=1&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="01-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="01-1-5.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>   
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

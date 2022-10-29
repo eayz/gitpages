@@ -1,0 +1,285 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>7.3 子程序的参数传递</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter07.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle07.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0"  id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → 子程序的参数传递</td>                              
+    <td width="50%">       
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<h2>7.3 子程序的参数传递</h2>                                     
+<p style="text-indent: 21.25pt">子程序一般都是完成某种特定功能的程序段。当一个程序调用一个子程序时，通常都向子程序传递若干个数据让它来处理；当子程序处理完后，一般也向调用它的程序传递处理结果，我们称这种在调用程序和子程序之间的信息传递为参数传递。</p>
+<p style="text-indent: 21.25pt">用程序向子程序传递的参数称为子程序的入口参数，子程序向调用它的程序传递的参数称为子程序的出口参数。子程序的入口参数和出口参数都是任意项，对某个具体的子程序来说，要根据具体情况来确定其入口和出口参数，也可以二者都没有。</p>
+<p style="text-indent: 21.25pt">程序和被调用子程序之间的参数传递方法是程序员自己或和别人事先约定好的信息传递方法。这种信息传递方法可以是多种多样的，在本节，我们只介绍常用的、行之有效的参数传递方法有：寄存器传递参数、约定存储单元传递参数和堆栈传递参数等。如果对其它的参数传递方法感兴趣的话，可参考其它《汇编语言程序设计》书籍。</p>
+<h3>7.3.1 寄存器传递参数</h3>                                 
+<p style="text-indent: 21.25pt">一方面，由于CPU中的寄存器在任何程序中都是“可见”的，一个程序对某寄存器赋值后，在另一个程序中就能直接使用，所以，用寄存器来传递参数最直接、简便，也是最常用的参数传递方式。但另一方面，CPU中寄存器的个数和容量都是非常有限，所以，该方法适用于传递较少的参数信息。</p>   
+<p style="text-indent: 21.25pt">例7.1是用寄存器传递参数的例子，子程序处理的数据被保存在寄存器AL中。假设有下列的程序段：</p>   
+<table border="0" width="100%" cellspacing="0" cellpadding="0">    
+  <tr>    
+    <td width="11%" rowspan="7" valign="top"></td>    
+    <td width="97%" colspan="3">…</td>    
+  </tr>    
+  <tr>    
+    <td width="8%">MOV</td>    
+    <td width="89%" colspan="2">AL, 'b'</td>      
+  </tr>    
+  <tr>    
+    <td width="8%">CALL</td>    
+    <td width="21%">UPPER</td>    
+    <td width="68%"> ;子返回时，(AL)='B'</td>    
+  </tr>    
+  <tr>    
+    <td width="97%" colspan="3">…</td>    
+  </tr>     
+  <tr>     
+    <td width="8%">MOV</td>    
+    <td width="89%" colspan="2">AL, '2'</td> 
+  </tr>    
+  <tr>    
+    <td width="8%">CALL</td>    
+    <td width="22%">UPPER</td>     
+    <td width="67%"> ;子返回时，AL的值不变，因为'2'不是字母</td>     
+  </tr>     
+  <tr>     
+    <td width="97%" colspan="3">…</td>    
+  </tr>    
+</table>    
+<p>例7.3 按五位十进制的形式显示寄存器BX中的内容，如果BX的值小于0，则应在显示数值之前显示负号'-'。</p>                                 
+<p style="margin-left: 36pt">例如：(BX)=123，显示：00123；(BX)=-234，显示：-00234；</p>   
+<table border="0" width="779" cellspacing="0" cellpadding="0">    
+  <tr>    
+    <td width="762" colspan="5">解：</td>    
+  </tr>    
+  <tr>    
+    <td width="51" rowspan="39" valign="top"></td>    
+    <td width="705" colspan="4">;子程序功能：把寄存器BX的内容按十进制有符号数显示出来</td>    
+  </tr>    
+  <tr>    
+    <td width="705" colspan="4">;入口参数：BX</td>    
+  </tr>    
+  <tr>    
+    <td width="705" colspan="4">;出口参数：无，只有显示信息</td>    
+  </tr>    
+  <tr>    
+    <td width="75" valign="top">;算法描述：</td>    
+    <td width="635" colspan="3" >1、定义6个字节的存储单元<br> 
+      2、先判断BX是否小于零，如果是，则先显示负号'-'，再取BX的绝对值；<br> 
+      3、采用除10，得余数的方法，从低位向高位求出每位十进制位；<br> 
+      4、输出数据的字符串。</td>    
+  </tr>    
+  <tr>    
+    <td width="75" rowspan="2" valign="top">SubData</td>    
+    <td width="629" colspan="3">SEGMENT</td>    
+  </tr>    
+  <tr> 
+    <td width="44"> 
+      <p align="right">DB</td>    
+    <td width="585" colspan="2">&nbsp;5 DUP('0'), 0ah, 0dh, '$'　　　　;0ah、0dh：换行、回车</td>   
+  </tr>
+  <tr>
+    <td width="75" valign="top">SubData</td>
+    <td width="629" colspan="3">ENDS</td>   
+  </tr>
+  <tr>
+    <td width="75" rowspan="14" valign="top">DISPBX</td>   
+    <td width="629" colspan="3">PROC</td>   
+  </tr>
+  <tr>   
+    <td width="44">ASSUME</td>   
+    <td width="579" colspan="2">DS:SubData</td>     
+  </tr>   
+  <tr>
+    <td width="44">PUSH</td>   
+    <td width="579" colspan="2">DS</td>     
+  </tr>
+  <tr>   
+    <td width="44">PUSH</td>   
+    <td width="585" colspan="2">DX</td>   
+  </tr>   
+  <tr>   
+    <td width="44">PUSH</td>   
+    <td width="585" colspan="2">CX</td>     
+  </tr>    
+  <tr>    
+    <td width="44">PUSH</td>   
+    <td width="585" colspan="2">AX</td>   
+  </tr>   
+  <tr>
+    <td width="44">MOV</td>   
+    <td width="149">AX, SubData</td>     
+    <td width="414"> ;取子程序所用的数据区段地址</td>   
+  </tr>
+  <tr>
+    <td width="44">MOV</td>   
+    <td width="585" colspan="2">DS, AX</td>   
+  </tr>
+  <tr>
+    <td width="44">CMP</td>   
+    <td width="585" colspan="2">BX, 0</td>     
+  </tr>
+  <tr>
+    <td width="44">JGE</td>   
+    <td width="585" colspan="2">next</td>   
+  </tr>
+  <tr>
+    <td width="44">MOV</td>   
+    <td width="585" colspan="2">DL, '-'</td>     
+  </tr>
+  <tr>
+    <td width="44">MOV</td>   
+    <td width="585" colspan="2">AH, 2</td>     
+  </tr>
+  <tr>   
+    <td width="44">INT</td>   
+    <td width="151">21H</td>     
+    <td width="428">;显示负号'-'</td>     
+  </tr>    
+  <tr>
+    <td width="44">NEG</td>   
+    <td width="151">BX</td>     
+    <td width="428">;求-BX，使其值为正数</td>     
+  </tr>
+  <tr>
+    <td width="75" rowspan="3" valign="top">next:</td>   
+    <td width="44">MOV</td>   
+    <td width="579" colspan="2">SI, 4</td>      
+  </tr>
+  <tr>
+    <td width="44">MOV</td>   
+    <td width="579" colspan="2">AX, BX</td>      
+  </tr>
+  <tr>
+    <td width="44">MOV</td>   
+    <td width="579" colspan="2">CX, 10D</td>      
+  </tr>
+  <tr>
+    <td width="75" valign="top" rowspan="14">again:</td>   
+    <td width="44">XOR</td>   
+    <td width="579" colspan="2">DX, DX</td>      
+  </tr>
+  <tr>
+    <td width="44">IDIV</td>   
+    <td width="151">CX</td>     
+    <td width="428">;DX存放余数，AX存放商</td>     
+  </tr>
+  <tr>
+    <td width="44">ADD</td>   
+    <td width="579" colspan="2">DL, '0'</td>      
+  </tr>
+  <tr>
+    <td width="44">MOV</td>   
+    <td width="579" colspan="2">[SI], DL</td>      
+  </tr>
+  <tr>
+    <td width="44">DEC</td>   
+    <td width="579" colspan="2">SI</td>     
+  </tr>
+  <tr>
+    <td width="44">JGE</td>   
+    <td width="579" colspan="2">again</td>     
+  </tr>
+  <tr>
+    <td width="44">XOR</td>   
+    <td width="579" colspan="2">DX, DX</td>      
+  </tr>
+  <tr>
+    <td width="44">MOV</td>   
+    <td width="579" colspan="2">AH, 9</td>      
+  </tr>
+  <tr>
+    <td width="44">INT</td>   
+    <td width="151">21H</td>     
+    <td width="428">;调用中断21的功能9，显示DS:DX指向的字符串</td>     
+  </tr>
+  <tr>
+    <td width="44">POP</td>   
+    <td width="579" colspan="2">AX</td>     
+  </tr>
+  <tr>
+    <td width="44">POP</td>   
+    <td width="579" colspan="2">CX</td>     
+  </tr>
+  <tr>
+    <td width="44">POP</td>   
+    <td width="579" colspan="2">DX</td>     
+  </tr>
+  <tr>
+    <td width="44">POP</td>   
+    <td width="579" colspan="2">DS</td>     
+  </tr>
+  <tr>    
+    <td width="635" colspan="3">RET</td>   
+  </tr>   
+  <tr>   
+    <td width="75">DISPBX</td>   
+    <td width="635" colspan="3">ENDP</td>   
+  </tr>   
+</table>   
+     
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=7&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="07-2-3.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="07-3-2.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                      
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->    
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+      
+</body>      
+      
+</html>      

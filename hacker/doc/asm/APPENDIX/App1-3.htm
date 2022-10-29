@@ -1,0 +1,48 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>符号调试的设置步骤</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+  <p style="TEXT-INDENT: 21.25pt"><font color="#ff00ff">4、符号调试的设置步骤</font></p>
+<p style="TEXT-INDENT: 21.25pt">编写程序很难做到：编辑、汇编、连接、运行一次完成，除非程序的功能非常简单。当运行的结果不符合要求时，就需要跟踪程序的运行。一般来说，跟踪程序执行的工作又称为调试程序，即找出程序中不正常的逻辑关系和语句。</p>
+<p style="TEXT-INDENT: 21.25pt">常用的调试手段有二种：执行代码的调试和符号调试。</p>
+<p style="TEXT-INDENT: 21.25pt">前者是在没有任何源程序信息的情况下进行调试，其工作难度大、效率低，后者是源程序一级上进行的调试，其目标代码的执行过程就象是源程序的执行，这种调试手段效率高、调试难度低，也是目前最流行的调试手段(各种编程环境下都有类似的调试工具)。</p>
+<p style="TEXT-INDENT: 21.25pt">在进行符号调试之前，需要告诉汇编程序和连接程序保留源程序中的各种符号信息。为此，可用下面三步来设置一些命令选项：设置生成选项、<A href="#ASM_OPT">设置汇编命令的选项</a>和<A href="#Link_OPT">设置连接命令的选项</a>。</p>
+<p style="TEXT-INDENT: 21.25pt">(1)、设置生成选项</p>
+<p style="TEXT-INDENT: 21.25pt">选择<font color="#ff0000">Options</font>菜单中的<font color="#ff0000">Build  
+Options</font>菜单项，显示出画面1.5，并选择其中的<font color="#ff0000">Use Debug  
+Options</font>选项。</p>
+<p align="center"><img border="0" src="image/App1-5.gif" width="405"></p>
+<p align="center">画面1.5、设置生成选项的画面</p>
+<p style="TEXT-INDENT: 21.25pt"><a name="ASM_OPT">(2)、设置汇编命令的选项</a></p>
+<p style="TEXT-INDENT: 21.25pt">选择<font color="#ff0000">Options</font>菜单中的Project   
+Templates→Customize Project Template菜单项，显示出画面1.6。</p>  
+<p align="center"><img border="0" src="image/App1-6.gif" width="476"></p>
+<p align="center">画面1.6、修改汇编命令选项的画面</p>
+<p style="TEXT-INDENT: 21.25pt">在该画面的<font color="#ff0000">Build Rule  
+List</font>列表框中选择macro AFLAGS_D “”，并把它修改为macro    
+AFLAGS_D “<font  color="#FF0000">/Zi /Zd</font>”。</p>  
+<p style="TEXT-INDENT: 21.25pt"><a name="Link_OPT">(3)、设置连接命令的选项</a></p>
+<p style="TEXT-INDENT: 21.25pt">选择<font color="#ff0000">Options</font>菜单中的<font color="#ff0000">Link  
+Options</font>菜单项，与画面1.2所对应的是同一个画面，在此所要的部分画面如画面1.7所示，并选择<font color="#ff0000">CodeView</font>选项。</p>
+<p align="center"><img border="0" src="image/App1-7.gif" width="483"></p>
+<p align="center">画面1.7、连接过程选项的部分设置画面</p>
+<p style="TEXT-INDENT: 21.25pt">经过上面三步设置后，在<font color="#ff0000">PWB</font>环境下，用<font color="#ff0000">Run</font>菜单中的<font color="#ff0000">Debug</font>菜单项就可进行符号调试了。</p>
+<h3><a name="INSTALL">1.1.3</a> MASM的安装</h3>   
+<p style="TEXT-INDENT: 21.25pt">宏汇编系统MASM 6.11共有5张软盘：Disk1~Disk5。在Disk1中运行Setup.exe文件即启动系统的安装过程。其安装过程与许多系统的安装大同小异，只有用户根据屏幕提示作适当的选择即可，所以，在此省略系统安装具体步骤的描述。</p>  
+     
+<p align="center"><A href="App1-2.htm"><IMG language=javascript id=PrevPage onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" height=28 src ="../Button/prevpage1.gif" width=96 border=0></a>        
+<A href="App1-4.htm"><IMG id=NextPage src="../Button/NextPage1.gif" border=0  LANGUAGE=javascript onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a> </p>     
+        
+</body>        
+        
+</html>        

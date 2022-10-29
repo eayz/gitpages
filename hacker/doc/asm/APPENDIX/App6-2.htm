@@ -1,0 +1,214 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录6.2 几个重要内存单元地址</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="image/background.gif">
+
+<h2>4、键盘地址</h2>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+<tr>
+  <td width="24%" align="middle" valign="top">0000:0417H——</td>
+  <td width="9%" valign="top">1字</td>
+  <td width="67%" valign="top">当前键盘状态对应表(见图<b>A6.1</b>)</td>
+</tr>
+<tr>
+  <td width="24%" align="middle" valign="top">0000:041AH——</td>
+  <td width="9%" valign="top">1字</td>
+  <td width="67%" valign="top">指向键盘缓冲区的头</td>
+</tr>
+<tr>
+  <td width="24%" align="middle" valign="top">0000:041CH——</td>
+  <td width="9%" valign="top">1字</td>
+  <td width="67%" valign="top"> 指向键盘缓冲区的尾</td>
+</tr>
+<tr>
+  <td width="24%" align="middle" valign="top">0000:041EH——</td>
+  <td width="9%" valign="top">16字</td>
+  <td width="67%" valign="top">缺省的键盘缓冲区字节数</td>
+</tr>
+<tr>
+  <td width="24%" align="middle" valign="top">0000:0471H——</td>
+  <td width="9%" valign="top">1字节</td>
+  <td width="67%" valign="top">其值被置为80H，当INT 9H发现按下组合键^Break</td>         
+</tr>
+<tr>
+  <td width="24%" align="middle" valign="top">0000:0480H——</td>
+  <td width="9%" valign="top">1字</td>
+  <td width="67%" valign="top">键盘缓冲区的队列头</td>
+</tr>
+<tr>
+  <td width="24%" align="middle" valign="top">0000:0482H——</td>
+  <td width="9%" valign="top">1字</td>
+  <td width="67%" valign="top">键盘缓冲区的队列尾</td>
+</tr>
+<tr>
+  <td width="24%" align="middle" valign="top">0000:0496H——</td>
+  <td width="9%" valign="top">1字</td>
+  <td width="67%" valign="top"> 若其位4＝1，则表示安装了扩展键盘</td>
+</tr>
+</table>
+<p align="center"><IMG src="image/App6-1.gif" border=0 width="464"></p>   
+<p align="center">图A6.1 键盘状态对应表</p>        
+<p style="TEXT-INDENT: 21px">参见INT 09H(键盘中断)、INT      
+16H(键盘服务中断)和INT 1BH(^Break)</p>         
+<h2><a name="5">5、中断向量表</a></h2>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+<tr>
+  <td width="23%" align="middle">0000:0000H——</td>
+  <td width="77%">1024字节</td>
+</tr>
+</table>
+<p style="TEXT-INDENT: 21px">参见INT 21H之功能25H(设置中断号入口地址)和35H(读取中断号入口地址)</p>    
+<h2><a name="6">6、系统配置</a></h2>
+<font>
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+</font>
+<tr>
+  <td width="23%" align="middle" valign="top">
+    0000:0400H——</td>
+  <td width="9%" valign="top">4字</td>
+  <td width="68%" valign="top">串行端口(COM1~COM4)的基地址</td>
+</tr>
+<tr>
+  <td width="23%" align="middle" valign="top">0000:0408H——</td>
+  <td width="9%" valign="top">4字</td>
+  <td width="68%" valign="top">打印机端口(LPT1~LPT4)的基地址</td>
+</tr>
+<tr>
+  <td width="23%" align="middle" valign="top">0000:0410H——</td>
+  <td width="9%" valign="top">1字</td>
+  <td width="68%" valign="top">系统设备表(见图<b>A6.2</b>)</td>
+</tr>
+<tr>
+  <td width="23%" align="middle" valign="top">0000:0413H——</td>
+  <td width="9%" valign="top">1字</td>
+  <td width="68%" valign="top">常规内存字节数(以K为单位)</td>
+</tr></TABLE>
+<p align="center"><IMG src="image/App6-2.gif" border=0 width="456"></p>   
+<p align="center">图A6.2 系统设备表</p>      
+<p style="TEXT-INDENT: 21.25pt">参见INT 11H(读取设备配置)和INT 12H(读取常规内存大小)</p>     
+<h2><a name="7">7、硬盘驱动器</a></h2>
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+<tr>
+  <td width="24%" align="middle" valign="top">0000:043EH——</td>
+  <td width="9%" valign="top">1字节</td>
+  <td width="67%" valign="top">驱动器标志，其位0~3分别对应驱动器A、B、C和D。通过INT    
+    11H能知道系统中的磁盘驱动器数目。</td>
+</tr>
+<tr>
+  <td width="24%" align="middle" valign="top">0000:043FH——</td>
+  <td width="9%" valign="top">1字节</td>
+  <td width="67%" valign="top">驱动器马达标志，其位0~3分别对应驱动器A、B、C和D。若某位为1，则表示其所对应的驱动器正在旋转。</td>
+</tr>
+<tr>
+  <td width="24%" align="middle" valign="top">0000:0440H——</td>
+  <td width="9%" valign="top">1字节</td>
+  <td width="67%" valign="top">驱动器马达停止时间。其缺省值大约为2秒，还可通过INT    
+    13H来设置该值。</td>
+</tr>
+<tr>
+  <td width="24%" align="middle" valign="top">0000:0441H——</td>
+  <td width="9%" valign="top">1字节</td>
+  <td width="67%" valign="top">最近磁盘操作的状态
+    <table border="0" width="100%" cellspacing="0">
+      <tr>
+        <td width="44%">00H－无错</td>
+        <td width="50%">01H－非法的命令</td>
+      </tr>
+      <tr>
+        <td width="44%">02H－地址标记未发现</td>
+        <td width="50%">03H－磁盘写保护(软盘)</td>
+      </tr>
+      <tr>
+        <td width="44%">04H－扇区位发现</td>
+        <td width="50%">08H－DMA超限(软盘)</td>
+      </tr>
+      <tr>
+        <td width="44%">09H－DMA超越64K</td>
+        <td width="50%">10H－不正确的CRC数据</td>
+      </tr>
+      <tr>
+        <td width="44%">20H－控制器失败</td>
+        <td width="50%">40H－查找失败</td>
+      </tr>
+      <tr>
+        <td width="44%">80H－磁盘超时</td>
+        <td width="50%"></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<p style="TEXT-INDENT: 21.25pt">参见INT 08H(时钟中断)、INT   
+13H(磁盘服务中断)和INT 1EH(磁盘参数表)。</p>  
+
+<h2><a name="8">8、ROM数据</a></h2>
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+<tr>
+  <td width="25%" align="middle" valign="top">F000:E000H——</td>
+  <td width="10%" valign="top">变化的</td>
+  <td width="65%" valign="top">BIOS版本说明</td>
+</tr>
+<tr>
+  <td width="25%" align="middle" valign="top">F000:FFFEH——</td>
+  <td width="10%" valign="top">1字节</td>
+  <td width="65%" valign="top">系统模式代码</td>
+</tr>
+<tr>
+  <td width="25%" align="middle" valign="top">F000:FFFFH——</td>
+  <td width="10%" valign="top">1字节</td>
+  <td width="65%" valign="top">系统子模式代码(模式和子模式代码含义从略)</td>
+</tr>
+</table>
+<h2><a name="9">9、其它内容的地址</a></h2>
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+<tr>
+  <td width="24%" align="middle" valign="top">0000:0478H——</td>
+  <td width="9%" valign="top">4字节</td>
+  <td width="67%" valign="top">LPT1和LPT2循环计数器。它影响打印机的超时判断。</td>
+</tr>
+<tr>
+  <td width="24%" align="middle" valign="top">0000:047CH——</td>
+  <td width="9%" valign="top">4字节</td>
+  <td width="67%" valign="top">COM1~COM4的循环计数器。它将决定读Modem或在线状态寄存器的次数。</td>
+</tr>
+<tr>
+  <td width="24%" align="middle" valign="top">0000:0500H——</td>
+  <td width="9%" valign="top">1字节</td>
+  <td width="67%" valign="top">表示打印屏幕操作的状态：
+    <table border="0" width="100%" cellspacing="1">
+      <tr>
+        <td width="23%" align="right">0——</td>
+        <td width="77%">成功</td>
+      </tr>
+      <tr>
+        <td width="23%" align="right">1——</td>
+        <td width="77%">正在打印</td>
+      </tr>
+      <tr>
+        <td width="23%" align="right">0FFH ——</td>    
+        <td width="77%">失败</td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td width="24%" align="middle" valign="top">0000:0504H——</td>
+  <td width="9%" valign="top">1字节</td>
+  <td width="67%" valign="top">表示单磁盘系统的驱动器符号：0－A和1－B</td>
+</tr>
+</table>
+<p style="TEXT-INDENT: 21.25pt">参见INT 05H(屏幕打印)、INT   
+14H(串行通信服务中断)和INT 17H(打印机服务)</p>  
+
+</body>   
+   
+</html>   

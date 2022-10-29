@@ -1,0 +1,102 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>2.2.2 32位微机存储器的管理模式</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter02.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.GIF">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle02.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="55%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a> 
+      → <a href="02-2.htm"> 存储器的管理模式</a>  → 32位内存管理模式</td>                                              
+    <td width="45%">              
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<h3>2.2.2 32位微机的内存管理模式</h3>                                    
+<p style="text-indent: 21.25pt">32位微机的内存存管理仍然采用“分段”的管理模式，存储器的逻辑地址同样由段地址和偏移量两部分组成。32位微机的内存管理与16位微机的有相同之处，也有不同之处，因为它提供了两种不同工作方式：实方式和保护方式。</p>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、物理地址的计算方式</font></p>   
+<p style="text-indent: -42pt; margin-left: 83pt">实方式：段地址仍然是16的倍数，每个段的最大容量仍为64K。段寄存器的值是段的起始地址，存储单元的物理地址仍为段寄存器的值乘16，再加上段内偏移量。在此方式下，32位微机的内存管理与16位微机是相一致的。</p>   
+<p style="text-indent: -53pt; margin-left: 83pt">保护方式：段地址可以长达32位，其值可以不是16的倍数，每个段的最大容量可达<font color="#FF0000">4G</font>。段寄存器的值是表示段地址的“选择器”(<font color="#FF0000">Selector</font>)，用该“选择器”可从内存中得到一个32位的段地址，存储单元的物理地址就是该段地址加上段内偏移量，这与16位微机的物理地址计算完全不同。</p>  
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、段寄存器的引用</font></p>  
+<p style="text-indent: 21.25pt">32位<font color="#FF0000">CPU</font>内有6个段寄存器，程序在某一时刻可访问6个不同的段。其段寄存器的值在不同的方式下具有不同的含义：</p>  
+<table border="0" width="100%" cellspacing="0" cellpadding="2">  
+  <tr>  
+    <td width="100%">  
+      <p style="text-indent: 21.25pt">(1)、在实方式下，段寄存器的值就是段地址；</td>  
+  </tr>  
+  <tr>  
+    <td width="100%">  
+      <p style="text-indent: 21.25pt">(2)、在保护方式下，段寄存器的值不是段地址，是段地址的“选择器”。它间接指出一个32位的段地址。</td>  
+  </tr>  
+</table>  
+<p style="text-indent: 21.25pt">下面分别说明各段寄存器的用法和作用。</p>  
+<p style="text-indent: -73pt; margin-left: 104pt">代码段寄存器：32位微机在取指令时，系统自动引用<font color="#FF0000">CS</font>和<font color="#FF0000">EIP</font>来取出下条指令。在实方式下，由于段的最大容量不超过64K，所以，<font color="#FF0000">EIP</font>的高16位全为0，其效果相当于16位<font color="#FF0000">CPU</font>中的<font color="#FF0000">IP</font>。</p> 
+<p style="text-indent: -73pt; margin-left: 104pt">堆栈段寄存器：32位微机在访问堆栈段时，总是引用堆栈段寄存器SS。但在不同的方式下其堆栈指针有所不同：</p> 
+<p style="text-indent: -27; margin-left: 167">1)、在实方式下，32位微机把<font color="#FF0000">ESP</font>的低16位<font color="#FF0000">SP</font>作为指向堆栈的指针，所以，我们可以认为栈顶单元是由<font color="#FF0000">SS</font>和<font color="#FF0000">SP</font>来指定的。这就与16位微机访问栈顶单元的方法相一致；</p>
+<p style="text-indent: -27; margin-left: 167">2)、在保护方式下，堆栈指针可用32位的<font color="#FF0000">ESP</font>和16位的<font color="#FF0000">SP</font>。</p>
+<p style="text-indent: -73pt; margin-left: 104pt">数据段寄存器：<font color="#FF0000">DS</font>是主要的数据段寄存器。通常情况下，它是除访问堆栈以外数据时的默认段寄存器。在某些串操作中，其目的操作数的段寄存器被指定为<font color="#FF0000">ES</font>是另一个例外。</p>
+<p style="margin-left: 140">另外，段寄存器<font color="#FF0000">CS</font>、<font color="#FF0000">SS</font>、<font color="#FF0000">ES</font>、<font color="#FF0000">FS</font>和<font color="#FF0000">GS</font>也都可以作为访问数据时的段寄存器，但它们必须用段超越前缀的方式在指令中直接写出。用这种方式会增加指令的长度，指令的执行时间也有所延长。</p>
+<p style="margin-left: 140">一般来说，程序频繁访问的数据段用<font color="#FF0000">DS</font>来指向，不太经常访问的数据段可用<font color="#FF0000">ES</font>、<font color="#FF0000">FS</font>和<font color="#FF0000">GS</font>等来指向。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">3、存储单元的内容</font></p>
+<p style="text-indent: 21.25pt">32位微机存储单元内容的存储格式与16位微机的完全一致，也都采用“高高低低”的原则来存放数据。</p>
+    
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><A href="asp/QuestionIndex.asp-chapter=2&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="02-2-3.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="02-Exercise.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a> 
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

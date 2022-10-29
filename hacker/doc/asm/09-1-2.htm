@@ -1,0 +1,189 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>9.1.2 宏的引用</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter09.js"></script>
+<SCRIPT LANGUAGE=javascript>
+<!--
+function expandIt(el) {
+    whichEl = eval(el);
+	if (whichEl.style.display == "block") whichEl.style.display = "none";
+    else whichEl.style.display = "block"
+}
+
+// -->
+</SCRIPT>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle09.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96" height="28"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96" height="28"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96" height="28"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96" height="28"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96" height="28"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51" height="12"></a>
+    → <a href="09-1.htm"> 宏的定义和引用</a>                     
+      → 宏的引用</td>                                                                          
+    <td width="50%">                                      
+      <p align="right"> 
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<h3>9.1.2 宏的引用</h3>                                                                      
+<p style="text-indent: 21.25pt">在源程序中，一旦定义了某宏，那么，在该程序的任何位置都可直接引用该宏，而不必重复编写相应的程序段。引用宏的一般格式如下：</p>                               
+<p style="margin-left: 50pt">宏名　[实参1, 实参2, ……]</p>                                                                        
+<p style="text-indent: 21.25pt">其中：实参的位置要与形参的位置要对应，但实参的个数可以与形参的个数不相等。</p>                                 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="5%" valign="top" rowspan="2"></td> 
+    <td width="95%"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、当实参的个数多于形参的个数时，多出的实参被忽略；</td> 
+  </tr> 
+  <tr> 
+    <td width="95%"> 
+      <p style="text-indent: -25pt; margin-left: 25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、当实参的个数少于形参的个数时，没有实参对应的形参用“空”来对应。但在宏展开时，所得到的指令必须是合法的汇编指令，否则，汇编程序将会给出出错信息。</td> 
+  </tr> 
+</table> 
+<p style="text-indent: 21.25pt">例如：假设已有字变量w1和w2，并且也有例9.2中的宏<a href="09-1.htm#例9.2">MADDM</a>，那么，如果要把w2的内容加到w1中的话，就可以在源程序的代码段中按下列方式来引用该宏(<span style="background-color: #00FFFF">点击它，可显示宏展开后的形式</span>)：</p>                               
+　　　　<A href="#" onclick="expandIt('MADDM1');return false">MADDM&nbsp; w1, w2</A>                                  
+<div id='MADDM1' class='MADDM1' style="display: none; width: 768; height: 42">　　1　　　MOV　AX,                              
+  w2<br>  　　1　　　ADD　w1, AX</div>                                                         
+<p style="text-indent: 21.25pt">注意：以上的宏展开形式可以在<font color="#FF0000">LST</font>文件中看到，宏展开所得到的语句前面有一个数字(如：1)，它表示宏展开的层次。</p>                 
+<p style="text-indent: 21.25pt">如果在源程序中按下列方式来引用了宏MADDM，那么，在宏展开时就会得到下列语句：</p>                 
+　　　　<A href="#" onclick="expandIt('MADDM2');return false">MADDM&nbsp; w1</A>                                               
+<div id='MADDM2' class='MADDM2' style="display: none; width: 768; height: 42">　　1　　　MOV　AX,　　　　;显然，指令“MOV&nbsp;                                 
+AX”是一条非法指令，汇编程序将会指出该错误。<br>  　　1　　　ADD　w1, AX</div>                                                         
+                  
+<h3><a name="PARA">9.1.3</a> 宏的参数传递方式</h3>                                                
+<p style="text-indent: 21.25pt">在引用宏时，参数是通过“实参”替换“形参”的方式来实现传递的。参数的形式灵活多样，参数可以是常数、寄存器、存储单元和表达式，还可以是指令的操作码。</p>                 
+<p>例9.3 定义二个字存储变量相加和相减的宏。</p>                                                  
+<table border="0" width="100%" cellspacing="0" cellpadding="0">                 
+  <tr>                 
+    <td width="100%" colspan="2">解：</td>                 
+  </tr>                 
+  <tr>                 
+    <td width="49%">                 
+      <p style="text-indent: 21.25pt">方法1：定义二个宏分别实现存储变量的加操作和减操作</td>                 
+    <td width="51%" valign="top">方法2：定义一个宏，把存储变量的加和减操作合并在一起</td>                 
+  </tr>                 
+  <tr>                 
+    <td width="49%">                 
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">                 
+        <tr>                 
+          <td width="15%" rowspan="8" valign="top"></td>                 
+          <td width="18%" rowspan="4" valign="top">MADDM</td>                 
+          <td width="67%">MACRO　OPRD1, OPRD2</td>                                                          
+        </tr>                   
+        <tr>                   
+          <td width="67%">MOV　AX, OPRD2</td>                                                          
+        </tr>                   
+        <tr>                   
+          <td width="67%">ADD　OPRD1, AX</td>                                                          
+        </tr>                   
+        <tr>                   
+          <td width="67%">ENDM</td>                  
+        </tr>                  
+        <tr>                  
+          <td width="18%" rowspan="4" valign="top">MSUBM</td>                  
+          <td width="67%">MACRO　OPRD1, OPRD2</td>                                                          
+        </tr>                   
+        <tr>                   
+          <td width="67%">MOV　AX, OPRD2</td>                                                          
+        </tr>                   
+        <tr>                   
+          <td width="67%">SUB　OPRD1, AX</td>                                                          
+        </tr>                   
+        <tr>                   
+          <td width="67%">ENDM</td>                  
+        </tr>                  
+      </table>                  
+    </td>                  
+    <td width="51%">                  
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">                  
+        <tr>                  
+          <td width="13%" valign="top" rowspan="4"></td>                  
+          <td width="15%" valign="top" rowspan="4">MOPM</td>                  
+          <td width="72%" valign="middle">MACRO&nbsp; OP, OPRD1, OPRD2</td>                                                          
+        </tr>                   
+        <tr>                   
+          <td width="72%" valign="middle">MOV　AX, OPRD2</td>                                                          
+        </tr>                   
+        <tr>                   
+          <td width="72%" valign="middle">OP　　OPRD1, AX</td>                                                          
+        </tr>                   
+        <tr>                   
+          <td width="72%" valign="middle">ENDM</td>                  
+        </tr>                  
+        <tr>                  
+          <td width="100%" colspan="3" valign="middle">                  
+            <p></p>         
+            <p style="text-indent: 21.25pt">其中：参数OP是一个对应于操作码的形式参数。         
+          </td>         
+        </tr>         
+      </table>         
+    </td>         
+  </tr>         
+</table>         
+<p style="text-indent: 21.25pt">下面是引用宏MOPM的二个例子，它们在宏展开时将会得到下列语句：</p>         
+　　　　<A href="#" onclick="expandIt('MOPM1');return false">MOPM&nbsp; SUB, w1, w2</A>                                               
+<div id='MOPM1' class='MOPM1' style="DISPLAY: none">　　1　　　MOV　AX,                                          
+  w2<br>  　　1　　　SUB　w1, AX</div>                                                         
+       
+<div>　　　　…<br>　　　　<A href="#" onclick="expandIt('MOPM2');return false">MOPM&nbsp;   ADD, w1, w2</A></div>                                             
+<div id='MOPM2' class='MOPM2' style="DISPLAY: none">　　1　　　MOV　AX,                                          
+  w2<br>  　　1　　　ADD　w1, AX</div>                                                         
+                  
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96" height="28"></a><a href="asp/QuestionIndex.asp-chapter=9&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96" height="28"></a><a href="09-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96" height="28"></a><a href="09-1-4.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96" height="28"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+      
+</body>      
+      
+</html>

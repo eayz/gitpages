@@ -1,0 +1,102 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例10.17</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.GIF">
+
+<p>例10.17 利用PSP中的信息来终止当前程序的运行。</p>          
+      
+<table border="0" width="100%" cellspacing="0" cellpadding="0">      
+  <tr>      
+    <td width="736" valign="top" colspan="5">解：</td>      
+  </tr>     
+  <tr> 
+    <td width="51" valign="top" rowspan="19"></td>      
+    <td width="52" valign="top" rowspan="2">DSEG</td>    
+    <td width="633" colspan="3">SEGMENT</td>     
+  </tr> 
+  <tr>     
+    <td width="633" colspan="3">MSG　DB　&quot;Hello$&quot;</td>        
+  </tr>     
+  <tr>     
+    <td width="52">DSEG</td>    
+    <td width="633" colspan="3">ENDS</td>     
+  </tr>     
+  <tr>     
+    <td width="52" rowspan="2" valign="top">CSEG</td>    
+    <td width="633" colspan="3">SEGMENT　'CODE'</td>        
+  </tr>     
+  <tr>     
+    <td width="633" colspan="3">ASSUME　CS:CSEG, DS:DSEG</td>          
+  </tr>      
+  <tr>      
+    <td width="52">MAIN</td>     
+    <td width="633" colspan="3">PROC　FAR</td>        
+  </tr>     
+  <tr>     
+    <td width="271" colspan="3">start:</td>     
+    <td width="414">;在装入内存时，<b>DS</b>存放的是<b>PSP</b>的段地址</td>   
+  </tr>   
+  <tr>   
+    <td width="52" rowspan="9" valign="top"></td>   
+    <td width="49">PUSH</td>   
+    <td width="578" colspan="2">DS</td>   
+  </tr>   
+  <tr>   
+    <td width="49">XOR</td>   
+    <td width="578" colspan="2">AX, AX</td>       
+  </tr>     
+  <tr>     
+    <td width="49">PUSH</td>    
+    <td width="158">    
+      AX</td>   
+    <td width="414">;当前堆栈内容为0和<b>PSP</b>的段地址</td>   
+  </tr>   
+  <tr>   
+    <td width="49">MOV</td>   
+    <td width="578" colspan="2">AX, DSEG</td>      
+  </tr>    
+  <tr>    
+    <td width="49">MOV</td>   
+    <td width="578" colspan="2">DS, AX</td>      
+  </tr>    
+  <tr>    
+    <td width="49">MOV</td>   
+    <td width="578" colspan="2">DX, OFFSET MSG</td>      
+  </tr>    
+  <tr>    
+    <td width="49">MOV</td>   
+    <td width="578" colspan="2">AH, 9</td>      
+  </tr>    
+  <tr>    
+    <td width="49">INT</td>  
+    <td width="578" colspan="2">21H</td>   
+  </tr>   
+  <tr>   
+    <td width="633" colspan="3">RET</td>   
+  </tr>   
+  <tr>   
+    <td width="52">MAIN</td>  
+    <td width="633" colspan="3">ENDP</td>   
+  </tr>   
+  <tr>   
+    <td width="52" rowspan="2" valign="top">CSEG</td>  
+    <td width="633" colspan="3">ENDS</td>   
+  </tr>   
+  <tr>   
+    <td width="633" colspan="3">END　start</td>  
+  </tr>   
+</table>   
+<p style="text-indent: 21.25pt">例<b>10.17</b>是早期利用<b>PSP</b>来终止程序的方法。子程序<b>MAIN</b>必须定义为<b>FAR</b>类型，其前三条语句是为用<b>PSP</b>的头二个字节来终止程序运行服务的，但现在通常用中断<b>21H</b>之功能<b>4CH</b>来终止程序的运行。&nbsp;</p>   
+    
+<p align="center"><a href="javascript:close();">关　闭</a></p>
+  
+</body>    
+    
+</html>    

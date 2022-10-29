@@ -1,0 +1,392 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>5.3 习题</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter05.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle05.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → 习题</td>                           
+    <td width="50%">              
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<h2>5.3 习题</h2>              
+<table border="0" width="100%" cellspacing="3" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="text-indent: -26pt; margin-left: 48pt">5.1、书写正确的MOV指令，需要符合哪些规定？在32位CPU中，增加了什么指令来克服不同数据类型之间的数据传送？</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.2、简述指令MOV BX, 1234H、MOV BX,               
+      [1234]和MOV BX, offset [1234H]的功能和它们之间区别。</td>              
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.3、简述指令MOV BX, Data和MOV BX,               
+      offset Data之间的区别。</td>              
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.4、选择指令实现下列要求，OPN<sub>1</sub> 
+      ← OPN<sub>2</sub>的含义：把操作数OPN<sub>2</sub>的值传送给OPN<sub>1</sub>。</td>            
+  </tr>
+  <tr>
+    <td width="40%" colspan="3">
+      <p style="margin-left: 47pt">1)、EBX ← EDX<br>            
+      3)、SI ← BX<br>            
+      5)、AL ← BH<br>            
+      7)、AX ← 13AH<br>            
+      9)、SI ← 1000H</td>            
+    <td width="60%" colspan="2">2)、BX ← CL<br>            
+      4)、DS ← AX<br>            
+      6)、AL ← 12H<br>            
+      8)、CX ← 0CDH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               
+      (假设0CDH为无符号数)<br>
+      10)、EBX ← 1200A2H</td>            
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.5、PUSHA指令能把哪些寄存器压栈？它们进栈的顺序是什么？可用什么指令把这些寄存器依次弹出堆栈？</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.7、PUSHAD指令完成什么操作？它与什么操作的作用相反？</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.8、在16位/32位CPU中，标志位寄存器的内容进栈和出栈的指令是什么?</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.9、写出下列指令序列中每条指令的执行结果，请在Debug环境下验证之，并注意各标志位的变化情况。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 48pt">MOV&nbsp;&nbsp; BX, 23ABH<br>              
+      ADD&nbsp;&nbsp; BL, 0ACH<br>              
+      MOV&nbsp;&nbsp; AX, 23F5H<br>              
+      ADD&nbsp;&nbsp; BH, AL<br>              
+      SBB&nbsp;&nbsp;&nbsp; BX, AX<br>              
+      ADC&nbsp;&nbsp; AX, 12H<br>              
+      SUB&nbsp;&nbsp; BH, -9</td>              
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="text-indent: -33pt; margin-left: 55pt">5.10、假定DS=1123H，SS=1400H，BX=0200H，BP=1050H，DI=0400H，SI=0500H，LIST的偏移量为250H，试确定下面各指令访问内存单元的地址。</td>
+  </tr>
+  <tr>
+    <td width="10%" rowspan="7" valign="top"></td>
+    <td width="11%">1)、MOV</td>
+    <td width="19%">AL, [1234H]</td>
+    <td width="13%">2)、MOV</td>
+    <td width="47%">AX, [BX]</td>
+  </tr>
+  <tr>
+    <td width="11%">3)、MOV</td>
+    <td width="19%">[DI], AL</td>
+    <td width="13%">4)、MOV</td>
+    <td width="47%">[2000H], AL</td>
+  </tr>
+  <tr>
+    <td width="11%">5)、MOV</td>
+    <td width="19%">AL, [BP+DI]</td>
+    <td width="13%">6)、MOV</td>
+    <td width="47%">CX, [DI]</td>
+  </tr>
+  <tr>
+    <td width="11%">7)、MOV</td>
+    <td width="19%">EDX, [BP]</td>
+    <td width="13%">8)、MOV</td>
+    <td width="47%">LIST[SI], EDX</td>
+  </tr>
+  <tr>
+    <td width="11%">9)、MOV</td>
+    <td width="19%">CL, LIST[BX+SI]</td>
+    <td width="13%">10)、MOV</td>
+    <td width="47%">CH, [BX+SI]</td>
+  </tr>
+  <tr>
+    <td width="11%">11)、MOV</td>
+    <td width="19%">EAX, [BP+200H]</td>
+    <td width="13%">12)、MOV</td>
+    <td width="47%">AL, [BP+SI+200H]</td>
+  </tr>
+  <tr>
+    <td width="11%">13)、MOV</td>
+    <td width="19%">AL, [SI-0100H]</td>
+    <td width="13%">14)、MOV</td>
+    <td width="47%">BX, [BX+4]</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.11、用一条指令实现把BX和SI之和传送给CX。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.12、试比较下列三组指令的功能。</td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top"></td>
+    <td width="30%" colspan="2" valign="top">1)、LDS SI, [DI]</td>              
+    <td width="60%" colspan="2">2)、MOV SI, [DI]　　　3)、MOV SI, [DI+2]<br>              
+      　　MOV SI, [DI+2]　　　 MOV SI, [DI]</td>              
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.13、标志位CF有着重要的作用，请简述之，并至少写出三种把CF置0的方法。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.14、写一个计算DL三次方的指令序列，假设幂不超过16位二进制。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.15、写出一个指令序列实现：用CL中数据除BL中的数据，然后商乘2，最后的结果存入DX中。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.16、按下列要求编写指令序列。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 54pt">1)、清除DH中的最低三位而不改变其它位，结果存入BH中；<br>
+      2)、把DI中的最高5位置1而不改变其它位；<br>
+      3)、把AX中的0~3位置1，7~9位取反，13~15位置0；<br>
+      4)、检查BX中的第2、5和9位中是否有一位为1；<br>
+      5)、检查CX中的第1、6和11位中是否同时为1；<br>
+      6)、检查AX中的第0、2、9和13位中是否有一位为0；<br>
+      7)、检查DX中的第1、4、11和14位中是否同时为0；</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.17、简述指令AND和TEST、NOT和NEG之间的区别。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.18、选择适当的指令实现下列功能。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 54pt">1)、右移DI三位，并把零移入最高位；<br>
+      2)、把AL左移一位，使0移入最低一位；<br>
+      3)、AL循环左移三位；<br>
+      4)、EDX带进位位循环右移四位；<br>
+      5)、DX右移六位，且移位前后的正负性质不变。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.19、判断下列指令的正确性，若某指令是错误的，请说明其错误原因。</td>
+  </tr>
+  <tr>
+    <td width="10%" rowspan="17" valign="top"></td>
+    <td width="11%">1)、MOV</td>
+    <td width="19%">BL, CX</td>
+    <td width="12%">2)、MOV</td>
+    <td width="48%">DS, SS</td>
+  </tr>
+  <tr>
+    <td width="11%">3)、MOV</td>
+    <td width="19%">[BX], [DI]</td>
+    <td width="12%">4)、MOV</td>
+    <td width="48%">AL, [BX][SI]</td>
+  </tr>
+  <tr>
+    <td width="11%">5)、MOV</td>
+    <td width="19%">ES, AL</td>
+    <td width="12%">6)、MOV</td>
+    <td width="48%">DS, DX</td>
+  </tr>
+  <tr>
+    <td width="11%">7)、MOV</td>
+    <td width="19%">CS, AX</td>
+    <td width="12%">8)、MOV</td>
+    <td width="48%">BX, CS</td>
+  </tr>
+  <tr>
+    <td width="11%">9)、MOV</td>
+    <td width="19%">DS, 1230H</td>
+    <td width="12%">10)、MOVSX&nbsp;</td>
+    <td width="48%">DS, AL</td>              
+  </tr>
+  <tr>
+    <td width="11%">11)、XCHG</td>
+    <td width="19%">BX, 3</td>
+    <td width="12%">12)、POP</td>
+    <td width="48%">CS</td>
+  </tr>
+  <tr>
+    <td width="11%">13)、MOV</td>
+    <td width="19%">IP, SI</td>
+    <td width="12%">14)、PUSH</td>
+    <td width="48%">CS</td>
+  </tr>
+  <tr>
+    <td width="11%">15)、PUSH</td>
+    <td width="19%">BL</td>
+    <td width="12%">16)、MOV</td>
+    <td width="48%">[SP], BX</td>
+  </tr>
+  <tr>
+    <td width="11%">17)、MOV</td>
+    <td width="19%">AX, BX+3</td>
+    <td width="12%">18)、MOV</td>
+    <td width="48%">AX, [BX+3]</td>
+  </tr>
+  <tr>
+    <td width="11%">19)、MOV</td>
+    <td width="19%">BX, [BX]</td>
+    <td width="12%">20)、MOV</td>
+    <td width="48%">BH, [BL]</td>
+  </tr>
+  <tr>
+    <td width="11%">21)、XCHG</td>
+    <td width="19%">ES, AX&nbsp;</td>              
+    <td width="12%">22)、LEA</td>
+    <td width="48%">AX, [BX+SI]</td>
+  </tr>
+  <tr>
+    <td width="11%">23)、MUL</td>
+    <td width="19%">10H</td>
+    <td width="12%">24)、IMUL</td>
+    <td width="48%">DX, 10H</td>
+  </tr>
+  <tr>
+    <td width="11%">25)、DIV</td>
+    <td width="19%">10</td>
+    <td width="12%">26)、IDIV</td>
+    <td width="48%">DX, 10H</td>
+  </tr>
+  <tr>
+    <td width="11%">27)、SHL</td>
+    <td width="19%">AX, CX</td>
+    <td width="12%">28)、SHR</td>
+    <td width="48%">BX, CH</td>
+  </tr>
+  <tr>
+    <td width="11%">29)、ROL</td>
+    <td width="19%">BX, 20</td>
+    <td width="12%">30)、RCR</td>
+    <td width="48%">AX, CL</td>
+  </tr>
+  <tr>
+    <td width="11%">31)、CMP</td>
+    <td width="19%">AX,1234H</td>
+    <td width="12%">32)、CMP</td>
+    <td width="48%">12H, CL</td>
+  </tr>
+  <tr>
+    <td width="11%">33)、JCXZ</td>
+    <td width="19%">next</td>
+    <td width="12%">34)、JEBXZ</td>
+    <td width="48%">next　　　(假设标号next已存在)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.20、方向标志DF的作用是什么？用于设置或消除该标志位的指令是什么？</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.21、串指令用DI和SI寻址哪些内存段中的内存数据？</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.22、段间转移和段内转移之间的区别是什么？</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.23、SCASB指令的作用是什么？叙述指令REPE               
+      &nbsp;SCASB指令所完成的功能。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.24、指令REPNE &nbsp;SCASB结束执行的条件是什么？</td>              
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="text-indent: -33pt; margin-left: 55pt">5.25、REP前缀的作用是什么？能用指令REP               
+      LODSB读取DS:SI所指内存中的每个字符来进行处理吗？若不能，请说明原因。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="text-indent: -33pt; margin-left: 55pt">5.26、编写指令序列，在字符串LIST中查寻字符'B'，若找到，则转向Found，否则，转向NotFound，假设该字符串含有300个字符。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.27、编写指令序列，把Source存储区域中的12个字节传送到Dest存储区域内。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.28、设计一个短指令序列，将32位数AX:BX中的8位BCD与CX:DX中的8位BCD相加，并把所得结果存入CX:DX中。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="5">
+      <p style="margin-left: 22pt">5.29、有符号数比较后，用什么样的条件转移指令实现转移？无符号数比较后，用什么样的条件转移指令实现转移？</td>
+  </tr>
+</table>
+           
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=5&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="05-2-13.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="06-1.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a> 
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->   
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

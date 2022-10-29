@@ -1,0 +1,182 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>8.3.3 屏幕显示中断</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter08.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle08.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="08-3.htm"> 中断功能的分类</a>  → 打印输出的中断功能</td>                                 
+    <td width="50%">           
+      <p align="right">   
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+     
+<h3>8.3.3 打印输出的中断功能</h3>                       
+<p style="text-indent: 21.25pt">   
+打印输出是一种硬拷贝输出，也是一种常用的输出形式。随着计算机应用领域的不断扩大，外围设备的重视程度也越来越高。目前，打印机的种类已日益丰富，有针式打印机、喷墨打印机和激光打印机等。从打印色彩来看，既有普通的黑色打印，也有彩色打印。总之，计算机打印输出的品质是越来越高。</p>   
+<table border="0" width="100%" cellpadding="0">   
+  <tr>   
+    <td width="44%" valign="top">   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、打印机状态字</font></p>   
+<p style="text-indent: 21.25pt">   
+打印机状态字记录着打印机的当前工作情况(或状态)，它相当于CPU中的程序状态字和键盘状态字。打印机状态字的各位定义如图8.11所示。</p>   
+<p style="text-indent: 21.25pt">   
+若在某个程序中要包含打印功能，那么，程序员可通过打印状态字来了控制打印过程，并向使用者提供各种有用信息。比如：提示使用者“打印机无纸了”或打印机处于脱机状态(Off                         
+Line)等。</p>   
+    </td>   
+    <td width="56%" valign="bottom">   
+      <p align="center"><img border="0" src="TextBookIMG/08-11.gif" width="371"></p>   
+      <p align="center">   
+图8.11 打印机状态字节定义</td>                       
+  </tr>   
+</table>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、打印控制命令</font></p>   
+<p style="text-indent: 21.25pt">   
+在打印时，程序员往往要控制文本的输出格式，比如：换页、换行、字体或字号等。若要实现对打印格式的控制，就必须要知道控制打印机的控制字符和控制命令。一些常用的打印控制字符如表8.3所示。</p>   
+<p align="center">表8.3 常用的打印控制字符</p>                        
+<div align="center">   
+  <center>   
+  <table border="0" width="45%" cellpadding="0">   
+    <tr>   
+      <td width="29%" align="center" bgcolor="#FFFF00">字符值</td>   
+      <td width="71%" bgcolor="#FFFF00">功能描述</td>   
+    </tr>   
+    <tr>   
+      <td width="29%" align="center" bgcolor="#00FFFF">09H</td>   
+      <td width="71%" bgcolor="#00FFFF">水平制表符，跳到下一个制表位置</td>   
+    </tr>   
+    <tr>   
+      <td width="29%" align="center">0AH</td>   
+      <td width="71%">换行</td>   
+    </tr>   
+    <tr>   
+      <td width="29%" align="center" bgcolor="#00FFFF">0CH</td>   
+      <td width="71%" bgcolor="#00FFFF">换页</td>   
+    </tr>   
+    <tr>   
+      <td width="29%" align="center">0DH</td>   
+      <td width="71%">回车</td>   
+    </tr>   
+  </table>   
+  </center>   
+</div>   
+<p style="text-indent: 21.25pt">   
+打印机还有其它的控制命令，如：ESC命令序列，该序列由字符ESC(其ASCII为1BH)和一些数值组成。表8.4列举了LQ-1600K打印机的几个控制命令。对于其它各类打印机的控制命令，要参阅其使用手册。</p>   
+<p align="center">表8.4 LQ-1600K打印机的几个控制命令</p>                        
+<div align="center">   
+  <center>   
+  <table border="0" width="65%" cellpadding="0">   
+    <tr>   
+      <td width="27%" bgcolor="#FFFF00">控制命令</td>   
+      <td width="30%" bgcolor="#FFFF00">命令的数值</td>   
+      <td width="43%" bgcolor="#FFFF00">功能描述</td>   
+    </tr>   
+    <tr>   
+      <td width="27%" bgcolor="#00FFFF">ESC @</td>                       
+      <td width="30%" bgcolor="#00FFFF">1BH 40H</td>    
+      <td width="43%" bgcolor="#00FFFF">初始化打印机</td>   
+    </tr>   
+    <tr>   
+      <td width="27%">ESC 4/ESC 5</td>                       
+      <td width="30%">1BH 34H／1BH 35H</td>                       
+      <td width="43%">设定／取消斜体打印</td>   
+    </tr>   
+    <tr>   
+      <td width="27%" bgcolor="#00FFFF">ESC S 0/ESC S 1</td>                       
+      <td width="30%" bgcolor="#00FFFF">1BH 53 0／1BH 53 1</td>                       
+      <td width="43%" bgcolor="#00FFFF">设定上／下角标打印</td>   
+    </tr>   
+    <tr>   
+      <td width="27%">ESC T</td>                       
+      <td width="30%">1BH 54H</td>    
+      <td width="43%">取消上／下角标打印</td>   
+    </tr>   
+    <tr>   
+      <td width="27%" bgcolor="#00FFFF">ESC l n</td>                       
+      <td width="30%" bgcolor="#00FFFF">1BH 6CH n</td>    
+      <td width="43%" bgcolor="#00FFFF">设定左边界，n为当前字符的宽度</td>   
+    </tr>   
+  </table>   
+  </center>   
+</div>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">3、DOS功能中的打印输出</font></p>   
+<p style="text-indent: 21.25pt">在DOS操作系统中，INT 21H提供了一种打印输出的功能调用。其具体描述如下：</p>                        
+<p style="margin-left: 40pt">05H——向连接在LPT1端口上的打印机输出一个字符<br>   
+40H——向先前打开的文件写入指定数量的字节，可以把打印机看作为标准的输出文件</p>    
+<p style="text-indent: 21.25pt">   
+有关中断功能的详细描述和调用参数在此从略，需要查阅者可参阅附录3之<a href="Appendix/App31-011.htm" target="_blank">字符功能调用类</a>。</p> 
+<p style="text-indent: 21.25pt"><font color="#FF00FF">4、BIOS中的打印输出</font></p> 
+<p style="text-indent: 21.25pt">BIOS系统提供了中断17H来实现打印输出功能。其具体的功能如下：</p> 
+<p style="margin-left: 40pt">00H——向指定的打印机输出一个字符<br> 
+01H——初始化指定的打印机<br> 
+02H——读取指定打印机的状态</p>  
+<p style="text-indent: 21.25pt"> 
+有关中断功能的详细描述和调用参数在此从略，需要查阅者可参阅附录3之<a href="Appendix/App34-61.htm" target="_blank">并行口服务</a>。</p> 
+<p style="text-indent: 21.25pt"><font color="#FF00FF">5、打印输出的举例</font></p> 
+<p>例8.7 在每页的开始处打印“Assember                         
+Language”字符串，并空一行才打印其它内容。</p>   
+<p>解：<a href="example/example08-7.htm" target="_blank">显示解答</a></p>  
+<p>例8.8 当打印机不能正常打印(非硬件故障)时，提示使用者其原因，以便解决打印问题。</p>                        
+<p>解：<a href="example/example08-8.htm" target="_blank">显示解答</a></p>  
+          
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=8&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="08-3-2-3.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="08-3-4.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+       
+</body>       
+       
+</html>

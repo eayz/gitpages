@@ -1,0 +1,150 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录2.7-8 比较运算、循环指令</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body background="image/background.gif">
+
+<h2>7、比较运算指令</h2>
+         
+<h3>7.1、比较指令</h3>
+         
+<div align="center">
+  <center>
+         
+  <table border="1" width="90%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="226"><p style="MARGIN-LEFT: 4pt">指令的语法</p></td>
+      <td width="305"><p style="MARGIN-LEFT: 4pt">举例</p></td>
+      <td width="139"><p style="MARGIN-LEFT: 4pt">周期数</p></td>
+    </tr>
+  <tr>
+    <td width="226"><p style="MARGIN-LEFT: 4pt">CMP reg,reg</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">cmp dl,cl</p></td>        
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">CMP mem,reg</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">cmp array[si],bl</p></td>        
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">CMP reg,mem</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">cmp bh,array[si]</p></td>        
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">CMP reg,immed</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">cmp bx,24</p></td>        
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">CMP mem,immed</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">cmp tester,4000</p></td>        
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">CMP accum,immed</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">cmp ax,1000</p></td>        
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>    
+  </tr>    
+</table>    
+  </center>  
+</div>  
+<h3>7.2、比较交换指令</h3>  
+           
+<div align="center"> 
+  <center> 
+          
+<table border="1" width="90%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">CMPXCHG mem,reg</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">cmpxchg string,bl</p></td>        
+    <td width="139"><p style="MARGIN-LEFT: 4pt">6</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">CMPXCHG reg,reg</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">cmpxchg bx,cx</p></td>        
+    <td width="139"><p style="MARGIN-LEFT: 4pt">6</p></td>    
+  </tr>    
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">CMPXCHG8B reg,mem64</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">cmpxchg8b ax,[bx]</p></td>        
+    <td width="139"><p style="MARGIN-LEFT: 4pt">10</p></td>    
+  </tr>    
+</table>    
+    
+  </center>  
+</div>  
+    
+<h2>8、<a name="loop">循环指令</a></h2>
+         
+<h3>8.1、循环指令</h3>
+         
+<div align="center">
+  <center>
+         
+<table border="1" width="90%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">LOOP label</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">loop wend</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">5, 6</p></td>     
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">LOOPE label</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">loope again</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7, 8</p></td>     
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">LOOPZ label</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">loopz again</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7, 8</p></td>     
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">LOOPNE label</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">loopne for_next</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7, 8</p></td>     
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">LOOPNZ label</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">loopnz for_next</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7, 8</p></td>     
+  </tr>    
+</table>    
+             
+  </center>  
+</div>  
+           
+<h3>8.2、循环指令</h3>
+         
+<div align="center">
+  <center>
+         
+<table border="1" width="90%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="226"><p style="MARGIN-LEFT: 4pt">JCXZ label</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">jcxz notfound</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">6,5</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">JECXZ label</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">jecxz notfound</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">6,5</p></td> 
+  </tr> 
+</table> 
+          
+  </center>
+</div>
+          
+<p align="center"><A href="App2-06.htm"><IMG language=javascript id=PrevPage onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" height=28 src ="../Button/prevpage1.gif" width=96 border=0></A>　　　<A href="App2-09.htm"><IMG language=javascript id=NextPage onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" height=28 src ="../Button/NextPage1.gif" width=96 border=0></A></p>
+         
+</body>        
+        
+</html>        

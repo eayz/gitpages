@@ -1,0 +1,133 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>9.2.3 字符转义运算符</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter09.js"></script>
+<SCRIPT LANGUAGE=javascript>
+<!--
+function expandIt(el) {
+    whichEl = eval(el);
+	if (whichEl.style.display == "block") whichEl.style.display = "none";
+    else whichEl.style.display = "block"
+}
+// -->
+</SCRIPT>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle09.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="file:///D:/Assember/HomePage/09-2-1.htm">宏参数的特殊运算符</a>                                                       
+      → 字符转义运算符</td>                                                                
+    <td width="50%">                         
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<h3>9.2.3 字符转义运算符</h3>                                                       
+<p style="text-indent: 21.25pt">在引用宏时，如果实参中含有特殊字符，而又要该特殊字符当作普通字符来出来，那么，就必须在该特殊字符前加上字符转义运算符“<font color="#FF0000">!</font>”。</p>                
+<p style="text-indent: 21.25pt">下面不使用和使用字符转义运算符的宏引用语句及其宏扩展的结果：</p>                
+<table border="0" width="100%" cellspacing="0" cellpadding="0">        
+  <tr>                     
+    <td width="100%">　　　　<A href="#" onclick="expandIt('DEF1');return false">DEFMSG&nbsp;                                                               
+      &lt;Input one number(&gt;90):&gt;</A>                                                              
+<div id='DEF1' class='DEF1' style="display: none;">　　1　　　　                         DB&nbsp; 'Input one number(90):', 0DH, 0AH, '$'<br>                                 
+  　　　　　　　;第一个“&gt;”与字符“&lt;”相比配，而不会把它当作“大于号”字符来处理</div>       
+    </td>   
+  </tr>   
+  <tr>   
+    <td width="100%">   
+      <p style="margin-left: 40pt">…</td>   
+  </tr>   
+  <tr>   
+    <td width="100%">　　　　<A href="#" onclick="expandIt('DEF2');return false">DEFMSG&nbsp;                                                         
+      &lt;Input one number(!&gt;90):&gt;</A>                                                             
+<div id='DEF2' class='DEF2' style="display: none;">　　1　　　　                                                         
+DB&nbsp; 'Input one number(&gt;90):', 0DH, 0AH, '$'<br>                                 
+  　　;由于在第一个“&gt;”字符前面有字符转义运算符“!”，所以，汇编程序会把第一个“&gt;”当作“大于号”字符来处理，而把最后面的字符“&gt;”当作是与前面“&lt;”相比配的结束符。</div>       
+    </td>   
+  </tr>   
+</table>   
+<h3><a name="Calc">9.2.4</a> 计算表达式运算符</h3>                                                
+<p style="text-indent: 21.25pt">在引用宏时，使用计算表达式运算符“<font color="#FF0000">%</font>”表示把其后面表达式的结果当作实参进行替换，而不是该表达式的整个式子。</p>        
+<p style="text-indent: 21.25pt">下面使用和不使用计算表达式运算符的宏引用语句及其宏扩展的结果：</p>        
+<table border="0" width="100%" cellspacing="0" cellpadding="0">       
+  <tr>                    
+    <td width="100%">　　　　<A href="#" onclick="expandIt('DEF3');return false">DEFMSG&nbsp;                                              
+      %200+23-100</A>     
+<div id='DEF3' class='DEF3' style="display: none;">　　1　　　　DB&nbsp; '123', 0DH, 0AH, '$'　　;先计算出表达式<font color="#FF0000">200+23-100</font>的值，然后再把该值作为参数进行替换</div>
+    </td>   
+  </tr>   
+  <tr>   
+    <td width="100%">   
+      <p style="margin-left: 40pt">…</td>   
+  </tr>   
+  <tr>   
+    <td width="100%">　　　　<A href="#" onclick="expandIt('DEF4');return false">DEFMSG&nbsp; 200+23-100</A>             
+<div id='DEF4' class='DEF4' style="display: none;">     
+  　　1　　　　DB&nbsp; '200+23-100', 0DH, 0AH, '$'　                                            
+  ;把整个表达式<font color="#FF0000">200+23-100</font>当作一个字符串来进行参数替换</div>       
+    </td>       
+  </tr>       
+</table>       
+                
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=9&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="09-2-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96" height="28"></a><a href="09-3.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                             
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->    
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+      
+</body>      
+      
+</html>      

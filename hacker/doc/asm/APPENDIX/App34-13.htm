@@ -1,0 +1,833 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.4 显示服务中断的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能00H</font></p>    
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">设置显示器模式</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝00H<br>
+      AL＝显示器模式，见下表所示</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+         
+<p style="text-indent: 21.25pt">可用的显示模式如下所列：  
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="4%"></td>
+    <td width="13%" align="center" bgcolor="#FFFF00">显示模式</td>
+    <td width="30%" colspan="2" align="center" bgcolor="#FFFF00">显示模式属性</td>
+    <td width="15%" align="center" bgcolor="#FFFF00">显示模式</td>
+    <td width="31%" colspan="2" align="center" bgcolor="#FFFF00">显示模式属性</td>
+    <td width="4%" rowspan="11" valign="top"></td>
+  </tr>
+  <tr>
+    <td width="4%"></td>
+    <td width="13%" align="center"><font color="#FF00FF">00H</font></td>
+    <td width="15%"><font color="#FF00FF">40×25</font></td>
+    <td width="15%"><font color="#FF00FF">16色 文本</font></td>        
+    <td width="15%" align="center"><font color="#FF00FF">01H</font></td>
+    <td width="15%"><font color="#FF00FF">40×25</font></td>
+    <td width="16%"><font color="#FF00FF">16色 文本</font></td>        
+  </tr>
+  <tr>
+    <td width="4%"></td>
+    <td width="13%" align="center">02H</td>
+    <td width="15%">80×25</td>
+    <td width="15%">16色 文本</td>        
+    <td width="15%" align="center">03H</td>
+    <td width="15%">80×25</td>
+    <td width="16%">16色 文本</td>        
+  </tr>
+  <tr>
+    <td width="4%"></td>
+    <td width="13%" align="center"><font color="#FF00FF">04H</font></td>
+    <td width="15%"><font color="#FF00FF">320×200</font></td>
+    <td width="15%"><font color="#FF00FF">4色</font></td>
+    <td width="15%" align="center"><font color="#FF00FF">05H</font></td>
+    <td width="15%"><font color="#FF00FF">320×200</font></td>
+    <td width="16%"><font color="#FF00FF">4色</font></td>
+  </tr>
+  <tr>
+    <td width="4%"></td>
+    <td width="13%" align="center">06H</td>
+    <td width="15%">640×200</td>
+    <td width="15%">2色</td>
+    <td width="15%" align="center">07H</td>
+    <td width="15%">80×25</td>
+    <td width="16%">2色 文本</td>        
+  </tr>
+  <tr>
+    <td width="4%"></td>
+    <td width="13%" align="center"><font color="#FF00FF">08H</font></td>
+    <td width="15%"><font color="#FF00FF">160×200</font></td>
+    <td width="15%"><font color="#FF00FF">16色</font></td>
+    <td width="15%" align="center"><font color="#FF00FF">09H</font></td>
+    <td width="15%"><font color="#FF00FF">320×200</font></td>
+    <td width="16%"><font color="#FF00FF">16色</font></td>
+  </tr>
+  <tr>
+    <td width="4%"></td>
+    <td width="16%" align="center">0AH</td>
+    <td width="15%">640×200</td>
+    <td width="15%">4色</td>
+    <td width="15%" align="center">0BH</td>
+    <td width="15%">保留</td>
+    <td width="16%">　</td>
+  </tr>
+  <tr>
+    <td width="4%"></td>
+    <td width="16%" align="center"><font color="#FF00FF">0CH</font></td>
+    <td width="15%"><font color="#FF00FF">保留</font></td>
+    <td width="15%"></td>
+    <td width="15%" align="center"><font color="#FF00FF">0DH</font></td>
+    <td width="15%"><font color="#FF00FF">320×200</font></td>
+    <td width="16%"><font color="#FF00FF">16色</font></td>
+  </tr>
+  <tr>
+    <td width="4%"></td>
+    <td width="16%" align="center">0EH</td>
+    <td width="15%">640×200</td>
+    <td width="15%">16色</td>
+    <td width="15%" align="center">0FH</td>
+    <td width="15%">640×350</td>
+    <td width="16%">2(单色)</td>
+  </tr>
+  <tr>
+    <td width="4%"></td>
+    <td width="16%" align="center"><font color="#FF00FF">10H</font></td>
+    <td width="15%"><font color="#FF00FF">640×350</font></td>
+    <td width="15%"><font color="#FF00FF">4色</font></td>
+    <td width="15%" align="center"><font color="#FF00FF">10H</font></td>
+    <td width="15%"><font color="#FF00FF">640×350</font></td>
+    <td width="16%"><font color="#FF00FF">16色</font></td>
+  </tr>
+  <tr>
+    <td width="4%"></td>
+    <td width="16%" align="center">11H</td>
+    <td width="15%">640×480</td>
+    <td width="15%">2色</td>
+    <td width="15%" align="center">12H</td>
+    <td width="15%">640×480</td>
+    <td width="16%">16色</td>
+  </tr>
+  <tr>
+    <td width="4%"></td>
+    <td width="16%" align="center"><font color="#FF00FF">13H</font></td>
+    <td width="15%"><font color="#FF00FF">640×480</font></td>
+    <td width="15%"><font color="#FF00FF">256色</font></td>
+    <td width="50%" colspan="4"></td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">对于超级VGA显示卡，我们可用AX＝4F02H和下列BX的值来设置其显示模式。    
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="7%"></td>
+    <td width="12%" align="center" bgcolor="#FFFF00">BX</td>
+    <td width="30%" colspan="2" align="center" bgcolor="#FFFF00">显示模式属性</td>
+    <td width="13%" align="center" bgcolor="#FFFF00">BX</td>
+    <td width="32%" colspan="2" align="center" bgcolor="#FFFF00">显示模式属性</td>
+    <td width="3%" rowspan="7" valign="top"></td>
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="12%" align="center"><font color="#FF00FF">100H</font></td>
+    <td width="17%"><font color="#FF00FF">640×400</font></td>
+    <td width="13%"><font color="#FF00FF">256色</font></td>   
+    <td width="13%" align="center"><font color="#FF00FF">101H</font></td>
+    <td width="17%"><font color="#FF00FF">640×480</font></td>
+    <td width="15%"><font color="#FF00FF">256色</font></td>   
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="12%" align="center">102H</td>
+    <td width="17%">800×600</td>
+    <td width="13%">16色</td>   
+    <td width="13%" align="center">103H</td>
+    <td width="17%">800×600</td>
+    <td width="15%">256色</td>   
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="12%" align="center"><font color="#FF00FF">104H</font></td>
+    <td width="17%"><font color="#FF00FF">1024×768</font></td>
+    <td width="13%"><font color="#FF00FF">16色</font></td>
+    <td width="13%" align="center"><font color="#FF00FF">105H</font></td>
+    <td width="17%"><font color="#FF00FF">1024×768</font></td>
+    <td width="15%"><font color="#FF00FF">256色</font></td>
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="12%" align="center">106H</td>
+    <td width="17%">1280×1024</td>
+    <td width="13%">16色</td>
+    <td width="13%" align="center">107H</td>
+    <td width="17%">1280×1024</td>
+    <td width="15%">256色</td>   
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="15%" align="center"><font color="#FF00FF">108H</font></td>
+    <td width="17%"><font color="#FF00FF">80×60</font></td>
+    <td width="13%"><font color="#FF00FF">文本模式</font></td>
+    <td width="13%" align="center"><font color="#FF00FF">109H</font></td>
+    <td width="17%"><font color="#FF00FF">132×25</font></td>
+    <td width="15%"><font color="#FF00FF">文本模式</font></td>
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="15%" align="center">10AH</td>
+    <td width="17%">132×43</td>
+    <td width="13%">文本模式</td>
+    <td width="13%" align="center">10BH</td>
+    <td width="17%">132×50</td>
+    <td width="15%">文本模式</td>
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="15%" align="center"><font color="#FF00FF">10CH</font></td>
+    <td width="17%"><font color="#FF00FF">132×60</font></td>
+    <td width="13%"><font color="#FF00FF">文本模式</font></td>
+    <td width="48%" colspan="4"></td>
+  </tr>
+</table>
+<p><a name="01H"><font color="#FF00FF">(2)、功能01H</font></a>  
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">设置光标形状</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝01H<br>
+      CH低四位＝光标的起始行<br>
+      CL低四位＝光标的终止行</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+         
+<p><a name="02H"><font color="#FF00FF">(3)、功能02H</font></a>  
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">用文本坐标下设置光标位置</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝02H<br>
+      BH＝显示页码<br>
+      DH＝行(Y坐标)<br>
+      DL＝列(X坐标)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+         
+<p><a name="03H"><font color="#FF00FF">(4)、功能03H</font></a>  
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">在文本坐标下，读取光标各种信息</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝03H<br>
+      BH＝显示页码</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">CH＝光标的起始行<br>
+      CL＝光标的终止行<br>
+      DH＝行(Y坐标)<br>
+      DL＝列(X坐标)</td>
+  </tr>
+</table>
+         
+<p><a name="04H"><font color="#FF00FF">(5)、功能04H</font></a>  
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">获取当前状态和光笔位置</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝04H</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">AH＝00h——光笔未按下/未触发，01h——光笔已按下/已触发<br>
+      BX＝象素列(图形X坐标)<br>
+      CH＝象素行(图形Y坐标，显示模式：04H~06H)<br>
+      CX＝象素行(图形Y坐标，显示模式：0DH~10H)<br>
+      DH＝字符行(文本Y坐标)<br>
+      DL＝字符列(文本X坐标)</td>
+  </tr>
+</table>
+         
+<p><a name="05H"><font color="#FF00FF">(6)、功能05H</font></a>  
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">设置显示页，即选择活动的显示页</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝05H<br>
+      AL＝显示页<br>
+      对于CGA、EGA、MCGA和VGA，其显示页如下表所列：
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="23%" align="center">模式</td>
+          <td width="20%" align="center">   
+页数</td>
+          <td width="57%">   
+显示器类型</td>
+        </tr>
+        <tr>
+          <td width="23%" align="center">00H、01H</td>
+          <td width="20%" align="center">   
+0~7</td>
+          <td width="57%">   
+CGA、EGA、MCGA、VGA</td>
+        </tr>
+        <tr>
+          <td width="23%" align="center">02H、03H</td>
+          <td width="20%" align="center">   
+0~3</td>
+          <td width="57%">   
+CGA</td>
+        </tr>
+        <tr>
+          <td width="23%" align="center">02H、03H</td>
+          <td width="20%" align="center">   
+0~7</td>
+          <td width="57%">   
+EGA、MCGA、VGA</td>
+        </tr>
+        <tr>
+          <td width="23%" align="center">07H</td>
+          <td width="20%" align="center">   
+0~7</td>
+          <td width="57%">   
+EGA、VGA</td>
+        </tr>
+        <tr>
+          <td width="23%" align="center">0DH</td>
+          <td width="20%" align="center">   
+0~7</td>
+          <td width="57%">   
+EGA、VGA</td>
+        </tr>
+        <tr>
+          <td width="23%" align="center">0EH</td>
+          <td width="20%" align="center">   
+0~3</td>
+          <td width="57%">   
+EGA、VGA</td>
+        </tr>
+        <tr>
+          <td width="23%" align="center">0FH</td>
+          <td width="20%" align="center">   
+0~1</td>
+          <td width="57%">   
+EGA、VGA</td>
+        </tr>
+        <tr>
+          <td width="23%" align="center">10H</td>
+          <td width="20%" align="center">   
+0~1</td>
+          <td width="57%">   
+EGA、VGA</td>
+        </tr>
+      </table>
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="100%" valign="top" colspan="2">对于PCjr：</td>
+        </tr>
+        <tr>
+          <td width="8%" valign="top">AL＝</td>
+          <td width="92%">80H——读取CRT/CPU页寄存器<br>
+            81H——设置CPU页寄存器<br>
+            82H——设置CRT页寄存器<br>
+            83H——设置CRT/CPU页寄存器</td>
+        </tr>
+        <tr>
+          <td width="100%" colspan="2">BH＝CRT页(子功能号82H和83H)<br>
+            BL＝CPU页(子功能号81H和83H)</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">对于前者，无出口参数，但对PCjr在子功能80H~83H调用下，有：BH＝CRT页寄存器，BL＝CPU页寄存器</td>
+  </tr>
+</table>
+         
+<p><a name="06H和07H"><font color="#FF00FF">(7)、功能06H和07H</font></a>  
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">初始化屏幕或滚屏</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝06H——向上滚屏，07H——向下滚屏<br>
+      AL＝滚动行数(0——清窗口)<br>
+      BH＝空白区域的缺省属性<br>
+      (CH、CL)＝窗口的左上角位置(Y坐标，X坐标)<br>
+      (DH、DL)＝窗口的右下角位置(Y坐标，X坐标)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+         
+<p><a name="08H"><font color="#FF00FF">(8)、功能08H</font></a>  
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">读光标处的字符及其属性</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝08H<br>
+      BH＝显示页码</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">AH＝属性<br>
+      AL＝字符</td>
+  </tr>
+</table>
+         
+<p><a name="09H"><font color="#FF00FF">(9)、功能09H</font></a>  
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">在当前光标处按指定属性显示字符</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝09H<br>
+      AL＝字符<br>
+      BH＝显示页码<br>
+      BL＝属性(文本模式)或颜色(图形模式)<br>
+      CX＝重复输出字符的次数</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+         
+<p><a name="0AH"><font color="#FF00FF">(10)、功能0AH</font></a>  
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">在当前光标处按原有属性显示字符</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝0AH<br>
+      AL＝字符<br>
+      BH＝显示页码<br>
+      BL＝颜色(图形模式，仅适用于PCjr)<br>
+      CX＝重复输出字符的次数</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+         
+<p><a name="0BH"><font color="#FF00FF">(11)、功能0BH</font></a>  
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">设置调色板、背景色或边框</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝0BH<br>
+      设置颜色：BH＝00H，BL＝颜色<br>
+      选择调色板：BH＝01H，BL＝调色板(320×200、4种颜色的图形模式)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+         
+<p><a name="0CH"><font color="#FF00FF">(12)、功能0CH</font></a>  
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">写图形象素</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝0CH<br>
+      AL＝象素值<br>
+      BH＝页码<br>
+      (CX、DX)＝图形坐标列(X)、行(Y)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+         
+<p><a name="0DH"><font color="#FF00FF">(13)、功能0DH</font></a> 
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">读图形象素</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝0DH<br>
+      BH＝页码<br>
+      (CX、DX)＝图形坐标列(X)、行(Y)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">AL＝象素值</td>
+  </tr>
+</table>
+         
+<p><a name="0EH"><font color="#FF00FF">(14)、功能0EH</font></a> 
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">在Teletype模式下显示字符</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝0EH<br>
+      AL＝字符<br>
+      BH＝页码<br>
+      BL＝前景色(图形模式)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+         
+<p><a name="0FH"><font color="#FF00FF">(15)、功能0FH</font></a> 
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">读取显示器模式</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝0FH</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">AH＝屏幕字符的列数<br>
+      AL＝显示模式(参见功能00H中的说明)<br>
+      BH＝页码</td>
+  </tr>
+</table>
+         
+<p><a name="10H"><font color="#FF00FF">(16)、功能10H</font></a> 
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top"></td>
+    <td width="14%" valign="top">功能描述：</td>
+    <td width="82%">颜色中断。其子功能说明如下：
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="50%">功能号　子功能名称</td>
+          <td width="50%">功能号　子功能名称</td>
+        </tr>
+        <tr>
+          <td width="50%">00H — 设置调色板寄存器</td>       
+          <td width="50%">01H — 设置边框颜色</td>       
+        </tr>
+        <tr>
+          <td width="50%">02H — 设置调色板和边框</td>       
+          <td width="50%">03H — 触发闪烁/亮显位</td>       
+        </tr>
+        <tr>
+          <td width="50%">07H — 读取调色板寄存器</td>       
+          <td width="50%">08H — 读取边框颜色</td>       
+        </tr>
+        <tr>
+          <td width="50%">09H — 读取调色板和边框</td>       
+          <td width="50%">10H — 设置颜色寄存器</td>       
+        </tr>
+        <tr>
+          <td width="50%">12H — 设置颜色寄存器块</td>       
+          <td width="50%">13H — 设置颜色页状态</td>       
+        </tr>
+        <tr>
+          <td width="50%">15H — 读取颜色寄存器</td>       
+          <td width="50%">17H — 读取颜色寄存器块</td>       
+        </tr>
+        <tr>
+          <td width="50%">1AH — 读取颜色页状态</td>       
+          <td width="50%">1BH — 设置灰度值</td>       
+        </tr>
+      </table>
+    </td>   
+  </tr>
+</table>
+         
+<p><a name="11H"><font color="#FF00FF">(17)、功能11H</font></a> 
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top"></td>
+    <td width="14%" valign="top">功能描述：</td>
+    <td width="82%">字体中断。其子功能说明如下：
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="18%" align="center">子功能号</td>
+          <td width="82%"> 子功能名称</td>
+        </tr>
+        <tr>
+          <td width="18%" align="center">00H</td>
+          <td width="82%">装入用户字体和可编程控制器</td>
+        </tr>
+        <tr>
+          <td width="18%" align="center">10H</td>
+          <td width="82%">装入用户字体和可编程控制器</td>
+        </tr>
+        <tr>
+          <td width="18%" align="center">01H</td>
+          <td width="82%">装入8×14 ROM字体和可编程控制器</td>        
+        </tr>
+        <tr>
+          <td width="18%" align="center">11H</td>
+          <td width="82%">装入8×14 ROM字体和可编程控制器</td>        
+        </tr>
+        <tr>
+          <td width="18%" align="center">02H</td>
+          <td width="82%">装入8×8 ROM字体和可编程控制器</td>        
+        </tr>
+        <tr>
+          <td width="18%" align="center">12H</td>
+          <td width="82%">装入8×8 ROM字体和可编程控制器</td>        
+        </tr>
+        <tr>
+          <td width="18%" align="center">03H</td>
+          <td width="82%">设置块指示器</td>
+        </tr>
+        <tr>
+          <td width="18%" align="center">04H</td>
+          <td width="82%">装入8×16 ROM字体和可编程控制器</td>        
+        </tr>
+        <tr>
+          <td width="18%" align="center">14H</td>
+          <td width="82%">装入8×16 ROM字体和可编程控制器</td>        
+        </tr>
+        <tr>
+          <td width="18%" align="center">20H</td>
+          <td width="82%">设置INT 1Fh字体指针</td>        
+        </tr>
+        <tr>
+          <td width="18%" align="center">21H</td>
+          <td width="82%">为用户字体设置INT 43h</td>        
+        </tr>
+        <tr>
+          <td width="18%" align="center">22H</td>
+          <td width="82%">为8×14 ROM字体设置INT 43H</td>        
+        </tr>
+        <tr>
+          <td width="18%" align="center">23H</td>
+          <td width="82%">为8×8 ROM字体设置INT 43H</td>        
+        </tr>
+        <tr>
+          <td width="18%" align="center">24H</td>
+          <td width="82%">为8×16 ROM字体设置INT 43H</td>        
+        </tr>
+        <tr>
+          <td width="18%" align="center">30H</td>
+          <td width="82%">读取字体信息</td>
+        </tr>
+      </table>
+    </td>   
+  </tr>
+</table>
+         
+<p><a name="12H"><font color="#FF00FF">(18)、功能12H</font></a> 
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top"></td>
+    <td width="14%" valign="top">功能描述：</td>
+    <td width="82%">显示器的配置中断。其子功能说明如下：
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="44%" valign="top">功能号&nbsp;&nbsp;&nbsp; 功能名称&nbsp;</td>       
+          <td width="56%">功能号&nbsp;&nbsp;&nbsp;功能名称</td>
+        </tr>
+        <tr>
+          <td width="44%">10H — 读取配置信息</td>        
+          <td width="56%">  
+20H — 选择屏幕打印</td>        
+        </tr>
+        <tr>
+          <td width="44%">30H — 设置扫描行</td>        
+          <td width="56%">  
+31H — 允许/禁止装入缺省调色板</td>       
+        </tr>
+        <tr>
+          <td width="44%">32H — 允许/禁止显示</td>        
+          <td width="56%">  
+33H — 允许/禁止灰度求和</td>        
+        </tr>
+        <tr>
+          <td width="44%">34H — 允许/禁止光标模拟</td>        
+          <td width="56%">  
+35H — 切换活动显示</td>        
+        </tr>
+        <tr>
+          <td width="100%" colspan="2">36H — 允许/禁止屏幕刷新</td>        
+        </tr>
+      </table>
+    </td>   
+  </tr>
+</table>
+         
+<p><a name="13H"><font color="#FF00FF">(19)、功能13H</font></a> 
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">在Teletype模式下显示字符串</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝13H<br>
+      BH＝页码<br>
+      BL＝属性(若AL=00H或01H)<br>
+      CX＝显示字符串长度<br>
+      (DH、DL)＝坐标(行、列)<br>
+      ES:BP＝显示字符串的地址
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="8%" align="right">AL＝</td>
+          <td width="92%">显示输出方式</td>
+        </tr>
+        <tr>
+          <td width="8%" align="right"></td>
+          <td width="92%">0——字符串中只含显示字符，其显示属性在BL中。显示后，光标位置不变</td>
+        </tr>
+        <tr>
+          <td width="8%" align="right"></td>
+          <td width="92%">1——字符串中只含显示字符，其显示属性在BL中。显示后，光标位置改变</td>
+        </tr>
+        <tr>
+          <td width="8%" align="right"></td>
+          <td width="92%">2——字符串中含显示字符和显示属性。显示后，光标位置不变</td>
+        </tr>
+        <tr>
+          <td width="8%" align="right"></td>
+          <td width="92%">3——字符串中含显示字符和显示属性。显示后，光标位置改变</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+         
+<p><a name="1AH"><font color="#FF00FF">(20)、功能1AH</font></a>
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">读取/设置显示组合编码，仅PS/2有效，在此从略</td>   
+  </tr>
+</table>
+         
+<p><a name="1BH"><font color="#FF00FF">(21)、功能1BH</font>
+</a>
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">读取功能/状态信息，仅PS/2有效，在此从略</td>   
+  </tr>
+</table>
+         
+<p><a name="1CH"><font color="#FF00FF">(22)、功能1CH</font>
+</a>
+</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">保存/恢复显示器状态，仅PS/2有效，在此从略</td>   
+  </tr>
+</table>
+         
+</body>        
+        
+</html>        

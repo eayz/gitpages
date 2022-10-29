@@ -1,0 +1,201 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.1 字符功能调用类的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能01H、07H和08H</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="15%" valign="top">功能描述：</td>
+    <td width="80%">从标准输入设备(如：键盘)读入一个字符。该中断在处理过程中将一直处于等待状态直到有字符可读为止。该输入还可被重定向，如果这样做，则无法判断文件是否已到文件尾</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="80%" valign="top">AH＝01H，过滤掉控制字符，并回显<br>
+      　＝07H，不过滤掉控制字符，不回显<br>
+      　＝08H，过滤掉控制字符，不回显</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">出口参数：</td>
+    <td width="80%">AL＝输入字符的ASCII码</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="02H">(2)、功能</a></font><a name="02H"><font color="#FF00FF">02H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="15%" valign="top">功能描述：</td>
+    <td width="80%">向标准输出设备(如：屏幕)输出一个字符。该输出还可被重定向，如果这样做，则将无法判断磁盘是否满</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="80%" valign="top">AH＝02H<br>
+      DL＝待输出字符的ASCII码</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">出口参数：</td>
+    <td width="80%">无</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="03H">(3)、功能</a></font><a name="03H"><font color="#FF00FF">03H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="15%">功能描述：</td>
+    <td width="80%">从辅助设备读入一个字符，该辅助设备的缺省值为COM1</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="80%" valign="top">AH＝03H</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">出口参数：</td>
+    <td width="80%">AL＝读入字符的ASCII码</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="04H">(4)、功能</a></font><a name="04H"><font color="#FF00FF">04H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="15%">功能描述：</td>
+    <td width="80%">向辅助设备输出一个字符，该辅助设备的缺省值为COM1</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="80%" valign="top">AH＝04H<br>
+      DL＝待输出字符的ASCII码</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">出口参数：</td>
+    <td width="80%">无</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="05H">(5)、功能</a></font><a name="05H"><font color="#FF00FF">05H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="15%" valign="top">功能描述：</td>
+    <td width="80%">向标准的输出设备输出一个字符。该缺省的输出设备为LPT1端口的打印机，除非用MODE命令来改变</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="80%" valign="top">AH＝05H<br>
+      DL＝待输出字符的ASCII码</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">出口参数：</td>
+    <td width="80%">无</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="06H">(6)、功能</a></font><a name="06H"><font color="#FF00FF">06H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="15%" valign="top">功能描述：</td>
+    <td width="80%">控制台(如：键盘、屏幕)输入/输出。如果输入/输出操作被重定向，那么，将无法判断文件是否已到文件尾，或磁盘已满</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="80%" valign="top">AH＝06H，DL＝输入/输出功能选择</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">出口参数：</td>
+    <td width="80%">若DL＝00H-FEH，则此功能为输出，DL为待输出字符的ASCII码；<br>
+      若DL＝0FFH，则此功能为输入，此时：若ZF＝1，则无字符可读，否则，AL＝读入字符的ASCII码</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="09H">(7)、功能</a></font><a name="09H"><font color="#FF00FF">09H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="15%" valign="top">功能描述：</td>
+    <td width="80%">输出一个字符串到标准输出设备上。如果输出操作被重定向，那么，将无法判断磁盘已满</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="80%" valign="top">AH＝09H<br>
+      DS:DX＝待输出字符的地址<br>
+      说明：待显示的字符串以’$’作为其结束标志</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">出口参数：</td>
+    <td width="80%">无</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="0AH">(8)、功能</a></font><a name="0AH"><font color="#FF00FF">0AH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="15%" valign="top">功能描述：</td>
+    <td width="80%">从标准输入设备上读入一个字节字符串，遇到“回车键”结束输入(输入的字符在标准的输出设备上有回显)。如果该输入操作被重定向，那么，将无法判断文件是否已到文件尾</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="80%" valign="top">AH＝0AH<br>
+      DS:DX＝存放输入字符的起始地址<br>
+      接受输入字符串缓冲区的定义说明：<br>
+      　　1、第一个字节为缓冲区的最大容量，可认为是入口参数；<br>
+      　　2、第二个字节为实际输入的字符数(不包括回车键)，可看作出口参数；<br>
+      　　3、从第三个字节开始存放实际输入的字符串；<br>
+      　　4、字符串以回车键结束，回车符是接受的最后一个字符；<br>
+      　　5、若输入的字符数超过缓冲区的最大容量，则多出的部分被丢弃，系统并发出响铃，直到输入“回车”键才结束输入。
+      <p>例如：<br>
+      　　BUFF　80, ?, 80 DUP(?)　　　;最多接受80个字符</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">出口参数：</td>
+    <td width="80%">无</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="0BH">(9)、功能</a></font><a name="0BH"><font color="#FF00FF">0BH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="15%">功能描述：</td>
+    <td width="80%">检查标准输入设备上是否有字符可读。该输入操作可被重定向</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="80%" valign="top">AH＝0BH</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">出口参数：</td>
+    <td width="80%">AL＝00H——无字符可读；FFH——有字符可读</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="0CH">(10)、功能</a></font><a name="0CH"><font color="#FF00FF">0CH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="15%" valign="top">功能描述：</td>
+    <td width="80%" valign="top">清空当前的标准输入缓冲区，再读入字符。其输入操作可被重定向</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="80%" valign="top">AH＝0CH<br>
+      AL＝01H、06H、07H、08H或0AH</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">出口参数：</td>
+    <td width="80%">若入口参数AL为0AH，则DS:DX＝存放输入字符的起始地址，否则，出口参数AL＝输入字符的ASCII码</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

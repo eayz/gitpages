@@ -1,0 +1,258 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>9.6 宏的扩展——系统定义的宏</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter09.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle09.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="09-6.HTM"> 宏的扩充</a>                                     
+ → <span style="font-family: 宋体">系统定义的宏</span></td>                                           
+    <td width="50%">             
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<h3>9.6.8 系统定义的宏</h3>                   
+<p style="text-indent: 21.25pt">MASM                         
+6.11系统定义了大量的标准宏，程序员能很方便地使用它们。在使用这些系统宏之前，要象C语言那样用伪指令INCLUDE把有关“宏库”文件包含在用户的源程序中。主要的系统宏库文件有：<font color="#FF0000">DOS.INC</font>和<font color="#FF0000">BIOS.INC</font>，它们存放在系统的include子目录中。</p>
+<p>
+例9.18：使用系统宏定义，编写从键盘上读取一个字符。</p>
+<p>
+解：</p>
+<p style="margin-left: 50pt">
+include dos.inc　　　　 ;把系统宏定义文件包含在源程序之中<br>                    
+……<br>
+@getchar 1, 1　　　　　;引用系统宏定义<br>
+……</p>   
+<p style="text-indent: 21.25pt">下面是系统宏@getchar的使用参数描述和定义，其它系统宏的有关信息请参阅相关的宏定义文件。</p>
+<p style="text-indent: 21.25pt">
+1、系统宏@GetChar的使用说明</p>
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="6%" valign="top" rowspan="8"></td>
+    <td width="10%">宏的功能：</td>
+    <td width="86%" colspan="2">从键盘读字符</td>
+  </tr>
+  <tr>
+    <td width="10%">
+使用语法：</td>
+    <td width="86%" colspan="2">@GetChar &nbsp;[echo] [，[break] [，clearbuf]]</td>                     
+  </tr>
+  <tr>
+    <td width="10%" rowspan="3" valign="top">
+参数说明：</td>
+    <td width="17%">&lt;echo&gt;</td>
+    <td width="69%">;常量，非零表示“回显”，缺省值为“回显”</td>
+  </tr>
+  <tr>
+    <td width="17%">
+&lt;break&gt;</td>
+    <td width="69%">;常量，非零表示接受“^C”，缺省值为“接受”</td>
+  </tr>
+  <tr>
+    <td width="17%">
+&lt;clearbuf&gt;</td>
+    <td width="69%">;常量，非零表示清键盘缓冲区，缺省值为“不清”</td>
+  </tr>
+  <tr>
+    <td width="10%">
+返回参数：</td>
+    <td width="86%" colspan="2">AL＝ASCII码</td>
+  </tr>
+  <tr>
+    <td width="10%">
+内容破坏：</td>
+    <td width="86%" colspan="2">AX，DL(若回显，且不接受^C)</td>
+  </tr>
+  <tr>
+    <td width="10%">
+参见内容：</td>
+    <td width="86%" colspan="2">INT 21h — 01h、07h、08h和0Ch，@GetStr</td>                     
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">
+2、系统宏@GetChar的定义</p>
+<p style="text-indent: 21.25pt">该宏定义在宏库文件dos.inc中，其具体宏定义如下：</p>
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="16%" rowspan="24" valign="top">
+      <p style="text-indent: 35pt">
+@GetChar</td>
+    <td width="77%"> MACRO　ech:=&lt;1&gt;, cc:=&lt;1&gt;, clear:=&lt;0&gt;</td>                     
+  </tr>
+  <tr>
+    <td width="77%">
+LOCAL　funct, disp</td>                     
+  </tr>
+  <tr>
+    <td width="77%">
+disp = 1</td> 
+  </tr>
+  <tr>
+    <td width="77%">
+IF ech</td> 
+  </tr>
+  <tr>
+    <td width="77%">
+      <p style="text-indent: 14pt">
+IF cc</td> 
+  </tr>
+  <tr>
+    <td width="77%">
+      <p style="margin-left: 25pt">
+funct = 01h　　　　;使用功能1</td>
+  </tr>
+  <tr>
+    <td width="77%">
+      <p style="text-indent: 14pt">
+ELSE</td>
+  </tr>
+  <tr>
+    <td width="77%"><p style="margin-left: 25pt">
+funct = 07h　　　　;使用功能7<br>
+disp = 02h　　　　 ;设置需要回显标志</p>                       
+    </td>
+  </tr>
+  <tr>
+    <td width="77%">
+      <p style="text-indent: 14pt">
+ENDIF</td>
+  </tr>
+  <tr>
+    <td width="77%">
+ELSE</td>
+  </tr>
+  <tr>
+    <td width="77%">
+      <p style="text-indent: 14pt">
+IF cc</td> 
+  </tr>
+  <tr>
+    <td width="77%">
+      <p style="margin-left: 25pt">
+funct = 08h　　　　;使用功能8</td>
+  </tr>
+  <tr>
+    <td width="77%">
+      <p style="text-indent: 14pt">
+ELSE</td>
+  </tr>
+  <tr>
+    <td width="77%">
+      <p style="margin-left: 25pt">
+funct = 07h　　　　;使用功能7</td>
+  </tr>
+  <tr>
+    <td width="77%">
+      <p style="text-indent: 14pt">
+ENDIF</td>
+  </tr>
+  <tr>
+    <td width="77%">
+ENDIF</td>
+  </tr>
+  <tr>
+    <td width="77%">
+IFE clear</td> 
+  </tr>
+  <tr>
+    <td width="77%">
+      <p style="margin-left: 25pt">
+mov　ah, funct　　　;置功能号</td>
+  </tr>
+  <tr>
+    <td width="77%">
+ELSE</td>
+  </tr>
+  <tr>
+    <td width="77%"><p style="margin-left: 25pt">
+mov　ah, 0Ch　　　　;先清输入缓冲区，再接受键盘输入<br>
+mov　al, funct</p>                        
+    </td>
+  </tr>
+  <tr>
+    <td width="77%">
+ENDIF<br>
+Int　21h　　　　　　　　　;调用DOS功能中断</td>
+  </tr>
+  <tr>
+    <td width="77%">
+IF disp EQ 02h　　　　　;检查是否需要回显</td>
+  </tr>
+  <tr>
+    <td width="77%"><p style="margin-left: 20pt">
+mov　dl, al<br>                     
+mov　ah, 02h<br>                     
+int　21h</p>   
+    </td>
+  </tr>
+  <tr>
+    <td width="77%">
+ENDIF<br>
+      ENDM</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">对于上面的宏定义，程序员完全可以把它修改成其它形式的宏定义。</p>
+                
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=9&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="09-6-6.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="09-Exercise.HTM"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+      
+</body>      
+      
+</html>

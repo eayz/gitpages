@@ -1,0 +1,155 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>4.4.3 记录类型的定义</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter04.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle04.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="04-4.htm"> 复合变量的定义</a>  → 记录类型的定义</td>                                      
+    <td width="50%">          
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+    
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、记录变量的定义</font></p>    
+<p style="text-indent: 21.25pt">在程序中，必须先说明记录类型，然后才能定义该记录类型的变量。记录变量是把其二进制位分成一个或多个字段的字节或字变量。其定义格式与其它类型变量的定义方式类似，具体如下：</p>    
+<p style="margin-left: 40pt">[变量名]　                                 
+记录名　&lt;[字段值表]&gt;</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+  <tr>
+    <td width="10%" rowspan="3" valign="top">
+      <p style="text-indent: 21.25pt">解释：</td>
+    <td width="90%">1、变量名即为该记录类型的变量名，它可省缺。如果省缺，则不能用符号名来访问该内存单元；</td>
+  </tr>
+  <tr>
+    <td width="90%">
+      <p style="text-indent: -17pt; margin-left: 17pt">2、字段值表是给字段赋初值，中间用逗号','分开，其字段值的排列顺序及大小应与该记录说明时各字段相一致；</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="90%">
+      <p style="text-indent: -17pt; margin-left: 17pt">3、如果记录变量的某字段用其说明时的缺省值，那么，可用逗号来表示；如果所有字段都如此，则可省去字段值表，但必须保留一对尖括号"<"、">"。</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">例如：</p>
+<table border="0" width="100%" cellspacing="1">
+  <tr>
+    <td width="10%" rowspan="2" valign="top"></td>
+    <td width="8%">COLOR1</td>
+    <td width="82%">COLOR　&lt;&gt;, &lt;1, 7, 0, 5&gt;, &lt;1, , 0, 7&gt;</td>                       
+  </tr>
+  <tr>
+    <td width="8%">          
+FLOAT1</td>
+    <td width="82%">FLOAT　&lt;1,                                  
+23H, 0, 3&gt;, &lt;0, 89H, 1, 5&gt;</td>                       
+  </tr>
+</table>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">3、记录的专用操作符</font></p>     
+<p style="text-indent: 21.25pt">操作符<font color="#FF0000">WIDTH</font>和<font color="#FF0000">MASK</font>是作用于记录类型的两个专用保留字，利用它们可得到记录类型的不同属性。</p>     
+<ul type="square">     
+  <li>     
+    <p style="text-indent: 21.25pt"><a name="WIDTH">操作符<font color="#FF0000">WIDTH</font></a></li>     
+</ul>     
+<p style="margin-left: 50pt">操作符<font color="#FF0000">WIDTH</font>返回记录或其字段的二进制位数，即其宽度。其一般书写格式如下：</p>     
+<p style="margin-left: 70pt">WIDTH 记录名　或　WIDTH 记录字段名</p>     
+<p style="margin-left: 50pt">假设有前面定义的记录类型COLOR，那么，WIDTH           
+COLOR的值为8，WIDTH BACK的值为3，WIDTH           
+BLINK的值为1。</p>
+<ul type="square">
+  <li>
+    <p style="text-indent: 21.25pt"><a name="MASK">操作符<font color="#FF0000">MASK</font></a></li>
+</ul>
+<p style="margin-left: 50pt">操作符<font color="#FF0000">MASK</font>返回一个8位或16位二进制数。在该二进制数中，被指定记录或字段使用的对应位的值为1，否则，其值为0。其一般书写格式如下：</p>
+<p style="margin-left: 70pt">MASK　记录名　或　MASK　记录字段名</p>
+<p style="margin-left: 50pt">假设有前面定义的记录类型<font color="#FF0000">FLOAT</font>，那么，<font color="#FF0000">MASK</font>    
+EXP的值为000FH，<font color="#FF0000">MASK</font>          
+DATA的值为1FE0H，<font color="#FF0000">WIDTH</font>          
+DSIGN的值为2000H。</p>      
+<ul type="square">
+  <li>
+    <p style="text-indent: 21.25pt">记录字段</li>
+</ul>
+<p style="margin-left: 50pt">记录字段名是一个特殊的操作符，它本身也是操作数，其返回值是该字段移到所在记录的最低位所需要的位数，即该字段最低位在记录中的位置。</p>
+<p style="margin-left: 50pt">假设有前面定义的记录类型<font color="#FF0000">FLOAT</font>，那么，有：</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="12%"></td>
+    <td width="24%">MOV　CL, EXP</td>   
+    <td width="16%">     
+相当于</td>
+    <td width="48%">MOV             
+CL, 0</td>    
+  </tr>
+  <tr>
+    <td width="12%"></td>
+    <td width="24%">   
+MOV　CL, DATA</td>   
+    <td width="16%">相当于</td>
+    <td width="48%">MOV               
+CL, 5</td>    
+  </tr>
+</table>
+                
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=4&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="04-4-4.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="04-56.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                       
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2>                               
+    <option selected value="#">课件章节</option>       
+    <option value="course.htm">课件目录</option>       
+    <option value="01-1.htm">第1章 预备知识</option>             
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>             
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>             
+    <option value="04-1.htm">第4章 标识符和表达式</option>             
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>             
+    <option value="06-1.htm">第6章 程序的基本结构</option>             
+    <option value="07-1.htm">第7章 子程序和库</option>             
+    <option value="08-1.htm">第8章 输入输出和中断</option>             
+    <option value="09-1.htm">第9章 宏</option>             
+    <option value="10-1.htm">第10章 应用程序的设计</option>             
+    <option value="11-1.htm">第11章 数值运算协处理器</option>       
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>       
+  </select></p>          
+               
+</body>               
+               
+</html>               

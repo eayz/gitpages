@@ -1,0 +1,162 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录2.4 逻辑运算指令</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body background="image/background.gif">
+
+<h2>4、逻辑运算指令</h2>
+         
+<h3>4.1、逻辑与操作指令</h3>
+         
+<div align="center">
+  <center>
+         
+  <table border="1" width="90%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="226"><p style="MARGIN-LEFT: 4pt">指令的语法</p></td>
+      <td width="305"><p style="MARGIN-LEFT: 4pt">举例</p></td>
+      <td width="139"><p style="MARGIN-LEFT: 4pt">周期数</p></td>
+    </tr>
+    <tr>
+    <td><p style="MARGIN-LEFT: 4pt">AND reg,reg</p></td>        
+    <td><p style="MARGIN-LEFT: 4pt">and dx,bx</p></td>    
+    <td><p style="MARGIN-LEFT: 4pt">1</p></td> 
+    </tr> 
+  <tr> 
+    <td width="229"><p style="MARGIN-LEFT: 4pt">AND mem,reg</p></td>    
+    <td width="311"><p style="MARGIN-LEFT: 4pt">and bitmask,bx</p></td>    
+    <td width="141"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="229"><p style="MARGIN-LEFT: 4pt">AND reg,mem</p></td>    
+    <td width="311"><p style="MARGIN-LEFT: 4pt">and bx,masker</p></td>    
+    <td width="141"><p style="MARGIN-LEFT: 4pt">2</p></td> 
+  </tr> 
+  <tr> 
+    <td width="229"><p style="MARGIN-LEFT: 4pt">AND reg,immed</p></td>    
+    <td width="311"><p style="MARGIN-LEFT: 4pt">and dx,0F7h</p></td>    
+    <td width="141"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+  <tr> 
+    <td width="229"><p style="MARGIN-LEFT: 4pt">AND mem,immed</p></td>    
+    <td width="311"><p style="MARGIN-LEFT: 4pt">and masker,100lb</p></td>    
+    <td width="141"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="229"><p style="MARGIN-LEFT: 4pt">AND accum,immed</p></td>    
+    <td width="311"><p style="MARGIN-LEFT: 4pt">and ax,0B6h</p></td>    
+    <td width="141"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+</table> 
+  </center> 
+</div> 
+<h3>4.2、逻辑与操作指令</h3> 
+          
+<div align="center"> 
+  <center> 
+          
+<table border="1" width="90%" cellspacing="0" cellpadding="0">
+  
+  <TR> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">OR reg,reg</p></td>       
+    <td width="306"><p style="MARGIN-LEFT: 4pt">or ax,dx</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">OR mem,reg</p></td>   
+    <td width="306"><p style="MARGIN-LEFT: 4pt">or bits,dx</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">OR reg,mem</p></td>   
+    <td width="306"><p style="MARGIN-LEFT: 4pt">or dx,color[di]</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">2</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">OR reg,immed</p></td>   
+    <td width="306"><p style="MARGIN-LEFT: 4pt">or dx,110110b</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">OR mem,immed</p></td>   
+    <td width="306"><p style="MARGIN-LEFT: 4pt">or flag_rec,8</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">OR accum,immed</p></td>   
+    <td width="306"><p style="MARGIN-LEFT: 4pt">or ax,40h</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+</table> 
+  </center> 
+</div> 
+<h3>4.3、逻辑与操作指令</h3> 
+          
+<div align="center"> 
+  <center> 
+          
+<table border="1" width="90%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">NOT reg</p></td>       
+    <td width="306"><p style="MARGIN-LEFT: 4pt">not ax</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">NOT mem</p></td>   
+    <td width="306"><p style="MARGIN-LEFT: 4pt">not masker</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+</table> 
+  </center> 
+</div> 
+<h3>4.4、逻辑异或操作指令</h3> 
+          
+<div align="center"> 
+          
+<table border="1" width="90%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">XOR reg,reg</p></td>      
+    <td width="306"><p style="MARGIN-LEFT: 4pt">xor cx,bx</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">XOR reg,mem</p></td>   
+    <td width="306"><p style="MARGIN-LEFT: 4pt">xor cx,flags</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">2</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">XOR mem,reg</p></td>   
+    <td width="306"><p style="MARGIN-LEFT: 4pt">xor [bp+10],cx</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">XOR reg,immed</p></td>   
+    <td width="306"><p style="MARGIN-LEFT: 4pt">xor bl,1</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">XOR mem,immed</p></td>   
+    <td width="306"><p style="MARGIN-LEFT: 4pt">xor switches[bx],101b</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">3</p></td> 
+  </tr> 
+  <tr> 
+    <td width="226"><p style="MARGIN-LEFT: 4pt">XOR accum,immed</p></td>   
+    <td width="306"><p style="MARGIN-LEFT: 4pt">xor ax,01010101b</p></td>   
+    <td width="138"><p style="MARGIN-LEFT: 4pt">1</p></td> 
+  </tr> 
+</table> 
+ 
+</div> 
+ 
+<p align="center"><A href="App2-03.htm"><IMG language=javascript id=PrevPage onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" height=28 src ="../Button/prevpage1.gif" width=96 border=0></A>　　　<A href="App2-05.htm"><IMG language=javascript id=NextPage onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" height=28 src ="../Button/NextPage1.gif" width=96 border=0></A></p>
+         
+</body>        
+        
+</html>        

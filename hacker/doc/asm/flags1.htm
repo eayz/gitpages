@@ -1,0 +1,120 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>16/32位标志位</title>
+<link rel=stylesheet href="Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="3" background="TextBookIMG/bk-FLAGS.gif">
+
+<p><font size="3" color="#FF00FF">16位标志寄存器</font><font size="3">——</font>共用了<font color="#FF0000">9</font>个标志位，它们主要用来反映<font color="#FF0000">CPU</font>的状态和运算结果的特征。标志位的分布如下表所示。</p>
+    
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="40%"></td>
+    <td width="60%">
+      <table border="0" width="496" cellspacing="0">
+        <tr>
+      <td width="30" align="center">15</td>  
+      <td width="30" align="center">14</td>  
+      <td width="30" align="center">13</td>  
+      <td width="30" align="center">12</td>  
+      <td width="30" align="center">11</td>  
+      <td width="30" align="center">10</td>  
+      <td width="30" align="center">9</td>  
+      <td width="30" align="center">8</td>  
+      <td width="30" align="center">7</td>  
+      <td width="30" align="center">6</td>  
+      <td width="30" align="center">5</td>  
+      <td width="30" align="center">4</td>  
+      <td width="30" align="center">3</td>  
+      <td width="30" align="center">2</td>  
+      <td width="30" align="center">1</td>  
+      <td width="30" align="center">0</td>  
+        </tr>
+      </table>
+      <div align="right">
+      <table border="1" width="496" cellspacing="0" cellpadding="0">
+        <tr>
+      <td width="30" align="center"> &nbsp; </td>  
+      <td width="30" align="center"> &nbsp; </td>  
+      <td width="30" align="center"> &nbsp; </td>  
+      <td width="30" align="center"> &nbsp; </td>  
+      <td width="30" align="center"><a href="flags2.htm#OF" target="bottom">OF</a></td>  
+      <td width="30" align="center"><a href="flags2.htm#DF" target="bottom">DF</a></td>  
+      <td width="30" align="center"><a href="flags2.htm#IF" target="bottom">IF</a></td>  
+      <td width="30" align="center"><a href="flags2.htm#TF" target="bottom">TF</a></td>  
+      <td width="30" align="center"><a href="flags2.htm#SF" target="bottom">SF</a></td>  
+      <td width="30" align="center"><a href="flags2.htm#ZF" target="bottom">ZF</a></td>  
+      <td width="30" align="center"> &nbsp; </td>  
+      <td width="30" align="center"><a href="flags2.htm#AF" target="bottom">AF</a></td>  
+      <td width="30" align="center"> &nbsp; </td>  
+      <td width="30" align="center"><a href="flags2.htm#PF" target="bottom">PF</a></td>  
+      <td width="30" align="center"> &nbsp; </td>  
+      <td width="30" align="center"><a href="flags2.htm" target="bottom">CF</a></td>  
+        </tr>
+      </table>
+      </div>
+    </td>
+  </tr>
+</table>
+<p style="text-indent: -117pt; margin-left: 117pt"><font size="3" color="#FF00FF">32位标志寄存器</font><font size="3">——</font><font color="#FF0000">32</font>位<font color="#FF0000">CPU</font>也把标志寄存器扩展到<font color="#FF0000">32</font>位，记为<font color="#FF0000">EFLAGS</font>。它新增加了四个控制标志位，它们是：<font color="#FF0000">IOPL</font>、<font color="#FF0000">NT</font>、<font color="#FF0000">RF</font>和<font color="#FF0000">VM</font>，这些标志位在实方式下不起作用。其它标志位的位置和作用与先前的完全相同。<br>
+其主要标志位的分布如下表所示。</p>    
+<table border="0" width="100%" cellspacing="0">
+  <tr>
+      <td width="30" align="center">31</td>     
+      <td width="185" align="center">…</td>     
+      <td width="30" align="center">17</td>     
+      <td width="30" align="center">16</td>     
+      <td width="30" align="center">15</td>     
+      <td width="30" align="center">14</td>     
+      <td width="30" align="center">13</td>     
+      <td width="30" align="center">12</td>     
+      <td width="30" align="center">11</td>     
+      <td width="30" align="center">10</td>     
+      <td width="30" align="center">9</td>     
+      <td width="30" align="center">8</td>     
+      <td width="30" align="center">7</td>     
+      <td width="30" align="center">6</td>     
+      <td width="30" align="center">5</td>     
+      <td width="30" align="center">4</td>     
+      <td width="30" align="center">3</td>     
+      <td width="30" align="center">2</td>     
+      <td width="30" align="center">1</td>     
+      <td width="30" align="center">0</td>     
+  </tr>
+</table>
+<div align="right">   
+  <table border="1" width="100%" cellspacing="0" cellpadding="0">     
+    <tr>     
+      <td width="30" align="center" valign="middle">…</td>     
+      <td width="185" align="center" valign="middle">…</td>     
+      <td width="30" align="center" valign="middle"><a href="flags2.htm#VM" target="bottom">VM</a></td>    
+      <td width="30" align="center" valign="middle"><a href="flags2.htm#RF" target="bottom">RF</a></td>    
+      <td width="30" align="center" valign="middle">&nbsp;</td>    
+      <td width="30" align="center" valign="middle"><a href="flags2.htm#NT" target="bottom">NT</a></td>    
+      <td width="60" align="center" valign="middle"><a href="flags2.htm#IOPL" target="bottom">IOPL</a></td>    
+      <td width="30" align="center" valign="middle"><a href="flags2.htm#OF" target="bottom">OF</a></td>    
+      <td width="30" align="center" valign="middle"><a href="flags2.htm#DF" target="bottom">DF</a></td>    
+      <td width="30" align="center" valign="middle"><a href="flags2.htm#IF" target="bottom">IF</a></td>    
+      <td width="30" align="center" valign="middle"><a href="flags2.htm#TF" target="bottom">TF</a></td>    
+      <td width="30" align="center" valign="middle"><a href="flags2.htm#SF" target="bottom">SF</a></td>    
+      <td width="30" align="center" valign="middle"><a href="flags2.htm#ZF" target="bottom">ZF</a></td>    
+      <td width="30" align="center" valign="middle"> &nbsp; </td>    
+      <td width="30" align="center" valign="middle"><a href="flags2.htm#AF" target="bottom">AF</a></td>    
+      <td width="30" align="center" valign="middle"> &nbsp; </td>    
+      <td width="30" align="center" valign="middle"><a href="flags2.htm#PF" target="bottom">PF</a></td>    
+      <td width="30" align="center" valign="middle"> &nbsp; </td>    
+      <td width="30" align="center" valign="middle"><a href="flags2.htm" target="bottom">CF</a></td>    
+    </tr>    
+  </table>    
+</div>  
+<p align="center"><a href="javascript:history.back();">返回...</a></p>
+      
+</body>   
+   
+</html>   

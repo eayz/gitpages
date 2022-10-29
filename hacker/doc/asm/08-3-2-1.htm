@@ -1,0 +1,124 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>8.3.2 屏幕中断功能</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter08.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle08.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" ><img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="08-3.htm"> 中断功能的分类</a> → 屏幕显示的中断功能</td>                                  
+    <td width="50%">         
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+     
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2)、图形显示方式</font></p>
+<p style="text-indent: 21.25pt">
+图形显示是目前最常用的一种显示方式，也是Windows操作系统的默认显示方式。在该显示方式下，我们可以看到优美的图象、VCD、浏览丰富多彩的网页等。</p>
+<p style="text-indent: 21.25pt">
+图形显示的最小单位是象素，对每个象素可用不同的颜色来显示。所以，在显示缓冲区内记录的信息是屏幕各象素的显示颜色。</p>
+<p style="text-indent: 21.25pt">
+由于各种图形显示模式所能显示的颜色和象素是不同的，它决定了显示缓冲区的存储方式也是不同的。下面给出三个具体的图形显示模式及其存储方式，通过它们可看出各种显示模式在显示缓冲区存储方式上的明显差异。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">(1)、4色320×200图形显示模式</font></p>
+<p style="text-indent: 21.25pt">
+由于每个象素只能是四种颜色之一，而四种情况用2位二进制就可表示，所以，一个字节可表示4个象素的显示颜色，存储一行上的所有象素信息就需要80个字节。</p>
+<p style="text-indent: 21.25pt">
+在具体存储过程中，它又把偶数行象素和齐数行分开来存储。偶数行和齐数行的象素总数各有32000个，也都需要8000个字节来存储，并规定：偶数行象素从0B800:0000H开始存储，齐数行象素从0B800:2000H开始存储。该显示模式的存储形式如图8.8所示。</p>
+<p align="center">
+<img border="0" src="TextBookIMG/08-8.gif" width="476"></p>
+<p align="center">
+图8.8 显示缓冲区存储方式示意图</p>                       
+<p style="text-indent: 21.25pt"><font color="#FF00FF">(2)、16色640×480图形显示模式</font></p>
+<p style="text-indent: 21.25pt">
+640×480图形显示模式共有307200个象素，每个象素可选用16种颜色，它需要用4位二进制来表示。该显示模式在存储显示信息时，把该4位分在四个位平面P1、P2、P3和P4上，所以，位平面Pi(i=1,2,3,4)共有307200个二进制位，即有38400个字节。其显示缓冲区的存储形式如图8.9所示。</p>
+<p align="center">
+<img border="0" src="TextBookIMG/08-9.gif" width="330"></p>
+<p align="center">
+图8.9 显示缓冲区存储方式示意图</p>                       
+<p style="text-indent: 21.25pt">
+由图8.9可看出：若要改变某个象素的显示颜色，则需要在每个位平面上修改其对应的二进制位。所以，若用操作显示缓冲区的方法来改变象素的颜色，那么编程将困难得多。在屏幕上显示一个点，必须遵循以下步骤：</p>
+<p style="margin-left: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">读入要改变的内存单元，把位平面信息装入显示卡；<br>
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">通过图形地址寄存器(GAR)和位屏蔽寄存器(BMR)选择并寻址到其二进制位；<br>
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">寻址并设定映像屏蔽寄存器(MMR)为0FH，在对应象素地址填入0(黑色)来清除象素的原有颜色；<br>
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">通过MMR设定该象素当前所要颜色；<br>
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">通过修改包含显示信息的内存单元来写象素。</p>  
+<p style="text-indent: 21.25pt">
+对于该显示模式下，改变象素方法的详细描述和例子，请参阅参考书籍[2]、[4]，或其它有关技术资料，在此不再进一步展开叙述。</p>
+<p style="text-indent: 21.25pt">
+若用BIOS中断10H之功能0DH/0CH来读/写象素，则它可屏蔽掉各种显示模式的差异，用同样的参数完成同样的功能。所以，在此建议：使用系统中断的方法来实现对图形象素的操作。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">(3)、256色320×200图形显示模式</font></p>
+<table border="0" width="100%" cellpadding="0">
+  <tr>
+    <td width="63%" valign="top">
+<p style="text-indent: 21.25pt">
+表达256种不同颜色需要8位二进制，即一个字节。在该模式下，其显示缓冲区的存储方式是非常简单的，即：第一个字节存储第一个象素的颜色，第二个字节存储第二个象素的颜色，以此类推，所以，存储满屏象素所需要的字节数为：320×200×1＝64000。其显示缓冲区的存储方式如图8.10所示。</p>
+<p style="text-indent: 21.25pt">
+从上面三种不同图形显示模式的介绍，不难看出：各种显示模式在显示缓冲区存储方式上的明显差异，操作象素方法的难易程度相差也很大，所以，再次建议：程序员不要用直接操作显示缓冲区的办法来达到改变显示象素的目的，最好是通过BIOS内的中断功能来实现相应的功能，这样，所编写的程序能很方便地适应不同的图形显示模式。</p>
+    </td>
+    <td width="37%">
+      <p align="center"><img border="0" src="TextBookIMG/08-10.gif" width="230"></p>
+<p align="center">
+图8.10 显示缓冲区存储方式示意图</p>                       
+    </td>
+  </tr>
+</table>
+        
+<p style="text-indent: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=8&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="08-3-2.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="08-3-2-3.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+       
+</body>       
+       
+</html>

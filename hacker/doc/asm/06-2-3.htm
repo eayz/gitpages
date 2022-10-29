@@ -1,0 +1,252 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>6.2.3 循环结构</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter06.js"></script>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+
+function REPEAT_onmouseover() {
+	REPEAT.src = "textbookIMG\\06-3A-d.gif";
+}
+
+function REPEAT_onmouseout() {
+	REPEAT.src = "textbookIMG\\06-3A.gif";
+}
+
+function WHILE_onmouseover() {
+	WHILE.src = "textbookIMG\\06-3B-d.gif";
+}
+
+function WHILE_onmouseout() {
+	WHILE.src = "textbookIMG\\06-3B.gif";
+}
+
+//-->
+</SCRIPT>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle06.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="06-2-1.htm">程序的基本结构</a>  → 循环结构</td>                                                               
+    <td width="50%">                   
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h3>6.2.3 循环结构</h3>                                                       
+<p style="text-indent: 21.25pt">循环结构是一个重要的程序结构，它具有重复执行某段程序的功能。通常，循环结构包括以下四个组成部分：</p>          
+<p style="margin-left: 30pt">1、循环初始化部分——初始化循环控制变量、循环体所用到变量；<br>          
+2、循环体部分——循环结构的主体；<br>          
+3、循环调整部分——循环控制变量的修改、或循环终止条件的检查；<br>          
+4、循环控制部分——程序执行的控制转移。</p>          
+<p style="text-indent: 21.25pt">以上四部分可以在程序中用各种不同的形式体现出来，有时也并非清析地表达出来。常用的循环结构如图6.3所示。</p>          
+<table border="0" width="100%" cellspacing="0" cellpadding="2">          
+  <tr>          
+    <td width="50%"> 
+      <p align="center"><img border="0" src="TextBookIMG/06-3A.gif" width="192" id=REPEAT LANGUAGE=javascript onmouseover="return REPEAT_onmouseover()" onmouseout="return REPEAT_onmouseout()"></td>          
+    <td width="50%"> 
+      <p align="center"><img border="0" src="TextBookIMG/06-3B.gif" width="205" id=WHILE LANGUAGE=javascript onmouseover="return WHILE_onmouseover()" onmouseout="return WHILE_onmouseout()"></td>          
+  </tr>          
+  <tr>          
+    <td width="50%" align="center">(a)、Do—While结构</td>          
+    <td width="50%" align="center">           
+(b)、While结构</td>          
+  </tr>          
+  <tr>          
+    <td width="100%" colspan="2" align="center">图6.3 常用的循环结构示意图</td>                                                       
+  </tr>           
+</table>           
+<p style="text-indent: 21.25pt"><font color="#FF00FF">一、用循环指令构成循环结构</font></p>          
+<p style="text-indent: 21.25pt">在编写循环结构的程序片段时，我们可以多种方法来循环结构。如：循环次数是已知的，可用<font color="#FF0000">LOOP</font>指令来构造循环；当循环次数是未知或不定的，则可用条件转移或无条件转移来构成循环结构。</p>          
+<p style="text-indent: -36pt; margin-left: 36pt">例6.10 分类统计字数组data中正数、负数和零的个数，并分别存入内存字变量<font color="#FF0000">Positive</font>、<font color="#FF0000">Negative</font>和<font color="#FF0000">Zero</font>中，数组元素个数保存在其第一个字中。</p>                                               
+                 
+<p>解：<a href="example/example06-10.htm" target="_blank">显示解答</a></p>                                              
+                
+<p><a name="例6.10">例6.11</a> 计算数组score的平均整数，并存入内存字变量Average中，数组以-1为结束标志。</p>                                                
+<table border="0" width="100%" cellspacing="0" cellpadding="0">          
+  <tr>          
+    <td width="100%" colspan="5">解：</td>          
+  </tr>          
+  <tr>          
+    <td width="6%" rowspan="27" valign="top"></td>          
+    <td width="9%" rowspan="3" valign="top">DATA1</td>          
+    <td width="99%" colspan="3">SEGMENT</td>          
+  </tr>          
+  <tr>          
+    <td width="8%">data</td>          
+    <td width="77%" colspan="2">DW　90, 95, 54, 65, 36, 78, 66, 0, 99, 50, -1</td>                                                         
+  </tr>             
+  <tr>             
+    <td width="1%">Average</td>           
+    <td width="104%" colspan="2">DW　0</td>
+  </tr>
+  <tr>
+    <td width="9%">DATA1</td>
+    <td width="101%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="9%" rowspan="2" valign="top">CODE1</td>
+    <td width="101%" colspan="3">SEGMENT</td>
+  </tr>
+  <tr>
+    <td width="103%" colspan="3">ASSUME　CS:CODE1, DS:DATA1</td>                                                 
+  </tr>       
+  <tr>       
+    <td width="9%" rowspan="6" valign="top">START:</td>     
+    <td width="1%">MOV</td>     
+    <td width="104%" colspan="2">AX, DATA1</td>        
+  </tr>       
+  <tr>       
+    <td width="1%">MOV</td>     
+    <td width="104%" colspan="2"> DS, AX</td>        
+  </tr>       
+  <tr>       
+    <td width="1%">XOR</td>     
+    <td width="104%" colspan="2"> AX, AX</td>        
+  </tr>      
+  <tr>      
+    <td width="1%">XOR</td>     
+    <td width="23%">DX, DX</td>        
+    <td width="81%"> ;用(<font color="#FF0000">DX，AX</font>)来保存数组元素之和</td>     
+  </tr>     
+  <tr>     
+    <td width="1%">XOR</td>     
+    <td width="23%"> CX, CX</td>        
+    <td width="81%"> ;用<font color="#FF0000">CX</font>来保存数组元素个数</td>     
+  </tr>     
+  <tr>     
+    <td width="1%">LEA</td>     
+    <td width="23%"> SI, data</td>        
+    <td width="81%"> ;用指针<font color="#FF0000">SI</font>来访问整个数组</td>     
+  </tr>     
+  <tr>     
+    <td width="9%" rowspan="8" valign="top">again:</td>     
+    <td width="1%">MOV</td>     
+    <td width="104%" colspan="2">BX, word ptr [SI]</td>        
+  </tr>       
+  <tr>       
+    <td width="1%">CMP</td>     
+    <td width="104%" colspan="2"> BX, 0</td>        
+  </tr>       
+  <tr>       
+    <td width="1%">JL</td>     
+    <td width="104%" colspan="2"> over</td>     
+  </tr>     
+  <tr>     
+    <td width="1%">ADD</td>     
+    <td width="104%" colspan="2"> AX, BX</td>        
+  </tr>      
+  <tr>      
+    <td width="1%">ADC</td>     
+    <td width="23%"> DX, 0</td>        
+    <td width="81%"> ;把当前数组元素之值加到(<font color="#FF0000">DX，AX</font>)中</td>     
+  </tr>     
+  <tr>     
+    <td width="1%">INC</td>     
+    <td width="23%"> CX</td>     
+    <td width="81%"> ;数组元素个数加1</td>     
+  </tr>     
+  <tr>     
+    <td width="1%">ADD</td>     
+    <td width="104%" colspan="2"> SI, 2</td>        
+  </tr>       
+  <tr>       
+    <td width="1%">JMP</td>     
+    <td width="104%" colspan="2"> again</td>     
+  </tr>     
+  <tr>     
+    <td width="9%" rowspan="3" valign="top">over:</td>     
+    <td width="1%">JCXZ</td>     
+    <td width="23%">exit</td>     
+    <td width="81%">;防止零作除数，即数组是空数组</td>     
+  </tr>     
+  <tr>     
+    <td width="1%">DIV</td>     
+    <td width="104%" colspan="2"> CX</td>     
+  </tr>     
+  <tr>     
+    <td width="1%">MOV</td>     
+    <td width="104%" colspan="2"> Average, AX</td>        
+  </tr>       
+  <tr>       
+    <td width="9%" rowspan="2" valign="top">exit:</td>     
+    <td width="1%">MOV</td>     
+    <td width="104%" colspan="2">AX, 4C00H</td>              
+  </tr>             
+  <tr>             
+    <td width="1%">INT</td>           
+    <td width="104%" colspan="2"> 21H</td>           
+  </tr>           
+  <tr>           
+    <td width="9%" rowspan="2" valign="top">CODE1</td>           
+    <td width="103%" colspan="3">ENDS</td>           
+  </tr>           
+  <tr>           
+    <td width="1%">END</td>           
+    <td width="104%" colspan="2"> START</td>           
+  </tr>           
+</table>           
+                  
+<p align="right">                          
+<a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=6&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="06-2-2-2.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96" height="28"></a><a href="06-2-3-1.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>        
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>         

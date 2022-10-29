@@ -1,0 +1,199 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录1 汇编语言的编程和调试工具</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p style="TEXT-INDENT: 21.25pt">学习汇编语言的目的就是要用汇编语言编程来解决实际问题，下面介绍二种常用的汇编语言编程环境：宏汇编<font  color="#ff0000">MASM        
+6.11</font>和<A href="App1-4.htm">Turbo           
+Assember</A>。</p>        
+<h2>1.1、宏汇编MASM系统</h2>   
+<p style="TEXT-INDENT: 21.25pt">在宏汇编<font  color="#ff0000">MASM</font>系统中，程序员可用二种方法来处理源程序：命令行和集成环境。</p>   
+<h3>1.1.1 命令行命令</h3>        
+<p style="TEXT-INDENT: 21.25pt"><font color="#ff00ff">1、编写源程序</font></p>   
+<p style="TEXT-INDENT: 21.25pt">可用计算机系统中各种能编辑文本文件的编辑器来编辑汇编源程序。常用的编辑器有：EDIT、Q、Word、记事本和写字板等。源文件的后缀为：<font color="#ff0000">ASM</font>。</p>   
+<p style="TEXT-INDENT: 21.25pt"><font color="#ff00ff">2、汇编程序</font></p>   
+<p style="TEXT-INDENT: 21.25pt">当源程序编写好后，可用<font color="#ff0000">MASM</font>命令来汇编该源程序。如果源程序没有语法错误，那么，将生成目标文件(<font color="#ff0000">OBJ</font>文件)，为最终生成可执行文件作准备，但如果源程序有错误，汇编程序将显示出错误位置和原因，也可用列表文件(<font color="#ff0000">LST</font>文件)来查看出错位置和原因。</p>  
+<p style="TEXT-INDENT: 21.25pt">下面给出一些使用该命令的实例情况。</p>  
+<p style="text-indent: -30pt; margin-left: 30pt">例1.1 查看<font  color="#ff0000">MASM</font>命令的功能。(其中：用户输入的命令用下划线，系统显示的内容没有下划线。以下与此相同)</p>    
+<p style="margin-left: 20pt">…&gt;<u>masm    
+/?<br> 
+</u>usage: masm/options source(.asm),[out(.obj)],[list(.lst)],[cref(.crf)][;]<br>    
+……</p> 
+  <p style="MARGIN-LEFT: 21.25pt">常用的选项有：<font color="#ff0000">/Zi</font>和<font color="#ff0000">/Zd</font>，因为它们与符号跟踪有关。</p>
+<p>例1.2 用<font  color="#ff0000">MASM</font>命令汇编源程序</p>    
+<p style="margin-left: 20pt">…&gt;masm test<br>            
+Microsoft (R) MASM Compatibility Driver<br>                 
+Copyright (C) Microsoft Corp 1993.&nbsp;                    
+All rights reserved.<br>                 
+Invoking: ML.EXE /I. /Zm /c test.asm<br>                 
+Microsoft (R) Macro Assembler Version                     
+6.11<br>     
+Copyright (C) Microsoft Corp 1981-1993.&nbsp;                    
+All rights reserved.<br>                 
+Assembling:                     
+test.asm</p>        
+<p style="TEXT-INDENT: 21.25pt">如果<font  color="#ff0000">MASM</font>命令显示了类似如上的处理结果，那么，表示源文件TEST.ASM已成功汇编，并已生成了其目标文件TEST.OBJ。</p>   
+<p>例1.3 用<font color="#ff0000">MASM</font>命令汇编源程序</p>      
+<p style="MARGIN-LEFT: 21.25pt">…&gt;<u>masm test</u><br>        
+……<br>     
+Assembling:                     
+test.asm<br>     
+<span style="BACKGROUND-COLOR: #00ffff">test.asm(10): error A2070:        
+invalid         
+instruction operands</span></p>        
+<p style="TEXT-INDENT: 21.25pt">如果<font  color="#ff0000">MASM</font>命令显示了类似如上的处理结果，那么，表示源文件有错，没有生成其目标文件。在本例中，显示第10行有语法错：非法的指令操作数。这时，要用编辑器阅读源程序的第10行，看看输入指令时是否有误。</p>   
+<p style="TEXT-INDENT: 21.25pt">假如源程序有许多错误，很难记住全部出错位置，那么，可用列表文件来辅助查错。</p>   
+<p>例1.4 在汇编源程序的同时，生成其列表文件。</p>     
+<p style="MARGIN-LEFT: 21.25pt">…&gt;<u>masm test,             
+,test</u><br>     
+……<br>    
+Assembling:                     
+test.asm<br>     
+test.asm(10): error A2070: invalid                     
+instruction operands</p>                    
+<p style="TEXT-INDENT: 21.25pt">列表文件TEST.LST是一个文本文件，可用编辑器直接阅读，并可看出其错误的位置和原因。下面是一个列表文件的实例。</p>  
+  <table border="0" width="100%" cellspacing="0" cellpadding="2"> 
+    <tr> 
+      <td width="100%" colspan="4">  
+<p style="TEXT-INDENT: 21.25pt">…&gt;<u>edit test.lst</u></p>            
+      </td>    
+    </tr>    
+    <tr>    
+      <td width="100%" colspan="4">       
+<p style="TEXT-INDENT: 21.25pt">Microsoft               
+(R) Macro Assembler Version 6.11　　　08/26/00 18:42:57</p>                    
+      </td>    
+    </tr>    
+    <tr>    
+      <td width="6%" rowspan="16" valign="top"></td>   
+      <td width="21%" rowspan="3" valign="top">test.asm</td>  
+      <td width="4%"></td>  
+      <td width="69%">      
+Page 1 - 1</td>     
+    </tr>    
+    <tr>    
+      <td width="73%" colspan="2">       
+.model&nbsp; small</td>                
+    </tr>    
+    <tr>    
+      <td width="73%" colspan="2">       
+.486</td>  
+    </tr>  
+    <tr>  
+      <td width="21%" rowspan="2" valign="top">0000</td>  
+      <td width="73%" colspan="2">.data</td>  
+    </tr>  
+    <tr>  
+      <td width="73%" colspan="2">      
+.radix 7</td>    
+    </tr>   
+    <tr>   
+      <td width="21%">0000          
+2A 08 0F</td>     
+      <td width="73%" colspan="2"> w2　db　60,11,18　　　 ;0000是偏移量，2A        
+        08 0F是数据</td>       
+    </tr> 
+    <tr> 
+      <td width="21%">0003                     
+000A 0009</td>                
+      <td width="73%" colspan="2">       
+w1　dw　10T, 1001B　　;0003是偏移量，000A 0009是数据</td>         
+    </tr>   
+    <tr>   
+      <td width="21%" rowspan="3" valign="top">0000</td>  
+      <td width="73%" colspan="2">      
+.code</td>  
+    </tr>  
+    <tr>  
+      <td width="4%" rowspan="2" valign="top"></td>  
+      <td width="69%">      
+.startup</td>  
+    </tr>  
+    <tr>  
+      <td width="69%">      
+mov　dl, 7777h</td>                
+    </tr>    
+    <tr>    
+      <td width="94%" colspan="3">test.asm(10):          
+error A2070: invalid instruction operands</td>     
+    </tr>    
+    <tr>    
+      <td width="25%" colspan="2"></td>    
+      <td width="69%">       
+mov　ax, dx</td>                
+    </tr>    
+    <tr>    
+      <td width="25%" colspan="2">0012&nbsp; 0F A4 C2 01</td>                
+      <td width="69%"> shld　dx, ax, 1</td>                
+    </tr>    
+    <tr>    
+      <td width="25%" colspan="2" rowspan="3" valign="top">0016&nbsp;               
+        D1 D0</td>                
+      <td width="69%" valign="top">       
+rcl　 ax, 1</td>                
+    </tr>    
+    <tr>    
+      <td width="69%">       
+.exit　0</td> 
+    </tr> 
+    <tr> 
+      <td width="69%">    
+end</td>
+    </tr>
+  </table>
+<p style="TEXT-INDENT: 21.25pt">在此后面还有其它内容，但它们对查错没有帮助，所以，在此省略。</p>   
+<p style="TEXT-INDENT: 21.25pt"><font color="#ff00ff">3、连接程序</font></p>   
+<p style="TEXT-INDENT: 21.25pt">当由源文件汇编成功后，即可用连接程序(<font color="#ff0000">LINK.EXE</font>)生成其可执行文件。</p>  
+<p>例1.5 查看连接程序(<font color="#ff0000">LINK.EXE</font>)的具体选项。</p>     
+<p style="MARGIN-LEFT: 21.25pt">…&gt;<u>link /?</u><br>         
+LINK                     
+&lt;objs&gt;,&lt;exefile&gt;,&lt;mapfile&gt;,&lt;libs&gt;,&lt;deffile&gt;<br>     
+Valid options                     
+are:<br>     
+……</p>       
+  <p style="MARGIN-LEFT: 21.25pt">常用的功能选项有：<font color="#ff0000">/?</font>、<font color="#ff0000">/HELP</font>、<font color="#ff0000">/CODEVIEW</font>和<font color="#ff0000">/STACK&nbsp;</font></p>    
+<p>例1.6 用连接程序生成执行文件。</p>     
+<p style="TEXT-INDENT: 21.25pt">方法1：</p>  
+<p style="margin-left: 20pt">…&gt;link test<br>           
+……<br>            
+<font color="#ff0000">Run File         
+[test.exe]:<br>    
+</font>List File [nul.map]:<br>                
+<font color="#ff0000">Libraries [.lib]:<br>    
+</font>Definitions File [nul.def]:<br>                
+<span style="BACKGROUND-COLOR: #00ffff">LINK : warning L4021:        
+no stack segment</span></p>        
+<p style="TEXT-INDENT: 21.25pt">这种方法需要确认连接过程中的各种文件名，如果使用文件名的默认值，那么直接按“回车”键即可。</p>   
+<p style="TEXT-INDENT: 21.25pt">在上面四个文件名中，最重要二个文件名是：执行文件名和库文件名。一般情况下，无需更换最终生成的执行文件名；如果在连接过程中需要其它的库文件，则在显示第三行提示时，输入所需要的库文件名。</p>   
+<p style="TEXT-INDENT: 21.25pt">最后一行显示一个警告信息，提出本程序没有定义堆栈段，该警告信息可以不必理会，因为该执行文件是可运行的，在操作系统装入时会自动为其添加一个默认的堆栈段。</p>   
+<p style="TEXT-INDENT: 21.25pt">方法2：在文件名后面加上分号“；”，默认使用各类文件的缺省值。</p>   
+<p style="margin-left: 20pt">…&gt;<u>link test;</u><br>        
+……<br>
+<span style="BACKGROUND-COLOR: #00ffff">LINK : warning         
+L4021: no stack segment</span></p>        
+<p style="TEXT-INDENT: 21.25pt"><font color="#ff00ff">4、运行程序</font></p>    
+<p style="TEXT-INDENT: 21.25pt">当要运行所生成文件时，可直接输入其文件名即可。</p>    
+<p style="TEXT-INDENT: 21.25pt">…&gt;<u>test</u></p>    
+<p style="TEXT-INDENT: 21.25pt"><font color="#ff00ff">5、符号调试程序</font></p>    
+<p style="TEXT-INDENT: 21.25pt">当程序的运行结果不是预期结果时，就需要调试程序，找出错误的语句或逻辑关系。<font color="#ff0000">MASM</font>系统提供了可用于源程序一级的调试工具<font color="#ff0000">CV</font>(<font color="#ff0000">CodeView</font>)。有关<font color="#ff0000">CV</font>的使用参见“调试工具”中<font color="#ff0000"><A href="App1-6.htm">CodeView</A></font>的介绍。</p>   
+<p>例1.7 用符号调试工具<font color="#ff0000">CV</font>来调试程序TEST.ASM所生成可执行文件。</p>    
+<p style="MARGIN-LEFT: 21.25pt">…&gt;<u>masm          
+/Zi /Zd test</u>　　　　;假设其没有语法错<br>
+…&gt;<u>link /Co test</u><br>        
+…&gt;<u>cv test.exe</u></p>           
+                                    
+<p align="center">                              
+<A href="App1-2.htm"><IMG language=javascript id=NextPage onmouseover="return NextPage_onmouseover()" onmouseout="return  NextPage_onmouseout()" height=28 src ="../Button/NextPage1.gif" width=96 border=0></A></p>      
+        
+</body>        
+        
+</html>        

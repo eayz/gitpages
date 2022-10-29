@@ -1,0 +1,130 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>3.4 寄存器间接寻址方式</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter03.js"></script>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+function Address41_onmouseover() {
+	Address41.src="TextbookIMG\\03-3-d.gif" 
+}
+function Address41_onmouseout() {
+	Address41.src="TextbookIMG\\03-3.gif" 
+}
+
+function Address42_onmouseover() {
+	Address42.src="TextbookIMG\\03-4-d.gif" 
+}
+function Address42_onmouseout() {
+	Address42.src="TextbookIMG\\03-4.gif" 
+}
+
+//-->
+</SCRIPT>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <IMG border=0 src="images/btitle03.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><A href="index.htm"><IMG border=0 id=Home0 language =javascript onmouseout ="return Home0_onmouseout()" onmouseover="return Home0_onmouseover()" src="Button/home1.gif" width="96"></A><A href="homework.htm"><IMG border=0  id =Homework  language =javascript  onmouseout ="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></A><a href="bbs/index.asp"><IMG border=0 id=Discuss  language =javascript  onmouseout ="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><A href="question.htm"><IMG border=0 id=Problem  language =javascript  onmouseout ="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></A><A href="test.asp"><IMG border=0 id=Test  language =javascript  onmouseout ="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></A><A href="search.htm"><IMG border=0 id=Search  language =javascript  onmouseout ="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></A>
+    </td>  
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a> 
+      → 寄存器间接寻址方式</td>                                  
+    <td width="50%">               
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+
+<h2>3.4 寄存器间接寻址方式</h2>                                                          
+<table border="0" width="100%" cellspacing="0" cellpadding="0">                           
+  <tr>                           
+    <td width="60%" valign="top">                           
+<p style="TEXT-INDENT: 21.25pt">操作数在存储器中，操作数的有效地址用<font color="#ff0000">SI</font>、<font color="#ff0000">DI</font>、<font color="#ff0000">BX</font>和<font color="#ff0000">BP</font>等四个寄存器之一来指定，称这种寻址方式为寄存器间接寻址方式。该寻址方式物理地址的计算方法如下：</p>                          
+<p align="center"><img border="0" src="TextBookIMG/03-3-1.gif" width="177"></p>                          
+<p style="TEXT-INDENT: 21.25pt">寄存器间接寻址方式读取存储单元的原理如图3.3所示。</p>                      
+    </td>                      
+    <td width="40%">                      
+      <p align="center"><IMG border=0 id=Address41 src="TextBookIMG/03-3.gif"  LANGUAGE=javascript onmouseover="return Address41_onmouseover()" onmouseout="return Address41_onmouseout()" width="206"></p>                      
+      <p align="center">图3.3 读取操作数过程的示意图</p>                                                       
+  </td>                        
+  </tr>                        
+</table>                        
+<p style="TEXT-INDENT: 21.25pt">在不使用段超越前缀的情况下，有下列规定：</p>                      
+            <p style="margin-left: 21.25pt"><IMG border=0 src="TextbookIMG/redpoint.gif" width="20">若有效地址用<font color="#ff0000">SI</font>、<font color="#ff0000">DI</font>和<font color="#ff0000">BX</font>等之一来指定，则其缺省的段寄存器为<font color="#ff0000">DS</font>；<br>
+ <IMG border=0 src="TextbookIMG/redpoint.gif" width="20">若有效地址用<font color="#ff0000">BP</font>来指定，则其缺省的段寄存器为<font color="#ff0000">SS</font>(即：堆栈段)。</p>                      
+<p style="text-indent: -30pt; margin-left: 30pt">                          
+例3.2 假设有指令：MOV BX,[DI]，在执行时，(DS)=1000H，(DI)=2345H，存储单元12345H的内容是4354H。问执行指令后，BX的值是什么？</p>                                                       
+<table border="0" width="100%" cellspacing="1" cellpadding="0">                         
+  <tr>                         
+    <td width="49%" valign="top">        
+      <p style="text-indent: -20pt; margin-left: 20pt">解：根据寄存器间接寻址方式的规则，在执行本例指令时，寄存器<font color="#FF0000">DI</font>的值不是操作数，而是操作数的地址。该操作数的物理地址应由<font color="#FF0000">DS</font>和<font color="#FF0000">DI</font>的值形成，即：                         
+      <p align="center">PA=(DS)*16+DI=1000H*16+2345H=12345H。</p>                         
+      <p style="TEXT-INDENT: 21.25pt">所以，该指令的执行效果是：把从物理地址为12345H开始的一个字的值传送给<font color="#FF0000">BX</font>。</p>                         
+      <p style="TEXT-INDENT: 21.25pt">其执行过程如右图3.4所示。</p></td>                        
+    <td width="51%">                        
+      <p align="center"><IMG border=0 id=Address42 language=javascript onmouseout="return  Address42_onmouseout()" onmouseover="return Address42_onmouseover()" src="TextBookIMG/03-4.gif" width="328"></p>                        
+      <p align="center">图3.4 读取操作数过程的示意图</p>                                                       
+      </td>                        
+  </tr>                        
+</table>                        
+                        
+<p align="right">                        
+<A href="index.htm">                        
+<IMG border=0 id=Home language =javascript onmouseout ="return Home_onmouseout()" onmouseover="return Home_onmouseover()" src="Button/home1.gif" width="96"></A><A href="asp/QuestionIndex.asp-chapter=1&amp;sort=date"><IMG border=0 id=Question  language=javascript onmouseout="return Question_onmouseout()" onmouseover="return Question_onmouseover()" src="Button/question1.gif" width="96"></A><a href="03-3.htm"><IMG border=0 src="Button/prevpage1.gif" width="96"></a><a href="03-5.htm"><IMG border=0 id =NextPage language =javascript onmouseout ="return NextPage_onmouseout()" onmouseover="return NextPage_onmouseover()" src="Button/NextPage1.gif" width="96"></a>                   
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->        
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>      
+      
+</body>      
+      
+</html>      

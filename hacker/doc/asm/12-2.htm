@@ -1,0 +1,256 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>12.2 C语言源程序的汇编输出</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter12.js"></script>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+
+function Address1_onmouseover() {
+	Address1.src="TextbookIMG\\03-1-d.gif" 
+}
+
+function Address1_onmouseout() {
+	Address1.src="TextbookIMG\\03-1.gif" 
+}
+
+function expandIt(el) {
+    whichEl = eval(el);
+	if (whichEl.style.display == "block") whichEl.style.display = "none";
+    else whichEl.style.display = "block"
+}
+
+//-->
+</SCRIPT>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle12.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><A href="index.htm"><IMG border=0 id=Home0 language=javascript onmouseout="return Home0_onmouseout()" onmouseover="return Home0_onmouseover()" src="Button/home1.gif" width="96"></a><A href="homework.htm"><IMG border=0 id=Homework language=javascript  onmouseout ="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96" ></a><A href="bbs/index.asp"><IMG border=0 id=Discuss language=javascript  onmouseout ="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" ></a><A href="question.htm"><IMG border=0 id=Problem language=javascript  onmouseout ="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96" ></a><A href="test.asp"><IMG border=0 id=Test language=javascript  onmouseout ="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96" ></a><A href="search.htm"><IMG border=0 id=Search language=javascript  onmouseout ="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96" ></a></p></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → C语言程序的汇编输出</td>                      
+    <td width="50%">                
+      <p align="right">&nbsp;<!--webbot bot="Validation"
+      b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p></td>
+  </tr>
+</table>
+    
+<h2>12.2 C语言程序的汇编输出</h2>                                                           
+<p style="TEXT-INDENT: 21.25pt">在Turbo C++或Borland C++编程环境下，我们可TCC或BCC行命令把一个C语言的源程序转换成汇编语言的源程序。通过阅读汇编语言程序可以很准确地知道C语言语句的功能是如何实现的，这样，可为将来学习《编译原理》课程中的"寄存器调度"和"代码生成"等相关知识打下良好的基础。</p>  
+<p style="TEXT-INDENT: 21.25pt">C语言源程序转换的命令格式如下：</p>  
+<p style="margin-left: 50pt">TCC -S t1.cpp 或 BCC -S t1.cpp　　　;假设其文件名为t1.cpp</p>
+<p style="TEXT-INDENT: 21.25pt">若命令TCC/BCC不带参数的话，则将显示其使用方法。</p>
+<p style="TEXT-INDENT: 21.25pt">下面是C语言程序及其相对应的汇编语言程序，希望读者能逐行对照理解它们语句之间的转换关系，这将能进一步理解高级语言的语句功能。</p>
+<p style="TEXT-INDENT: 21.25pt"><font color="#FF00FF">1、C语言程序清单</font>
+</p>
+<p style="margin-left: 40pt">
+#include &lt;stdio.h><br>  
+int sum(int a, int b, int c)<br>  
+　{<br>
+　 return (a+b+c);<br>  
+　}<br>
+void main()<br>  
+{int a, b, c;<br>  
+&nbsp;a = b = 12;<br>  
+&nbsp;c = 32;<br>  
+&nbsp;printf("%d", sum(a,b,c));<br>  
+}  
+</p>  
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、生成的汇编语言程序清单</font></p>  
+<table border="0" width="100%" cellspacing="0">  
+  <tr>  
+    <td width="7%"></td>  
+    <td width="93%">……　　　　　　　　　　　　　　　　　　　　　 
+      ;一系列辅助说明信息</td> 
+  </tr> 
+  <tr> 
+    <td width="7%"></td> 
+    <td width="93%">_TEXT　segment byte public 'CODE'　　　　　　;代码段的开始</td> 
+  </tr> 
+  <tr> 
+    <td width="7%"></td> 
+    <td width="93%"><A href="#" onclick="expandIt('SUM');return false">;int sum(int a, int b, int c)</A>　　　　　　　　　　　;C语言语句 
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="7%"></td> 
+    <td width="93%"> 
+<div id='SUM' class='SUM' style="display: none; width: 704; height: 82">　　　　　　assume&nbsp;   
+  cs : _TEXT<br> @sum$qiii　proc　	near　　　　　　　　　　　 ;过程说明，对应于C语言sum过程<br>
+  　　　　　　push　bp　　　　　　　　　　　　　;为读取堆栈中的参数作准备，可参见<a href="07-3-3.htm">第7.3.3节</a>内容<br>
+  　　　　　　mov　bp, sp</div>  
+    </td>  
+  </tr>  
+  <tr>  
+    <td width="7%"></td>  
+    <td width="93%">;{<br>  
+      　　<A href="#" onclick="expandIt('RETURN');return false">;return(a+b+c);</A>
+    </td>
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="93%">
+<div id='RETURN' class='RETURN' style="display: none; width: 702">
+　　　　　　mov　ax, word ptr [bp+4]<br>   
+　　　　　　add　ax, word ptr [bp+6]<br>   
+　　　　　　add　ax, word ptr [bp+8]<br>   
+　　　　　　jmp　short @1@58<br>   
+@1@58:</div>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td width="7%"></td>   
+    <td width="93%"><A href="#" onclick="expandIt('ENDSUM');return false">;}</A>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td width="7%"></td>   
+    <td width="93%">   
+<div id='ENDSUM' class='ENDSUM' style="display: none; width: 702; height: 55">   
+　　　　　　pop　bp　　　　　　　　　　　　　　;sum子程序结束的代码<br>
+　　　　　　ret<br>
+@sum$qiii　endp</div>
+    </td>
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="93%">
+<A href="#" onclick="expandIt('MAIN');return false">;void main()</A>  
+<div id='MAIN' class='MAIN' style="display: none; width: 704; height: 82">　　　　　　assume&nbsp;   
+  cs : _TEXT<br> _main　　　proc　	near　　　　 　　　　　　　 ;过程说明，对应于C语言中的主函数main()<br>
+  　　　　　　push　bp<br>
+  　　　　　　mov　bp, sp<br>   
+  　　　　　　sub　sp, 6</div>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td width="7%"></td>   
+    <td width="93%">   
+;{int a, b, c;　　　　　　　　　　　　　　　　　　;局部变量是用堆栈来存储的，请见<a href="07-5-10.htm">第7.5.10节</a></td>
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="93%"><A href="#" onclick="expandIt('AB12');return false">; a = b = 12;</A>　　　　　　　　　　　　　　　　　　;给局部变量赋值</td>
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="93%">
+<div id='AB12' class='AB12' style="display: none; width: 704; height: 51">　　　　　　mov　ax, 12　　　　　　　　　　　　;用给堆栈单元赋值来实现对局部变量的赋值<br>
+  　　　　　　mov　word ptr [bp-4], ax<br>   
+  　　　　　　mov　word ptr [bp-2], ax</div>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td width="7%"></td>   
+    <td width="93%">   
+<A href="#" onclick="expandIt('C32');return false">; c = 32;</A>   
+<div id='C32' class='C32' style="display: none; width: 704">　　　　　　mov　word ptr [bp-6], 32</div>   
+    </td>   
+  </tr>   
+  <tr>   
+    <td width="7%"></td>   
+    <td width="93%">   
+<A href="#" onclick="expandIt('PRINTF');return false">; printf("%d", sum(a,b,c));</A>　　　　　　　　　　　　;调用系统标准函数
+<div id='PRINTF' class='PRINTF' style="display: none; width: 704">　　　　　　push　word ptr [bp-6]<br>   
+  　　　　　　push　word ptr [bp-4]<br>   
+  　　　　　　push　word ptr [bp-2]<br>   
+  　　　　　　call　near ptr @sum$qiii　　　　　　;用汇编语言形式调用自定义函数sum<br>
+  　　　　　　add　sp, 6<br>   
+  　　　　　　push　ax<br>
+  　　　　　　mov　ax, offset DGROUP : s@<br>   
+  　　　　　　push　ax<br>
+  　　　　　　call　near ptr _printf　　　　　　　　;用汇编语言调用标准函数printf<br>
+  　　　　　　pop　cx<br>
+  　　　　　　pop　cx</div>
+</td>
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="93%">
+<A href="#" onclick="expandIt('ENDMAIN');return false">; }</A> 
+<div id='ENDMAIN' class='ENDMAIN' style="display: none; width: 704">　　　　　　mov　	sp, bp　　　　　　　　　　　	;main子程序结束的代码<br>   
+  　　　　　　pop　	bp<br>   
+  　　　　　　ret<br>
+_main　　　endp</div>
+    </td>
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="93%">
+_TEXT　　　ends　　　　　　　　　　　　　　　　;代码段的结束</td>
+  </tr>
+  <tr>
+    <td width="7%" valign="top"></td>
+    <td width="93%">
+_DATA　　 segment　word　public　'DATA'　　　	;数据段的定义<br>   
+　　　　　　s@　label　byte<br>
+　　　　　　　　 db　'%d'<br>
+　　　　　　　　 db　0<br>
+_DATA　　　ends</td>
+  </tr>
+  <tr>
+    <td width="7%"></td>
+    <td width="93%">
+      <p style="margin-left: 67pt">
+public　	_main　　　　　　　　　　	;下面说明函数的属性，请见<a href="07-6-3.htm">第7.6.3节</a><br>    
+public　	@sum$qiii<br>   
+extrn　	_printf : near<br>   
+_s@　	equ　s@<br>
+end</td>
+  </tr>
+  </table>                    
+             
+<p align="right"><A href="index.htm"><IMG border=0 id=Home language=javascript onmouseout="return Home_onmouseout()" onmouseover="return Home_onmouseover()" src="Button/home1.gif" width="96"></a><a href="asp/QuestionIndex.asp-chapter=12&amp;sort=date"><IMG border=0 id=Question  language=javascript onmouseout="return Question_onmouseout()" onmouseover="return Question_onmouseover()" src="Button/question1.gif" width="96"></a><a href="12-1.htm"><IMG border=0 id=PrevPage language=javascript onmouseout="return PrevPage_onmouseout()" onmouseover="return PrevPage_onmouseover()" src="Button/prevpage1.gif" width="96"></a><a href="12-3.htm"><IMG border=0 id=NextPage language=javascript onmouseout="return NextPage_onmouseout()" onmouseover="return NextPage_onmouseover()" src="Button/NextPage1.gif" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">          
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>
+</body>

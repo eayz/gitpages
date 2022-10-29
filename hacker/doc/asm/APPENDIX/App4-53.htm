@@ -1,0 +1,270 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录4.5 DOS杂项的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<h3><a name="5.1">5.1、@GetDate：读取系统日期</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%">@GetDate</td>   
+  </tr>
+  <tr>
+    <td width="16%" valign="top">参数说明：</td>
+    <td width="79%" valign="top">无</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%">AL＝一周内的日期(0—Sunday，1—Monday，…)<br>
+      CX＝年(1980~2099)<br>
+      DH＝月<br>
+      DL＝日</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%">AX，CX和DX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%">Int 21h — 2AH，<A href="#5.2">@SetDate</a>，<A href="#5.3">@GetTime</a></td>         
+  </tr>
+</table>
+<h3><a name="5.2">5.2、@SetDate：设置系统日期</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="7" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@SetDate&nbsp; month，day，year</td>         
+  </tr>
+  <tr>
+    <td width="16%" rowspan="3" valign="top">参数说明：</td>
+    <td width="15%" valign="top">&lt;month&gt;</td>
+    <td width="64%"> 
+月份(1-12)</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">&lt;day&gt;</td>
+    <td width="64%"> 
+日(1-31)</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">&lt;year&gt;</td>
+    <td width="64%"> 
+年(1980~2099)</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">若日期合法，则AL＝0，否则，AL＝-1</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX，CX和DX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 21h — 2BH，<A href="#5.1">@GetDate</a>，<A href="#5.4">@SetTime</a></td>         
+  </tr>
+</table>
+<h3><a name="5.3">5.3、@GetTime：读取系统时间</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%">@GetTime</td>   
+  </tr>
+  <tr>
+    <td width="16%" valign="top">参数说明：</td>
+    <td width="79%" valign="top">无</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%">CH＝小时(0~23)<br>
+      CL＝分钟(0~59)<br>
+      DH＝秒(0~59)<br>
+      DL＝百分秒(0~99)</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%">AX，CX和DX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%">Int 21h — 2CH，<A href="#5.1">@GetDate</a>，<A href="#5.4">@SetTime</a></td>         
+  </tr>
+</table>
+<h3><a name="5.4">5.4、@SetTime：设置系统时间</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="8" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@SetTime hour，minute，second，hundredth</td>         
+  </tr>
+  <tr>
+    <td width="16%" rowspan="4" valign="top">参数说明：</td>
+    <td width="15%" valign="top">&lt;hour&gt;</td>
+    <td width="64%"> 
+小时(0~23)</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">&lt;minute&gt;</td>
+    <td width="64%"> 
+分钟(0~59)</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">&lt;second&gt;</td>
+    <td width="64%"> 
+秒(0~59)</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">&lt;hundredth&gt;</td>
+    <td width="64%"> 
+百分秒(0~99)</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">若时间合法，则AL＝0，否则，AL＝-1</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX，CX和DX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 21h — 2DH，<A href="#5.2">@SetDate</a>，<A href="#5.3">@GetTime</a></td>         
+  </tr>
+</table>
+<h3><a name="5.5">5.5、@GetVer：读取DOS版本</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%">@GetVer</td>   
+  </tr>
+  <tr>
+    <td width="16%" valign="top">参数说明：</td>
+    <td width="79%" valign="top">无</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%">AL＝主要版本号、AH＝次要版本号<br>
+      BH＝OEM序列号、BL:CX＝24位用户号</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%">AX，BX和CX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%">Int 21h — 30H，<A href="#5.2">@SetDate</a>，<A href="#5.3">@GetTime</a></td>         
+  </tr>
+</table>
+<h3 style="text-indent: -32pt; margin-left: 32pt"><a name="5.6">5.6、@GetInt：读取指定中断的入口地址<br>
+</a>@SetInt：设置指定中断的入口地址</h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="7" valign="top"></td>
+    <td width="16%" valign="top">使用语法：</td>
+    <td width="79%" colspan="2">@GetInt interrupt<br>      
+      @SetInt interrupt，vector [，segment]</td>         
+  </tr>
+  <tr>
+    <td width="16%" rowspan="3" valign="top">参数说明：</td>
+    <td width="15%" valign="top">&lt;interrupt&gt;</td>
+    <td width="64%"> 
+常量，中断号(8位)</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">&lt;vector&gt;</td>
+    <td width="64%"> 
+中断处理程序的偏移量</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">&lt;segment&gt;</td>
+    <td width="64%"> 
+中断处理程序的段地址，缺省值DS对数据区</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">对@GetInt，ES:BX＝指向中断服务程序</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">对@GetInt，AX、ES和BX改变；<br>
+      对@SetInt，AX、DS和DX改变</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 21h — 35H，25H</td>          
+  </tr>
+</table>
+<h3><a name="5.7">5.7、@Exit：带返回码返回到DOS</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@Exit [return]</td>         
+  </tr>
+  <tr>
+    <td width="16%" valign="top">参数说明：</td>
+    <td width="15%" valign="top">&lt;return&gt;</td>
+    <td width="64%"> 
+常量(8位)，缺省值为AL</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">无</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 21h — 4CH，.EXIT</td>          
+  </tr>
+</table>
+<h3><a name="5.8">5.8、@TSR：终止程序运行，并驻留</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="6" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@TSR paragraphs [，return]</td>        
+  </tr>
+  <tr>
+    <td width="16%" rowspan="2" valign="top">参数说明：</td>
+    <td width="15%" valign="top">&lt;paragraphs&gt;</td>
+    <td width="64%"> 
+驻留程序需要分配的内存段落数</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">&lt;return&gt;</td>
+    <td width="64%"> 
+常量(8位)，缺省值为AL</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">无</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX和DX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 21h — 31H</td>         
+  </tr>
+</table>
+        
+</body>        
+        
+</html>        

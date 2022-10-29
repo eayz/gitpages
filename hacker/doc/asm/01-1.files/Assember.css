@@ -1,0 +1,18 @@
+H1 {
+	FONT-SIZE: 18pt; COLOR: #ff00ff; TEXT-INDENT: 0pt
+}
+H2 {
+	FONT-SIZE: 14pt; COLOR: #ff00ff
+}
+H3 {
+	FONT-SIZE: 12pt; COLOR: #ff00ff
+}
+BODY {
+	FONT-SIZE: 10pt; LINE-HEIGHT: 130%; FONT-FAMILY: Arial; LETTER-SPACING: 1px
+}
+TBODY {
+	FONT-SIZE: 10pt; FONT-FAMILY: Arial; LETTER-SPACING: 1px
+}
+TD.tt {
+	BORDER-BOTTOM: #56c7ff 1px solid
+}

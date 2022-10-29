@@ -1,0 +1,193 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>5.2.11-重复字符串操作指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter05.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle05.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="05-2.htm">指令系统</a> → 重复字符串操作指令</td>                                         
+    <td width="50%">              
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<p style="text-indent: 21.25pt"><font color="#FF00FF">8、重复字符串操作指令(Repeat                                 
+String Instruction)</font></p>                                
+<p style="text-indent: 21.25pt">前面介绍了七种不同的字符串操作指令：取字符串数据、置字符串数据、字符串传送、输入字符串、输出字符串、字符串比较和字符串扫描等指令，所叙述是这些指令执行一次所具有的功能。但我们知道：每个字符串通常会有多个字符的，所以，就需要重复执行这些字符串操作指令。为了满足这种需求，指令系统提供了一组重复前缀指令。</p>    
+<p style="text-indent: 21.25pt">虽然在这些字符串指令的前面都可以添加一个重复前缀指令，但由于指令执行结果的差异，对某个具体的字符串指令又不用重复前缀指令而改用其它循环来实现重复的需要。</p>    
+<p style="text-indent: 21.25pt">重复字符串操作指令对标志位的影响是由被重复的字符串操作指令来决定。</p>    
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redball.gif" width="17">重复前缀指令REP(Repeat                                 
+String Instruction)</p>                                
+<p style="text-indent: 21.25pt">重复前缀指令是重复其后的字符串操作指令，重复的次数由CX来决定。其一般格式为：</p>   
+<p style="margin-left: 40pt">REP　LODS/LODSB/LODSW/LODSD<br>
+      REP　STOS/STOSB/STOSW/STOSD<br>
+      REP　MOVS/MOVSB/MOVSW/MOVSD<br>
+      REP　INS/ INSB/INSW/INSD<br>                           
+      REP　OUTS/OUTSB/OUTSW/OUTSD</p>   
+<p style="text-indent: 21.25pt">重复前缀指令的执行步骤如下：</p>    
+<p style="margin-left: 40pt">(1)、判断：CX=0；<br>
+      (2)、如果CX=0，则结束重复操作，执行程序中的下一条指令；<br>
+      (3)、否则，CX=CX-1(不影响有关标志位)，并执行其后的字符串操作指令，在该指令执行完后，再转到步骤(1)。</p>    
+<p style="text-indent: 21.25pt">从上面的重复前缀指令格式来看，虽然我们可以使用重复取字符串数据指令(第一组指令)，但可能会因为指令的执行结果而在程序中几乎不被使用。</p>   
+<p>例5.20 编写一段程序，计算字符串“12345abcdefgh”中字符的ASCII之和。</p>                        
+<table border="0" width="100%" cellspacing="1">
+  <tr>
+    <td width="100%" colspan="4">解：</td>
+  </tr>
+  <tr>
+    <td width="9%" rowspan="10" valign="top"></td>
+    <td width="91%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="6%">MESS</td>
+    <td width="28%"> DB&nbsp; '12345abcdefgh'</td>                          
+    <td width="57%">       
+;在数据段中进行变量说明</td>
+  </tr>
+  <tr>
+    <td width="91%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="85%" colspan="2"> AX, SEG MESS</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="85%" colspan="2"> DS, AX</td> 
+  </tr>
+  <tr>
+    <td width="6%">LEA</td>
+    <td width="28%"> SI, MESS</td> 
+    <td width="57%">       
+;用DS:SI来指向字符串的首地址</td>
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="28%"> CX, 13D</td> 
+    <td width="57%">       
+;重复次数</td>
+  </tr>
+  <tr>
+    <td width="6%">XOR</td>
+    <td width="28%"> BX, BX</td> 
+    <td width="57%">       
+;置求和的初值为0</td>
+  </tr>
+  <tr>
+    <td width="6%">REP</td>
+    <td width="85%" colspan="2"> LODSB</td>
+  </tr>
+  <tr>
+    <td width="6%">…</td>
+    <td width="85%" colspan="2"></td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">虽然指令“REP&nbsp; LODSB”能从字符串中取出每个字符，但它是在一条指令中完成的，程序的其它指令根本无法处理每次取出的数据，指令的执行结果是：AL只保存最后一次所取出的字符'h'的ASCII码。</p>                               
+<p style="text-indent: 21.25pt">所以，为了实现本例的要求，不能使用重复前缀指令，而要把指令“REP&nbsp;                                 
+LODSB”改写成如下四条指令：</p>    
+<table border="0" width="100%" cellspacing="1">
+  <tr>
+    <td width="9%"></td>
+    <td width="6%">XOR</td>
+    <td width="28%"> AH, AH</td> 
+    <td width="57%">       
+;为后面的累加作准备</td>
+  </tr>
+  <tr>
+    <td width="9%" rowspan="3" valign="top">again:</td>
+    <td width="91%" colspan="3">       
+LODSB</td>
+  </tr>
+  <tr>
+    <td width="6%">ADD</td>
+    <td width="28%"> BX, AX</td> 
+    <td width="57%">       
+;AL是被取出的字符，AH已被清0</td>
+  </tr>
+  <tr>
+    <td width="6%">LOOP</td>
+    <td width="85%" colspan="2"> again</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redball.gif" width="17">条件重复前缀指令(Repeat                                 
+String Conditionally)</p>                                
+<p style="text-indent: 21.25pt">条件重复前缀指令与前面的重复前缀指令功能相类似，所不同的是：其重复次数不仅由CX来决定，而且还会由标志位ZF来决定。根据ZF所起的作用又分为二种：相等重复前缀指令REPE/REPZ和不等重复前缀指令REPE/REPZ。</p>   
+<p style="text-indent: 21.25pt">A、相等重复前缀指令的一般格式为：</p>   
+<p style="margin-left: 40pt">REPE/REPZ　SCAS/SCASB/SCASW/SCASD<br> 
+REPE/REPZ　CMPS/CMPSB/CMPSW/CMPSD</p>   
+<p style="text-indent: 21.25pt">该重复前缀指令的执行步骤如下：</p>    
+<p style="margin-left: 40pt">(1)、判断条件：CX≠0 且 ZF=1；<br>                          
+      (2)、如果条件不成立，则结束重复操作，执行程序中的下一条指令；<br>
+      (3)、否则，CX=CX-1(不影响有关标志位)，并执行其后的字符串操作指令，在该指令执行完后，再转到步骤(1)。</p>    
+<p style="text-indent: 21.25pt">B、不等重复前缀指令的一般格式为：</p>   
+<p style="margin-left: 40pt">REPNE/REPNZ　SCAS/SCASB/SCASW/SCASD<br> 
+REPNE/REPNZ　CMPS/CMPSB/CMPSW/CMPSD</p>   
+<p style="text-indent: 21.25pt">该重复前缀指令的执行步骤如下：</p>    
+<p style="margin-left: 40pt">(1)、判断条件：CX≠0 且 ZF=0；<br>                          
+(2)、如果条件不成立，则结束重复操作，执行程序中的下一条指令；<br>
+(3)、否则，CX=CX-1(不影响有关标志位)，并执行其后的字符串操作指令，在该指令执行完后，再转到步骤(1)。</p>    
+     
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=5&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="05-2-111.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="05-2-12.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>             
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->   
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

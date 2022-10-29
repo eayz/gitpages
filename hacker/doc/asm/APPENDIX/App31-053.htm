@@ -1,0 +1,239 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.1 文件操作功能(FCB)的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能0FH</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">打开文件，并使之为顺序读/写作好准备</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝0FH<br>
+      DS:DX＝文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝00H——打开成功，否则，AL＝FFH(如文件找不到)<br>
+      在MS-DOS操作系统中，文件控制块的字段如下表所示。
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="26%" align="center">字段名</td>
+          <td width="17%" align="center">偏移量</td>
+          <td width="57%">字段含义</td>
+        </tr>
+        <tr>
+          <td width="26%" align="center">驱动器字</td>
+          <td width="17%" align="center">00H</td>
+          <td width="57%">1 for drive A, 2 for drive B,...</td>
+        </tr>
+        <tr>
+          <td width="26%" align="center">当前块字段</td>
+          <td width="17%" align="center">0CH</td>
+          <td width="57%">00H</td>
+        </tr>
+        <tr>
+          <td width="26%" align="center">记录大小字段</td>
+          <td width="17%" align="center">0EH</td>
+          <td width="57%">0080H</td>
+        </tr>
+        <tr>
+          <td width="26%" align="center">文件长度字段</td>
+          <td width="17%" align="center">10H</td>
+          <td width="57%">文件字节数</td>
+        </tr>
+        <tr>
+          <td width="26%" align="center">日期字段</td>
+          <td width="17%" align="center">14H</td>
+          <td width="57%">日期</td>
+        </tr>
+        <tr>
+          <td width="26%" align="center">时间字段</td>
+          <td width="17%" align="center">16H</td>
+          <td width="57%">时间</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="10H">(2)、功能</a></font><a name="10H"><font color="#FF00FF" face="Arial">10H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">关闭文件</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝10H<br>
+      DS:DX＝文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝00H——关闭成功，否则，AL＝FFH</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="11H和12H">(3)、功能</a></font><a name="11H和12H"><font color="#FF00FF" face="Arial">11H</font><font color="#FF00FF">和</font><font color="#FF00FF" face="Arial">12H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">查找第一个或下一个相匹配的文件</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝11H——第一个相匹配的文件<br>
+      　 ＝12H——下一个相匹配的文件<br> 
+      DS:DX＝文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝00H——查找到，否则，AL＝FFH</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="13H">(4)、功能</a></font><a name="13H"><font color="#FF00FF" face="Arial">13H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">在指定(或缺省)的驱动器中，删除所有相匹配的文件</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝13H<br>
+      DS:DX＝文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝00H——删除成功，否则，AL＝FFH</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="16H">(5)、功能</a></font><a name="16H"><font color="#FF00FF" face="Arial">16H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%" valign="top">功能描述：</td>
+    <td width="81%">在当前目录中创建一个文件，其文件长度为0，并打开该文件，为随后的读/写操作作好必要的准备</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝16H<br>
+      DS:DX＝未打开的文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝00H——创建成功，否则，AL＝FFH(如：磁盘满)</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="17H">(6)、功能</a></font><a name="17H"><font color="#FF00FF">17H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">在指定的驱动器的当前目录中，把所有相匹配的文件换名</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝17H<br>
+      DS:DX＝指定文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝00H——换名成功，否则，AL＝FFH</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="23H">(7)、功能</a></font><a name="23H"><font color="#FF00FF" face="Arial">23H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%" valign="top">功能描述：</td>
+    <td width="81%">在当前目录中查找一个相匹配的文件。如果发现，则用其记录数来更新其文件大小</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝23H<br>
+      DS:DX＝未打开的文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝00H——匹配成功，FCB中偏移量为21H的字段被设置为其记录数，否则，AL＝0FFH</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="29H">(8)、功能</a></font><a name="29H"><font color="#FF00FF">29H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">分析一个字符串(文件名)置入FCB表中的不同字段</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝29H<br>
+      CX＝要写入的记录数<br>
+      DS:SI＝字符串段的地址<br>
+      ES:DI＝FCB的地址<br>
+      AL＝分析的控制标志位
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="19%" valign="top" align="right">
+            <p align="right">位3＝1——</td>
+          <td width="81%">若字符串中有文件后缀，则FCB中的文件后缀将改变</td>
+        </tr>
+        <tr>
+          <td width="19%" valign="top" align="right">
+            ＝0——</td>
+          <td width="81%">
+            若后缀忽略修改，或若分析后无后缀，则FCB中后缀字段被置为“空”</td>
+        </tr>
+        <tr>
+          <td width="19%" align="right" valign="top">位2＝1——</td>
+          <td width="81%">若字符串中有文件名，则FCB中的文件名将改变</td>
+        </tr>
+        <tr>
+          <td width="19%" align="right" valign="top">
+            ＝0——</td>
+          <td width="81%">
+            若文件名忽略修改，或若分析后无文件名，则FCB中文件名字段被置为“空”</td>
+        </tr>
+        <tr>
+          <td width="19%" align="right" valign="top">位1＝1——</td>
+          <td width="81%">若字符串中指定了驱动器号，则FCB中的ID字节被修改</td>
+        </tr>
+        <tr>
+          <td width="19%" align="right" valign="top">
+            ＝0——</td>
+          <td width="81%">
+            若ID字节忽略修改，或若分析后没有指定驱动器号，则FCB中驱动器字段被置为0(缺省值)</td>
+        </tr>
+        <tr>
+          <td width="19%" align="right" valign="top">位0＝1——<br>
+            ＝0——</td>
+          <td width="81%">忽略前导分割符<br>
+            不忽略前导分割符</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝00H—没有通配字符 01H—有通配字符 FFH—驱动器号非法<br>   
+      DS:SI＝分析后文件名第一个字符的地址<br>
+      ES:DI＝格式化后的、未打开的FCB地址</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>编程集成环境PWB</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<h3><FONT>1.1.2 编程集成环境PWB</FONT></h3>         
+<p style="TEXT-INDENT: 21.25pt"><font color="#ff0000">PWB</font>(Programmer's WorkBench)是<font  color="#ff0000">MASM         
+6.11</font>提供的集成环境。在此环境下，程序员可直接编写源程序、汇编、连接和运行。</p> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="9%" align="right" valign="top"><IMG height=12 src="../TextBookIMG/Ball3.gif" width=12 border=0></td>
+    <td width="91%">在汇编源程序时，如果有错误，系统将列举出所有出错位置和出错原因。还可用<font  color="#ff0000">Shife+F3</font>和  
+    <font color="#ff0000">Shife+F4</font>进行错误定位；</td>
+  </tr>
+  <tr>
+    <td width="9%" align="right" valign="top"><IMG height=12 src="../TextBookIMG/Ball3.gif" width=12 border=0></td>
+    <td width="91%">在连接时，可指定堆栈的大小、附加的库文件、符号跟踪等选项；</td>
+  </tr>
+  <tr>
+    <td width="9%" align="right" valign="top"><IMG height=12 src="../TextBookIMG/Ball3.gif" width=12 border=0></td>
+    <td width="91%" valign="top">在运行时，可设置命令行参数、直接运行、按调试方式运行、用<font  color="#ff0000">DOS</font>命令来运行等。</td>
+  </tr>
+</table>
+<p>例1.8 查看<font  color="#ff0000">PWB</font>的启动方式</p>  
+<p style="MARGIN-LEFT: 40pt">…&gt;<u>pwb /?</u><br>       
+Microsoft (R) Programmer's           
+WorkBench&nbsp; Version 2.1.49<br>          
+Copyright (c) Microsoft Corp 1992.           
+All rights reserved.<br>          
+Usage: PWB [&lt;options&gt;]           
+[&lt;files&gt;]<br>   
+……</p>  
+<p style="TEXT-INDENT: 21.25pt">通常情况下，在<font  color="#ff0000">PWB</font>后面跟一个将要编辑的源文件名。假如要编辑源文件TEST.ASM，那么，可直接输入下面命令：</p> 
+<p style="MARGIN-LEFT: 40pt">…&gt;<u>pwb test.asm</u></p>       
+<p style="TEXT-INDENT: 21.25pt"><font color="#ff00ff">1、编辑源文件</font></p>  
+<p style="TEXT-INDENT: 21.25pt"><font color="#ff0000">PWB</font>的编辑功能与许多编辑器的功能类似，有：建立新文件、保存文件、另存为、光标移动功能、块操作、插入/删除操作、恢复操作、查找/替换操作、设置编辑器的功能键和各类颜色等。</p> 
+<p style="TEXT-INDENT: 21.25pt">要想了解更全面的编辑功能，可查看菜单：<font color="#ff0000">File</font>、<font color="#ff0000">Edit</font>、<font color="#ff0000">Search</font>和<font color="#ff0000">Options</font>的前四个菜单项。</p> 
+<p align="center"><IMG height=236 src="image/App1-1.gif" width=405 border=0></p>  
+<p align="center">画面1.1    
+设置编辑器各类颜色的画面</p>  
+<p style="TEXT-INDENT: 21.25pt">在画面1.1(<font color="#ff0000">Options</font>菜单中的<font color="#ff0000">Colors…</font>)中，可选择各类窗口、菜单和文本等对象的背景色和前景色。比如：当要改变源程序的显示颜色时，可先在左边的列表框中选择Text列表项，然后在选择其背景色和前景色文本</p> 
+<p style="TEXT-INDENT: 21.25pt"><font color="#ff00ff">2、汇编和连接文件</font></p> 
+  <p style="TEXT-INDENT: 21.25pt">在集成环境下，源程序的汇编和连接是一次性完成的。当汇编任务结束，且没有错误信息时，连接程序立即开始连接工作。但如果源文件有错，则显示所有错误位置和原因，连接程序不会被执行。在浏览错误信息时，可用<font color="#ff0000">Shife+F3</font>和<font color="#ff0000">Shife+F4</font>进行错误定位。</p> 
+<p style="TEXT-INDENT: 21.25pt">在连接时，如果需要库文件，那么，可选用<font color="#ff0000">Options</font>菜单中的<font color="#ff0000">Link    
+Options</font>菜单项来设置，该菜单项的显示画面如画面1.2所示。</p> 
+<p align="center"><IMG height=118 src="image/App1-2.gif" width=485 border=0></p> 
+<p align="center">画面1.2 连接选项的部分设置画面</p> 
+<p style="TEXT-INDENT: 21.25pt">在该画面上还可为程序设置一个缺省的堆栈段，其大小也可由用户自行决定。</p> 
+<p style="TEXT-INDENT: 21.25pt">当生成执行文件需要多个模块连接时，就需要建立一个工程文件(<font color="#ff0000">MAK</font>)。建立工程文件的步骤和画面如下：</p> 
+  <p style="TEXT-INDENT: 21.25pt">(1)、输入工程文件名，其默认的后缀为<font color="#ff0000">MAK</font>。输入画面如画面1.3所示</p> 
+<p align="center"><IMG height=128 src="image/App1-3.gif" width=486 border=0></p> 
+<p align="center">画面1.3   
+建立工程文件名的画面</p> 
+<p style="TEXT-INDENT: 21.25pt">在画面1.3中还可选择工程目标文件的类型，该类型有：EXE、COM、LIB、Windows的EXE或DLL等二十几种。当然，对每种类型又有一些不同的要求，在此不在进一步展开叙述了。通常情况下，不必选择目标文件类型，其缺省类型就是<font color="#ff0000">DOS      
+EXE</font>。</p>  
+<p style="TEXT-INDENT: 21.25pt">(2)、工程文件的编辑</p> 
+<p style="TEXT-INDENT: 21.25pt">在画面1.3中输入工程文件名，并且按<font color="#ff0000">OK</font>按钮时，系统将进入画面1.4，在该画面中可向当前工程中添加源程序，也可把某源程序从当前工程中删除。</p> 
+<p align="center"><IMG height=273 src="image/App1-4.gif" width=448 border=0></p> 
+<p align="center">画面1.4、编辑工程文件的画面</p> 
+<p style="TEXT-INDENT: 21.25pt">当输入的文件名不在工程文件中，则把该源文件添加到工程文件中，否则，将其从工程文件中删除。当所有源文件都添加到工程文件中时，可按<font color="#ff0000">Save    
+List</font>来保存该工程文件。此后就可用打开工程文件的方式来连接该工程中的文件。</p> 
+<p style="TEXT-INDENT: 21.25pt">如果需要修改工程文件的话，则可先用<font  color="#ff0000">Project</font>菜单中的<font color="#ff0000">Open    
+Project</font>菜单项打开工程文件，再用<font color="#ff0000">Edit    
+Project</font>菜单项来激活画面1.4进行编辑。</p> 
+<p style="TEXT-INDENT: 21.25pt"><font color="#ff00ff">3、运行程序</font></p> 
+<p style="TEXT-INDENT: 21.25pt">在运行程序时，可设置命令行参数、直接运行、按调试方式运行、用<font color="#ff0000">DOS</font>命令来运行等。通常情况下，在编写程序的初期，一般都用调试方式来运行程序。当选用这种方式时，系统会自动进入<font color="#ff0000">CV</font>的调试环境。有关<font color="#ff0000">CV</font>的使用参见调试工具中<font color="#ff0000"><A href="App1-6.htm">CodeView</A></font>的介绍。</p>
+    
+<p align="center">                         
+ <A href="App1-1.htm"><IMG language=javascript id=PrevPage onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" height=28 src ="../Button/prevpage1.gif" width=96 border=0></A>       
+<A href="App1-3.htm"><IMG language=javascript id=NextPage onmouseover="return  NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" height=28 src ="../Button/NextPage1.gif" width=96 border=0></A></p>      
+        
+</body>        
+        
+</html>        

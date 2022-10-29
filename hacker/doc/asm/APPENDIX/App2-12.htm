@@ -1,0 +1,171 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录2.12-13 ASCII-BCD、处理器指令</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body background="image/background.gif">
+
+<h2>12、ASCII-BCD码运算调整指令</h2>
+         
+<div align="center">
+  <center>
+         
+  <table border="1" width="90%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="229"><p style="MARGIN-LEFT: 4pt">指令的语法</p></td>
+      <td width="311"><p style="MARGIN-LEFT: 4pt">举例</p></td>
+      <td width="141"><p style="MARGIN-LEFT: 4pt">周期数</p></td>
+    </tr>
+  <tr>
+    <td width="229"><p style="MARGIN-LEFT: 4pt">AAA</p></td>
+    <td width="311"><p style="MARGIN-LEFT: 4pt">aaa</p></td>
+    <td width="141"><p style="MARGIN-LEFT: 4pt">3</p></td>
+  </tr>
+  <tr>
+    <td width="229"><p style="MARGIN-LEFT: 4pt">AAD</p></td>
+    <td width="311"><p style="MARGIN-LEFT: 4pt">aad</p></td>
+    <td width="141"><p style="MARGIN-LEFT: 4pt">10</p></td>
+  </tr>
+  <tr>
+    <td width="229"><p style="MARGIN-LEFT: 4pt">AAM</p></td>
+    <td width="311"><p style="MARGIN-LEFT: 4pt">aam</p></td>
+    <td width="141"><p style="MARGIN-LEFT: 4pt">18</p></td>
+  </tr>
+  <tr>
+    <td width="229"><p style="MARGIN-LEFT: 4pt">AAS</p></td>
+    <td width="311"><p style="MARGIN-LEFT: 4pt">aas</p></td>
+    <td width="141"><p style="MARGIN-LEFT: 4pt">3</p></td>
+  </tr>
+  <tr>
+    <td width="229"><p style="MARGIN-LEFT: 4pt">DAA</p></td>
+    <td width="311"><p style="MARGIN-LEFT: 4pt">daa</p></td>
+    <td width="141"><p style="MARGIN-LEFT: 4pt">3</p></td>
+  </tr>
+  <tr>
+    <td width="229"><p style="MARGIN-LEFT: 4pt">DAS</p></td>
+    <td width="311"><p style="MARGIN-LEFT: 4pt">das</p></td>
+    <td width="141"><p style="MARGIN-LEFT: 4pt">3</p></td>
+  </tr>
+</table>
+
+  </center>
+</div>
+
+<h2><a name="CPU">13、处理器指令</a></h2>
+         
+<div align="center">
+  <center>
+         
+<table border="1" width="90%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="226"><p style="MARGIN-LEFT: 4pt">HLT</p></td>
+    <td width="306"><p style="MARGIN-LEFT: 4pt">Hlt</p></td>
+    <td width="138"><p style="MARGIN-LEFT: 4pt">12</p></td>
+  </tr>
+  <tr>
+    <td width="226"><p style="MARGIN-LEFT: 4pt">NOP</p></td>
+    <td width="306"><p style="MARGIN-LEFT: 4pt">nop</p></td>
+    <td width="138"><p style="MARGIN-LEFT: 4pt">1</p></td>
+  </tr>
+  <tr>
+    <td width="226"><p style="MARGIN-LEFT: 4pt">WAIT</p></td>
+    <td width="306"><p style="MARGIN-LEFT: 4pt">wait</p></td>
+    <td width="138"><p style="MARGIN-LEFT: 4pt">1</p></td>
+  </tr>
+  <tr>
+    <td width="226"><p style="MARGIN-LEFT: 4pt">LOCK</p></td>
+    <td width="306"><p style="MARGIN-LEFT: 4pt">lock</p></td>
+    <td width="138"><p style="MARGIN-LEFT: 4pt">1</p></td>
+  </tr>
+</table>
+
+  </center>
+</div>
+<h2><a name="CCPU">14、协处理器指令</a></h2>
+<div align=center>
+<center>
+<table cellSpacing=0 cellPadding=3 width="90%" border=1>
+  
+  <tr>
+    <td width=129>
+      <p style="MARGIN-LEFT: 4pt">指令的语法</p></td>
+    <td width=184>
+      <p style="MARGIN-LEFT: 4pt">举例</p></td>
+    <td width=77>
+      <p style="MARGIN-LEFT: 4pt">周期数</p></td></tr>
+  <tr>
+    <td width=129>FBLD membcd</td>   
+    <td width=184>fbld packbck</td>
+    <td width=77>48-58</td></tr>
+  <tr>
+    <td width=129>FBSTP membcd</td>
+    <td width=184>fbstp bcds[bx]</td>
+    <td width=77>148-154</td></tr>
+  <tr>
+    <td width=129>FLD reg</td>
+    <td width=184>fld st(3)</td>
+    <td width=77>1</td></tr>
+  <tr>
+    <td width=129>FLD mem32real</td>
+    <td width=184>fld longreal</td>
+    <td width=77>1</td></tr>
+  <tr>
+    <td width=129>FLD mem64real</td>
+    <td width=184>&nbsp;</td>
+    <td width=77>1</td></tr>
+  <tr>
+    <td width=129>FLD mem80real</td>
+    <td width=184>&nbsp;</td>
+    <td width=77>3</td></tr>
+  <tr>
+    <td width=129>FST reg</td>
+    <td width=184>fst st</td>
+    <td width=77>1</td></tr>
+  <tr>
+    <td width=129>FST memreal</td>
+    <td width=184>fst longs[bx]</td>
+    <td width=77>2</td></tr>
+  <tr>
+    <td width=129>FSTP reg</td>
+    <td width=184>fstp st(3)</td>
+    <td width=77>1</td></tr>
+  <tr>
+    <td width=129>FSTP mem32real</td>
+    <td width=184>fstp longreal</td>
+    <td width=77>2</td></tr>
+  <tr>
+    <td width=129>FSTP mem64real</td>
+    <td width=184>&nbsp;</td>
+    <td width=77>2</td></tr>
+  <tr>
+    <td width=129>FSTP mem80real</td>
+    <td width=184>&nbsp;</td>
+    <td width=77>3</td></tr>
+  <tr>
+    <td width=129>FXCH [reg]</td>
+    <td width=184>fxchg st(3)</td>
+    <td width=77>1</td></tr>
+  <tr>
+    <td width=129>FILD memint</td>
+    <td width=184>fild quads[si]</td>
+    <td width=77>3, 1</td></tr>
+  <tr>
+    <td width=129>FIST memint</td>
+    <td width=184>fist doubles[8]</td>
+    <td width=77>6</td></tr>
+  <tr>
+    <td width=129>FISTP memint</td>
+    <td width=184>fistp longint</td>
+    <td width=77>6</td></tr></table></center></div>
+<P align=center><A href="App2-11.htm"><IMG language=javascript id=PrevPage onmouseover="return PrevPage_onmouseover()" onmouseout ="return PrevPage_onmouseout()" height=28 src="../Button/prevpage1.gif" width=96 border=0></A></P>  
+           
+</body>           
+           
+</html>           

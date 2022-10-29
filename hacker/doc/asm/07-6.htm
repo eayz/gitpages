@@ -1,0 +1,178 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>7.5 子程序库</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter07.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle07.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0"  id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → 子程序库</td>                          
+    <td width="50%">          
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<h2>7.6 子程序库</h2>                                  
+<p style="text-indent: 21.25pt">库文件对学过<font color="#FF0000">C/C++</font>语言程序设计的读者来说应该是不会陌生的，该语言的程序设计环境提供了大量的库文件，也就是说，提供了大量的标准函数或过程。在本节里，介绍读者如何创建自己的库文件。</p>     
+<h3>7.6.1 建立库文件命令LIB</h3>                                 
+<p style="text-indent: 21.25pt">宏汇编MASM系统提供了建立库文件的命令文件LIB.EXE。其通常是在命令行环境(MS-DOS方式)下使用的，当然，也可在Windows                             
+95/98等环境下利用其“开始”菜单下的“运行”功能项来使用。</p>     
+<p style="text-indent: 21.25pt"><font color="#FF00FF">一、MS-DOS系统</font></p>
+<p style="text-indent: 21.25pt">显示命令LIB用法的命令如下：</p>
+<p style="margin-left: 40pt">…&gt;lib /?</p>                       
+<p style="text-indent: 21.25pt">该命令的显示结果如图7.9中所示。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">二、Windows系统</font></p>
+<p align="center"><img border="0" src="TextBookIMG/07-8.gif" width="358"></p>    
+<p align="center">图7.8 运行LIB命令的画面</p>                                  
+<p align="center"><img border="0" src="TextBookIMG/07-9.gif" width="466"></p>     
+<p align="center">图7.9 显示LIB命令功能的画面</p>                                  
+          
+<p style="text-indent: 21.25pt">命令LIB的使用方式和显示结果如图7.8和7.9所示。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">三、命令显示内容的解释</font></p>
+<p style="text-indent: 21.25pt">1)、各选项的解释</p>
+<div align="center">
+  <center>
+  <table border="0" width="70%" cellpadding="0" cellspacing="3">
+    <tr>
+      <td width="27%" bgcolor="#FFFF00">选项</td>
+      <td width="73%" colspan="2" bgcolor="#FFFF00">含义</td>
+    </tr>
+    <tr>
+      <td width="27%" bgcolor="#00FFFF">/?、/HELP</td>
+      <td width="73%" colspan="2" bgcolor="#00FFFF">显示LIB命令的用法，描述各命令行参数的含义</td>
+    </tr>
+    <tr>
+      <td width="27%">/IGNORECASE</td>
+      <td width="39%">忽略子程序名中的大小写</td>
+      <td width="34%" rowspan="2">在实践中，作用不明显</td>
+    </tr>
+    <tr>
+      <td width="27%">/NOIGNORECASE</td>
+      <td width="39%">不忽略子程序名中的大小写</td>
+    </tr>
+    <tr>
+      <td width="27%" bgcolor="#00FFFF">/NOEXTDICTIONARY</td>
+      <td width="73%" colspan="2" bgcolor="#00FFFF">不建立扩展的目录</td>
+    </tr>
+    <tr>
+      <td width="27%">/NOLOGO</td>
+      <td width="73%" colspan="2">不显示版本号和版权信息</td>
+    </tr>
+    <tr>
+      <td width="27%" bgcolor="#00FFFF">/PAGESIZE:n</td>
+      <td width="73%" colspan="2" bgcolor="#00FFFF">设置库文件的每页字节数为n</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p style="text-indent: 21.25pt">2)、命令项的解释：</p>
+<div align="center">
+  <center>
+<table border="0" width="60%" cellpadding="0" cellspacing="3">
+  <tr>
+    <td width="24%" bgcolor="#FFFF00">选项</td>
+    <td width="76%" bgcolor="#FFFF00">含义</td>
+  </tr>
+  <tr>
+    <td width="24%" bgcolor="#00FFFF">+name</td>
+    <td width="76%" bgcolor="#00FFFF">向库文件中加一个新的目标文件</td>
+  </tr>
+  <tr>
+    <td width="24%">-name</td>
+    <td width="76%">从库文件中删除一个指定的目标文件</td>
+  </tr>
+  <tr>
+    <td width="24%" bgcolor="#00FFFF">-+name</td>
+    <td width="76%" bgcolor="#00FFFF">用新的目标文件替换掉库文件中原有的目标文件</td>
+  </tr>
+  <tr>
+    <td width="24%">*name</td>
+    <td width="76%">拷贝出指定的目标文件</td>
+  </tr>
+  <tr>
+    <td width="24%" bgcolor="#00FFFF">-*name</td>
+    <td width="76%" bgcolor="#00FFFF">从库文件中移出指定的目标文件</td>
+  </tr>
+</table>
+  </center>
+</div>
+<p style="text-indent: 21.25pt">在弄懂了LIB的各项功能含义后，读者就可根据自己的需要来建立库文件了。</p>
+          
+<h3><a name="example">7.6.2 </a> 建立库文件举例</h3>         
+<p style="text-indent: 21.25pt">假设现有目标文件sub1.obj、sub2.obj和sub3.obj，要用它们建立库文件mylib.lib。可用下列方法来建立该库文件：</p>
+<p style="text-indent: 21.25pt">方法1：所有目标文件都准备好了，可一次性把它们加入到库文件中</p>
+<p style="margin-left: 40pt">…&gt;lib&nbsp; mylib +sub1 +sub2 +sub3</p>                         
+<p style="text-indent: 21.25pt">方法2：随着目标文件的逐个生成，而依次把它们加入到库文件中</p>
+<p style="margin-left: 40pt">…&gt;lib&nbsp; mylib +sub1<br>                       
+…&gt;lib&nbsp; mylib +sub2<br>                       
+…&gt;lib&nbsp; mylib +sub3</p>                         
+<p style="text-indent: 21.25pt">假如源文件sub3.asm已修改，并也生成了新的目标文件sub3.obj，这时，就需要把库文件mylib.lib中的sub3.obj替换成新的目标文件。于是，可用下面命令来实现替换：</p>
+<p style="margin-left: 40pt">…&gt;lib&nbsp; mylib&nbsp; -+sub3</p>                      
+<p style="text-indent: 21.25pt">当提示输入目标库文件名(Output                        
+library)时，可按“回车”用默认的原库文件名。</p>
+<p style="text-indent: 21.25pt">如果想查看库文件mylib.lib中各文件的大小和存放的先后次序，可用下列命令：</p>
+<p style="margin-left: 40pt">…&gt;lib&nbsp; mylib, list　　　　　;把库文件mylib.lib中的文件结构生成到文件list中<br>
+…&gt;type &nbsp;list</p>                      
+        
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=7&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="07-5-10.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="07-6-3.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>   
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->    
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+      
+</body>      
+      
+</html>      

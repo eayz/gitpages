@@ -1,0 +1,144 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>8.3.2 键盘中断的处理过程</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter08.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle08.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="08-3.htm"> 中断功能的分类</a>                       
+      → 键盘中断的处理过程</td>                                  
+    <td width="50%">             
+      <p align="right">    
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+     
+<p style="text-indent: 21.25pt">
+<font color="#FF00FF">
+3、键盘中断的处理过程</font></p>
+<p style="text-indent: 21.25pt">
+当用户按键时，键盘接口会得到一个代表该按键的键盘扫描码，同时产生一个中断请求。键盘中断服务程序先从键盘接口取得按键的扫描码，然后根据其扫描码判断用户所按的键并作相应的处理，最后通知中断控制器本次中断结束并实现中断返回。</p>
+<table border="0" width="100%" cellpadding="0">
+  <tr>
+    <td width="6%" valign="top" align="right"><img border="0" src="TextBookIMG/Ball3.gif" width="12"></td>
+    <td width="94%"> 若用户按下双态键(如：Caps                           
+Lock、Num                           
+Lock和Scroll                           
+Lock等)，则在键盘上相应LED指示灯的状态将发生改变；</td>    
+  </tr>    
+  <tr>    
+    <td width="6%" valign="top" align="right"><img border="0" src="TextBookIMG/Ball3.gif" width="12"></td>    
+    <td width="94%"> 若用户按下控制键(如：Ctrl、Alt和Shift等)，则在键盘标志字中设置其标志位；</td>    
+  </tr>    
+  <tr>    
+    <td width="6%" valign="top" align="right"><img border="0" src="TextBookIMG/Ball3.gif" width="12"></td>    
+    <td width="94%"> 若用户按下功能键(如：F1、F2、…等)，再根据当前是否又按下控制键来确定其系统扫描码，并把其系统扫描码和一个值为0的字节存入键盘缓冲区；</td>    
+  </tr>    
+  <tr>    
+    <td width="6%" valign="top" align="right"><img border="0" src="TextBookIMG/Ball3.gif" width="12"></td>    
+    <td width="94%"> 若用户按下字符键(如：A、1、+、…等)，此时，再根据当前是否又按下控制键来确定其系统扫描码，并得到该按键所对应的ASCII码，然后把其系统扫描码和ASCII码一起存入键盘缓冲区；</td>    
+  </tr>    
+  <tr>    
+    <td width="6%" valign="top" align="right"><img border="0" src="TextBookIMG/Ball3.gif" width="12"></td>    
+    <td width="94%"> 若用户按下功能请求键(如：Print                           
+Screen等)，则系统直接产生一个具体的动作。</td>    
+  </tr>    
+</table>    
+<p style="text-indent: 21.25pt">    
+有关键盘中各种单键、组合键的扫描码及其相应的ASCII码，请参阅本书的<a href="Appendix/App5-1.htm" target="_blank">附录5</a>。</p>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">4、DOS功能中的键盘输入</font></p>   
+<p style="text-indent: 21.25pt">键盘输入是一种最常用的输入方式，所以，在DOS操作系统中，提供了能实现各种键盘输入的功能(Windows操作系统中仍然能用)。INT                           
+21H中的相关功能如下：</p>    
+<table border="0" width="100%" cellpadding="0">    
+  <tr>    
+    <td width="8%" rowspan="4" valign="top"></td>    
+    <td width="36%">01H——带回显的键盘输入</td>    
+    <td width="56%">06H——控制台的输入/输出：当DL=0FFH，表示键盘输入</td>    
+  </tr>    
+  <tr>    
+    <td width="36%">07H——不回显、不过滤的键盘输入</td>    
+    <td width="56%">08H——不回显的键盘输入</td>    
+  </tr>    
+  <tr>    
+    <td width="36%">0AH——键盘输入字符串</td>    
+    <td width="56%">0BH——检查键盘输入状态</td>    
+  </tr>    
+  <tr>    
+    <td width="92%" colspan="2">0CH——清除输入缓冲区的输入功能</td>    
+  </tr>    
+</table>    
+<p style="text-indent: 21.25pt">    
+有关中断功能的详细描述和调用参数在此从略，需要查阅者可参阅附录3之<a href="Appendix/App31-011.htm" target="_blank">字符功能调用类</a>。</p> 
+<p style="text-indent: 21.25pt"><font color="#FF00FF">5、BIOS中的键盘输入</font></p> 
+<p style="text-indent: 21.25pt">在BIOS系统中，提供了中断16H来实现键盘输入功能。其具体的功能如下：</p> 
+<p style="margin-left: 40pt">00H、10H——从键盘读一个字符，输入字符不回显<br> 
+01H、11H——判断键盘缓冲区内是否有字符可读<br> 
+02H——读取当前键盘状态字</p> 
+<p style="text-indent: 21.25pt"> 
+有关中断功能的详细描述和调用参数在此从略，需要查阅者可参阅附录3之<a href="Appendix/App34-51.htm" target="_blank">键盘服务</a>。</p> 
+<p style="text-indent: 21.25pt"><font color="#FF00FF">6、直接操作端口的键盘输入</font></p> 
+<p style="text-indent: 21.25pt">由<a href="08-1.htm#表8.1">表8.1</a>可知：键盘输入端口的地址为60H，所以，我们可以用指令IN从该端口读取当前按键的扫描码。</p> 
+<p style="text-indent: 21.25pt">例如：</p> 
+<p style="margin-left: 40pt">MOV　DX, 60H<br>                       
+IN　　 AL, DX</p>                          
+            
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=8&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="08-3-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="08-3-1-7.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+       
+</body>       
+       
+</html>

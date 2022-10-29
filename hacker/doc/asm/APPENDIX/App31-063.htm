@@ -1,0 +1,155 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.1 记录操作功能的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能1AH</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">设置磁盘传送数据区地址，为随后FCB相关操作作准备</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝1AH<br>
+      DS:DX＝指定文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">无</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="2FH">(2)、功能</a></font><a name="2FH"><font color="#FF00FF" face="Arial">2FH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">为FCB读／写操作而获取DTA的当前地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝2FH</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">ES:BX＝DTA的段地址和偏移量</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="3FH">(3)、功能</a></font><a name="3FH"><font color="#FF00FF" face="Arial">3FH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">从先前打开的文件中读出指定数目的字节，并移动文件指针</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝3FH<br>
+      BX＝文件句柄<br>
+      CX＝将要读出的字节数<br>
+      DS:DX＝存放字符的缓冲区地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——读取成功，AX＝读取的字符数，否则，AX＝错误号(05H或06H)，其含义见错误代码表</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="40H">(4)、功能</a></font><a name="40H"><font color="#FF00FF" face="Arial">40H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">向先前打开的文件写入指定数量的字节，并相应修改文件指针</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝40H<br>
+      BX＝文件句柄<br>
+      CX＝写入的字节数<br>
+      DS:DX＝存放数据的缓冲区地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——关闭成功，AX＝写入的字节数，否则，AX＝错误号(05H或06H)，其含义见错误代码表</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="42H">(5)、功能</a></font><a name="42H"><font color="#FF00FF" face="Arial">42H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">设置文件指针的相对位置(相对与文件头、文件尾和当前位置)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝42H<br>
+      BX＝文件句柄<br>
+      CX＝偏移量的高位<br>
+      DX＝偏移量的低位<br>
+      AL＝00H——从文件头开始的绝对偏移量<br>
+      　＝01H——从当前文件指针开始的偏移量(可带符号)<br>
+      　＝02H——从文件尾开始的偏移量(可带符号)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——设置成功，DX是指针的高位，AX是其低位，否则，AX＝错误号(01H和06H)，其含义见错误代码表。</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="5CH">(6)、功能</a></font><a name="5CH"><font color="#FF00FF" face="Arial">5CH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">文件区域加锁或解锁</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝5CH<br>
+      AL＝00H——区域加锁　　01H——区域解锁<br>
+      BX＝文件句柄<br>
+      CX:DX＝区域偏移量<br>
+      SI:DI＝区域长度<br>
+      DS:DX＝路径名的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——操作成功，否则，AX＝错误号(01H、06H、21H或24H)，其含义见错误代码表</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="68H">(7)、功能</a></font><a name="68H"><font color="#FF00FF" face="Arial">68H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">提交文件缓冲区数据</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝68H<br>
+      BX＝文件句柄</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——操作成功，否则，AX＝错误号，其含义见错误代码表</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例10.18</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p>例10.18 编写程序，显示其命令行参数信息。</p>        
+<p>解：在使用命令行时，操作系统允许在被装入的程序名之后附加多达127个字符(包括最后的回车符)作为其命令的参数。   
+</p>   
+<p style="text-indent: 21.25pt">本例子的目的就是要了解命令行参数的存储方法，为以后使用命令行参数作准备。</p>   
+<table border="0" width="100%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="49" rowspan="20" valign="top"></td>   
+    <td width="693" colspan="4">.MODEL　SMALL</td> 
+  </tr> 
+  <tr> 
+    <td width="693" colspan="4">.CODE</td> 
+  </tr> 
+  <tr> 
+    <td width="45" rowspan="15" valign="top"></td> 
+    <td width="642" colspan="3">.STARTUP</td> 
+  </tr> 
+  <tr> 
+    <td width="54">MOV</td> 
+    <td width="582" colspan="2">AH, 51H</td>   
+  </tr>  
+  <tr>  
+    <td width="54">INT</td> 
+    <td width="582" colspan="2">21H</td> 
+  </tr> 
+  <tr> 
+    <td width="54">MOV </td> 
+    <td width="148">DS, BX</td>   
+    <td width="428">;DS=PSP的段地址</td> 
+  </tr> 
+  <tr> 
+    <td width="54">MOV</td> 
+    <td width="582" colspan="2">BX, 80H</td>        
+  </tr>   
+  <tr>   
+    <td width="54">MOV </td>  
+    <td width="582" colspan="2">CL, [BX]</td>        
+  </tr>   
+  <tr>   
+    <td width="54">XOR </td>  
+    <td width="582" colspan="2">CH, CH</td>        
+  </tr>   
+  <tr>   
+    <td width="54">JCXZ </td>  
+    <td width="582" colspan="2">over</td>  
+  </tr>  
+  <tr>  
+    <td width="54">INC </td>  
+    <td width="148">BX</td>  
+    <td width="428">;80~FFH字段中的跳过第二个字节</td> 
+  </tr> 
+  <tr> 
+    <td width="636" colspan="3">.REPEAT</td> 
+  </tr> 
+  <tr> 
+    <td width="54">
+      <p style="margin-left: 13pt">INC</p>
+    </td> 
+    <td width="582" colspan="2">BX</td> 
+  </tr> 
+  <tr> 
+    <td width="54">
+      <p style="margin-left: 13pt">MOV</p>
+    </td> 
+    <td width="582" colspan="2">DL, [BX]</td>        
+  </tr>   
+  <tr>   
+    <td width="54">
+      <p style="margin-left: 13pt">MOV</p>
+ </td>  
+    <td width="582" colspan="2">AH, 2</td>        
+  </tr>   
+  <tr>   
+    <td width="54">
+      <p style="margin-left: 13pt">INT</p>
+    </td>  
+    <td width="582" colspan="2">21H</td>  
+  </tr>  
+  <tr>  
+    <td width="202" colspan="2">.UNTILCXZ</td>  
+    <td width="428">;显示命令行参数中的字符</td> 
+  </tr> 
+  <tr> 
+    <td width="693" colspan="4">over:</td> 
+  </tr> 
+  <tr> 
+    <td width="45" rowspan="2" valign="top"></td> 
+    <td width="630" colspan="3">.EXIT　0</td> 
+  </tr> 
+  <tr> 
+    <td width="630" colspan="3">END</td> 
+  </tr> 
+</table> 
+ 
+<p align="center"><a href="javascript:close();">关　闭</a></p>
+  
+</body>
+
+</html>

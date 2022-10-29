@@ -1,0 +1,299 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>7.3.2 存储单元传递参数</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter07.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle07.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0"  id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="54%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="07-3.htm">子程序的参数传递</a>                            
+      → 存储单元传递参数</td>                                      
+    <td width="46%">       
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<h3>7.3.2 约定存储单元传递参数</h3>                             
+<p style="text-indent: 21.25pt">在调用子程序时，当需要向子程序传递大量数据时，因受到寄存器容量的限制，就不能采用寄存器传递参数的方式，而要改用约定存储单元的传送方式。这种参数传递方式有点象情报人员和联络人员之间的传递信息方式，一个向指定地点放情报，另一个从指定地点取情报。</p>
+<p style="text-indent: 21.25pt">例7.2是采用约定存储单元传递参数的例子，所处理的数据不是直接传给子程序，而是把存储它们的地址告诉子程序。
+<p style="text-indent: -36pt; margin-left: 36pt">例7.4：编写一个子程序分类统计出一个字符串中数字字符、字母和其它字符的个数。该字符串的首地址用DS:DX来指定(以0为字符串结束)，各类字符个数分别存放BX、CX和DI中。</p>
+<table border="0" width="768" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="762" colspan="5">解：</td>   
+  </tr>   
+  <tr>   
+    <td width="51" rowspan="34" valign="top"></td>   
+    <td width="705" colspan="4">;子程序功能：分类统计出字符串中数字字符、字母和其它字符的个数</td>   
+  </tr>   
+  <tr>   
+    <td width="705" colspan="4">;入口参数：DS:DX指向被统计的字符串</td>   
+  </tr>   
+  <tr>   
+    <td width="705" colspan="4">;出口参数：BX、CX和DI分别保存数字字符、字母和其它字符的个数</td>   
+  </tr>   
+  <tr>   
+    <td width="77" valign="top">;算法描述：</td>   
+    <td width="622" colspan="3">1、当字符在'0'~'9'范围时，数字字符个数BX加1；<br>
+      2、为了判断简单，先把字字母变成大写字母；<br>
+      3、当字符在'A'~'Z'范围时，字母个数CX加1；<br>
+      4、否则，其它字符个数DI加1。</td>   
+  </tr>   
+  <tr>   
+    <td width="77" rowspan="7" valign="top">COUNT</td>   
+    <td width="616" colspan="3">PROC</td>   
+  </tr>   
+  <tr>   
+    <td width="42">PUSH</td>   
+    <td width="568" colspan="2">AX</td>    
+  </tr>   
+  <tr>   
+    <td width="42">PUSH</td>   
+    <td width="574" colspan="2">SI</td>   
+  </tr>   
+  <tr>   
+    <td width="42">XOR</td>   
+    <td width="574" colspan="2">BX, BX</td>     
+  </tr>    
+  <tr>    
+    <td width="42">XOR</td>   
+    <td width="574" colspan="2">CX, CX</td>    
+  </tr>   
+  <tr>   
+    <td width="42">XOR</td>   
+    <td width="139">DI, DI</td>      
+    <td width="429">;上三条指令使各类字符计数清零</td>     
+  </tr>    
+  <tr>
+    <td width="42">MOV</td>   
+    <td width="139">SI, DX</td>     
+    <td width="429"></td>    
+  </tr>
+  <tr>
+    <td width="77" valign="top" rowspan="10">again:</td>   
+    <td width="42">MOV</td>   
+    <td width="568" colspan="2">AL, [SI]</td>     
+  </tr>
+  <tr>
+    <td width="42">INC</td>   
+    <td width="568" colspan="2">SI</td>    
+  </tr>
+  <tr>
+    <td width="42">CMP</td>   
+    <td width="568" colspan="2">AL, 0</td>      
+  </tr>
+  <tr>
+    <td width="42">JE</td>   
+    <td width="568" colspan="2">over</td>    
+  </tr>
+  <tr>
+    <td width="42">CMP</td>   
+    <td width="568" colspan="2">AL, '0'</td>      
+  </tr>
+  <tr>
+    <td width="42">JL</td>   
+    <td width="568" colspan="2">other</td>    
+  </tr>
+  <tr>
+    <td width="42">CMP</td>   
+    <td width="568" colspan="2">AL, '9'</td>      
+  </tr>
+  <tr>
+    <td width="42">JG</td>   
+    <td width="568" colspan="2">next</td>    
+  </tr>
+  <tr>
+    <td width="42">INC</td>   
+    <td width="139">BX</td>    
+    <td width="429">;数字字符个数加1</td>    
+  </tr>
+  <tr>
+    <td width="42">JMP</td>   
+    <td width="568" colspan="2">again</td>    
+  </tr>
+  <tr>
+    <td width="77" rowspan="7" valign="top">next:</td>   
+    <td width="42">CALL</td>   
+    <td width="139">UPPER</td>    
+    <td width="429"> ;调用子程序把AL中的字母变成大写字母</td>    
+  </tr>
+  <tr>
+    <td width="42">CMP</td>   
+    <td width="568" colspan="2">AL, 'A'</td>      
+  </tr>
+  <tr>
+    <td width="42">JL</td>   
+    <td width="568" colspan="2">other</td>    
+  </tr>
+  <tr>
+    <td width="42">CMP</td>   
+    <td width="568" colspan="2">AL, 'Z'</td>      
+  </tr>
+  <tr>
+    <td width="42">JG</td>   
+    <td width="568" colspan="2">other</td>    
+  </tr>
+  <tr>
+    <td width="42">INC</td>   
+    <td width="139">CX</td>    
+    <td width="429">;字母个数加1</td>    
+  </tr>
+  <tr>
+    <td width="42">JMP</td>   
+    <td width="568" colspan="2">again</td>    
+  </tr>
+  <tr>
+    <td width="77" rowspan="2" valign="top">other:</td>   
+    <td width="42">INC</td>   
+    <td width="139">DI</td>    
+    <td width="429">;其它字符个数加1</td>    
+  </tr>
+  <tr>
+    <td width="42">JMP</td>   
+    <td width="568" colspan="2">again</td>    
+  </tr>
+  <tr>
+    <td width="77" rowspan="3" valign="top">over:</td>   
+    <td width="42">POP</td>   
+    <td width="568" colspan="2">SI</td>    
+  </tr>
+  <tr>
+    <td width="42">POP</td>   
+    <td width="568" colspan="2">AX</td>    
+  </tr>
+  <tr>
+    <td width="610" colspan="3">RET</td>   
+  </tr>
+  <tr>    
+    <td width="77">COUNT</td>   
+    <td width="622" colspan="3">ENDP</td>   
+  </tr>   
+</table>   
+<p>例7.5                           
+显示出任意字符串中数字字符、字母和其它字符的个数。</p> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="100%" colspan="5">解：</td>   
+  </tr>   
+  <tr>   
+    <td width="8%" rowspan="14" valign="top"></td>   
+    <td width="7%">.MODEL</td>   
+    <td width="85%" colspan="3">SMALL</td>   
+  </tr>   
+  <tr>   
+    <td width="92%" colspan="4">.DATA</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">
+      <p align="center">MSG</td>   
+    <td width="85%" colspan="3">DB　'KSDJ L0984/[]3oiu OIU OIU (*&amp;(5341', 0</td>                               
+  </tr>   
+  <tr>   
+    <td width="92%" colspan="4">.CODE</td>   
+  </tr>   
+  <tr>   
+    <td width="8%" rowspan="10" valign="top"></td>   
+    <td width="84%" colspan="3">.STARTUP</td>   
+  </tr>   
+  <tr>   
+    <td width="6%">LEA</td>   
+    <td width="22%">DX, MSG</td>      
+    <td width="56%">;DS:DX指向待统计的字符串</td>   
+  </tr>   
+  <tr>   
+    <td width="6%">CALL</td>   
+    <td width="21%">COUNT</td>   
+    <td width="57%"> ;调用子程序统计出各类字符的个数</td>   
+  </tr>   
+  <tr>   
+    <td width="6%">CALL</td>   
+    <td width="21%">DISPBX</td>    
+    <td width="57%"> ;调用子程序显示数字字符的个数</td>    
+  </tr>    
+  <tr>    
+    <td width="6%">MOV</td>   
+    <td width="78%" colspan="2">BX, CX</td>     
+  </tr>   
+  <tr>   
+    <td width="6%">CALL</td>   
+    <td width="22%">DISPBX&nbsp;</td>    
+    <td width="56%"> ;调用子程序显示字母的个数</td>    
+  </tr>    
+  <tr>
+    <td width="6%">MOV</td>   
+    <td width="78%" colspan="2">BX, DI</td>     
+  </tr>
+  <tr>
+    <td width="6%">CALL</td>   
+    <td width="22%">DISPBX</td>    
+    <td width="56%"> ;调用子程序显示其它字符的个数</td>    
+  </tr>
+  <tr>
+    <td width="84%" colspan="3">.EXIT　0</td>   
+  </tr>
+  <tr>
+    <td width="84%" colspan="3">END</td>   
+  </tr>
+</table>   
+     
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=7&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="07-3.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="07-3-3.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                 
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->    
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+      
+</body>      
+      
+</html>      

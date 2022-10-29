@@ -1,0 +1,134 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>5.2.1-堆栈操作指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter05.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle05.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="05-2.htm"> 指令系统</a> → 取有效地址指令</td>                                           
+    <td width="50%">          
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<p style="text-indent: 21.25pt"><font color="#FF00FF">6、堆栈操作指令(Stack                                        
+Operation Instruction)</font></p>                                       
+<p style="text-indent: 21.25pt">堆栈是一个重要的数据结构，它具有“先进后出”的特点，通常用来保存程序的返回地址。它主要有两大类操作：进栈操作和出栈操作。</p>    
+<p style="text-indent: 21.25pt">1)、进栈操作</p>    
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、<font color="#FF0000">PUSH</font>(Push Word or Doubleword                                        
+onto Stack)</p>                                       
+<p style="text-indent: -52pt; margin-left: 95pt">指令格式：PUSH　Reg/Mem<br>
+PUSH　Imm　　　　　　　　　　;80286+</p>                
+<ul>
+  <li>
+    <p style="text-indent: 21.25pt">一个字进栈，系统自动完成两步操作：SP←SP-2，(SP)←操作数；</li>
+  <li>
+    <p style="text-indent: 21.25pt">&nbsp;一个双字进栈，系统自动完成两步操作：ESP←ESP-4，(ESP)←操作数。</li>
+</ul>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、<font color="#FF0000">PUSHA</font>(Push All General                                        
+Registers)</p>      
+<p style="margin-left: 47pt">指令格式：PUSHA　　　　　　　;80286+</p>
+<p style="margin-left: 47pt">其功能是依次把寄存器AX、CX、DX、BX、SP、BP、SI和DI等压栈。</p>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、<font color="#FF0000">PUSHAD</font>(Push All 32-bit                                        
+General Registers)</p>                                       
+<p style="margin-left: 47pt">指令格式：PUSHAD　　　　　　　;80386+</p>
+<p style="margin-left: 47pt">其功能是把寄存器EAX、ECX、EDX、EBX、ESP、EBP、ESI和EDI等压栈。</p>
+<p style="text-indent: 21.25pt">2)、出栈操作</p>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、<font color="#FF0000">POP</font>(Pop Word or Doubleword                                        
+off Stack)</p>                                       
+<p style="margin-left: 47pt">指令格式：POP　Reg/Mem</p>
+<ul>
+  <li>
+    <p style="text-indent: 21.25pt">弹出一个字，系统自动完成两步操作：操作数←(SP)，SP←SP-2；</li>
+  <li>
+    <p style="text-indent: 21.25pt">弹出一个双字，系统自动完成两步操作：操作数←(ESP)，ESP←ESP-4。</li>
+</ul>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、<font color="#FF0000">POPA</font>(Pop All General                                        
+Registers)</p>      
+<p style="margin-left: 47pt">指令格式：POPA　　　　　　　;80286+</p>
+<p style="margin-left: 40pt">其功能是依次把寄存器DI、SI、BP、SP、BX、DX、CX和AX等弹出栈。其实，程序员不用记住它们的具体顺序，只要与指令PUSHA对称使用就可以了。</p>
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、<font color="#FF0000">POPAD</font>(Pop All 32-bit General                                        
+Registers)</p>      
+<p style="margin-left: 47pt">指令格式：POPAD　　　　　　;80386+</p>
+<p style="margin-left: 40pt">其功能是依次把寄存器EDI、ESI、EBP、ESP、EBX、EDX、ECX和EAX等弹出栈，它与PUSHAD对称使用即可。</p>
+<table border="0" width="100%" cellspacing="1">
+  <tr>
+    <td width="61%">      
+<p style="text-indent: 21.25pt"><a name="XLAT"><font color="#FF00FF">7、转换指令XLAT(Translate                                        
+Instruction)</font></a></p>      
+<p style="text-indent: 21.25pt">转换指令有两个隐含操作数<font color="#FF0000">BX</font>和<font color="#FF0000">AL</font>。指令格式如下：</p>    
+<p style="margin-left: 40pt">XLAT/XLATB</p>    
+<p style="text-indent: 21.25pt">其功能是把<font color="#FF0000">BX</font>的值作为内存字节数组首地址、下标为<font color="#FF0000">AL</font>的数组元素的值传送给<font color="#FF0000">AL</font>。其功能描述的表达式是：AL←BX[AL]，其功能示意图如图5.6所示。</p>    
+    </td>
+    <td width="39%">
+      <p align="center"><img border="0" src="TextBookIMG/05-06.gif" width="198" height="96"></p>
+      <p align="center">图5.6 <font color="#FF0000"> XLAT/XLATB</font>指令的功能示意图</td>                          
+  </tr>
+</table>
+<p style="text-indent: 21.25pt"><a name="I/O指令"><font color="#FF00FF">8、I/O指令</font></a></p>     
+<p style="text-indent: 21.25pt">有关<font color="#FF0000">I/O</font>指令将在第8.1.2节——<a href="08-1.htm#I/O指令">I/O指令</a>——中介绍，在此从略。</p>    
+    
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=5&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="05-2-012.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="05-2-02.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>               
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->   
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

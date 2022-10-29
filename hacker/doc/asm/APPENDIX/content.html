@@ -1,0 +1,200 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>汇编语言网络课件目录</title>
+<base target="main">
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="image/background.gif">
+<p style="MARGIN-TOP: 10px; MARGIN-LEFT: 0px; LINE-HEIGHT: 100%">
+<SCRIPT LANGUAGE=javascript>
+<!--
+
+NS4 = (document.layers) ? 1 : 0;
+IE4 = (document.all) ? 1 : 0;
+ver4 = (NS4 || IE4) ? 1 : 0;
+
+function arrange() {
+    nextY = document.layers[firstInd].pageY +document.layers[firstInd].document.height;
+    for (i = firstInd+1; i < document.layers.length; i++) {
+        whichEl = document.layers[i];
+        if (whichEl.visibility != "hide") {
+            whichEl.pageY = nextY;
+            nextY += whichEl.document.height;
+        }
+    }
+}
+
+function expandIt(el) {
+	if (!ver4) return;
+
+	img = eval("img"+el);
+	temp = img.src;
+	len = temp.length;
+	temp = temp.substring(len-10,len-4);
+	if (temp == "fclose") img.src = "..\\images\\fopens.gif";
+	else if (temp == "fopens") img.src = "..\\images\\fclose.gif";
+	else if (temp == "closed") img.src = "..\\images\\fopend.gif";
+	else img.src = "..\\images\\closed.gif";
+
+	if (IE4) {classname = "M" + el;
+			  len = classname.length
+			  divColl = document.all.tags("DIV");
+			  for (i=0; i < divColl.length; i++) {
+                  whichEl = divColl(i);
+                  TClassName = whichEl.className
+                  k = TClassName.length;
+				  if (k > len && TClassName.substring(0,len)==classname)
+				     {if (whichEl.style.display == "block") whichEl.style.display = "none";
+					  else if (k == len+1) whichEl.style.display = "block";
+					  
+					  img = eval("img" + TClassName.substring(7,k));
+					  temp = img.src;
+					  k = temp.length;
+					  temp = temp.substring(k-10,k-4);
+					  if (temp == "fopens") img.src = "..\\images\\fclose.gif";
+					  else if (temp == "fopend") img.src = "..\\images\\closed.gif";
+					 }
+	             }
+	         }
+    else {whichEl = eval("document." + "M" + el);
+		  for(i=1;i<=document.layers.length;i++){
+			  whichEl = eval("document." + scores[i] + "Child");
+			  if(whichEl!=whichEl1) whichEl.visibility = "hide";
+			 }
+          if (whichEl.visibility == "hide") whichEl.visibility = "show";
+          else whichEl.visibility = "hide";
+
+          arrange();
+	     }
+}
+
+function killErrors() {
+  return true;
+}
+
+window.onerror = killErrors;
+
+// -->
+</SCRIPT>
+</FONT>
+    <TABLE border=0 cellPadding=0 cellSpacing=0 width=249>
+  <TBODY>
+  <TR>
+    <TD width="248">
+<div id='M13' class='M13'><A onclick="expandIt('13'); return false" href="#"> 
+<IMG id=img13 height=16 src="../images/fclose.gif" width=32 border=0></A><A target=main href="appendix1.htm">附录1 汇编语言编程和调试工具</a></div>                                     
+<div id='M131' class='M131' style="DISPLAY: none"> 
+　<A onclick="expandIt('131'); return false" href="#"><IMG id=img131 height=16 src="../images/fclose.gif" width=32 border=0></A><a href="App1-1.htm">1 汇编语言编程工具</a></div>                                      
+<div id='M1311' class='M1311' style="DISPLAY: none"> 
+　　<IMG id=img1311 height=16 src="../images/fmid.gif" width=32 border=0><a href="App1-1.htm">1.1 宏汇编MASM系统</a><br>                                         
+　　<IMG height=16 src="../images/fend.gif" width=32 border=0><a href="App1-4.htm">1.2 TURBO ASSEMBER</a>                                         
+</div>    
+<div id='M132' class='M132' style="DISPLAY: none"> 
+　<A onclick="expandIt('132'); return false" href="#"><IMG id=img132 height=16 src="../images/closed.gif" width=32 border=0></a><a href="App1-5.htm">2 调试工具</a></div>                                      
+<div id='M1321' class='M1321' style="DISPLAY: none"> 
+　　<IMG id=img1321 height=16 src="../images/fmid.gif" width=32 border=0><a href="App1-5.htm">2.1 DEBUG</a><br>  
+　　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App1-6.htm">2.2 CODEVIEW</a><br>  
+　　<IMG height=16 src="../images/fend.gif" width=32 border=0><a href="App1-7.htm">2.3 TURBO DEBUGER</a>                                             
+</div>      
+
+<div id='M14' class='M14'><A onclick="expandIt('14'); return false" href="#">      
+<IMG id=img14 height=16 src="../images/fclose.gif" width=32 border=0></A><A target=main href="appendix2.htm">附录2 Pentium指令的执行周期数</a></div>                                            
+<div id='M141' class='M141' style="DISPLAY: none">
+　<IMG id=img141 height=16 src="../images/fmid.gif" width=32 border=0><A target=main href="App2-01.htm">1 数据传送指令</a><br>                                        
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A target=main href="App2-02.htm">2 标志位操作指令</a><br>                                            
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A target=main href="App2-03.htm">3 算术运算指令</a><br>                                            
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A target=main href="App2-04.htm">4 逻辑运算指令</a><br>                                            
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A target=main href="App2-05.htm">5 移位操作指令</a><br>                                            
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A target=main href="App2-06.htm">6 位操作指令</a><br>                                            
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A target=main href="App2-07.htm">7 比较运算指令</a><br>                                            
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A target=main href="App2-07.htm#loop">8 循环指令</a><br>                                            
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A target=main href="App2-09.htm">9 转移指令</a><br>                                            
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A target=main href="App2-09.htm#set">10 条件设置字节指令</a><br>                                            
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A target=main href="App2-11.htm">11 字符串操作指令</a><br>                                            
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A target=main href="App2-12.htm">12 ASCII--BCD码运算调整指令</a><br>                                            
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A target=main href="App2-12.htm#CPU">13 处理器指令</a><br>                                         
+　<IMG height=16 src="../images/fend.gif" width=32 border=0><a target="main" href="App2-12.htm#CCPU">14 协处理器指令</a>                                         
+</div>
+     
+<div id='M15' class='M15'><A onclick="expandIt('15'); return false" href="#">
+<IMG id=img15 height=16 src="../images/fclose.gif" width=32 border=0></A><A target=main href="appendix3.htm">附录3 中断列表</a></div>                       
+<div id='M151' class='M151' style="DISPLAY: none">
+　<A onclick="expandIt('151'); return false" href="#"><IMG id=img151 height=16 src="../images/fclose.gif" width=32 border=0></A><a href="App31-011.htm">中断INT 21H</a>                       
+</div>
+<div id='M1511' class='M1511' style="DISPLAY: none">      
+　　<IMG id=img1511 height=16 src="../images/fmid.gif" width=32 border=0><a href="App31-011.htm">1 字符功能调用类<br>  
+</a>　　<IMG id=img1542 src="../images/fmid.gif" border=0 width="32"><a href="App31-021.htm">2 目录控制功能<br>  
+</a>　　<IMG id=img1543 src="../images/fmid.gif" border=0 width="32"><a href="App31-031.htm">3 磁盘管理功能<br>  
+</a>　　<IMG id=img1544 src="../images/fmid.gif" border=0 width="32"><a href="App31-041.htm">4 文件操作功能<br>  
+</a>　　<IMG id=img1547 src="../images/fmid.gif" border=0 width="32"><a href="App31-051.htm">5 文件操作功能(FCB)<br>
+</a>　　<IMG id=img1548 src="../images/fmid.gif" border=0 width="32"><a href="App31-061.htm">6 记录操作功能<br>  
+</a>　　<IMG id=img1549 src="../images/fmid.gif" border=0 width="32"><a href="App31-071.htm">7 记录操作功能(FCB)<br>
+</a>　　<IMG id=img1550 src="../images/fmid.gif" border=0 width="32"><a href="App31-081.htm">8 内存分配功能<br>                    
+</a>　　<IMG id=img1551 src="../images/fmid.gif" border=0 width="32"><a href="App31-091.htm">9 系统功能<br>                    
+</a>　　<IMG id=img1545 src="../images/fmid.gif" border=0 width="32"><a href="App31-101.htm">10 进程控制功能<br>                    
+</a>　　<IMG height=16 src="../images/fend.gif" width=32 border=0><a href="App31-111.htm">11 时间和日期功能</a>                                         
+</div>      
+<div id='M152' class='M152' style="DISPLAY: none">      
+　<IMG id=img1553 src="../images/fmid.gif" border=0 width="32"><a href="App32-1.htm">中断INT 33H</a>                    
+</div>
+<div id='M153' class='M153' style="DISPLAY: none">      
+　<IMG id=img1552 src="../images/fmid.gif" border=0 width="32"><a href="App33-1.htm">其它DOS中断</a> 
+</div>      
+<div id='M154' class='M154' style="DISPLAY: none">      
+　<A onclick="expandIt('154'); return false" href="#"><IMG id=img154 height=16 src="../images/closed.gif" width=32 border=0></A><a href="App34-11.htm">BIOS中断</a></div>      
+<div id='M1541' class='M1541' style="DISPLAY: none">      
+　　<IMG id=img1541 height=16 src="../images/fmid.gif" width=32 border=0><a href="App34-11.htm">1 显示服务</a><br>            
+　　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App34-21.htm">2&nbsp;直接磁盘服务</a><br>
+　　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App34-31.htm">3&nbsp;串行口服务</a><br>
+　　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App34-41.htm">4&nbsp;杂项的系统服务</a><br>
+　　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App34-51.htm">5&nbsp;键盘服务</a><br>
+　　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App34-61.htm">6 并行口服务</a><br>         
+　　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App34-71.htm">7 时钟服务</a><br>        
+　　<IMG height=16 src="../images/fend.gif" width=32 border=0><a href="App34-8.htm">8 直接系统服务</a>                             
+</div>
+
+<div id='M16' class='M16'><A onclick="expandIt('16'); return false" href="#">
+<IMG id=img16 height=16 src="../images/closed.gif" width=32 border=0></A><A target=main href="appendix4.htm">附录4 DOS和BIOS的宏定义</a></div>                     
+<div id='M161' class='M161' style="DISPLAY: none">      
+　<IMG id=img161 height=16 src="../images/fmid.gif" width=32 border=0><a href="App4-11.htm">1 控制台输入和输出宏定义</a><br> 
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App4-21.htm">2 设备和文件控制宏定义</a><br>    
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App4-31.htm">3 目录和驱动器控制宏定义</a><br>    
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App4-41.htm">4 内存控制宏定义</a><br> 
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App4-51.htm">5 DOS杂项宏定义</a><br> 
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App4-61.htm">6 显示控制宏定义</a><br>    
+　<IMG height=16 src="../images/fend.gif" width=32 border=0><a href="App4-71.htm">7 字符和光标控制宏定义</a>   
+</div>  
+        
+<div id='M17' class='M17'><A onclick="expandIt('17'); return false" href="#">
+<IMG id=img17 height=16 src="../images/closed.gif" width=32 border=0></A><A target=main href="appendix5.htm">附录5 键盘按键的各种编码对照表</a>            
+<div id='M171' class='M171' style="DISPLAY: none">      
+　<IMG id=img171 height=16 src="../images/fmid.gif" width=32 border=0><A href="App5-1.htm">表1、ASCII码的编码方案</a><br>
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A href="App5-1.htm#字母和空格按键的编码表">表2、字母和空格按键的编码表</a><br>   
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A href="App5-2.htm">表3、功能键的编码表</a><br>   
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A href="App5-2.htm#数字键盘的编码表">表4、数字键盘的编码表</a><br>   
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A href="App5-2.htm#第一排数字键盘的编码表">表5、第一排数字键盘的编码表</a><br>   
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A href="App5-3.htm">表6、操作按键的编码表</a><br>   
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A href="App5-3.htm#标号按键的编码表">表7、标号按键的编码表</a>  <br>   
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><A href="App5-3.htm#附加按键的编码表">表8、附加按键的编码表</a><br>   
+　<IMG height=16 src="../images/fend.gif" width=32 border=0><A href="App5-3.htm#其它按键的扫描码">表9、其它按键的扫描码</a>   
+</div>  
+
+<div id='M18' class='M18'><A onclick="expandIt('18'); return false" href="#">
+<IMG id=img18 height=16 src="../images/closed.gif" width=32 border=0></A><A target=main href="appendix6.htm">附录6 几个重要内存单元地址</a></div>         
+<div id='M181' class='M181' style="DISPLAY: none">      
+　<IMG id=img181 height=16 src="../images/fmid.gif" width=32 border=0><a href="App6-1.htm">1 系统时钟地址</a><br>
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App6-1.htm#2">2 显示特性数据地址</a><br>   
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App6-1.htm#3">3 显示缓冲区地址</a><br>   
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App6-2.htm">4 键盘缓冲区地址</a><br>   
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App6-2.htm#5">5 中断向量表地址</a><br>   
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App6-2.htm#6">6 系统配置地址</a><br>   
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App6-2.htm#7">7 硬盘驱动器信息地址</a>  <br>   
+　<IMG height=16 src="../images/fmid.gif" width=32 border=0><a href="App6-2.htm#8">8 ROM数据的地址</a><br>   
+　<IMG height=16 src="../images/fend.gif" width=32 border=0><a href="App6-2.htm#9">9 其它重要内容的地址</a>   
+</div>  
+</TD></TR>  
+  </TBODY></TABLE>  
+</body>  
+</html>  

@@ -1,0 +1,415 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录4.2 设备和文件控制的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<h3><a name="2.1">2.1、@Read：从文件或设备读数据</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="8" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="80%" colspan="2">@Read &nbsp;buffer，length [，[handle]       
+      [，segment]]</td>   
+  </tr>
+  <tr>
+    <td width="16%" rowspan="4" valign="top">参数说明：</td>
+    <td width="15%">&lt;buffer&gt;</td>
+    <td width="65%"> 
+存放数据的缓冲区偏移量</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;length&gt;</td>
+    <td width="65%"> 
+数据字节的长度</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;handle&gt;</td>
+    <td width="65%"> 
+文件或设备的句柄，缺省值为0(键盘)</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;segment&gt;</td>
+    <td width="65%"> 
+字符串的段地址，缺省值为DS</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">若CF＝0，则AX＝读入的字节数</td>
+  </tr>
+  <tr>
+    <td width="16%">内容破坏：</td>
+    <td width="80%" colspan="2">AX、BX、CX、DX和DS(若段改变了)</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="80%" colspan="2">Int 21h — 3FH，<A href="#2.2">@Write</a></td>         
+  </tr>
+</table>
+<h3><a name="2.2">2.2、@Write：向文件或设备写数据</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="8" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="80%" colspan="2">@Write &nbsp;buffer，length [，[handle]       
+      [，segment]]</td>   
+  </tr>
+  <tr>
+    <td width="16%" rowspan="4" valign="top">参数说明：</td>
+    <td width="15%">&lt;buffer&gt;&nbsp;</td>
+    <td width="65%"> 
+存放数据的缓冲区偏移量</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;length&gt;</td>
+    <td width="65%"> 
+数据字节的长度</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;handle&gt;</td>
+    <td width="65%"> 
+文件或设备的句柄，缺省值为1(屏幕)</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;segment&gt;</td>
+    <td width="65%"> 
+字符串的段地址，缺省值为DS</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">若CF＝0，则AX＝输出的字节数</td>
+  </tr>
+  <tr>
+    <td width="16%">内容破坏：</td>
+    <td width="80%" colspan="2">AX、BX、CX、DX和DS(若段改变了)</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="80%" colspan="2">Int 21h — 40H，<A href="#2.1">@Read</a></td>         
+  </tr>
+</table>
+<h3><a name="2.3">2.3、@MakeFile：创建一个文件</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="8" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="80%" colspan="2">@MakeFile path [，[attrib] [，[segment]       
+      [，kind]]]</td>   
+  </tr>
+  <tr>
+    <td width="16%" rowspan="4" valign="top">参数说明：</td>
+    <td width="15%">&lt;path&gt;</td>
+    <td width="65%"> 
+文件名的地址</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;attrib&gt;</td>
+    <td width="65%"> 
+文件的属性，缺省值为0</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;segment&gt;</td>
+    <td width="65%"> 
+字符串的段地址，缺省值为DS</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">&lt;kind&gt;</td>
+    <td width="65%" valign="top"> 
+可用"tmp"/"new"，若不指定，则创建一个新文件即使文件已存在<br>
+"tmp"创建一个唯一文件；<br>
+"new"创建一个新文件(在原文件不存在时)</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">若CF＝0，则AX＝文件的句柄</td>
+  </tr>
+  <tr>
+    <td width="16%">内容破坏：</td>
+    <td width="80%" colspan="2">AX、CX、DX和DS(若段改变了)</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="80%" colspan="2">Int 21h —       
+      3CH、5AH和5B，<A href="#2.4">@OpenFile</a>，<A href="#2.5">@CloseFile</a></td>    
+  </tr>
+</table>
+<h3><a name="2.4">2.4、@OpenFile：为输入/输出而打开文件</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="7" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="80%" colspan="2">@OpenFile path，access [，segment]</td>         
+  </tr>
+  <tr>
+    <td width="16%" rowspan="3" valign="top">参数说明：</td>
+    <td width="15%">&lt;path&gt;</td>
+    <td width="65%"> 
+文件名的地址</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;access&gt;</td>
+    <td width="65%"> 
+常量，文件访问代码，缺省值为0(可读/写)</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;segment&gt;</td>
+    <td width="65%"> 
+字符串的段地址，缺省值为DS</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">若CF＝1，则AX＝错误代码</td>
+  </tr>
+  <tr>
+    <td width="16%">内容破坏：</td>
+    <td width="80%" colspan="2">AX、DX和DS(若段改变了)</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="80%" colspan="2">Int 21h — 3DH，<A href="#2.3">@MakeFile</a></td>         
+  </tr>
+</table>
+<h3><a name="2.5">2.5、@CloseFile：关闭文件句柄</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="80%" colspan="2">@CloseFile handle</td>         
+  </tr>
+  <tr>
+    <td width="16%" valign="top">参数说明：</td>
+    <td width="15%">&lt;handle&gt;</td>
+    <td width="65%"> 
+先前打开的文件句柄</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">若CF＝1，则AX＝错误代码</td>
+  </tr>
+  <tr>
+    <td width="16%">内容破坏：</td>
+    <td width="80%" colspan="2">AX和BX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="80%" colspan="2">Int 21h — 3EH，<A href="#2.4">@OpenFile</a>，<A href="#2.3">@MakeFile</a></td>         
+  </tr>
+</table>
+<h3><a name="2.6">2.6、@DelFile：删除一个指定的文件</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="6" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="80%" colspan="2">@DelFile path [，segment]</td>         
+  </tr>
+  <tr>
+    <td width="16%" rowspan="2" valign="top">参数说明：</td>
+    <td width="15%">&lt;path&gt;</td>
+    <td width="65%"> 
+文件名字符串的偏移量</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;segment&gt;</td>
+    <td width="65%"> 
+路径的段地址，缺省值为DS</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">若CF＝1，则AX＝错误代码</td>
+  </tr>
+  <tr>
+    <td width="16%">内容破坏：</td>
+    <td width="80%" colspan="2">AX、DX和DS(若段改变了)</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="80%" colspan="2">Int 21h — 41H</td>          
+  </tr>
+</table>
+<h3><a name="2.7">2.7、@MoveFile：文件移动或换名</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="8" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@MoveFile old，new [，[segold] [，segnew]]</td>         
+  </tr>
+  <tr>
+    <td width="16%" rowspan="4" valign="top">参数说明：</td>
+    <td width="15%">&lt;old&gt;</td>
+    <td width="64%"> 
+被换名的文件名字符串的偏移量</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;new&gt;</td>
+    <td width="64%"> 
+新文件名字符串的偏移量</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;segold&gt;</td>
+    <td width="64%"> 
+旧文件名的段地址，缺省值为DS</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;segnew&gt;</td>
+    <td width="64%"> 
+新文件名的段地址，缺省值为ES</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">若CF＝1，则AX＝错误代码</td>
+  </tr>
+  <tr>
+    <td width="16%">内容破坏：</td>
+    <td width="79%" colspan="2">AX、DX、DI，DS和ES(若相应段改变了)</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 21h — 56H</td>          
+  </tr>
+</table>
+<h3 style="text-indent: -32pt; margin-left: 32pt"><a name="2.8">2.8、@GetFirst：读取第一个匹配的文件<br>
+</a>@GetNext：读取其它的匹配文件</h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="7" valign="top"></td>
+    <td width="16%" valign="top">使用语法：</td>
+    <td width="83%" colspan="2">@GetFirst path [，[attribute] [，segment]]<br>      
+      @GetNext</td>   
+  </tr>
+  <tr>
+    <td width="16%" rowspan="3" valign="top">参数说明：</td>
+    <td width="15%">&lt;path&gt;</td>
+    <td width="68%"> 
+指定文件的偏移量，可含通配符</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;attribute&gt;</td>
+    <td width="68%"> 
+被搜索的文件属性，缺省值为0</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;segment&gt;</td>
+    <td width="68%"> 
+路径的段地址，缺省值为DS</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="83%" colspan="2">若CF＝1，则AX＝错误代码</td>
+  </tr>
+  <tr>
+    <td width="16%">内容破坏：</td>
+    <td width="83%" colspan="2">AX(二者)，对@GetFirst，CX、DX和DS(若段改变了)</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="83%" colspan="2">Int 21h — 4EH和4FH，<A href="#2.9">@SetDTA，@GetDTA</a></td>         
+  </tr>
+</table>
+<h3 style="text-indent: -32pt; margin-left: 32pt"><a name="2.9">2.9、@GetDTA：读取DTA(Disk Transfer Address)<br>  
+</a>@SetDTA：设置DTA</h3>    
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="6" valign="top"></td>
+    <td width="16%" valign="top">使用语法：</td>
+    <td width="80%" colspan="2">@SetDTA buffer [，segment]<br>      
+      @GetDTA</td>   
+  </tr>
+  <tr>
+    <td width="16%" rowspan="2" valign="top">参数说明：</td>
+    <td width="15%">&lt;buffer&gt;</td>
+    <td width="65%"> 
+新DTA缓冲区的偏移量</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;segment&gt;</td>
+    <td width="65%"> 
+新DTA缓冲区的段地址，缺省值为DS</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">对@GetDTA，ES:BX＝指向DTA的指针</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="80%" colspan="2">对@GetDTA，AX、ES和BX<br>
+      对@SetDTA，AX、DS和DX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="80%" colspan="2">Int 21h — 2FH和1AH，<A href="#2.8">@GetNext</a></td>         
+  </tr>
+</table>
+<h3><a name="2.10">2.10、@GetFileSize：读取文件大小</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="6" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@GetFileSize handle</td>         
+  </tr>
+  <tr>
+    <td width="16%" valign="top">参数说明：</td>
+    <td width="15%">&lt;handle&gt;</td>
+    <td width="64%"> 
+先前打开的文件句柄</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">若CF＝0，则，DX:AX＝文件的大小</td>
+  </tr>
+  <tr>
+    <td width="16%" rowspan="2" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX、BX、CX和DX</td>
+  </tr>
+  <tr>
+    <td width="79%" colspan="2">注意：该宏将把文件指针复位到0，所以，在文件操作过程中，不要使用该宏</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 21h — 42H</td>          
+  </tr>
+</table>
+<h3 style="text-indent: -39pt; margin-left: 39pt"><a name="2.11">2.11、@MovePtrAbs：移动文件指针道一个绝对位置<br>
+</a>@MovePtrRel：移动文件指针道一个相对位置</h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="6" valign="top"></td>
+    <td width="16%" valign="top">使用语法：</td>
+    <td width="81%" colspan="2">@MovePtrAbs handle [，distance]<br>     
+      @MovePtrRel handle [，distance]</td>        
+  </tr>
+  <tr>
+    <td width="16%" rowspan="2" valign="top">参数说明：</td>
+    <td width="15%">&lt;handle&gt;</td>
+    <td width="66%"> 
+先前打开的文件句柄</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;distance&gt;</td>
+    <td width="66%"> 
+16位常量，或16/32位变量，缺省值是CX:DX</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="81%" colspan="2">若CF＝0，则，DX:AX＝文件指针的位置</td>
+  </tr>
+  <tr>
+    <td width="16%">内容破坏：</td>
+    <td width="81%" colspan="2">AX、BX、CX和DX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="81%" colspan="2">Int 21h — 42H</td>         
+  </tr>
+</table>
+        
+</body>        
+        
+</html>        

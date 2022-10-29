@@ -1,0 +1,284 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>7.6.3 库文件的应用举例</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter07.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle07.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0"  id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="07-6.htm">子程序库</a>                                
+      → 库文件的应用举例</td>                                      
+    <td width="50%">       
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<p style="text-indent: -30pt; margin-left: 30pt">例7.7 把例7.3、7.4和7.5合并在一起生成一个可执行文件，假设它们所对应的源程序名分别为Count.ASM、DispBX.ASM和Main.ASM。</p>                      
+<p style="text-indent: -21pt; margin-left: 21pt">解：由于在源文件Count.ASM中调用了子程序UPPER，所以，例7.1的程序也必须加入到本题中。假设其源文件名为Upper.ASM。</p>
+<p style="text-indent: 21.25pt">由于生成本题的执行文件需要四个模块，模块之间存在着调用关系，所以，在有关源文件中需要说明某些标识符为外部属性，或说明其为公共属性。</p>
+<p style="text-indent: 21.25pt">为了把前面例子中的子程序改写成可汇编的程序，需要添加一些简单的说明语句或进行简单修改，其添加或改写的部分已在下面用“下划线”表示出来。
+<table border="0" width="100%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="8%" rowspan="45" valign="top"></td>   
+    <td width="92%" colspan="4">;源文件Upper.ASM</td>   
+  </tr>   
+  <tr>   
+    <td width="92%" colspan="4">;子程序说明信息：……</td>   
+  </tr>   
+  <tr>   
+    <td width="8%"><u>PUBLIC</u></td>   
+    <td width="84%" colspan="3"><u> UPPER</u></td>   
+  </tr>   
+  <tr>   
+    <td width="8%"><u>SegUpr</u></td>   
+    <td width="84%" colspan="3"><u>SEGMENT 'code'</u></td>   
+  </tr>   
+  <tr>   
+    <td width="9%" rowspan="2" valign="top">UPPER</td>   
+    <td width="83%" colspan="3"> PROC　<u>FAR</u></td>   
+  </tr>   
+  <tr>   
+    <td width="27%" colspan="2">……</td>   
+    <td width="56%">;例7.1中的程序段，在此从略</td>   
+  </tr>   
+  <tr>   
+    <td width="9%" valign="top">UPPER</td>   
+    <td width="83%" colspan="3"> ENDP</td>   
+  </tr>   
+  <tr>   
+    <td width="9%" rowspan="2" valign="top"><u>SegUpr</u></td>   
+    <td width="83%" colspan="3"><u> ENDS</u></td>   
+  </tr>    
+  <tr>    
+    <td width="83%" colspan="3"><u>END</u></td>   
+  </tr>   
+  <tr>   
+    <td width="92%" valign="top" colspan="4">;源文件DispBX.ASM<br>      ;子程序说明信息：……</td>   
+  </tr>    
+  <tr>    
+    <td width="9%"><u>PUBLIC</u></td>   
+    <td width="83%" colspan="3"><u> DISPBX</u></td>   
+  </tr>   
+  <tr>   
+    <td width="9%" rowspan="2" valign="top">SubData</td>   
+    <td width="83%" colspan="3"> SEGMENT</td>   
+  </tr>   
+  <tr>
+    <td width="7%">
+      <p align="center">DB</td>   
+    <td width="76%" colspan="2"> 5 DUP('0'), 0ah, 0dh, '$'</td>     
+  </tr>
+  <tr>
+    <td width="9%">SubData</td>   
+    <td width="83%" colspan="3"> ENDS</td>   
+  </tr>
+  <tr>
+    <td width="9%"><u>SegDisp</u></td>   
+    <td width="83%" colspan="3"><u> SEGMENT&nbsp; 'code'</u></td>                                  
+  </tr>
+  <tr>
+    <td width="9%" rowspan="2" valign="top">DISPBX</td>   
+    <td width="83%" colspan="3"> PROC&nbsp; <u>FAR</u></td>                                  
+  </tr>
+  <tr>
+    <td width="26%" colspan="2">……</td>   
+    <td width="57%">;例7.3中的程序段，在此从略</td>   
+  </tr>
+  <tr>
+    <td width="9%">DISPBX</td>   
+    <td width="83%" colspan="3"> ENDP</td>   
+  </tr>
+  <tr>
+    <td width="9%" rowspan="2" valign="top"><u>SegDisp</u></td>   
+    <td width="83%" colspan="3"><u> ENDS</u></td>   
+  </tr>
+  <tr>
+    <td width="83%" colspan="3"><u>END</u></td>   
+  </tr>
+  <tr>
+    <td width="92%" colspan="4"><p>;源文件Count.ASM<br>;子程序说明信息：……</p>  
+    </td>   
+  </tr>
+  <tr>
+    <td width="8%"><u>PUBLIC</u></td>   
+    <td width="84%" colspan="3"><u> COUNT</u></td>   
+  </tr>
+  <tr>
+    <td width="9%"><u>EXTRN</u></td>   
+    <td width="83%" colspan="3"><u>UPPER:FAR</u></td>   
+  </tr>
+  <tr>
+    <td width="9%"><u>SegCount</u></td>   
+    <td width="83%" colspan="3"><u> SEGMENT&nbsp; 'code'</u></td>                                  
+  </tr>
+  <tr>
+    <td width="9%" rowspan="2" valign="top">COUNT</td>   
+    <td width="83%" colspan="3"> PROC&nbsp; <u>FAR</u></td>                                  
+  </tr>
+  <tr>
+    <td width="26%" colspan="2">……</td>   
+    <td width="57%">;例7.4中的程序段，在此从略</td>   
+  </tr>
+  <tr>
+    <td width="9%">COUNT</td>   
+    <td width="83%" colspan="3"> ENDP</td>   
+  </tr>
+  <tr>
+    <td width="9%" rowspan="2" valign="top"><u>SegCount</u></td>   
+    <td width="83%" colspan="3"><u> ENDS</u></td>   
+  </tr>
+  <tr>
+    <td width="83%" colspan="3"><u>END</u></td>   
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">;源文件Main.ASM</td>   
+  </tr>
+  <tr>
+    <td width="9%"><u>EXTRN</u></td>   
+    <td width="83%" colspan="3"><u> COUNT:FAR, DISPBX:FAR</u></td>    
+  </tr>
+  <tr>
+    <td width="9%">.MODEL</td>   
+    <td width="83%" colspan="3"> SMALL</td>   
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">.DATA</td>   
+  </tr>
+  <tr>
+    <td width="9%"></td>   
+    <td width="7%">STR</td>   
+    <td width="76%" colspan="2"> DB　'KSDJ L0984/[]3oiu OIU OIU (*&amp;(5341',                                
+      0</td>   
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">.CODE</td>   
+  </tr>
+  <tr>
+    <td width="9%" rowspan="10" valign="top"></td>   
+    <td width="83%" colspan="3">.STARTUP</td>   
+  </tr>
+  <tr>
+    <td width="7%">LEA</td>   
+    <td width="76%" colspan="2">DX, STR</td>     
+  </tr>
+  <tr>
+    <td width="7%">CALL</td>   
+    <td width="19%"> COUNT</td>   
+    <td width="57%">;调用子程序统计出各类字符的个数</td>   
+  </tr>
+  <tr>
+    <td width="7%">CALL</td>   
+    <td width="19%"> DISPBX</td>   
+    <td width="57%">;调用子程序显示数字字符的个数</td>   
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>   
+    <td width="76%" colspan="2"> BX, CX</td>     
+  </tr>
+  <tr>
+    <td width="7%">CALL</td>   
+    <td width="19%"> DISPBX</td>   
+    <td width="57%">;调用子程序显示字母的个数</td>   
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>   
+    <td width="76%" colspan="2"> BX, DI</td>     
+  </tr>
+  <tr>
+    <td width="7%">CALL</td>   
+    <td width="19%"> DISPBX</td>   
+    <td width="57%">;调用子程序显示其它字符的个数</td>   
+  </tr>
+  <tr>
+    <td width="7%">.EXIT</td>   
+    <td width="76%" colspan="2"> 0</td>   
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">END</td>   
+  </tr>
+</table>   
+<p style="text-indent: 21.25pt">经过以上改写后，可用下列命令把它们分别汇编成目标文件(假设已安装了MASM编程环境)：</p>  
+<p style="margin-left: 40pt">…&gt;MASM&nbsp; upper<br>                                    
+…&gt;MASM&nbsp; dispbx<br>                                    
+…&gt;MASM&nbsp; count<br>                                    
+…&gt;MASM&nbsp; main</p>                                    
+<p style="text-indent: 21.25pt">有了这些目标文件后，可用以下二种方法来生成可执行文件。</p>   
+<p style="text-indent: 21.25pt">方法1：把所有的目标文件连接在一起</p>   
+<p style="margin-left: 40pt">…&gt;link&nbsp; main+upper+count+dispbx</p>                          
+<p style="text-indent: 21.25pt">方法2：把目标文件upper.obj、count.obj和dispbx.obj加到自己开发的库文件中，然后在连接时，与该库文件连接。</p>   
+<p style="margin-left: 40pt">…&gt;lib&nbsp; mylib +upper +count +dispbx<br>                       
+…&gt;link&nbsp; main<br>                       
+Microsoft (R) Segmented Executable Linker&nbsp;                                     
+Version 5.31.009 Jul 13 1992<br>                       
+Copyright (C) Microsoft Corp 1984-1992.&nbsp;                                     
+All rights reserved.<br>                       
+Run File [main.exe]:<br>                       
+List File [nul.map]:<br>                       
+Libraries [.lib]: <font color="#FF0000"> <u> mylib</u></font>　　　　　　;输入要连接的库文件，可用加号“+”连接多个库文件<br>
+Definitions File [nul.def]:<br>                       
+LINK : warning L4021: no stack segment</p>                       
+<p style="margin-left: 40pt">…&gt;main　　　　　　　　　　　　;运行生成的文件</p>
+<p style="text-indent: 21.25pt">以上各步骤也可由集成开发环境PWB来完成，具体介绍请见附录1。另外，当模块的指令条数较少时，也可以把几个子模块合在一个源文件中。</p>
+     
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=7&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="07-6-3.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="07-6-4.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>      
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->    
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+      
+</body>      
+      
+</html>      

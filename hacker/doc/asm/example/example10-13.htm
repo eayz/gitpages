@@ -1,0 +1,322 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例10.13</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p>例10.13 编写一个程序用动态链表存储20，19，……，1，并用遍历链表的方法来显示每个结点的数值。         
+</p>    
+<p>解：为了便于理解本例程序的执行过程和所构成的动态链表，我们把该链表的构成过程表示成图10.1所示。    
+</p>    
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" colspan="5">    
+<p align="center"><img border="0" src="../TextBookIMG/10-13.gif" width="337"></p>   
+<p align="center">图10.1 动态链表数据结构示意图</p>      
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="9%" rowspan="52" valign="top"></td> 
+    <td width="91%" colspan="4" valign="top">.MODEL　SMALL, C</td>       
+  </tr> 
+  <tr> 
+    <td width="91%" colspan="4">.DATA</td> 
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">Head</td> 
+    <td width="36%" colspan="2">         
+      DW　0</td>
+    <td width="46%">;链表的头指针，初值为空</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">PT</td>
+    <td width="36%" colspan="2">        
+      DW　?</td>
+    <td width="46%">        
+      ;临时链表指针：当前的链表尾</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">Buff</td>
+    <td width="36%" colspan="2">        
+      DB　?, ?, &quot;$&quot;</td>       
+    <td width="46%">;存放输出结果的缓冲区</td> 
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">CRLF</td> 
+    <td width="36%" colspan="2">         
+      DB　0DH, 0AH, &quot;$&quot;</td>       
+    <td width="46%">;回车、换行信息</td> 
+  </tr> 
+  <tr> 
+    <td width="91%" colspan="4">.CODE</td> 
+  </tr> 
+  <tr> 
+    <td width="9%" rowspan="2" valign="top">DispMsg</td> 
+    <td width="36%" colspan="2">PROC USES AX DX, Msg:PTR BYTE</td>   
+    <td width="46%">;显示字符串Msg</td> 
+  </tr> 
+  <tr> 
+    <td width="36%" colspan="2">……</td> 
+    <td width="46%">;参见<a href="../10-3.htm#例10.7">例10.7</a></td> 
+  </tr> 
+  <tr> 
+    <td width="9%" rowspan="43" valign="top">DispMsg</td> 
+    <td width="82%" colspan="3">ENDP</td> 
+  </tr> 
+  <tr> 
+    <td width="82%" colspan="3">.STARTUP</td> 
+  </tr> 
+  <tr> 
+    <td width="9%">MOV</td> 
+    <td width="73%" colspan="2">CX, 20</td>   
+  </tr> 
+  <tr> 
+    <td width="82%" colspan="3">.REPEAT</td> 
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">MOV</p> 
+    </td> 
+    <td width="27%">     
+      BX, 1</td>  
+    <td width="46%">;申请内存的字节数=BX×16</td> 
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">MOV</p> 
+    </td> 
+    <td width="73%" colspan="2">     
+      AH, 48H</td>  
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">INT</p> 
+    </td> 
+    <td width="27%">     
+      21H</td> 
+    <td width="46%">;申请内存的空间</td> 
+  </tr> 
+  <tr> 
+    <td width="36%" colspan="2"> 
+      <p style="margin-left: 12pt">.BREAK　.IF　CARRY?</p>
+    </td>
+    <td width="46%">;申请内存失败</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">MOV</p>
+    </td>
+    <td width="27%">    
+      ES, AX</td> 
+    <td width="46%">;AX=申请内存的段地址</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">MOV</p>
+    </td>
+    <td width="27%">    
+      WORD PTR ES:[0], CX</td>  
+    <td width="46%">;给第一个字赋值</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">MOV</p>
+    </td>
+    <td width="27%">    
+      WORD PTR ES:[2], 0</td>  
+    <td width="46%">;给第二个字置“空”(NULL)</td>
+  </tr>
+  <tr>
+    <td width="82%" colspan="3">
+      <p style="margin-left: 12pt">.IF Head==0</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="36%" colspan="2">
+      <p style="margin-left: 29pt">MOV　Head, ES</p>      
+    </td> 
+    <td width="46%">;保存链表的头指针</td> 
+  </tr> 
+  <tr> 
+    <td width="82%" colspan="3"> 
+      <p style="margin-left: 12pt">.ELSE</p> 
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="82%" colspan="3"> 
+      <p style="margin-left: 29pt">PUSH DS</p> 
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="82%" colspan="3"> 
+      <p style="margin-left: 29pt">MOV　DS, PT</p>      
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="36%" colspan="2"> 
+      <p style="margin-left: 29pt">MOV　WORD PTR DS:[2], ES</p>      
+    </td> 
+    <td width="46%">;把当前申请到的结点链到链表中</td> 
+  </tr> 
+  <tr> 
+    <td width="82%" colspan="3"> 
+      <p style="margin-left: 29pt">POP　DS</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="82%" colspan="3">
+      <p style="margin-left: 12pt">.ENDIF</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">MOV</p>
+    </td>
+    <td width="27%">    
+      PT, ES</td> 
+    <td width="46%">;当前结点向后移</td>
+  </tr>
+  <tr>
+    <td width="82%" colspan="3">.UNTILCXZ</td>
+  </tr>
+  <tr>
+    <td width="9%">MOV</td>
+    <td width="27%">    
+      BX, Head</td> 
+    <td width="46%">;从头开始遍历链表</td>
+  </tr>
+  <tr>
+    <td width="82%" colspan="3">.WHILE　(BX!=0)</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">MOV</td>
+    <td width="27%">     
+      ES, BX</td> 
+    <td width="46%">;第一个结点的段地址</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">MOV</td>
+    <td width="27%">     
+      AX, ES:[0]</td> 
+    <td width="46%">;取第一个结点的数据字段值</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">MOV</td>
+    <td width="73%" colspan="2">     
+      DL, 10</td> 
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">IDIV</td>
+    <td width="73%" colspan="2">     
+      DL</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">ADD</td>
+    <td width="27%">     
+      AX, 3030H</td> 
+    <td width="46%">    
+;把结点的值转换成字符</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">LEA</td>
+    <td width="73%" colspan="2">     
+      BX, BUFF</td> 
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">MOV</td>
+    <td width="27%">     
+      [BX], 2020H</td> 
+    <td width="46%">;把字符缓冲区清空</td>
+  </tr>
+  <tr>
+    <td width="36%" colspan="2">
+      <p style="margin-left: 12pt">.IF AL&gt;30H</td>     
+    <td width="46%">;若十位有非零值，则存储其字符</td> 
+  </tr> 
+  <tr> 
+    <td width="82%" colspan="3"> 
+      <p style="margin-left: 29pt">MOV　[BX], AL</td>      
+  </tr> 
+  <tr> 
+    <td width="82%" colspan="3"> 
+      <p style="margin-left: 29pt">INC　BX</td>
+  </tr>
+  <tr>
+    <td width="82%" colspan="3">
+      <p style="margin-left: 12pt">.ENDIF</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">MOV</td>
+    <td width="27%">     
+      [BX], AH</td> 
+    <td width="46%">;存储个位字符</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">INVOKE</td>
+    <td width="27%">     
+      DispMsg, ADDR Buff</td> 
+    <td width="46%">;显示结点数据的字符串</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">INVOKE</td>
+    <td width="27%">     
+      DispMsg, ADDR CRLF</td> 
+    <td width="46%">;显示回车、换行</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">MOV</td>
+    <td width="27%">  
+      BX, ES:[2]</td> 
+    <td width="46%">;BX=下一个结点的段地址</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">MOV</td>
+    <td width="27%">     
+      AH, 49H</td> 
+    <td width="46%">;当前结点的段地址已在ES中</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">INT</td>
+    <td width="27%">     
+      21H</td>
+    <td width="46%">;释放当前结点所占的空间</td>
+  </tr>
+  <tr>
+    <td width="82%" colspan="3">.ENDW</td>
+  </tr>
+  <tr>
+    <td width="82%" colspan="3">.EXIT　0</td>
+  </tr>
+  <tr>
+    <td width="82%" colspan="3">END</td>
+  </tr>
+</table>
+
+<p align="center"><a href="javascript:close();">关　闭</a></p>
+  
+</body>  
+  
+</html>  

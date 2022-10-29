@@ -1,0 +1,172 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>7.5.2 子程序的位距和语言类型</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter07.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle07.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0"  id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="07-5-01.htm"> 子程序的完全定义</a> → <span style="font-family: 宋体; mso-ascii-font-family: Arial; mso-hansi-font-family: Arial; mso-bookmark: _Toc516764369">子程序的位距</span></td>                                   
+    <td width="50%">      
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<h3>7.5.2 子程序的位距</h3>                    
+<p style="text-indent: 21.25pt">子程序的位距(Distance)有：Near、Far、Near16、Far16、Near32和Far32。</p>
+<p style="text-indent: 21.25pt">子程序位距描述符告诉汇编程序该子程序是在本段之内(Near)，还是在本段之外(Far)。Near和Far描述符表示使用当前的段规模(Segment                      
+Size)，Near16、Far16、Near32和Far32描述符是告诉汇编程序忽略当前的段规模，而使用指定16位或32位的段规模。</p>
+<p style="text-indent: 21.25pt">若选用类型Near或Far，那么，汇编程序将根据当前段的规模来决定选用16位，还是32位的Near或Far。</p>
+<p style="text-indent: 21.25pt">若程序员不指定该选项，那么汇编程序将根据当前的存储模式(由<a href="06-4.htm">.MODEL</a>来决定)和处理机类型来决定子程序类型。若不使用伪指令.MODEL，那么，Near是缺省的类型。</p>
+<h3><a name="Language">7.5.3 子程序的语言类型</a></h3>                    
+<p style="text-indent: 21.25pt">子程序语言类型(Language                           
+Type)可以是任何一种有效的程序设计语句类型，由它来告诉汇编程序将使用什么样的标识符的命名风格、子程序的调用和返回约定。该语言类型说明可使汇编语言程序与其它语言程序达到共享的目的。所有有效的语言类型及其书写规定如表7.1所列。</p>
+<p align="center">表7.1 语言类型及其书写规定</p>                    
+<div align="center">
+  <center>
+<table border="0" width="65%" cellpadding="0" cellspacing="3">
+  <tr>
+    <td width="29%">　</td>
+    <td width="12%" align="center" bgcolor="#FFFF00">C</td>
+    <td width="12%" align="center" bgcolor="#FFFF00">SYSCALL</td>
+    <td width="12%" align="center" bgcolor="#FFFF00">STDCALL</td>
+    <td width="12%" align="center" bgcolor="#FFFF00">Basic</td>
+    <td width="12%" align="center" bgcolor="#FFFF00">Fortran</td>
+    <td width="12%" align="center" bgcolor="#FFFF00">Pascal</td>
+  </tr>
+  <tr>
+    <td width="29%" bgcolor="#FFFF00">前导下划线</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">X</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">　</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">X</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">　</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">　</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">　</td>
+  </tr>
+  <tr>
+    <td width="29%" bgcolor="#FFFF00">字母大写化</td>
+    <td width="12%" align="center">　</td>
+    <td width="12%" align="center">　</td>
+    <td width="12%" align="center">　</td>
+    <td width="12%" align="center">X</td>
+    <td width="12%" align="center">X</td>
+    <td width="12%" align="center">X</td>
+  </tr>
+  <tr>
+    <td width="29%" bgcolor="#FFFF00">参数从左到右</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">　</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">　</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">　</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">X</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">X</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">X</td>
+  </tr>
+  <tr>
+    <td width="29%" bgcolor="#FFFF00">参数从右到左</td>
+    <td width="12%" align="center">X</td>
+    <td width="12%" align="center">X</td>
+    <td width="12%" align="center">X</td>
+    <td width="12%" align="center">　</td>
+    <td width="12%" align="center">　</td>
+    <td width="12%" align="center">　</td>
+  </tr>
+  <tr>
+    <td width="29%" bgcolor="#FFFF00">调用程序清空堆栈</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">X</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">　</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">*</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">　</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">　</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">　</td>
+  </tr>
+  <tr>
+    <td width="29%" bgcolor="#FFFF00">保存指针寄存器BP</td>
+    <td width="12%" align="center"></td>
+    <td width="12%" align="center">　</td>
+    <td width="12%" align="center">　</td>
+    <td width="12%" align="center">X</td>
+    <td width="12%" align="center">X</td>
+    <td width="12%" align="center">X</td>
+  </tr>
+  <tr>
+    <td width="29%" bgcolor="#FFFF00">使用VARARG参数</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">X</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">X</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">X</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">　</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">　</td>
+    <td width="12%" align="center" bgcolor="#00FFFF">　</td>
+  </tr>
+</table>
+  </center>
+</div>
+<p style="text-indent: 21.25pt">*若使用:VARARG参数，则调用程序清空堆栈，否则，被调用的子程序清空堆栈。</p>
+<p style="text-indent: 21.25pt">程序员可用另外三种方法来设置程序的语言类型：.MODEL、OPTION                           
+LANGTYPE:和命令行选项/Gx。若在程序和命令行中都说明了语言类型，那么，前者的说明优先。</p>
+<p style="text-indent: 21.25pt">另外，程序员也可用命令行选项/H来限定标识符的最大长度。</p>
+<p style="text-indent: 21.25pt">例如：</p> 
+<p style="margin-left: 40pt">Pascal语言风格:OPTION LANGUAGE:PASCAL、/Gc</p>                     
+<p style="margin-left: 40pt">C语言风格:OPTION LANGUAGE:C、/Gd</p>                     
+      
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=7&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="07-5-01.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="07-5-04.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a> 
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->    
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+      
+</body>      
+      
+</html>      

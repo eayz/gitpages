@@ -1,0 +1,145 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>4.5 标号、属性</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter04.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle04.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → 标号、变量和标号的属性</td>                           
+    <td width="50%">             
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+    
+<h2>4.5 标号</h2>                                   
+<p style="text-indent: 21.25pt">标号是一种特殊的标识符，它代表代码段中的某个具体位置，它主要用于表明转移的目标位置。其说明形式如下：</p>       
+<p style="margin-left: 40pt">标号:　　汇编语言指令　　　;注释</p> 
+<p style="text-indent: -32pt; margin-left: 53pt">解释：标号必须是一个合法的<a href="04-1.htm#标识符">标识符</a>，在其后面紧跟一个冒号":"，冒号与汇编语言指令之间要有分隔符。通常用若干个空格、<font color="#FF0000">TAB</font>来作分隔符，一般用分隔符使有关内容对齐为宜。</p> 
+<h2>4.6 <a name="变量和标号的属性">内存变量和标号的属性</a></h2>                                 
+<p style="text-indent: 21.25pt">变量是一个符号地质，其值会根据其数据类型来对应从该地址以后的若干个存储单元中所存的数值。标号也是一个符号地址，它所对应的存储单元中存放的是指令代码。虽然它们在某些性质上有所不同，但它们都是一个符号地址，代表一个存储单元的地址，所以，它们都具有存储单元的属性。除此之外，它们还有各自特殊的属性。</p>     
+<p style="text-indent: 21.25pt">下面介绍内存变量和标号的属性及其有关操作符。</p>     
+<h3><a name="SEG">4.6.1 </a> 段属性操作符</h3>                                  
+<p style="text-indent: 21.25pt">段属性操作符(<font color="#FF0000">SEG</font>)返回该标识符所在段的段地址。我们一般只会取内存变量所在段的段地址，而很少取标号所在段的段地址。</p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">     
+  <tr>     
+    <td width="100%" valign="top" colspan="3">     
+      <p style="text-indent: 21.25pt">假设有下面变量定义：</td>     
+  </tr>     
+  <tr>     
+    <td width="8%" valign="top" rowspan="6"></td>     
+    <td width="92%" colspan="2">…</td>     
+  </tr>     
+  <tr>     
+    <td width="92%" colspan="2">SCORE　DW　?</td> 
+  </tr> 
+  <tr> 
+    <td width="28%">NAME　 DB　10 DUP(10)&nbsp;</td>                   
+    <td width="64%">;数据段的变量定义</td>       
+  </tr>       
+  <tr>       
+    <td width="92%" colspan="2">…</td>       
+  </tr>       
+  <tr>       
+    <td width="28%">MOV　AX, SEG SCORE</td>                   
+    <td width="64%">;代码段的指令</td>       
+  </tr>       
+  <tr>       
+    <td width="92%" colspan="2">MOV　BX, SEG NAME</td>                   
+  </tr>          
+</table>          
+<p style="text-indent: 21.25pt">由于<font color="#FF0000">SCORE</font>和<font color="#FF0000">NAME</font>在同一段中定义，所以，寄存器<font color="#FF0000" face="Arial">AX</font>和<font color="#FF0000" face="Arial">BX</font>的值是相等的。</p>       
+<h3>4.6.2 <a name="OFFSET">偏移量属性操作符</a></h3>             
+<p style="text-indent: 21.25pt">偏移量属性操作符(<font color="#FF0000">OFFSET</font>)返回该标识符离它所在段的段地址有多少字节。一般情况，程序员只会取内存变量的偏移量，而不太关心标号的偏移量。</p>     
+<p style="text-indent: 21.25pt">假设有下面变量定义：</p>     
+<table border="0" width="100%" cellpadding="0" cellspacing="0">     
+  <tr>     
+    <td width="8%" rowspan="7" valign="top"></td>     
+    <td width="33%">FIRST　 DD　12345678H, 0&nbsp;</td>                
+    <td width="59%">;数据段的变量定义</td>     
+  </tr>     
+  <tr>     
+    <td width="92%" colspan="2">SCORE　DW　?, 12H</td>                
+  </tr>        
+  <tr>        
+    <td width="92%" colspan="2">NAME　 DB　10 DUP(10)</td>                
+  </tr>        
+  <tr>        
+    <td width="92%" colspan="2">…</td>       
+  </tr>       
+  <tr>       
+    <td width="33%">MOV　AX, OFFSET SCORE</td>                
+    <td width="59%">;代码段的指令</td>     
+  </tr>     
+  <tr>     
+    <td width="92%" colspan="2">MOV　BX, OFFSET NAME</td>                
+  </tr>        
+  <tr>        
+    <td width="92%" colspan="2">…</td>       
+  </tr>       
+</table>       
+<p style="text-indent: 21.25pt">假设<font color="#FF0000">FIRST</font>是数据段的第一个被定义的变量名，它的偏移量为0，<font color="#FF0000">SCORE</font>的偏移量为8，因为它要跳过二个双字，其它如此类推。</p>     
+<p style="text-indent: 21.25pt">由于<font color="#FF0000">NAME</font>在<font color="#FF0000">SCORE</font>之后，且<font color="#FF0000">SCORE</font>之后有二个字，占四个字节，所以，<font color="#FF0000">BX</font>的值要比<font color="#FF0000">AX</font>的值大4。</p>     
+             
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=4&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="04-4-5.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="04-6-3.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                      
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2>                               
+    <option selected value="#">课件章节</option>           
+    <option value="course.htm">课件目录</option>           
+    <option value="01-1.htm">第1章 预备知识</option>                 
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>                 
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>                 
+    <option value="04-1.htm">第4章 标识符和表达式</option>                 
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>                 
+    <option value="06-1.htm">第6章 程序的基本结构</option>                 
+    <option value="07-1.htm">第7章 子程序和库</option>                 
+    <option value="08-1.htm">第8章 输入输出和中断</option>                 
+    <option value="09-1.htm">第9章 宏</option>                 
+    <option value="10-1.htm">第10章 应用程序的设计</option>                 
+    <option value="11-1.htm">第11章 数值运算协处理器</option>           
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>           
+  </select></p>              
+                   
+</body>                   
+                   
+</html>                   

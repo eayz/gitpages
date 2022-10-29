@@ -1,0 +1,164 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>8.2 中断</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter08.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" stylesrc="08-1.htm" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle08.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" ><img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a> 
+      → 中断</td>                    
+    <td width="50%">            
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+     
+<h2>8.2 中断</h2>                          
+<p style="text-indent: 21.25pt">在计算机系统中，引入中断的最初目的是为了提高系统的输入输出性能。随着计算机应用的发展，中断技术也应用到计算机系统的许多领域，如：多道程序、分时系统、实时处理、程序监视和跟踪等领域。</p>   
+<h3>8.2.1 中断的基本概念</h3>                          
+<p style="text-indent: 21.25pt">下面只简单介绍与汇编语言程序设计有关的中断知识，使本章的知识具有一定完整性。有关中断的详细
+介绍可参阅《计算机组成原理》课程中的相关章节。</p>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、中断和中断源</font></p>   
+<p style="text-indent: 21.25pt">所谓中断就是<font color="#FF0000">CPU</font>暂停当前程序的执行，转而执行处理紧急事务的程序，并在该事务处理完后能自动恢复执行原先程序的过程。在此，称引起紧急事务的事件为中断源，称处理紧急事务的程序为中断服务程序或中断处理程序。                     
+计算机系统还根据紧急事务的紧急程度，把中断分为不同的优先级，并规定：高优先级的中断能暂停低优先级的中断服务程序的执行。</p>   
+<p style="text-indent: 21.25pt">计算机系统有上百种可以发出中断请求的中断源，但最常见的中断源是：外设的输入输出请求，如：键盘输入引起的中断，通信端口接受信息引起的中断等；还有一些计算机内部的异常事件，如：0作除数、奇偶校验错等。</p>   
+<p style="text-indent: 21.25pt"><font color="#FF0000">CPU</font>在执行程序时，是否响应中断要取决于以下三个条件能否同时满足：</p>   
+<p style="margin-left: 40pt">(1)、有中断请求；<br>   
+(2)、允许<font color="#FF0000">CPU</font>接受中断请求；<br>   
+(3)、一条指令执行完，下一条指令还没有开始执行。</p>   
+<table border="0" width="100%" cellpadding="0">
+  <tr>
+    <td width="67%" valign="top">   
+<p style="text-indent: 21.25pt">条件(1)是响应中断的主体。除用指令<font color="#FF0000">INT</font>所引起的软件中断之外，其它中断请求信号是随机产生的，程序员是无法预见的。</p>   
+<p style="text-indent: 21.25pt">程序员可用程序部分地控制条件(2)是否满足，即可用指令<font color="#FF0000">STI</font>和<font color="#FF0000">CLI</font>来允许或不允许<font color="#FF0000">CPU</font>响应可屏蔽的外部中断。而对于不可屏蔽中断和内部中断，<font color="#FF0000">CPU</font>一定会响应它们的，程序员是无控制权的。CPU一定会执行这些中断的中断服务程序。</p>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、断向量表和中断服务程序</font></p>   
+<p style="text-indent: 21.25pt">中断向量表是一个特殊的线性表，它保存着系统所有中断服务程序的入口地址(偏移量和段地址)。在微机系统中，该向量表有<font color="#FF0000">256</font>个元素(<font color="#FF0000">0~0FFH</font>)，每个元素占<font color="#FF0000">4</font>个字节，总共1K字节，其在内存中的存储形式及其存储内容如图8.2所示。</p>  
+<p style="text-indent: 21.25pt">图8.2中的“中断偏移量”和“中断段地址”是指该中断服务程序入口单元的“偏移量”和“段地址”。由此不难看出：假如中断号为n，那么，在中断向量表中存储该中断处理程序的入口地址的单元地址为：4n。</p>  
+<p style="text-indent: 21.25pt">表8.2说明了前16个中断向量表中列举了部分常用的中断号。</td>
+    <td width="33%">
+      <p align="center"><img border="0" src="TextBookIMG/08-2.gif" width="190"></p>
+      <p align="center">图8.2 中断向量表</td>                   
+  </tr>
+</table>
+       
+<p align="center">表8.2 部分常用的中断号及其含义</p>                                  
+          
+<div align="center">  
+  <center>  
+  <table border="0" width="50%" cellpadding="0">  
+    <tr>  
+      <td align="center" bgcolor="#FFFF00">中断号</td>  
+      <td align="center" bgcolor="#FFFF00">含义</td>  
+      <td align="center" bgcolor="#FFFF00">中断号</td>  
+      <td align="center" bgcolor="#FFFF00">含义</td>  
+    </tr>  
+    <tr>  
+      <td align="center" bgcolor="#00FFFF">0</td>  
+      <td align="center" bgcolor="#00FFFF">除法出错</td>  
+      <td align="center" bgcolor="#00FFFF">8</td>  
+      <td align="center" bgcolor="#00FFFF">定时器</td>  
+    </tr>  
+    <tr>  
+      <td align="center">1</td>  
+      <td align="center">单步</td>  
+      <td align="center">9</td>  
+      <td align="center">键盘</td>  
+    </tr>  
+    <tr>  
+      <td align="center" bgcolor="#00FFFF">2</td>  
+      <td align="center" bgcolor="#00FFFF">非屏蔽中断</td>  
+      <td align="center" bgcolor="#00FFFF">A</td>  
+      <td align="center" bgcolor="#00FFFF">未用</td>  
+    </tr>  
+    <tr>  
+      <td align="center">3</td>  
+      <td align="center">断点</td>  
+      <td align="center">B</td>  
+      <td align="center">COM2</td>  
+    </tr>  
+    <tr>  
+      <td align="center" bgcolor="#00FFFF">4</td>  
+      <td align="center" bgcolor="#00FFFF">溢出</td>  
+      <td align="center" bgcolor="#00FFFF">C</td>  
+      <td align="center" bgcolor="#00FFFF">COM1</td>  
+    </tr>  
+    <tr>  
+      <td align="center">5</td>  
+      <td align="center">打印屏幕</td>  
+      <td align="center">D</td>  
+      <td align="center">硬盘(并行口)</td>  
+    </tr>  
+    <tr>  
+      <td align="center" bgcolor="#00FFFF">6</td>  
+      <td align="center" bgcolor="#00FFFF">未用</td>  
+      <td align="center" bgcolor="#00FFFF">E</td>  
+      <td align="center" bgcolor="#00FFFF">软盘</td>  
+    </tr>  
+    <tr>  
+      <td align="center">7</td>  
+      <td align="center">未用</td>  
+      <td align="center">F</td>  
+      <td align="center">打印机</td>  
+    </tr>  
+  </table>  
+  </center>  
+</div>  
+          
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=8&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="08-1-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="08-2-2.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+       
+</body>       
+       
+</html>

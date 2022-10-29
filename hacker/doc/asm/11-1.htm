@@ -1,0 +1,205 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>11.1 协处理器的数据格式</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter11.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle11.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    </td>                             
+    <td width="50%">           
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h1 align="center">第11章 数值运算协处理器</h1>                                                                   
+                                
+<p style="text-indent: 21.25pt">数值运算协处理器(简称协处理器)是特为与微处理器协同工作而设计的，它是用于加速处理浮点数据的处理部件。对同样的浮点计算，使用该部件进行运算所花的执行时间要比用常规指令编写的最有效代码所花的时间还要少得多。在早期的计算机系统中，该部件是可选部件，但现在一般都把协处理器直接内置在CPU之中。鉴于现在Pentium处理器内部结构的特点，该处理器能同时执行一条协处理器指令和二条整数指令。  
+<p style="text-indent: 21.25pt">协处理器的主要产品序列有：8087、80287、80387SX、80387DX和80487SX等。  
+<p style="text-indent: 21.25pt">协处理器可处理的数据类型有：16位、32位和64位有符号整数，18位BCD码，32位、64位和80位浮点数。  
+<p style="text-indent: 21.25pt">协处理器可处理的运算有：乘法、除法、加法、减法、求平方根、部分正切、部分反正切和对数等运算。  
+<h2><a name="浮点数的数据格式">11.1 协处理器的数据格式</a></h2>                                    
+<p style="text-indent: 21.25pt">在<a href="04-1.htm">第4章</a>，我们主要介绍了整数在内存中的存储形式，这显然不能满足实际编程的需要。数据类型的另一大类就是浮点数，浮点数在内存中的存储形式就是本节所介绍的主要内容。有关浮点数的存储格式在《计算机组成原理》中的有关章节也有详细说明，不太熟悉的读者可进行辅助阅读。</p>  
+<h3>11.1.1 有符号整数</h3>                                    
+<p style="text-indent:21.25pt">有符号数在协处理器中的应用与前面章节中所描述的方法是一致的，它是各种数据类型的基础。这些整数可分为：16位(字型)、32位(短整型)和64位(长整型)，其最高位为符号位。这些整数的数据格式如图11.1所示，它们所能表示的数据范围如表11.1所列。
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="483">
+      <p style="margin-left: 50pt"><img border="0" src="TextBookIMG/11-1A.gif" width="113"></p>
+    </td>        
+    <td width="271">
+(a) 字整型数据</td>                         
+  </tr>
+  <tr>
+    <td width="483">
+<p style="margin-left: 50pt"><img border="0" src="TextBookIMG/11-1B.gif" width="207"></p>
+    </td>         
+    <td width="271">(b)                                       
+短整型数据</td>
+  </tr>
+  <tr>
+    <td width="483">
+      <p style="margin-left: 50pt"><img border="0" src="TextBookIMG/11-1C.gif" width="396"></p>
+    </td>        
+    <td width="271">   
+    (c) 长整型数据</td>                                 
+  </tr>
+</table>
+<span style="mso-ignore:vglayout">   
+<p align="center">   
+    图11.1                                       
+有符号整型数据的数据格式</p>
+  </span>   
+<p align="center" style="text-indent: 21.25pt">表11.1                                      
+各类整型数据的表示范围</p>  
+<div align="center">
+  <center>
+  <table border="0" width="40%" cellpadding="0">
+    <tr>
+      <td width="27%" align="center" bgcolor="#FFFF00">数据类型</td>
+    </center>
+    <td width="54%" bgcolor="#FFFF00">　　　范　围</td>
+  </tr>
+  <center>
+  <tr>
+    <td width="27%" align="center" bgcolor="#00FFFF">字型</td>
+    <td width="54%" bgcolor="#00FFFF">　-32768 ~ 32767</td>                                  
+  </tr>
+  <tr>
+    <td width="27%" align="center">短整型</td>
+    <td width="54%">　-2147483648 ~ 2147483647</td>                                  
+  </tr>
+  <tr>
+    <td width="27%" align="center" bgcolor="#00FFFF">长整型</td>
+    <td width="54%" bgcolor="#00FFFF">　-9×10<sup>18</sup> ~ 9×10<sup>18</sup></td>                                 
+  </tr>
+  </table>
+  </center>
+</div>
+<p style="text-indent: 21.25pt">在汇编语言环境下，这三种整型数据的定义符分别为：DW、DD和DQ。如：</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="7%" rowspan="3" valign="top"></td>  
+    <td width="6%">data1</td>  
+    <td width="31%">DW　2, -340</td>                                      
+    <td width="56%">;16位整数</td>  
+  </tr>  
+  <tr>  
+    <td width="6%">data2</td>  
+    <td width="31%">DD　321, -320</td>                                      
+    <td width="56%">;短型整数</td>  
+  </tr>  
+  <tr>  
+    <td width="6%">data3</td>  
+    <td width="31%">DQ　-1230, 9034</td>                                      
+    <td width="56%">;长型整数</td>  
+  </tr>  
+</table>  
+<h3><a name="BCD码数据">11.1.2 BCD码数据</a></h3>                                      
+<p style="text-indent: 21.25pt">一个BCD码数据在内存中占80位，共10个字节。其最高位字节用来表示正负号，其余9个字节，每个字节内含有二个BCD码，所以，一个BCD码数据可表示18个BCD编码。BCD码的数据格式如图11.2所示。</p>  
+  <div align="center">
+    <center>
+    <table border="0" width="40%" cellspacing="1">
+      <tr>
+        <td width="20%" align="center">9</td>
+        <td width="28%" align="center"> …</td>
+        <td width="13%" align="center">
+          3</td>
+        <td width="13%" align="center">2</td>
+        <td width="13%" align="center">1</td>
+        <td width="13%" align="center">0</td>
+      </tr>
+    </table>
+    </center>
+  </div>
+  <div align="center">
+    <center>
+    <table border="1" width="40%" cellspacing="0">
+      <tr>
+        <td width="20%" align="center">
+          符号字节</td>
+        <td width="28%" align="center">
+          … …</td>                                
+        <td width="13%" align="center">
+          <p align="center">BCD</td>
+        <td width="13%" align="center">
+          BCD</td>
+        <td width="13%" align="center">
+          BCD</td>
+        <td width="13%" align="center">
+          BCD</td>
+      </tr>
+    </table>
+    </center>
+  </div>
+<p align="center" style="text-indent: 21.25pt">图11.2 <b> BCD</b>码的数据格式</p>                                     
+<p style="text-indent: 21.25pt">关于BCD码的正负数，有如下规定：</p>  
+  <p style="margin-left: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、若最高位字节的值为0H，则表示该BCD码的值为正数；<br>
+  <img border="0" src="TextBookIMG/redpoint.gif" width="20">、若最高位字节的值为80H，则表示该BCD码的值为负数。</p>  
+  <p style="text-indent: 21.25pt">在汇编语言环境下，BCD码数据的定义符为：DT。如：</p>
+  <p style="margin-left: 40pt">.387<br>
+  BCD1　DT　1234, -340</p>                                 
+<p style="text-indent: 21.25pt">该说明语句决定了数据在内存中的存储形式如下：</p>   
+<p style="margin-left: 50pt">00000000000000001234，80000000000000000340</p>  
+                              
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=11&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="10-Exercise.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="11-1-1.htm"><img border="0" src="Button/NextPage1.gif" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">           
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>    
+        
+</body>        
+        
+</html>

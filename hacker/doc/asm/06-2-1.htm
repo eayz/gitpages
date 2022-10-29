@@ -1,0 +1,183 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>6.2 程序的基本结构</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter06.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle06.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → 程序的基本结构</td>                         
+    <td width="50%">             
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h2>6.2 程序的基本结构</h2>                               
+<p style="text-indent: 21.25pt">在学习高级语言程序设计时，我们知道了程序的三大主要结构：顺序结构、分支结构和循环结构。在汇编语言的源程序也同样有此三大结构，所不同的是它们的表现形式不同。用高级语言编写程序时，由于不使用“转移语句”而使这三种结构清晰明了。</p>
+<p style="text-indent: 21.25pt">但在汇编语言的源程序中，很难不使用“转移语句”(除非是一些只有简单功能的程序)，有时甚至会有各种各样的“转移语句”。由于存在这些转移语句，就使得：汇编语言源程序的基本结构显得不太明确。如果源程序的编写者思维混乱，编写出来的源程序在结构上就会显得杂乱无章，反之，如果编写者条理清晰，安排的操作井然有序，那么，编写出来的程序在结构上就会一目了然。</p>
+<p style="text-indent: 21.25pt">总之，不论是高级语言的源程序，还是汇编语言的源程序，其程序的三大基本结构也还是万变不离其宗的。</p>
+<h3>6.2.1 顺序结构</h3>                              
+<p style="text-indent: 21.25pt">顺序结构是最简单的程序结构，程序的执行顺序就是指令的编写顺序，所以，安排指令的先后次序就显得至关重要。另外，在编程序时，还要妥善保存已得到的处理结果，为后面的进一步处理直接提供前面的处理结果，从而避免不必要的重复操作。</p>
+<p>例6.3 编写程序段，完成下面公式的计算(其中：变量X和Y是32位有符号数，变量A，B和Z是16位有符号数)。</p>                     
+<p style="margin-left: 60pt">A←(X-Y+24)/Z的商，B←(X-Y+24)/Z的余数</p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">     
+  <tr>     
+    <td width="100%" valign="top" colspan="5">解：</td>     
+  </tr>     
+  <tr>     
+    <td width="8%" valign="top" rowspan="22"></td>     
+    <td width="7%" valign="top" rowspan="8">DATA1</td>     
+    <td width="85%" colspan="3" >SEGMENT</td>     
+  </tr>     
+  <tr>     
+    <td width="85%" colspan="3"></td>     
+  </tr>     
+  <tr>     
+    <td width="5%">X</td>
+    <td width="80%" colspan="2">DD　?</td>
+  </tr>
+  <tr>
+    <td width="5%">Y</td>
+    <td width="80%" colspan="2">DD　?</td>
+  </tr>
+  <tr>
+    <td width="5%">Z</td>
+    <td width="80%" colspan="2">DW　?</td>
+  </tr>
+  <tr>
+    <td width="5%">A</td>
+    <td width="80%" colspan="2">DW　?</td>
+  </tr>
+  <tr>
+    <td width="5%">B</td>
+    <td width="80%" colspan="2">DW　?</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="7%">DATA1</td>
+    <td width="85%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="7%" rowspan="12" valign="top">CODE1</td>
+    <td width="85%" colspan="3">SEGMENT</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="5%">MOV</td>
+    <td width="80%" colspan="2"> AX, X</td>   
+  </tr>  
+  <tr>  
+    <td width="5%">MOV</td>
+    <td width="15%"> DX, X+2</td>   
+    <td width="65%">;用(DX:AX)来保存32位变量X的数值</td>
+  </tr>
+  <tr>
+    <td width="5%">SUB</td>
+    <td width="80%" colspan="2"> AX,Y</td>
+  </tr>
+  <tr>
+    <td width="5%">SBB</td>
+    <td width="15%"> DX, Y+2</td>   
+    <td width="65%"> ;(DX:AX)-(Y+2:Y)</td>
+  </tr>
+  <tr>
+    <td width="5%">ADD</td>
+    <td width="80%" colspan="2"> AX, 24D</td>   
+  </tr>  
+  <tr>  
+    <td width="5%">ADC</td>
+    <td width="15%"> DX, 0</td>   
+    <td width="65%"> ;(DX:AX)+24</td>
+  </tr>
+  <tr>
+    <td width="5%">IDIV</td>
+    <td width="80%" colspan="2">Z</td>
+  </tr>
+  <tr>
+    <td width="5%">MOV</td>
+    <td width="80%" colspan="2"> A, AX</td>   
+  </tr>  
+  <tr>  
+    <td width="5%">MOV</td>
+    <td width="80%" colspan="2"> B, DX</td>   
+  </tr>  
+  <tr>  
+    <td width="85%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="7%">CODE1</td>
+    <td width="85%" colspan="3">ENDS</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">在编程序时，常常需要交换二变量之值。假设需要交换值的变量名为：var1和var2，临时增加的变量名为temp。常用的算法如下：</p>
+<p style="margin-left: 40pt">temp = var1<br>                                
+var1 = var2<br>                                
+var2 = temp</p>                                 
+      
+<p align="right">                 
+<a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=6&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="06-1-4.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="06-2-11.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>   
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>         

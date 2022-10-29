@@ -1,0 +1,312 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>9.5 条件汇编伪指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter09.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle09.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → 条件汇编伪指令</td>                           
+    <td width="50%">             
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<h2>9.5 条件汇编伪指令</h2>                                 
+<p style="text-indent: 21.25pt">条件汇编伪指令是告诉汇编程序：根据某种条件确定一组程序段是否加入到目标程序中。使用条件汇编伪指令的主要目的是：同一个源程序能根据不同的汇编条件生成不同功能的目标程序，增强宏定义的使用范围。</p>      
+<p style="text-indent: 21.25pt">条件汇编伪指令与高级语言(如：<font color="#FF0000">C/C++</font>)的条件编译语句在书写形式上相似，在所起作用方面是完全一致的。</p>      
+<h3>9.5.1 条件汇编伪指令的功能</h3>                                 
+<p style="text-indent: 21.25pt">条件汇编伪指令的一般格式如下：</p>      
+<table border="0" width="100%" cellspacing="0" cellpadding="0">      
+  <tr>      
+    <td width="8%" rowspan="5" valign="top"></td>      
+    <td width="8%" rowspan="2" valign="top">IFnnnn</td>      
+    <td width="84%">条件表达式</td>      
+  </tr>      
+  <tr>      
+    <td width="84%">语句组1</td>      
+  </tr>      
+  <tr>      
+    <td width="92%" colspan="2">[ELSE</td>      
+  </tr>      
+  <tr>      
+    <td width="8%"></td>      
+    <td width="84%">语句组2]</td>      
+  </tr>      
+  <tr>      
+    <td width="92%" colspan="2">ENDIF</td>      
+  </tr>      
+</table>      
+<p style="text-indent: 21.25pt">其中：<font color="#FF0000">IFnnnn</font>是表9.2中的伪指令，“[…]”内的语句是可选的。</p>      
+<p style="text-indent:21.25pt">条件汇编伪指令是在汇编程序把源程序转换成目标程序时起作用，其一般含义是：若条件汇编伪指令后面的“条件表达式”为真，那么，语句组1将被汇编；否则，语句组2将被汇编(如果含有<font color="#FF0000">ELSE</font>伪指令)。</p>      
+<p style="text-indent:21.25pt">语句组1或语句组2内还可以包有条件汇编伪指令，这时，就形成了嵌套的条件汇编伪指令。一个嵌套的ELSE伪指令总是与最近的、还没有与其它<font color="#FF0000">ELSE</font>伪指令相比配的<font color="#FF0000">IFnnnn</font>伪指令相比配。</p>      
+<p style="text-indent: 21.25pt">每条条件汇编伪指令的具体含义如表9.3所示。</p>      
+<p align="center">表9.3 条件汇编伪指令及其功能一览表</p>                                 
+<div align="center">      
+  <center>      
+  <table border="0" width="687" cellpadding="0">      
+    <tr>      
+      <td bgcolor="#FFFF00" width="188">      
+        <p style="margin-left: 3pt">伪指令</td>      
+      <td bgcolor="#FFFF00" width="493">      
+        <p style="margin-left: 3pt">含义</td>      
+    </tr>      
+    <tr>      
+      <td bgcolor="#00FFFF" width="188">      
+        <p style="margin-left: 3pt">IF exp</td>                                     
+      <td bgcolor="#00FFFF" width="493">          
+        <p style="margin-left: 3pt">若数值表达式exp的值不为0，则语句组1包含在目标文件中</td>      
+    </tr>      
+    <tr>      
+      <td width="188">      
+        <p style="margin-left: 3pt">IFE exp</td>                                     
+      <td width="493">          
+        <p style="margin-left: 3pt">若数值表达式exp的值为0，则语句组1包含在目标文件中</td>      
+    </tr>      
+    <tr>      
+      <td bgcolor="#00FFFF" width="188">      
+        <p style="margin-left: 3pt">IFDEF label</td>                                     
+      <td bgcolor="#00FFFF" width="493">          
+        <p style="margin-left: 3pt">若标号label有定义或被说明为EXTRN，则语句组1包含在目标文件中</td>      
+    </tr>      
+    <tr>      
+      <td width="188">      
+        <p style="margin-left: 3pt">IFNDEF label</td>                                     
+      <td width="493">          
+        <p style="margin-left: 3pt">若标号label没有定义，也没被说明为EXTRN，则语句组1包含在目标文件中</td>      
+    </tr>      
+    <tr>      
+      <td  bgcolor="#00FFFF" width="188">      
+        <p style="margin-left: 3pt">IFB &lt;参数&gt;</td>                                 
+      <td  bgcolor="#00FFFF" width="493">      
+        <p style="margin-left: 3pt">在宏引用时，若该形参没有相应的实参相对应，则语句组1包含在目标文件中</td>      
+    </tr>      
+    <tr>      
+      <td  width="188">      
+        <p style="margin-left: 3pt">IFNB &lt;参数&gt;</td>                                 
+      <td  width="493">      
+        <p style="margin-left: 3pt">在宏引用时，若该形参没有相应的实参相对应，则语句组1包含在目标文件中</td>      
+    </tr>      
+    <tr>      
+      <td  bgcolor="#00FFFF" width="188">      
+        <p style="margin-left: 3pt">IFIDN &lt;参数1&gt;, &lt;参数2&gt;</td>                                 
+      <td  bgcolor="#00FFFF" width="493">      
+        <p style="margin-left: 3pt">若参数1＝参数2，则语句组1包含在目标文件中</td>      
+    </tr>      
+    <tr>      
+      <td  width="188">      
+        <p style="margin-left: 3pt">IFDIF &lt;参数1&gt;, &lt;参数2&gt;</td>                                 
+      <td  width="493">      
+        <p style="margin-left: 3pt">若参数1≠参数2，则语句组1包含在目标文件中</td>      
+    </tr>      
+    <tr>      
+      <td  bgcolor="#00FFFF" width="188">      
+        <p style="margin-left: 3pt">IF1</td>      
+      <td  bgcolor="#00FFFF" width="493">      
+        <p style="margin-left: 3pt">若汇编程序在第一遍扫描时，则语句组1包含在目标文件中</td>      
+    </tr>      
+    <tr>      
+      <td  width="188">      
+        <p style="margin-left: 3pt">IF2</td>      
+      <td  width="493">      
+        <p style="margin-left: 3pt">若汇编程序在第二遍扫描时，则语句组1包含在目标文件中</td>      
+    </tr>      
+  </table>      
+  </center>      
+</div>      
+<h3><a name="Example">9.5.2 </a> 条件汇编伪指令的举例</h3>                                
+<p>例9.14 编写一个可用<font color="#FF0000">DOS</font>或<font color="#FF0000">BIOS</font>功能调用输入字符的宏定义。</p>                         
+<table border="0" width="768" cellspacing="0" cellpadding="0">    
+  <tr>    
+    <td width="762" colspan="5">解：</td>    
+  </tr>    
+  <tr>    
+    <td width="23" rowspan="10" valign="top"></td>    
+    <td width="733" colspan="4">方法1：使用条件汇编伪指令IF</td>    
+  </tr>    
+  <tr>    
+    <td width="48" rowspan="9" valign="top">INPUT</td>    
+    <td width="673" colspan="3">MACRO</td>    
+  </tr>    
+  <tr>    
+    <td width="25" rowspan="3" valign="top">IF</td>    
+    <td width="89">     
+DOS</td>    
+    <td width="547">     
+;当符号DOS不为0时，则使用DOS的功能调用</td>    
+  </tr>    
+  <tr>    
+    <td width="636" colspan="2">MOV　AH, 1H</td>                                    
+  </tr>          
+  <tr>          
+    <td width="636" colspan="2">INT　　21H</td>
+  </tr>
+  <tr>
+    <td width="124" colspan="2">ELSE</td>
+    <td width="547"> 
+;否则，将使用BIOS的功能调用</td>
+  </tr>
+  <tr>
+    <td width="25" rowspan="2" valign="top"></td>
+    <td width="640" colspan="2">MOV　AH, 10H</td>                                    
+  </tr>          
+  <tr>          
+    <td width="640" colspan="2">INT　　16H</td>
+  </tr>
+  <tr>
+    <td width="679" valign="top" colspan="3">ENDIF</td>
+  </tr>
+  <tr>
+    <td width="679" colspan="3">ENDM</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">在引用宏<font color="#FF0000">INPUT</font>时，汇编程序会根据<font color="#FF0000">DOS</font>是否为<font color="#FF0000">0</font>来生成调用不同输入功能的程序段。</p>
+<table border="0" width="768" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="23" rowspan="10" valign="top"></td>
+    <td width="733" colspan="4">方法2：使用条件汇编伪指令<font color="#FF0000">IFDEF</font></td>
+  </tr>
+  <tr>
+    <td width="48" rowspan="9" valign="top">INPUT</td>
+    <td width="673" colspan="3">MACRO</td>
+  </tr>
+  <tr>
+    <td width="41" rowspan="3" valign="top">IFDEF</td>
+    <td width="91"> 
+DOS</td>
+    <td width="529"> 
+;当定义了DOS，则使用DOS的功能调用</td>
+  </tr>
+  <tr>
+    <td width="620" colspan="2">MOV　AH, 1H</td>                                    
+  </tr>          
+  <tr>          
+    <td width="620" colspan="2">INT　　21H</td>
+  </tr>
+  <tr>
+    <td width="142" colspan="2">ELSE</td>
+    <td width="529"> 
+;否则，将使用BIOS的功能调用</td>
+  </tr>
+  <tr>
+    <td width="41" rowspan="2" valign="top"></td>
+    <td width="624" colspan="2">MOV　AH, 10H</td>                                    
+  </tr>          
+  <tr>          
+    <td width="624" colspan="2">INT　　16H</td>
+  </tr>
+  <tr>
+    <td width="679" valign="top" colspan="3">ENDIF</td>
+  </tr>
+  <tr>
+    <td width="679" colspan="3">ENDM</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">在引用宏INPUT时，汇编程序会根据符号DOS是否已定义来生成调用不同输入功能的程序段。</p> 
+<p>例9.15 编写一个可用功能调用输入字符的宏定义。</p>                     
+<table border="0" width="768" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="762" colspan="5">解：</td>
+  </tr>
+  <tr>
+    <td width="21" rowspan="9" valign="top"></td>
+    <td width="71" rowspan="9" valign="top">READCH</td>
+    <td width="658" colspan="3">MACRO　char</td>
+  </tr>
+  <tr>
+    <td width="48" valign="top">MOV</td>
+    <td width="604" colspan="2"> 
+AH, 1H</td>   
+  </tr>  
+  <tr>    
+    <td width="48" valign="top">INT</td> 
+    <td width="161">21H</td> 
+    <td width="437">    
+;接受一个字符，并存入AL中</td> 
+  </tr> 
+  <tr> 
+    <td width="48" rowspan="4" valign="top">IFNB</td> 
+    <td width="161">    
+&lt;char&gt;</td> 
+    <td width="437">  
+;若参数char有实参与之对应</td> 
+  </tr> 
+  <tr> 
+    <td width="161">IFDIF　&lt;char&gt;, &lt;AL&gt;</td>                                    
+    <td width="437"> ;若参数char≠AL，则把所输入字符保存到实参中</td>       
+  </tr>        
+  <tr>        
+    <td width="602" colspan="2">　MOV　char, AL</td>                                   
+  </tr>        
+  <tr>        
+    <td width="604" valign="top" colspan="2">ENDIF</td>       
+  </tr>       
+  <tr>       
+    <td width="654" valign="top" colspan="3">ENDIF</td>       
+  </tr>       
+  <tr>       
+    <td width="656" colspan="3">ENDM</td>       
+  </tr>       
+</table>       
+                
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=9&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="09-4-2.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="09-6.HTM"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+      
+</body>      
+      
+</html>

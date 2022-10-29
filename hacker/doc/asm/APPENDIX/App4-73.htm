@@ -1,0 +1,254 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录4.7 字符和光标控制的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<h3><a name="7.1">7.1、@GetCsr：读取光标的位置和大小</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="6" valign="top"></td>
+    <td width="15%">使用语法：</td>
+    <td width="80%" colspan="2">@GetCsr [page]</td>        
+  </tr>
+  <tr>
+    <td width="15%" rowspan="2" valign="top">参数说明：</td>
+    <td width="15%">&lt;page&gt;</td>
+    <td width="65%">显示页(一个字节)，缺省值为0</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;segment&gt;</td>
+    <td width="65%">字符串的段，若未指定，则其缺省值为DS</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">DL＝列<br>
+      DH＝行<br>
+      CL＝光标起起行<br>
+      CH＝光标结束行</td>
+  </tr>
+  <tr>
+    <td width="15%">内容破坏：</td>
+    <td width="80%" colspan="2">AX、DX、CX和BH</td>
+  </tr>
+  <tr>
+    <td width="15%">参见内容：</td>
+    <td width="80%" colspan="2">Int 10h — 03h，<A href="#7.2">@SetCsrPos</a>，<A href="#7.3">@SetCsrSize</a></td>       
+  </tr>
+</table>
+<h3><a name="7.2">7.2、@SetCsrPos：设置光标位置</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="7" valign="top"></td>
+    <td width="15%">使用语法：</td>
+    <td width="80%" colspan="2">@SetCsrPos [column] [，[row] [，page]]</td>         
+  </tr>
+  <tr>
+    <td width="15%" rowspan="3" valign="top">参数说明：</td>
+    <td width="15%">&lt;column&gt;</td>
+    <td width="65%">列(一个字节)，缺省值为DL</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;row&gt;</td>
+    <td width="65%">行(一个字节)，缺省值为DH</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;page&gt;</td>
+    <td width="65%">光标所在的页(一个字节)，缺省值为0</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">无</td>
+  </tr>
+  <tr>
+    <td width="15%">内容破坏：</td>
+    <td width="80%" colspan="2">AX、DX和BH</td>
+  </tr>
+  <tr>
+    <td width="15%">参见内容：</td>
+    <td width="80%" colspan="2">Int 10h — 02h，<A href="#7.1">@GetCsr</a></td>       
+  </tr>
+</table>
+<h3><a name="7.3">7.3、@SetCsrSize：设置光标的大小和形状</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="6" valign="top"></td>
+    <td width="15%">使用语法：</td>
+    <td width="80%" colspan="2">@SetCsrSize startline, endline</td>         
+  </tr>
+  <tr>
+    <td width="15%" valign="top" rowspan="2">参数说明：</td>
+    <td width="15%">&lt;startline&gt;</td>
+    <td width="65%">起始线(一个字节)，缺省值为6(CGA)/12</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;endline&gt;</td>
+    <td width="65%">结束线(一个字节)，缺省值为7(CGA)/13</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">无</td>
+  </tr>
+  <tr>
+    <td width="15%">内容破坏：</td>
+    <td width="80%" colspan="2">AX和CX</td>
+  </tr>
+  <tr>
+    <td width="15%">参见内容：</td>
+    <td width="80%" colspan="2">Int 10h — 01h，<A href="#7.1">@GetCsr</a></td>       
+  </tr>
+</table>
+<h3><a name="7.4">7.4、@GetCharAtr：读取光标处的字符及其属性</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="15%">使用语法：</td>
+    <td width="80%" colspan="2">@GetCharAtr [page]</td>        
+  </tr>
+  <tr>
+    <td width="15%" valign="top">参数说明：</td>
+    <td width="15%">&lt;page&gt;</td>
+    <td width="65%">页号(一个字节)，缺省值为0</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">AH＝属性，AL＝字符ASCII码</td>
+  </tr>
+  <tr>
+    <td width="15%">内容破坏：</td>
+    <td width="80%" colspan="2">AX和BH</td>
+  </tr>
+  <tr>
+    <td width="15%">参见内容：</td>
+    <td width="80%" colspan="2">Int 10h — 08h，<A href="#7.5">@PutCharAtr</a></td>       
+  </tr>
+</table>
+<h3><a name="7.5">7.5、@PutCharAtr：在光标处显示指定属性的字符</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="8" valign="top"></td>
+    <td width="15%" valign="top">使用语法：</td>
+    <td width="81%" colspan="2">@PutCharAtr [character] [，[attrib] [，[page] [，count]]]<br>         
+      @PutChar [character] [，[page] [，count]]</td>        
+  </tr>
+  <tr>
+    <td width="15%" valign="top" rowspan="4">参数说明：</td>
+    <td width="19%">&lt;character&gt;</td>
+    <td width="62%">显示字符，其缺省值为AL</td>
+  </tr>
+  <tr>
+    <td width="19%">&lt;attrib&gt;&nbsp;</td>
+    <td width="62%">显示属性(一个字节)，缺省值为BL</td>
+  </tr>
+  <tr>
+    <td width="19%">&lt;page&gt;</td>
+    <td width="62%">页号(一个字节)，缺省值为0</td>
+  </tr>
+  <tr>
+    <td width="19%">&lt;count&gt;</td>
+    <td width="62%">显示次数，缺省值为1</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">返回参数：</td>
+    <td width="81%" colspan="2">无</td>
+  </tr>
+  <tr>
+    <td width="15%">内容破坏：</td>
+    <td width="81%" colspan="2">AX、BX和CX</td>
+  </tr>
+  <tr>
+    <td width="15%">参见内容：</td>
+    <td width="81%" colspan="2">Int 10h — 09h和0AH，<A href="#7.4">@GetCharAtr</a></td>       
+  </tr>
+</table>
+<h3><a name="7.6">7.6、@Scroll：向上/向下滚动指定的窗口</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="10" valign="top"></td>
+    <td width="15%" valign="top">使用语法：</td>
+    <td width="80%" colspan="2">@Scroll         
+dist [,[attr][,[upcol [,[uprow [,[dncol][,dnrow]]]]]]]</td>       
+  </tr>
+  <tr>
+    <td width="15%" valign="top" rowspan="6">参数说明：</td>
+    <td width="15%">&lt;dist&gt;</td>
+    <td width="65%">  
+滚动方向，正—向下滚，负—向下滚，0—清屏</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;attr&gt;&nbsp;</td>
+    <td width="65%">  
+空白行属性(一个字节)，缺省值为7(黑底白字)</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;upcol&gt;</td>
+    <td width="65%">  
+左上角列，缺省值为CL</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;uprow&gt;</td>
+    <td width="65%">  
+左上角行，缺省值为CH</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;dncol&gt;</td>
+    <td width="65%">  
+右下角列，缺省值为DL</td>
+  </tr>
+  <tr>
+    <td width="15%">&lt;dnrow&gt;</td>
+    <td width="65%">  
+右下角列，缺省值为DH</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">无</td>
+  </tr>
+  <tr>
+    <td width="15%">内容破坏：</td>
+    <td width="80%" colspan="2">AX、CX、DX和BH</td>
+  </tr>
+  <tr>
+    <td width="15%">参见内容：</td>
+    <td width="80%" colspan="2">Int         
+10h —         
+06h和07H</td> 
+  </tr>
+</table>
+<h3><a name="7.7">7.7、@Cls：清屏</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="15%" valign="top">使用语法：</td>
+    <td width="80%" colspan="2">@Cls [page]</td>    
+  </tr>
+  <tr>
+    <td width="15%" valign="top">参数说明：</td>
+    <td width="15%">&lt;page&gt;</td>
+    <td width="65%">页号(一个字节)，缺省值为0</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">返回参数：</td>
+    <td width="80%" colspan="2">无</td>
+  </tr>
+  <tr>
+    <td width="15%">内容破坏：</td>
+    <td width="80%" colspan="2">AX、BX、CX和DX</td>
+  </tr>
+  <tr>
+    <td width="15%">参见内容：</td>
+    <td width="80%" colspan="2">Int 10h — 06h和07H</td>    
+  </tr>
+</table>
+         
+</body>        
+        
+</html>        

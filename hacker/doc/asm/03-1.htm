@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>3.1 立即数寻址方式</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter03.js"></script>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+
+function Address1_onmouseover() {
+	Address1.src="TextbookIMG\\03-1-d.gif" 
+}
+
+function Address1_onmouseout() {
+	Address1.src="TextbookIMG\\03-1.gif" 
+}
+
+//-->
+</SCRIPT>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <IMG border=0 src="images/btitle03.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><A href="index.htm"><IMG border=0 id=Home0 language=javascript onmouseout="return Home0_onmouseout()" onmouseover="return Home0_onmouseover()" src="Button/home1.gif" width="96"></a><A href="homework.htm"><IMG border=0 id=Homework language=javascript  onmouseout ="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><IMG border=0 id=Discuss language=javascript  onmouseout ="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><A href="question.htm"><IMG border=0 id=Problem language=javascript  onmouseout ="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><A href="test.asp"><IMG border=0 id=Test language=javascript  onmouseout ="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><A href="search.htm"><IMG border=0 id=Search language=javascript  onmouseout ="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></p></td> 
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a> 
+    </td>                                   
+    <td width="50%">              
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">          
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>       
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>       
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>       
+    <option value="04-1.htm">第4章 标识符和表达式</option>       
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>       
+    <option value="06-1.htm">第6章 程序的基本结构</option>       
+    <option value="07-1.htm">第7章 子程序和库</option>       
+    <option value="08-1.htm">第8章 输入输出和中断</option>       
+    <option value="09-1.htm">第9章 宏</option>       
+    <option value="10-1.htm">第10章 应用程序的设计</option>       
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p></td>
+  </tr>
+</table>
+    
+<h1 align="center">第3章 操作数的寻址方式</h1>                                                                          
+                                    
+<p style="TEXT-INDENT: 21.25pt">操作数是指令或程序的主要处理对象。如果某条指令或某个程序不处理任何操作数，那么，该指令或程序不可能有数据处理功能。在<font color="#ff0000">CPU</font>的指令系统中，除<font color="#ff0000">NOP</font>(空操作指令)、<font color="#ff0000">HLT</font>(停机指令)等少数指令之外，大量的指令在执行过程中都会涉及到操作数。所以，在指令中如何表达操作数或操作数所在位置就是正确运用汇编指令的一个重要因素。</p>        
+<p style="TEXT-INDENT: 21.25pt">在指令中，指定操作数或操作数存放位置的方法称为寻址方式。操作数的各种寻址方式是用汇编语言进行程序设计的基础，也是本课程学习的重点之一。</p>        
+<p style="TEXT-INDENT: 21.25pt">微机系统有七种基本的寻址方式：<a href="#立即寻址方式">立即寻址方式</a>、<a href="03-2.htm">寄存器寻址方式</a>、<a href="03-3.htm">直接寻址方式</a>、<a href="03-4.htm">寄存器间接寻址方式</a>、<a href="03-5.htm">寄存器相对寻址方式</a>、<a href="03-6.htm">基址加变址寻址方式</a>、<a href="03-7.htm">相对基址加变址寻址方式</a>等。其中，后五种寻址方式是确定内存单元有效地址的五种不同的计算方法，用它们可方便地实现对数组元素的访问。</p>      
+<p style="TEXT-INDENT: 21.25pt">另外，在32位微机系统中，为了扩大对存储单元的寻址能力，增加了一种新的寻址方式——<a href="03-8.htm">32位地址的寻址方式</a>。</p>      
+<p style="TEXT-INDENT: 21.25pt">为了表达方便，我们用符号“(<font color="#ff0000">X</font>)”表示X的值，如：(<font color="#ff0000">AX</font>)表示寄存器<font color="#ff0000">AX</font>的值。</p>      
+<h2><a name="立即寻址方式">3.1 </a> 立即寻址方式</h2>       
+<p style="TEXT-INDENT: 21.25pt">操作数作为指令的一部分而直接写在指令中，这种操作数称为立即数，这种寻址方式也就称为立即数寻址方式。</p>      
+<p style="TEXT-INDENT: 21.25pt">立即数可以是8位、16位或32位，该数值紧跟在操作码之后。如果立即数为16位或32位，那么，它将按“高高低低”的原则进行存储。例如：</p>      
+<p style="margin-left: 40pt">MOV AH, 80H　　　ADD AX, 1234H　　　MOV ECX,                            
+123456H<br>
+MOV B1, 12H　　　MOV W1, 3456H　　 ADD D1, 32123456H</p>                                   
+<p style="TEXT-INDENT: 21.25pt">其中：B1、W1和D1分别是字节、字和双字单元。</p>      
+<p style="TEXT-INDENT: 21.25pt">以上指令中的第二操作数都是立即数，在汇编语言中，规定：立即数不能作为指令中的第二操作数。该规定与高级语言中“赋值语句的左边不能是常量”的规定相一致。</p>      
+<p style="TEXT-INDENT: 21.25pt">立即数寻址方式通常用于对通用寄存器或内存单元赋初值。图3.1是指令“MOV                                             
+AX, 4576H”存储形式和执行示意图。</p>                                           
+<p align="center"><IMG border=0 id=Address1 src="TextBookIMG/03-1.gif"  LANGUAGE=javascript onmouseover="return Address1_onmouseover()" onmouseout="return Address1_onmouseout()" width="310"></p>     
+                                
+<p align="center">图3.1 立即寻址方式的存储和执行示意图</p>                                                   
+             
+<p align="right"><A href="index.htm"><IMG border=0 id=Home language=javascript onmouseout="return Home_onmouseout()" onmouseover="return Home_onmouseover()" src="Button/home1.gif" width="96"></a><A href="asp/QuestionIndex.asp-chapter=3&amp;sort=date"><IMG border=0 id=Question  language=javascript onmouseout="return Question_onmouseout()" onmouseover="return Question_onmouseover()" src="Button/question1.gif" width="96"></a><a href="02-Exercise.htm"><IMG border=0 id=PrevPage language=javascript onmouseout="return PrevPage_onmouseout()" onmouseover="return PrevPage_onmouseover()" src="Button/prevpage1.gif" width="96"></a><a href="03-2.htm"><IMG border=0 id=NextPage language=javascript onmouseout="return NextPage_onmouseout()" onmouseover="return NextPage_onmouseover()" src="Button/NextPage1.gif" width="96"></a>                   
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">          
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>       
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>       
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>       
+    <option value="04-1.htm">第4章 标识符和表达式</option>       
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>       
+    <option value="06-1.htm">第6章 程序的基本结构</option>       
+    <option value="07-1.htm">第7章 子程序和库</option>       
+    <option value="08-1.htm">第8章 输入输出和中断</option>       
+    <option value="09-1.htm">第9章 宏</option>       
+    <option value="10-1.htm">第10章 应用程序的设计</option>       
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+                
+</body>         
+         
+</html>         

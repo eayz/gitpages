@@ -1,0 +1,320 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>11.3.3 数学运算类指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter11.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle11.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="11-3.htm">浮点运算指令</a>                     
+      → 数学运算指令</td>                                      
+    <td width="50%">             
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h3>11.3.3 数学运算指令</h3>                         
+<p style="text-indent: 21.25pt">在协处理器的指令系统中，有关数学运算指令有：加法指令、减法指令、乘法指令、除法指令和求平方根指令等。涉及数学运算的指令有比例运算、舍入运算、求绝对值运算和改变数值符号运算等指令。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、加法指令</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="6%" valign="top" rowspan="4"></td>
+    <td width="10%" rowspan="4" valign="top">指令格式：</td>
+    <td width="7%" valign="top">FADD</td>
+    <td width="78%" valign="top">[STReg1, STReg2]<sup>(*)</sup></td>
+  </tr>
+  <tr>
+    <td width="7%">FADD</td>
+    <td width="78%">MemReal</td>
+  </tr>
+  <tr>
+    <td width="7%">FADDP</td>
+    <td width="78%">STReg, ST</td>
+  </tr>
+  <tr>
+    <td width="7%">FIADD</td>
+    <td width="78%">MemInt</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">(*)                    
+在此指令格式下，如果同时指定了二个堆栈寄存器，那么，其中一个寄存器必须是ST。其它指令的同类格式与此同理。</p>
+<p style="text-indent: 21.25pt">指令FADD含有二个隐含操作数ST(1)和ST，其运算功能是：从堆栈中弹出这二个操作数，然后把计算的“和”压入堆栈，即：ST＝ST(1)+ST。</p>
+<p style="margin-left: 50pt">指令“FADD MemReal”的功能：ST＝ST+MemReal<br>                     
+指令“FADDP STReg, ST”的功能：STReg＝STReg+ST，并弹出堆栈的栈顶<br>                    
+指令“FIADD MemInt”的功能：ST＝ST+MemInt</p>                         
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、减法指令</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="6%" valign="top" rowspan="8"></td>
+    <td width="11%" rowspan="8" valign="top">指令格式：</td>
+    <td width="7%" valign="top">FSUB</td>
+    <td width="78%" valign="top" colspan="2">[STReg1, STReg2]</td>
+  </tr>
+  <tr>
+    <td width="7%">FSUB</td>
+    <td width="78%" colspan="2">MemReal</td>
+  </tr>
+  <tr>
+    <td width="7%">FSUBP</td>
+    <td width="78%" colspan="2">STReg, ST</td>
+  </tr>
+  <tr>
+    <td width="7%">FISUB</td>
+    <td width="78%" colspan="2">MemInt</td>
+  </tr>
+  <tr>
+    <td width="7%">FSUBR</td>
+    <td width="22%">[STReg1, STReg2]</td>
+    <td width="56%">;后四条指令是前四条指令的反模式形式</td>
+  </tr>
+  <tr>
+    <td width="7%">FSUBR</td>
+    <td width="78%" colspan="2">MemReal</td>
+  </tr>
+  <tr>
+    <td width="7%">FSUBRP</td>
+    <td width="78%" colspan="2">STReg,ST</td>
+  </tr>
+  <tr>
+    <td width="7%">FISUBR</td>
+    <td width="78%" colspan="2">MemInt</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">指令FSUB含有二个隐含操作数ST(1)和ST，其运算功能是：从堆栈中弹出这二个操作数，然后把计算的“差”压入堆栈，即：ST＝ST(1)-ST。</p>
+<p style="margin-left: 50pt">指令“FSUB MemReal”的功能：ST＝ST-MemReal<br>                     
+指令“FSUBP STReg, ST”的功能：STReg＝STReg-ST，并弹出堆栈的栈顶<br>                    
+指令“FISUB MemInt”的功能：ST＝ST-MemInt</p>                         
+<p style="text-indent: 21.25pt">反模式的四条指令的功能在此从略，请参阅<a href="11-3.htm#命名规则">11.3.1中的有关说明</a>。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">3、乘法指令</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="6%" valign="top" rowspan="4"></td>
+    <td width="10%" rowspan="4" valign="top">指令格式：</td>
+    <td width="7%" valign="top">FMUL</td>
+    <td width="78%" valign="top">[STReg1, STReg2]</td>
+  </tr>
+  <tr>
+    <td width="7%">FMUL</td>
+    <td width="78%">MemReal</td>
+  </tr>
+  <tr>
+    <td width="7%">FMULP</td>
+    <td width="78%">STReg, ST</td>
+  </tr>
+  <tr>
+    <td width="7%">FIMUL</td>
+    <td width="78%">MemInt</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">4、除法指令</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="6%" valign="top" rowspan="8"></td>
+    <td width="10%" rowspan="8" valign="top">指令格式：</td>
+    <td width="7%" valign="top">FDIV</td>
+    <td width="78%" valign="top" colspan="2">[STReg1, STReg2]</td>
+  </tr>
+  <tr>
+    <td width="7%">FDIV</td>
+    <td width="78%" colspan="2">MemReal</td>
+  </tr>
+  <tr>
+    <td width="7%">FDIVP</td>
+    <td width="78%" colspan="2">STReg, ST</td>
+  </tr>
+  <tr>
+    <td width="7%">FIDIV</td>
+    <td width="78%" colspan="2">MemInt</td>
+  </tr>
+  <tr>
+    <td width="7%">FDIVR</td>
+    <td width="22%">[STReg1, STReg2]</td>
+    <td width="56%">;后四条指令是前四条指令的反模式形式</td>
+  </tr>
+  <tr>
+    <td width="7%">FDIVR</td>
+    <td width="78%" colspan="2">MemReal</td>
+  </tr>
+  <tr>
+    <td width="7%">FDIVRP</td>
+    <td width="78%" colspan="2">STReg, ST</td>
+  </tr>
+  <tr>
+    <td width="7%">FIDIVR</td>
+    <td width="78%" colspan="2">MemInt</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">例如：</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="6%" rowspan="13" valign="top"></td>
+    <td width="94%" colspan="3">.387</td>
+  </tr>
+  <tr>
+    <td width="7%">word1</td>
+    <td width="87%" colspan="2">DW　20</td>
+  </tr>
+  <tr>
+    <td width="7%">data1</td>
+    <td width="87%" colspan="2">REAL8　8</td>
+  </tr>
+  <tr>
+    <td width="7%">data2</td>
+    <td width="87%" colspan="2">REAL8　-2</td>
+  </tr>
+  <tr>
+    <td width="7%">data3</td>
+    <td width="87%" colspan="2">REAL8　-12</td>
+  </tr>
+  <tr>
+    <td width="94%" colspan="3">……</td>
+  </tr>
+  <tr>
+    <td width="7%">FLD</td>
+    <td width="24%">data1</td>
+    <td width="63%">;本例只是显示指令的使用方法，无具体的实际功能</td>
+  </tr>
+  <tr>
+    <td width="7%">FLD</td>
+    <td width="87%" colspan="2">data2</td>
+  </tr>
+  <tr>
+    <td width="7%">FLD</td>
+    <td width="87%" colspan="2">data3</td>
+  </tr>
+  <tr>
+    <td width="7%">FDIV</td>
+    <td width="87%" colspan="2">ST(2), ST</td>
+  </tr>
+  <tr>
+    <td width="7%">FDIV</td>
+    <td width="87%" colspan="2">data1</td>
+  </tr>
+  <tr>
+    <td width="7%">FDIVP</td>
+    <td width="87%" colspan="2">ST(2), ST</td>
+  </tr>
+  <tr>
+    <td width="7%">FIDIV</td>
+    <td width="87%" colspan="2">word1</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">5、其它数学运算指令</font></p>
+<p style="text-indent: 21.25pt">在协处理器中，除了完成具体的数学运算指令外，还设置了若干个与数学运算有关的运算指令。具体的运算指令及其功能描述如表11.4所列。</p>
+<p align="center">表11.4 与数学运算有关的其它指令</p>                         
+<div align="center">
+  <center>
+  <table border="0" width="70%" cellpadding="2" cellspacing="0">
+    <tr>
+      <td width="31%" bgcolor="#FFFF00">
+        <p style="margin-left: 20pt">指令格式</td>
+      <td width="69%" bgcolor="#FFFF00">
+        <p style="margin-left: 20pt">指令的功能</td>
+    </tr>
+    <tr>
+      <td width="31%" valign="top" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FSQRT</td>
+      <td width="69%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">求栈顶数据的平方根。如果对负数求其平方根，则会发生错误，并可通过检测状态寄存器的标志位IE来确定。</td>
+    </tr>
+    <tr>
+      <td width="31%" valign="top">
+        <p style="margin-left: 8pt">FSCALE</td>
+      <td width="69%">
+        <p style="margin-left: 8pt">将ST(1)中的数(转换成整数)加上ST的阶码，该指令能快速完成乘/除2<sup>n</sup>的运算。ST(1)中的数必须在2<sup>-15</sup>到2<sup>15</sup>之间。</td>
+    </tr>
+    <tr>
+      <td width="31%" valign="top" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FPREM/FPREM1</td>
+      <td width="69%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">ST＝ST%ST(1)，80387及其以后的协处理器支持FPREM1。</td>
+    </tr>
+    <tr>
+      <td width="31%" valign="top">
+        <p style="margin-left: 8pt">FRNDINT</td>
+      <td width="69%">
+        <p style="margin-left: 8pt">对栈顶数据进行舍入运算，使之转换成整数。</td>
+    </tr>
+    <tr>
+      <td width="31%" valign="top" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FXTRACT</td>
+      <td width="69%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">将栈顶数据分成二部分：无偏阶码和尾数。尾数存入栈顶，无偏阶码存入ST(1)。它常用将浮点数转换成小数形式打印输出。</td>
+    </tr>
+    <tr>
+      <td width="31%" valign="top">
+        <p style="margin-left: 8pt">FABS</td>
+      <td width="69%">
+        <p style="margin-left: 8pt">ST＝|ST|，即：求栈顶数据的绝对值。</td>
+    </tr>
+    <tr>
+      <td width="31%" valign="top" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FCHS</td>
+      <td width="69%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">ST＝-ST，即：改变栈顶数据的符号。</td>
+    </tr>
+  </table>
+  </center>
+</div>
+             
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=11&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="11-3-2.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="11-3-4.htm"><img border="0" src="Button/NextPage1.gif" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">           
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>    
+        
+</body>        
+        
+</html>

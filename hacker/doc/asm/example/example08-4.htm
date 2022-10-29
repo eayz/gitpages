@@ -1,0 +1,228 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例8.4</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p>例8.4 编写一个输入密码的程序，该程序的具体要求如下：</p>      
+<p style="margin-left: 21.25pt">1、每输入一个字符，显示字符"#"表示之；<br> 
+2、密码最多只有10个字符，多余的按键被丢弃；<br> 
+3、若输入的字符串为"HELLO"，则以蓝色显示"Welcome…"，否则，以闪烁、亮红色在显示"Invalid Password"。</p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" valign="top" colspan="5">解：</td> 
+  </tr> 
+  <tr> 
+    <td width="7%" valign="top" rowspan="34"></td> 
+    <td width="93%" colspan="4">.MODEL SMALL<br>   
+      .DATA</td> 
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">　CR　　　EQU　0DH<br>
+      　MSG1　DB　&quot;Welcome...&quot;<br>
+      　MSG2　DB　&quot;Invalid Password&quot;<br>    
+      　PSW1　DB　&quot;HELLO&quot;<br>
+      　BUFF　DB　10 DUP(?)</td>    
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4"> 
+      .CODE</td> 
+  </tr> 
+  <tr> 
+    <td width="4%" valign="top" rowspan="4"></td> 
+    <td width="89%" colspan="3">.STARTUP</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="82%" colspan="2"> AX, DS</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="82%" colspan="2"> ES, AX</td>   
+  </tr> 
+  <tr> 
+    <td width="7%">XOR</td> 
+    <td width="82%" colspan="2"> BX, BX</td>   
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">again:</td> 
+  </tr> 
+  <tr> 
+    <td width="4%" rowspan="13" valign="top"></td> 
+    <td width="7%">MOV</td> 
+    <td width="82%" colspan="2"> AH, 0H</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">INT</td> 
+    <td width="24%"> 16H</td> 
+    <td width="58%"> ;从键盘接受字符输入</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">CMP</td> 
+    <td width="82%" colspan="2"> AL, CR</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">JZ</td> 
+    <td width="24%"> next</td> 
+    <td width="58%">;若按“回车“键，则结束密码输入</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">CMP</td> 
+    <td width="82%" colspan="2"> BX, 10</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">JZ</td> 
+    <td width="24%"> again</td> 
+    <td width="58%">;若已接受了10个字符，则丢弃随后的字符</td> 
+  </tr> 
+  <tr> 
+    <td width="89%" colspan="3">.IF&nbsp; AL&gt;='a' &amp;&amp; AL&lt;=’z’<br>    
+      　　SUB　 AL, 20H<br>    
+      .ENDIF</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="82%" colspan="2">BUFF[BX], AL</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">INC</td> 
+    <td width="24%"> BX</td> 
+    <td width="58%">;保存当前输入，并移动有关指针</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="82%" colspan="2"> DL, '#'</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="82%" colspan="2"> AH, 2</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">INT</td> 
+    <td width="24%"> 21H</td> 
+    <td width="58%">;在屏幕上显示字符”#”</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">JMP</td> 
+    <td width="82%" colspan="2"> again</td> 
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">next:</td> 
+  </tr> 
+  <tr> 
+    <td width="4%" rowspan="25" valign="top"></td> 
+    <td width="7%">CALL</td> 
+    <td width="24%"> Clear</td> 
+    <td width="58%">;清屏幕，见例8.2中的过程定义</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">CMP</td> 
+    <td width="82%" colspan="2"> BX, 5</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">JNZ</td> 
+    <td width="24%"> error</td> 
+    <td width="58%">;若输入的字符串长度不为5，则密码错误</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">LEA</td> 
+    <td width="82%" colspan="2">SI, PSW1</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">LEA</td> 
+    <td width="82%" colspan="2"> DI, BUFF</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="82%" colspan="2">CX, BX</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">CLD</td> 
+    <td width="82%" colspan="2"></td> 
+  </tr> 
+  <tr> 
+    <td width="7%">REPE</td> 
+    <td width="24%"> CMPSB</td> 
+    <td width="58%"> ;比较字符串PSW1和BUFF</td> 
+  </tr> 
+  <tr> 
+    <td width="31%" colspan="2">.IF&nbsp; ZERO?</td>   
+    <td width="58%"> ;若字符串的相应字符相同</td> 
+  </tr> 
+  <tr> 
+    <td width="31%" colspan="2">　　MOV　BP, OFFSET MSG1</td>    
+    <td width="58%"> ;显示字符串首地址</td> 
+  </tr> 
+  <tr> 
+    <td width="31%" colspan="2">　　MOV　BL, 09H</td>    
+    <td width="58%">;显示字符颜色：蓝色</td> 
+  </tr> 
+  <tr> 
+    <td width="31%" colspan="2">　　MOV　CX, 0AH</td>    
+    <td width="58%">;显示字符串长度：10</td> 
+  </tr> 
+  <tr> 
+    <td width="7%" valign="top" rowspan="13"></td> 
+    <td width="7%">.ELSE</td> 
+    <td width="82%" colspan="2"></td> 
+  </tr> 
+  <tr> 
+    <td width="31%" colspan="2">　　MOV　BP, OFFSET MSG2</td>    
+    <td width="58%"> ;显示字符串首地址</td> 
+  </tr> 
+  <tr> 
+    <td width="31%" colspan="2">　　MOV　BL, 8CH</td>    
+    <td width="58%">;显示字符颜色：闪烁、亮红色</td> 
+  </tr> 
+  <tr> 
+    <td width="31%" colspan="2">　　MOV　CX, 10H</td>    
+    <td width="58%">;显示字符串长度：16</td> 
+  </tr> 
+  <tr> 
+    <td width="89%" colspan="3">.ENDIF</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="82%" colspan="2"> AL, 0</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="82%" colspan="2">BH, 0</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="82%" colspan="2"> DH, 5</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="24%"> DL, 20</td>  
+    <td width="58%">;在位置(5,20)的位置开始显示字符串</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="82%" colspan="2"> AH, 13H</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">INT</td> 
+    <td width="24%"> 10H</td> 
+    <td width="58%">;使用中断10H之功能13H来显示字符串</td> 
+  </tr> 
+  <tr> 
+    <td width="89%" colspan="3">.EXIT　0</td>
+  </tr>
+  <tr>
+    <td width="89%" colspan="3">END</td>
+  </tr>
+</table>
+  
+<p align="center"><a href="javascript:close();">关　闭</a></p>  
+             
+</body>  
+  
+</html>  

@@ -1,0 +1,144 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录4.6 模式、页、颜色等控制的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<h3><a name="6.1">6.1、@GetMode：读取当前显示模式和显示页</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%">@GetMode</td>   
+  </tr>
+  <tr>
+    <td width="16%" valign="top">参数说明：</td>
+    <td width="79%" valign="top">无</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%">AL＝显示模式<br>
+      AH＝屏幕宽度(字符数)<br>
+      BH＝显示页号</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%">AX和BH</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%">Int 10h — 0Fh，<A href="#6.2">@SetMode</a></td>        
+  </tr>
+</table>
+<h3><a name="6.2">6.2、@SetMode：设置当前显示模式和显示页</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@SetMode mode</td>        
+  </tr>
+  <tr>
+    <td width="16%" valign="top">参数说明：</td>
+    <td width="15%" valign="top">&lt;mode&gt;</td>
+    <td width="64%">显示模式(一个字节)</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">无</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 10h — 00h，<A href="#6.1">@GetMode</a></td>        
+  </tr>
+</table>
+<h3><a name="6.3">6.3、@SetColor：设置背景色</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@SetColor color</td>       
+  </tr>
+  <tr>
+    <td width="16%" valign="top">参数说明：</td>
+    <td width="15%" valign="top">&lt;color&gt;</td>
+    <td width="64%">背景色(0~15，一个字节)</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">无</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX和BX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 10h — 0BH</td>        
+  </tr>
+</table>
+<h3><a name="6.4">6.4、@SetPalette：设置调色板</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@SetPalette color</td>       
+  </tr>
+  <tr>
+    <td width="16%" valign="top">参数说明：</td>
+    <td width="15%" valign="top">&lt;color&gt;</td>
+    <td width="64%">调色板颜色(一个字节)</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">无</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX和BX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 10h — 0BH</td>        
+  </tr>
+</table>
+<h3><a name="6.5">6.5、@SetPage：设置显示页</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@SetPage page</td>     
+  </tr>
+  <tr>
+    <td width="16%" valign="top">参数说明：</td>
+    <td width="15%" valign="top">&lt;page&gt;</td>
+    <td width="64%">页码(一个字节)</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">无</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 10h — 05H</td>      
+  </tr>
+</table>
+        
+</body>        
+        
+</html>        

@@ -1,0 +1,117 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>第4章 标识符和表达式</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter04.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle04.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    </td>                        
+    <td width="50%">        
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+    
+<h1 align="center">第4章 标识符和表达式</h1>                                                      
+                         
+<p style="text-indent: 21.25pt">标识符和表达式是程序设计经常用到的两个基本概念。在用高级语言进行程序设计时，如果程序要对某个变化的量进行处理时，通常都要对该变化量定义一个具有某种数据类型的符号名，用该符号名也就等于使用了该变化量。在汇编语言中，也是如此，所不同的是它们的说明和引用方式不同。</p>    
+<h2>4.1 标识符</h2>                                
+<p style="text-indent: 21.25pt">在汇编语言中，标号、内存变量名、子程序名和宏名等都是标识符，它一般最多由<font color="#FF0000">31</font>个<font color="#FF0000">字母</font>、<font color="#FF0000">数字</font>及<font color="#FF0000">规定的特殊字符</font>(<font color="#FF0000">?</font>、<font color="#FF0000">@</font>、<font color="#FF0000">_</font>、<font color="#FF0000">$</font>)等组成，并且不能用数字开头。通常情况下，汇编语言不区分标识符中字母的大小写。</p>    
+<p style="text-indent: 21.25pt">和高级语言的变量名一样，一般要求标识符尽可能取得有点含义，这会大大改善程序的可读性，并有助于对程序的理解。但标识符不能是汇编语言的保留字，汇编语言的保留字主要是指：指令助忆符、伪指令定义符、寄存器名以及一些具有特殊含义的字符串等。</p>    
+<p style="text-indent: 21.25pt">例如：MSG1、ERRMSG2、ASC1、asc2等是合法的标识符，而1a、ah、mov等就不是合法的标识符。</p>    
+<p style="text-indent: 21.25pt">试比较ABCDH和0ABCDH之间的差异。前者是标识符，而后者是十六位进制数值。</p>    
+<h2><a name="简单变量的定义">4.2 简单内存变量的定义</a></h2>           
+<p style="text-indent: 21.25pt">在编程序时，我们往往要根据程序的需要定义一些内存单元。在高级语言程序中，要给存储单元取一个符号名，然后通过引用该符号名来访问其所对应的存储单元，而在汇编语言程序中要灵活一些，它可以给存储单元取符号名，也可以不取符号名。当给存储单元取符号名时，则可通过该符号名来访问其对应的存储单元；当不给存储单元取符号名时，则可通过存储单元的偏移量(有效地址)来访问它。</p>
+<p style="text-indent: 21.25pt">汇编语言中，常见的数据类型有字节、字和双字等。下面介绍如何定义各种整型类型的内存变量，有关浮点类型变量的定义方式将在<a href="11-1.htm">第11章</a>中介绍。  
+<h3><a name="变量定义的形式">4.2.1 内存变量定义的一般形式</a></h3>           
+<p style="text-indent: 21.25pt">定义数据变量语句是在程序中经常使用的伪指令语句，其一般格式如下：</p>   
+<p style="margin-left: 40pt">[变量名]　　数据定义符　　表达式1[, 表达式2, …,        
+表达式n]　　;注释</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+<p style="text-indent: 21.25pt">该定义格式的主要解释如下：</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p align="right"><img border="0" src="TextBookIMG/Ball3.gif" width="12">、</td>
+    <td width="92%">变量名必须是一个合法的标识符，它可以写，也可以不写；</td>
+  </tr>
+  <tr>
+    <td width="8%" align="right"><img border="0" src="TextBookIMG/Ball3.gif" width="12">、</td>
+    <td width="92%">数据定义符用于确定内存单元的数据类型，常用的定义符有：<a href="04-2-2.htm">DB</a>、<a href="04-2-3.htm">DW</a>和<a href="04-2-3.htm#DD">DD</a>等；</td>
+  </tr>
+  <tr>
+    <td width="8%" align="right" valign="top"><img border="0" src="TextBookIMG/Ball3.gif" width="12">、</td>
+    <td width="92%">表达式是定义内存单元时的初值表达式，一个定义语句可以有多个初值表达式，各表达式之间必须用逗号‘，’分开；如果某个存储单元没有初值表达式，则必须用一个问号‘？’来表示；</td>
+  </tr>
+  <tr>
+    <td width="8%" align="right"><img border="0" src="TextBookIMG/Ball3.gif" width="12">、</td>
+    <td width="92%">在定义语句的后面可以书写注释内容，也可以不写。</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">在定义变量时，虽然可以不写变量名，但我们建议还是要写，因为不写变量名，就意味着只能用内存单元的偏移量来访问它。这时，一旦内存单元的偏移量发生变化，那么，程序中的所有引用都要修改，这不仅增加了程序维护的工作量，而且也容易因遗漏修改而出错。</p>
+     
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=4&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="03-Exercise.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="04-2-2.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>             
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2>                      
+    <option selected value="#">课件章节</option>     
+    <option value="course.htm">课件目录</option>     
+    <option value="01-1.htm">第1章 预备知识</option>           
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>           
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>           
+    <option value="04-1.htm">第4章 标识符和表达式</option>           
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>           
+    <option value="06-1.htm">第6章 程序的基本结构</option>           
+    <option value="07-1.htm">第7章 子程序和库</option>           
+    <option value="08-1.htm">第8章 输入输出和中断</option>           
+    <option value="09-1.htm">第9章 宏</option>           
+    <option value="10-1.htm">第10章 应用程序的设计</option>           
+    <option value="11-1.htm">第11章 数值运算协处理器</option>     
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>     
+  </select></p>        
+             
+</body>             
+             
+</html>             

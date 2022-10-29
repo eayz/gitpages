@@ -1,0 +1,292 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>6.2.2 分支结构</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter06.js"></script>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+
+function IF1_onmouseover() {
+	IF1.src = "textbookIMG\\06-2A-d.gif";
+}
+
+function IF1_onmouseout() {
+	IF1.src = "textbookIMG\\06-2A.gif";
+}
+
+function IF2_onmouseover() {
+	IF2.src = "textbookIMG\\06-2B-d.gif";
+}
+
+function IF2_onmouseout() {
+	IF2.src = "textbookIMG\\06-2B.gif";
+}
+
+//-->
+</SCRIPT>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle06.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="06-2-1.htm">程序的基本结构</a> → 分支结构</td>                                               
+    <td width="50%">             
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h3>6.2.2 分支结构</h3>                                       
+      
+<p style="text-indent: 21.25pt">分支结构是一种非常重要的程序结构，也是实现程序功能选择所必要的程序结构。由于汇编语言需要书写转移指令来实现分支结构，而转移指令肯定会破坏程序的结构，所以，编写清晰的分支结构是掌握该结构的重点，也是用汇编语言编程的基本功。</p>
+<p style="text-indent: 21.25pt">在程序中，当需要进行逻辑分支时，可用每次分二支的方法来达到程序最终分多支的要求，也可是用地址表的方法来达到分多支的目的。</p>
+<p><font color="#FF00FF">一、显示转移指令实现的分支结构</font></p>
+<p style="text-indent: 21.25pt">在高级语句中，分支结构一般用IF语句来实现，在汇编语言中，课用无条件转移指令或条件转移指令实现的分支结构。如图6.2给出了二种常用的分支结构。</p>
+<p style="text-indent: 21.25pt">在编写分支程序时，要尽可能避免编写“头重脚轻”的结构，即：当前分支条件成立时，将执行一系列指令，而条件不成立时，所执行的指令很少。这样就使后一个分支离分支点较远，有时甚至会遗忘编写后一分支程序。这种分支方式不仅不利于程序的阅读，而且也不便将来的维护。</p>
+<p style="text-indent: 21.25pt">所以，在编写分支结构时，一般先处理简单的分支，再处理较复杂的分支。对多分支的情况，也可遵循“由易到难”的原则。因为简单的分支只需要较少的指令就能处理完，一旦处理完这种情况后，在后面的编程过程中就可集中考虑如何处理复杂的分支。
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="50%">
+      <p align="center"><img border="0" src="TextBookIMG/06-2A.gif" width="167" id=IF1 LANGUAGE=javascript onmouseover="return IF1_onmouseover()" onmouseout="return IF1_onmouseout()"></td>
+    <td width="50%">
+      <p align="center"><img border="0" src="TextBookIMG/06-2B.gif" width="256" id=IF2 LANGUAGE=javascript onmouseover="return IF2_onmouseover()" onmouseout="return IF2_onmouseout()"></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">(a) if …                               
+endif结构</td>
+    <td width="50%" align="center">(b) if…else…endif结构</td>                             
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center">图6.2 分支结构的二种结构</td>                             
+  </tr>
+</table>
+<p>例6.5 已知字节变量CHAR1，编写一程序段，把它由小写字母变成大写字母。</p>                                       
+<table border="0" width="100%" cellspacing="0" cellpadding="0">     
+  <tr>     
+    <td width="100%" colspan="5">解：</td>     
+  </tr>     
+  <tr>     
+    <td width="8%" rowspan="16" valign="top"></td>     
+    <td width="8%" rowspan="4" valign="top">DATA1</td>     
+    <td width="84%" colspan="3">SEGMENT</td>     
+  </tr>     
+  <tr>     
+    <td width="84%" colspan="3">…</td>     
+  </tr>     
+  <tr>     
+    <td width="8%">CHAR1</td>     
+    <td width="76%" colspan="2">DB　?</td>
+  </tr>
+  <tr>
+    <td width="84%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="8%">DATA1</td>
+    <td width="84%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="8" valign="top">CODE1</td>
+    <td width="84%" colspan="3">SEGMENT</td>
+  </tr>
+  <tr>
+    <td width="84%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="76%" colspan="2"> AL, CHAR1</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">CMP</td>
+    <td width="76%" colspan="2"> AL, ‘a’</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">JB</td>
+    <td width="76%" colspan="2"> next</td>
+  </tr>
+  <tr>
+    <td width="8%">CMP</td>
+    <td width="76%" colspan="2"> AL, ‘z’</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">JA</td>
+    <td width="76%" colspan="2"> next</td>
+  </tr>
+  <tr>
+    <td width="8%">SUB</td>
+    <td width="17%"> CHAR1, 20H</td> 
+    <td width="59%"> ;指令AND CHAR1, 0DFH也可以</td>                                        
+  </tr>      
+  <tr>      
+    <td width="8%" rowspan="2" valign="top">next:</td>     
+    <td width="84%" colspan="3">…</td>     
+  </tr>     
+  <tr>     
+    <td width="84%" colspan="3">…</td>     
+  </tr>     
+  <tr>     
+    <td width="8%">CODE1</td>     
+    <td width="84%" colspan="3">ENDS</td>     
+  </tr>     
+</table>     
+<p>例6.6                                        
+编写一程序段，计算下列函数值。其中：变量X和Y是有符号字变量。</p>     
+<p style="margin-left: 60pt"><img border="0" src="TextBookIMG/06-2-2.gif" width="176"></p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">     
+  <tr>     
+    <td width="100%" colspan="5">解：</td>     
+  </tr>     
+  <tr>     
+    <td width="8%" rowspan="22" valign="top"></td>     
+    <td width="8%" rowspan="5" valign="top">DATA1</td>     
+    <td width="84%" colspan="3">SEGMENT</td>     
+  </tr>     
+  <tr>     
+    <td width="84%" colspan="3">…</td>     
+  </tr>     
+  <tr>     
+    <td width="7%">X</td>    
+    <td width="77%" colspan="2" >DW　?</td>
+  </tr>
+  <tr>
+    <td width="7%">Y</td>
+    <td width="77%" colspan="2" >DW　?</td>
+  </tr>
+  <tr>
+    <td width="84%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="8%">DATA1</td>
+    <td width="84%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="7" valign="top">CODE1</td>
+    <td width="84%" colspan="3">SEGMENT</td>
+  </tr>
+  <tr>
+    <td width="84%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2"> AX, X</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">CMP</td>
+    <td width="77%" colspan="2"> AX, 0</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">JGE</td>
+    <td width="77%" colspan="2"> case23</td>
+  </tr>
+  <tr>
+    <td width="7%">ADD</td>
+    <td width="17%"> AX, 10</td>  
+    <td width="60%"> ;第一种情况的计算结果</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">JMP</td> 
+    <td width="77%" colspan="2"> result</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="5" valign="top">case23:</td> 
+    <td width="7%">CMP</td> 
+    <td width="77%" colspan="2"> AX, 10D</td>   
+  </tr>  
+  <tr>  
+    <td width="7%">JG</td>
+    <td width="77%" colspan="2"> case3</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="77%" colspan="2"> BX, 30D</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">IMUL</td> 
+    <td width="17%"> BX</td> 
+    <td width="60%"> ;第二种情况的计算结果</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">JMP</td> 
+    <td width="77%" colspan="2"> result</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" valign="top">case3:</td>
+    <td width="6%">SUB</td>
+    <td width="18%">AX, 9</td>  
+    <td width="60%">;第三种情况的计算结果</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="2" valign="top">result:</td> 
+    <td width="6%">MOV</td> 
+    <td width="18%">Y, AX</td>  
+    <td width="60%">;把计算结果保存到变量Y中</td> 
+  </tr> 
+  <tr> 
+    <td width="84%" colspan="3">…</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">CODE1</td> 
+    <td width="84%" colspan="3">ENDS</td> 
+  </tr> 
+</table> 
+         
+<p align="right">                    
+<a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=6&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="06-2-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="06-2-2-1.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>   
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>         

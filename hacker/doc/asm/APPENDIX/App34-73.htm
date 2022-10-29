@@ -1,0 +1,222 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.4 时钟中断的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能00H</font></p>    
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">读取时钟“滴答”计数</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝00H</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">AL＝00H——未过午夜，否则，表示已过午夜<br>
+      CX:DX＝时钟“滴答”计数</td>
+  </tr>
+</table>
+<p><a name="01H"><font color="#FF00FF">(2)、功能01H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">设置时钟“滴答”计数</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝01H<br>
+      CX:DX＝时钟“滴答”计数</td>
+  </tr>
+  <tr>
+    <td width="14%">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+<p><a name="02H"><font color="#FF00FF">(3)、功能02H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">读取时间</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝02H</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">CH＝BCD码格式的小时<br>
+      CL＝BCD码格式的分钟<br>
+      DH＝BCD码格式的秒<br>
+      DL＝00H——标准时间，否则，夏令时<br>
+      CF＝0——时钟在走，否则，时钟停止</td>
+  </tr>
+</table>
+<p><a name="03H"><font color="#FF00FF">(4)、功能03H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">设置时间</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝03H<br>
+      CH＝BCD码格式的小时<br>
+      CL＝BCD码格式的分钟<br>
+      DH＝BCD码格式的秒<br>
+      DL＝00H——标准时间，否则，夏令时</td>
+  </tr>
+  <tr>
+    <td width="14%">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+<p><a name="04H"><font color="#FF00FF">(5)、功能04H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">读取日期</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝04H</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">CH＝BCD码格式的世纪<br>
+      CL＝BCD码格式的年<br>
+      DH＝BCD码格式的月<br>
+      DL＝BCD码格式的日<br>
+      CF＝0——时钟在走，否则，时钟停止</td>
+  </tr>
+</table>
+<p><a name="05H"><font color="#FF00FF">(6)、功能05H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">设置日期</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝05H<br>
+      CH＝BCD码格式的世纪<br>
+      CL＝BCD码格式的年<br>
+      DH＝BCD码格式的月<br>
+      DL＝BCD码格式的日</td>
+  </tr>
+  <tr>
+    <td width="14%">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+<p><a name="06H"><font color="#FF00FF">(7)、功能06H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">设置闹钟</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝06H<br>
+      CH＝BCD码格式的小时<br>
+      CL＝BCD码格式的分钟<br>
+      DH＝BCD码格式的秒</td>
+  </tr>
+  <tr>
+    <td width="14%">出口参数：</td>
+    <td width="82%">CF＝０——操作成功，否则，闹钟已设置或时钟已停止</td>
+  </tr>
+</table>
+<p><a name="07H"><font color="#FF00FF">(8)、功能07H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">闹钟复位</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝07H</td>
+  </tr>
+  <tr>
+    <td width="14%">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+<p><a name="0AH"><font color="#FF00FF">(9)、功能0AH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">读取天数计数，仅在PS/2有效，在此从略</td>   
+  </tr>
+</table>
+<p><a name="0BH"><font color="#FF00FF">(10)、功能0BH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">设置天数计数，仅在PS/2有效，在此从略</td>   
+  </tr>
+</table>
+<p><a name="80H"><font color="#FF00FF">(11)、功能80H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">设置声音源信息</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="6%" align="right">AH</td>
+          <td width="94%">＝80H</td>
+        </tr>
+        <tr>
+          <td width="6%" align="right" rowspan="5" valign="top">AL</td>
+          <td width="94%">＝声音源</td>
+        </tr>
+        <tr>
+          <td width="94%">＝00H——8253可编程计时器，通道2</td>
+        </tr>
+        <tr>
+          <td width="94%">＝01H——盒式磁带输入</td>
+        </tr>
+        <tr>
+          <td width="94%">＝02H——I/O通道上的&quot;Audio In&quot;</td>  
+        </tr>
+        <tr>
+          <td width="94%">＝03H——声音产生芯片</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%">出口参数：</td>
+    <td width="82%">无</td>
+  </tr>
+</table>
+         
+</body>        
+        
+</html>        

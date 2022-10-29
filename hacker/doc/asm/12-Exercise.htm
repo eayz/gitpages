@@ -1,0 +1,163 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>12.4 习题 </title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter12.js"></script>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+function Address1_onmouseover() {
+	Address1.src="TextbookIMG\\03-1-d.gif" 
+}
+
+function Address1_onmouseout() {
+	Address1.src="TextbookIMG\\03-1.gif" 
+}
+
+//-->
+</SCRIPT>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle12.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><A href="index.htm"><IMG border=0 id=Home0 language=javascript onmouseout="return Home0_onmouseout()" onmouseover="return Home0_onmouseover()" src="Button/home1.gif" width="96"></a><A href="homework.htm"><IMG border=0 id=Homework language=javascript  onmouseout ="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96" ></a><A href="bbs/index.asp"><IMG border=0 id=Discuss language=javascript  onmouseout ="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" ></a><A href="question.htm"><IMG border=0 id=Problem language=javascript  onmouseout ="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96" ></a><A href="test.asp"><IMG border=0 id=Test language=javascript  onmouseout ="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96" ></a><A href="search.htm"><IMG border=0 id=Search language=javascript  onmouseout ="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96" ></a></p></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → 习题</td>
+    <td width="50%">
+      <p align="right">&nbsp;<!--webbot bot="Validation"
+      b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p></td>
+  </tr>
+</table>
+    
+<h2>12.4 习题</h2>         
+<table border="0" width="100%" cellspacing="3" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+      <p style="margin-left: 22pt">12.1、把12.3节中的C语言程序改写成汇编语言程序。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p style="text-indent: -32pt; margin-left: 54pt">12.2、编写C语言程序，输出下面表达式的值，要求该表达式的计算用嵌入汇编语言程序段的方法来实现(注：题中所有变量都是整型)。</td>
+  </tr>
+  <tr>
+    <td width="48%">
+      <p style="margin-left: 54pt">1)、1230 + 'A' - a<br>                  
+      2)、b * b – 4 * a * c<br>                  
+      3)、(a + b) / c + d</td>                  
+    <td width="52%">4)、9*c / 5 + 32<br>                  
+      5)、(a % 9 + 89) * 8<br>                  
+      6)、x * x + y * y</td>                  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p style="text-indent: -32pt; margin-left: 54pt">12.3、用汇编语言编写函数Display(Data)，其功能是在当前光标处显示无符号整数Data，然后，编写一个C语言程序调用Display来显示整型变量的值。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p style="margin-left: 22pt">12.4、用汇编语言实现下列C语言标准函数，并在C语言程序中验证之(假设未指明的变量都是整型)。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p style="text-indent: -20pt; margin-left: 74pt">1)、isalpha(int Ascii)　/*若Ascii是字母的Ascii码，则其函数值为真，否则为假*/</td>
+  </tr>
+  <tr>
+    <td width="100%" valign="top" colspan="2">
+      <p style="text-indent: -20pt; margin-left: 74pt">2)、isxdigit(int Ascii)<br>                  
+      /*若Ascii是十六进制字符('0'~'9'、'A'~'F'和'a'~'f')，那么，其函数值为真，否则为假*/</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p style="text-indent: -20pt; margin-left: 74pt">3)、strlwr(char *s)　/*把字符串s中的字母转换成小写*/</td>
+  </tr>
+  <tr>
+    <td width="100%" valign="top" colspan="2">
+      <p style="text-indent: -20pt; margin-left: 74pt">4)、strchr(char *s1, int Ascii)<br>                  
+      /*在字符串s1中查找是否存在字符Ascii。若不存在，则返回NULL(即0)，否则，返回指向该字符在字符串中位置的指针*/</td>
+  </tr>
+  <tr>
+    <td width="100%" valign="top" colspan="2">
+      <p style="text-indent: -20pt; margin-left: 74pt">5)、strncmp(char *s1, char *s2, int Len)<br>                  
+      /*比较字符串s1和s2前Len个字符，若s1&lt;s2，其值小于0；s1==s2，其值为0；否则，其值大于0*/</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p style="text-indent: -20pt; margin-left: 74pt">6)、strncpy(char *Dest, char *Src, int Len)　/*把Src串中前Len个字符拷贝到Dest中*/</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p style="text-indent: -20pt; margin-left: 74pt">7)、memset(void *Buff, int Data, int Len)　　/*把用Data填充Buff前Len个存储单元*/</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p style="margin-left: 22pt">12.5、编写一个C语言程序，用TCC/BCC命令生成汇编语言程序，分析C语言语句和汇编语言语句之间的实现关系。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p style="text-indent: -32pt; margin-left: 54pt">12.6、编写一个C语言程序，求出2~100之内的所有素数(大于1，且只能被1和自身整除的数，称为素数)，然后把它改写汇编语言程序，并比较二者代码的。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p style="margin-left: 22pt">12.7、编写一个C语言程序，求出2~999之内的所有能被9整除，且含有5的数，然后把它改写汇编语言程序。</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p style="text-indent: -32pt; margin-left: 54pt">12.8、用汇编语言编写一个过程Display(Data)，其功能为在当前光标处显示无符号整数Data，然后编写C语言程序调用之，以达到显示数据的作用。</td>
+  </tr>
+</table>
+             
+<p align="right"><A href="index.htm"><IMG border=0 id=Home language=javascript onmouseout="return Home_onmouseout()" onmouseover="return Home_onmouseover()" src="Button/home1.gif" width="96"></a><a href="asp/QuestionIndex.asp-chapter=12&amp;sort=date"><IMG border=0 id=Question  language=javascript onmouseout="return Question_onmouseout()" onmouseover="return Question_onmouseover()" src="Button/question1.gif" width="96"></a><a href="12-3.htm"><IMG border=0 id=PrevPage language=javascript onmouseout="return PrevPage_onmouseout()" onmouseover="return PrevPage_onmouseover()" src="Button/prevpage1.gif" width="96"></a> 
+ <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">          
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>       
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>       
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>       
+    <option value="04-1.htm">第4章 标识符和表达式</option>       
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>       
+    <option value="06-1.htm">第6章 程序的基本结构</option>       
+    <option value="07-1.htm">第7章 子程序和库</option>       
+    <option value="08-1.htm">第8章 输入输出和中断</option>       
+    <option value="09-1.htm">第9章 宏</option>       
+    <option value="10-1.htm">第10章 应用程序的设计</option>       
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+                
+</body>         
+         
+</html>

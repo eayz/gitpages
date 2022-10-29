@@ -1,0 +1,179 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>3.8 32位地址的寻址方式</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter03.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <IMG border=0 src="images/btitle03.gif" width="778" height="70"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><A href="index.htm"><IMG border=0 id=Home0 language =javascript onmouseout ="return Home0_onmouseout()" onmouseover="return Home0_onmouseover()" src="Button/home1.gif" width="96" height="28"></A><A href="homework.htm"><IMG border=0  id =Homework  language =javascript  onmouseout ="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96" height="28"></A><a href="bbs/index.asp"><IMG border=0 id=Discuss  language =javascript  onmouseout ="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><A href="question.htm"><IMG border=0 id=Problem  language =javascript  onmouseout ="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96" height="28"></A><A href="test.asp"><IMG border=0 id=Test  language =javascript  onmouseout ="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96" height="28"></A><A href="search.htm"><IMG border=0 id=Search  language =javascript  onmouseout ="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96" height="28"></A>
+    </td>  
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51" height="12"></a> 
+      → 32位地址的寻址方式</td>                             
+    <td width="50%">            
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+
+<h2>3.8 32位地址的寻址方式</h2>                                     
+<p style="text-indent: 21.25pt">在32位微机系统中，除了支持前面的七种寻址方式外，又提供了一种更灵活、方便，但也更复杂的内存寻址方式，从而使内存地址的寻址范围得到了进一步扩大。</p>   
+<p style="text-indent: 21.25pt">在用16位寄存器来访问存储单元时，只能使用基地址寄存器(<font color="#FF0000">BX</font>和<font color="#FF0000">BP</font>)和变址寄存器(<font color="#FF0000">SI</font>和<font color="#FF0000">DI</font>)来作为地址偏移量的一部分，但在用32位寄存器寻址时，不存在上述限制，所有32位寄存器(<font color="#FF0000">EAX</font>、<font color="#FF0000">EBX</font>、<font color="#FF0000">ECX</font>、<font color="#FF0000">EDX</font>、<font color="#FF0000">ESI</font>、<font color="#FF0000">EDI</font>、<font color="#FF0000">EBP</font>和<font color="#FF0000">ESP</font>)都可以是地址偏移量的一个组成部分。</p>   
+<p style="text-indent: 21.25pt">当用32位地址偏移量进行寻址时，内存地址的偏移量可分为三部分：一个32位基址寄存器，一个可乘1、2、4或8的32位变址寄存器，一个8位/32位的偏移常量，并且这三部分还可进行任意组合，省去其中之一或之二。</p>   
+<p style="margin-left: 21.25pt">32位基址寄存器是：EAX、EBX、ECX、EDX、ESI、EDI、EBP和ESP；<br>
+32位变址寄存器是：EAX、EBX、ECX、EDX、ESI、EDI和EBP(除<font color="#FF0000">ESP</font>之外)。</p>   
+<table border="0" width="100%" cellspacing="0" cellpadding="2">   
+  <tr>   
+    <td width="58%" valign="top">   
+      <p style="text-indent: 21.25pt">下面列举几个32位地址寻址指令：</p>   
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="57%"><p style="text-indent: 22pt">MOV AX, [123456H]</p>                                     
+          </td>
+          <td width="43%">MOV EAX, [EBX]</td>  
+        </tr>
+        <tr>
+          <td width="57%"><p style="text-indent: 22pt">MOV EBX, [ECX*2]</p>     
+          </td>
+          <td width="43%">   
+ MOV EBX, [EAX+100H]</td>  
+        </tr>
+        <tr>
+          <td width="57%"><p style="text-indent: 22pt">MOV EDX, [EAX*4+200H]</p>     
+          </td>
+          <td width="43%">MOV EBX, [EAX+EDX*2]</td>  
+        </tr>
+        <tr>
+          <td width="57%"><p style="text-indent: 22pt">MOV  
+            EBX, [EAX+EDX*2+300H]</p>     
+          </td>
+          <td width="43%">MOV AX, [ESP]</td>  
+        </tr>
+      </table>
+      <p style="text-indent: 21.25pt">用32位地址偏移量进行寻址的有效地址计算公式归纳如右式所示。</p>   
+      <p style="text-indent: 21.25pt">由于32位寻址方式能使用所有的通用寄存器，所以，和该有效地址相组合的段寄存器也就有新的规定。具体规定如下：   
+<p style="text-indent: 21.25pt">1、地址中寄存器的书写顺序决定该寄存器是基址寄存器，还是变址寄存器；</p>   
+    </td>   
+    <td width="42%">   
+      <p align="center"><img border="0" src="TextBookIMG/03-8.gif" width="318" height="216"></td>   
+  </tr>   
+</table>   
+<p style="text-indent: 35pt">如：[<font color="#FF0000">EBX</font>+<font color="#FF0000">EBP</font>]中的<font color="#FF0000">EBX</font>是基址寄存器，<font color="#FF0000">EBP</font>是变址寄存器，而[<font color="#FF0000">EBP</font>+<font color="#FF0000">EBX</font>]中的<font color="#FF0000">EBP</font>是基址寄存器，<font color="#FF0000">EBX</font>是变址寄存器；</p>   
+<p style="text-indent: 21.25pt">2、默认段寄存器的选用取决于基址寄存器；</p>   
+<p style="text-indent: 21.25pt">3、基址寄存器是<font color="#FF0000">EBP</font>或<font color="#FF0000">ESP</font>时，默认的段寄存器是<font color="#FF0000">SS</font>，否则，默认的段寄存器是<font color="#FF0000">DS</font>；</p>   
+<p style="text-indent: 21.25pt">4、在指令中，如果使用段前缀的方式，那么，显式段寄存器优先。</p>   
+<p style="text-indent: 21.25pt">下面列举几个32位地址寻址指令及其内存操作数的段寄存器。</p>   
+<div align="center">  
+  <table border="0" width="60%" cellspacing="0" cellpadding="2">  
+    <tr>  
+      <td width="53%" bgcolor="#FFFF00">指令的举例</td>  
+      <center>  
+      <td width="47%" bgcolor="#FFFF00">访问内存单元所用的段寄存器</td>  
+      </tr>  
+      <tr>  
+        <td width="53%" bgcolor="#00FFFF">MOV&nbsp; AX, [123456H]</td>                                     
+        <td width="47%" bgcolor="#00FFFF">；默认段寄存器DS</td>  
+      </tr>  
+      <tr>  
+        <td width="53%">MOV&nbsp; EAX, [EBX+EBP]</td>                                     
+        <td width="47%">；默认段寄存器DS</td>  
+      </tr>  
+      <tr>  
+        <td width="53%" bgcolor="#00FFFF">MOV&nbsp; EBX, [EBP+EBX]</td>                                     
+        <td width="47%" bgcolor="#00FFFF">；默认段寄存器SS</td>  
+      </tr>  
+      <tr>  
+        <td width="53%">MOV&nbsp; EBX, [EAX+100H]</td>                                     
+        <td width="47%">；默认段寄存器DS</td>  
+      </tr>  
+      <tr>  
+        <td width="53%" bgcolor="#00FFFF">MOV&nbsp; EDX, ES:[EAX*4+200H]</td>                                     
+        <td width="47%" bgcolor="#00FFFF">；显式段寄存器ES</td>  
+      </tr>  
+      <tr>  
+        <td width="53%">MOV&nbsp; [ESP+EDX*2], AX&nbsp;</td>                                     
+        <td width="47%">；默认段寄存器SS</td>  
+      </tr>  
+      <tr>  
+        <td width="53%" bgcolor="#00FFFF">MOV&nbsp; EBX, GS:[EAX+EDX*2+300H]</td>                                     
+        <td width="47%" bgcolor="#00FFFF">；显式段寄存器GS</td>  
+      </tr>  
+      <tr>  
+        <td width="53%">MOV&nbsp; AX, [ESP]&nbsp;</td>                                     
+        <td width="47%">；默认段寄存器SS</td>  
+      </tr>  
+    </table>  
+  </center>  
+</div>  
+                   
+<h2><a name="寻址方式的小结">3.9 操作数寻址方式的小结</a></h2>                                  
+                   
+<p style="text-indent: 21.25pt">                   
+下面控件是学习和理解操作数寻址方式的控件，它把各种寻址方式的变化和限制组合在一起。通过它，读者能更进一步掌握寻址方式的书写格式。</p>      
+      
+<p align="center">                   
+<object classid="clsid:1CD78BF9-B577-4595-93C4-D2C6CF562778" id="AddrMode1" width="656" height="167">
+</object>
+</p>      
+      
+<p align="right">                   
+<A href="index.htm">                   
+<IMG border=0 id=Home language =javascript onmouseout ="return Home_onmouseout()" onmouseover="return Home_onmouseover()" src="Button/home1.gif" width="96" height="28"></A><A href="asp/QuestionIndex.asp-chapter=1&amp;sort=date"><IMG border=0 id=Question  language=javascript onmouseout="return Question_onmouseout()" onmouseover="return Question_onmouseover()" src="Button/question1.gif" width="96" height="28"></A><a href="03-7.htm"><IMG border=0 src="Button/prevpage1.gif" width="96" height="28"></a><a href="03-Exercise.htm"><IMG border=0 id =NextPage language =javascript onmouseout ="return NextPage_onmouseout()" onmouseover="return NextPage_onmouseover()" src="Button/NextPage1.gif" width="96" height="28"></a> 
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->        
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>      
+      
+</body>      
+      
+</html>      

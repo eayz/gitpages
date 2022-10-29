@@ -1,0 +1,173 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>6.1.3 堆栈段的说明</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter06.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle06.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="06-1.htm">源程序的基本组成</a>                                            
+      → 堆栈段的说明</td>                                                 
+    <td width="50%">            
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h3>6.1.3 堆栈段的说明</h3>                                          
+<p style="text-indent: 21.25pt">堆栈段是一个特殊的段，在程序中可以定义它，也可以不定义。除了要生成<font color="#FF0000">COM</font>型执行文件的源程序外，一个完整的源程序一般最好定义堆栈段。如果在程序中不定义堆栈段，那么，操作系统在装入该执行程序时将自动为其指定一个<font color="#FF0000">64K</font>字节的堆栈段。</p>     
+<p style="text-indent: 21.25pt">在程序没有定义堆栈段的情况下，在由连接程序生成执行文件时，将会产生一条如下的警告信息，但程序员可以不理会它，所生成的执行文件是可以正常运行的。</p>     
+<p style="margin-left: 40pt">warning xxxx: no stack segment&nbsp; (其中：xxxx是错误号)</p>                                          
+<p style="text-indent: 21.25pt">在源程序中，可用以下方法来定义堆栈段。</p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">     
+  <tr>     
+    <td width="100%" colspan="5"><p style="text-indent: 21.25pt">方法1：</p></td>     
+  </tr>     
+  <tr>     
+    <td width="11%" rowspan="4" valign="top"></td>     
+    <td width="9%" rowspan="3" valign="top">STACK1</td>     
+    <td width="80%" colspan="3">SEGMENT</td>     
+  </tr>     
+  <tr>     
+    <td width="6%"></td>     
+    <td width="25%">DB　256 DUP(?)&nbsp;</td>                                           
+    <td width="49%">;<font color="#FF0000">256</font>是堆栈的长度，可根据需要进行改变</td>     
+  </tr>     
+  <tr>     
+    <td width="6%">TOP</td>     
+    <td width="74%" colspan="2">LABEL&nbsp; WORD</td>                                          
+  </tr>      
+  <tr>      
+    <td width="9%">STACK1</td>     
+    <td width="80%" colspan="3">ENDS</td>     
+  </tr>     
+</table>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="64%">     
+<p style="text-indent: 21.25pt">以上堆栈段的定义如图6.1所示。由于堆栈是按地址从大到小的存储单元顺序来存放内容的，所以，在堆栈存储单元说明语句之后，再说明一个栈顶别名，这样，对栈顶寄存器<font color="#FF0000">SP</font>的赋值就很方便。</p>     
+<p style="text-indent: 21.25pt">在源程序的代码段中，还要添加如下程序段，才能把段<font color="#FF0000">STACK1</font>当作堆栈段来使用。</p>     
+    </td>
+    <td width="36%">
+      <p align="center"><img border="0" src="TextBookIMG/06-1.gif" width="127" height="148"></p>
+      <p align="center">图6.1 堆栈段定义示意图</td>                                
+  </tr>
+</table>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">     
+  <tr>     
+    <td width="11%" rowspan="8" valign="top"></td>     
+    <td width="89%" colspan="3">…</td>     
+  </tr>     
+  <tr>     
+    <td width="9%">ASSUME</td>     
+    <td width="22%"> SS:STACK1</td>     
+    <td width="58%"> ;可在代码段的段指定语句中一起说明</td>     
+  </tr>     
+  <tr>     
+    <td width="31%" colspan="2">CLI</td>     
+    <td width="58%">;禁止响应可屏蔽中断</td>     
+  </tr>     
+  <tr>     
+    <td width="9%">MOV</td>     
+    <td width="80%" colspan="2"> AX, STACK1</td>       
+  </tr>      
+  <tr>      
+    <td width="9%">MOV</td>     
+    <td width="80%" colspan="2"> SS, AX</td>       
+  </tr>      
+  <tr>      
+    <td width="9%">MOV</td>     
+    <td width="22%"> SP, offset TOP</td>       
+    <td width="58%"> ;给堆栈段的栈顶寄存器SP赋初值</td>     
+  </tr>     
+  <tr>     
+    <td width="31%" colspan="2">STI</td>     
+    <td width="58%"> ;恢复响应可屏蔽中断</td>     
+  </tr>     
+  <tr>     
+    <td width="89%" colspan="3">…</td>     
+  </tr>     
+</table>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">     
+  <tr>     
+    <td width="100%" colspan="4"><p style="text-indent: 21.25pt">方法2：</p></td>     
+  </tr>     
+  <tr>     
+    <td width="11%" rowspan="3" valign="top"></td>     
+    <td width="9%" rowspan="2" valign="top">STACK1</td>     
+    <td width="22%" valign="top">SEGMENT　<font color="#FF0000">STACK</font></td>
+    <td width="58%">;定义一个堆栈段，其段名为STACK1</td>
+  </tr>
+  <tr>
+    <td width="80%" valign="top" colspan="2">　　DB　256 DUP(?)</td>                                           
+  </tr>      
+  <tr>      
+    <td width="9%">STACK1</td>     
+    <td width="80%" colspan="2">ENDS</td>     
+  </tr>     
+</table>     
+<p style="text-indent: 21.25pt">上述段定义说明了该段是堆栈段，系统会自动把段寄存器<font color="#FF0000">SS</font>和栈顶寄存器<font color="#FF0000">SP</font>与该堆栈段之间建立相应的关系，并设置其初值，而不用在代码段对它们进行赋值。</p>     
+<p style="text-indent: 21.25pt">除了以上二种方法外，还有一种更简洁的方法来定义堆栈段，有关内容请见<a href="06-4-2.htm">第6.4.2节</a>中的叙述。</p>     
+         
+<p align="right">                    
+<a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=6&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="06-1-2.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="06-1-4.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>   
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>         

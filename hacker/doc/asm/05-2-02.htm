@@ -1,0 +1,116 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>5.2.2 标志位操作指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter05.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle05.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="05-2.htm"> 指令系统</a> →                              
+      标志位操作指令</td>             
+    <td width="50%">             
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<h3>5.2.2 标志位操作指令</h3>                                  
+<p style="text-indent: 21.25pt">标志位操作指令是一组对标志位置位、复位、保存和恢复等操作的指令。</p>    
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、进位CF操作指令</font></p>    
+<p style="margin-left: 40pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、清进位指令<font color="#FF0000">CLC</font>(Clear                                    
+Carry Flag)：CF←0<br>                                  
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、置进位指令<font color="#FF0000">STC</font>(Set Carry                                    
+Flag)：CF←1<br>    
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、进位取反指令<font color="#FF0000">CMC</font>(Complement                                    
+Carry Flag)：CF←not CF</p>                                   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2<a name="CLD_STD">、方向位DF操作指令</a></font></p>   
+<p style="margin-left: 40pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、清方向位指令<font color="#FF0000">CLD</font>(Clear                                   
+Direction Flag)：DF←0<br>                                 
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、置方向位指令<font color="#FF0000">STD</font>(Set                                   
+Direction Flag)：DF←1</p>                                 
+<p style="text-indent: 21.25pt"><font color="#FF00FF">3<a name="CLI_STI">、中断允许位IF操作指令</a></font></p>   
+<p style="text-indent: -24pt; margin-left: 64pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、清中断允许位指令<font color="#FF0000">CLI</font>(Clear                                   
+Interrupt Flag)：IF←0<br>                                 
+其功能是不允许可屏蔽的外部中断来中断其后程序段的执行。</p>   
+<p style="text-indent: -24pt; margin-left: 64pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、置中断允许位指令<font color="#FF0000">STI</font>(Set                                   
+Interrupt Flag)：IF←1<br>                                 
+其功能是恢复可屏蔽的外部中断的中断响应功能，通常是与<font color="#FF0000">CLI</font>成对使用的。</p>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">4<a name="LSAHF">、取标志位操作指令</a></font></p>   
+<p style="margin-left: 40pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、<font color="#FF0000">LAHF</font>(Load                                   
+AH from Flags)：AH←Flags的低8位<br>                                 
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、<font color="#FF0000">SAHF</font>(Store AH in Flags)：Flags的低8位←AH</p>                                 
+<p style="text-indent: 21.25pt"><font color="#FF00FF">5<a name="PushPop">、标志位堆栈操作指令</a></font></p>  
+<p style="margin-left: 40pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、<font color="#FF0000">PUSHF/PUSHFD</font>(Push                                  
+Flags onto Stack)：把16位/32位标志寄存器进栈；<br>                                
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、<font color="#FF0000">POPF/POPFD</font>(Pop Flags off                                  
+Stack)：把16位/32位标志寄存器出栈；</p>  
+    
+<p style="text-indent: 21.25pt"><font color="#FF00FF">6、逻辑操作指令的小结</font></p>
+<p style="text-indent: 21pt">下面是学习标志位指令的控件，浏览者可以运用此类指令，观看标志寄存器的相应变化。</p>
+<p align="center">
+<object classid="clsid:F372EE72-4CA3-412A-A819-C8BBAD36D1A0" id="Flag1" width="687" height="183">
+</object>
+</p>
+    
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=5&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="05-2-013.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="05-2-03.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>              
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->   
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

@@ -1,0 +1,95 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.4 并行口服务的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能00H</font></p>    
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">向打印机输出字符</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝00H<br>
+      AL＝输出的字符<br>
+      DX＝打印机号(0—LPT1，1—LPT2，2—LPT3，……)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">AH＝打印机状态。其各位为1时的含义如下：
+      <table border="0" width="100%" cellspacing="1">
+        <tr>
+          <td width="17%">位7—打印机空闲&nbsp;&nbsp;&nbsp;</td>
+          <td width="33%"> 
+位3—I/O错误</td>
+        </tr>
+        <tr>
+          <td width="17%">位6—打印机响应</td>
+          <td width="33%"> 
+位2—保留</td>
+        </tr>
+        <tr>
+          <td width="17%">位5—无纸</td>
+          <td width="33%"> 
+位1—保留</td>
+        </tr>
+        <tr>
+          <td width="17%">位4—打印机被选</td>
+          <td width="33%"> 
+位0—打印机超时</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+         
+<p><a name="01H"><font color="#FF00FF">(2)、功能01H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">初始化打印机端口</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝01H<br>
+      DX＝打印机号(0—LPT1，1—LPT2，2—LPT3，……)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">AH＝打印机状态。各位定义如下功能00H所示</td>
+  </tr>
+</table>
+         
+<p><a name="02H"><font color="#FF00FF">(3)、功能02H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="14%">功能描述：</td>
+    <td width="82%">读取打印机状态</td>   
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="82%">AH＝02H<br>
+      DX＝打印机号(0—LPT1，1—LPT2，2—LPT3，……)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="82%">AH＝打印机状态。各位定义如下功能00H所示</td>
+  </tr>
+</table>
+         
+</body>        
+        
+</html>        

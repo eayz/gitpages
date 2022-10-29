@@ -1,0 +1,141 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>第2章 CPU资源和存储器</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter02.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.GIF">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle02.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    </td>                              
+    <td width="50%">      
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=chapter1 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<h1 align="center">第2章 CPU资源和存储器</h1>    
+ 
+<p style="text-indent: 21.25pt">计算机的硬件资源是用汇编语言编程所必须要了解的重要内容，因为汇编语言允许、也需要程序员直接使用这些硬件资源，只有这样才能编写出高效的目标代码。</p>
+<p style="text-indent: 21.25pt">在汇编语言中，需要访问的硬件资源主要有：<font color="#FF0000">CPU</font>内部资源、存储器和<font color="#FF0000">I/O</font>端口。本章将着重讲解<font color="#FF0000">CPU</font>内部寄存器的命名、功能及其常见的用途，还要介绍存储器的分段管理模式、存储单元地址的表示法以及其物理地址的形成方式。</p>
+ 
+<h2>2.1 寄存器组</h2>                                                                                    
+<p style="text-indent: 21.25pt">寄存器是<font color="#FF0000">CPU</font>内部重要的数据存储资源，是汇编程序员能直接使用的硬件资源之一。由于寄存器的存取速度比内存快，所以，在用汇编语言编写程序时，要尽可能充分利用寄存器的存储功能。</p>                                          
+<p style="text-indent: 21.25pt">寄存器一般用来保存程序的中间结果，为随后的指令快速提供操作数，从而避免把中间结果存入内存，再读取内存的操作。在高级语言(如：<font color="#FF0000">C/C++</font>语言)中，也有定义变量为寄存器类型的，这就是提高寄存器利用率的一种可行的方法。</p>                                         
+<p style="text-indent: 21.25pt">另外，由于寄存器的个数和容量都有限，不可能把所有中间结果都存储在寄存器中，所以，要对寄存器进行适当的调度。根据指令的要求，如何安排适当的寄存器，避免操作数过多的传送操作是一项细致而又周密的工作。有关“寄存器的分配策略”在后续课程《编译原理》中会有详细的介绍。</p>                                        
+<p style="text-indent: 21.25pt">由于16位/32位<font color="#FF0000">CPU</font>是微机<font color="#FF0000">CPU</font>的两个重要代表，所以，在此只介绍它们内部寄存器的名称及其主要功能。</p>                                        
+ 
+<h3><a name="REGISTERS">2.1.1 寄存器组</a></h3>                                                                                    
+  
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、 16位寄存器组</font></p>                                                                                
+<table border="0" width="100%" cellspacing="0" cellpadding="3">                              
+  <tr>                              
+    <td width="100%" colspan="3">                              
+      <p style="text-indent: 21.25pt">16位<font color="#FF0000">CPU</font>所含有的寄存器有(见图2.1中16位寄存器部分)：</td>                              
+  </tr>                              
+  <tr>                              
+    <td width="41%">                              
+      <p style="text-indent: 30pt">4个数据寄存器(AX、BX、CX和DX)</td>                              
+    <td width="27%"><font color="#FF0000">2</font>个变址和指针寄存器(SI和DI)</td>                              
+    <td width="32%"><font color="#FF0000">2</font>个指针寄存器(SP和BP)</td>                              
+  </tr>                              
+  <tr>                              
+    <td width="41%">                              
+      <p style="text-indent: 30pt"><font color="#FF0000">4</font>个段寄存器(ES、CS、SS和DS)</td>                              
+    <td width="27%"><font color="#FF0000">1</font>个指令指针寄存器(IP)</td>                              
+    <td width="32%"><font color="#FF0000">1</font>个标志寄存器(Flags)</td>                              
+  </tr>                              
+</table>                              
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、 32位寄存器组</font></p>                                                    
+<p style="text-indent: 21.25pt"><font color="#FF0000">32</font>位<font color="#FF0000">CPU</font>除了包含了先前<font color="#FF0000">CPU</font>的所有寄存器，并把通用寄存器、指令指针和标志寄存器从<font color="#FF0000">16</font>位扩充成<font color="#FF0000">32</font>位之外，还增加了<font color="#FF0000">2</font>个<font color="#FF0000">16</font>位的段寄存器：<font color="#FF0000">FS</font>和<font color="#FF0000">GS</font>。</p>                             
+<table border="0" width="100%" cellspacing="0" cellpadding="3">                             
+  <tr>                             
+    <td width="100%" colspan="3">                             
+      <p style="text-indent: 21.25pt">32位<font color="#FF0000">CPU</font>所含有的寄存器有(见图2.1中的寄存器)：</td>                            
+  </tr>                            
+  <tr>                            
+    <td width="43%">                            
+      <p style="text-indent: 30pt">4个数据寄存器(EAX、EBX、ECX和EDX)</td>                            
+    <td width="29%"><font color="#FF0000">2</font>个变址和指针寄存器(ESI和EDI)</td>                            
+    <td width="28%"><font color="#FF0000">2</font>个指针寄存器(ESP和EBP)</td>                            
+  </tr>                            
+  <tr>                            
+    <td width="43%">                            
+      <p style="text-indent: 30pt"><font color="#FF0000">6</font>个段寄存器(ES、CS、SS、DS、<b>FS</b>和<b>GS</b>)</td>                            
+    <td width="29%"><font color="#FF0000">1</font>个指令指针寄存器(EIP)</td>                            
+    <td width="28%"><font color="#FF0000">1</font>个标志寄存器(EFlags)</td>                            
+  </tr>                            
+</table>                            
+<table border="0" width="100%" cellspacing="0" cellpadding="3">                            
+  <tr>                            
+    <td width="37%">                            
+      <p align="center"><img border="0" src="TextBookIMG/02-1-1.gif" width="220" height="215"></td>                            
+    <td width="38%">                            
+      <p align="center"><img border="0" src="TextBookIMG/02-1-2.gif" width="250"></td>                            
+    <td width="25%">                            
+      <p align="center"><img border="0" src="TextBookIMG/02-1-3.gif" width="111"></td>                            
+  </tr>                            
+  <tr>                            
+    <td width="100%" colspan="3">                            
+      <p align="center">图2.1 <font color="#FF0000">CPU</font>寄存器组的示意图</td>                                                                  
+  </tr>                             
+</table>                               
+ 
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><A href="asp/QuestionIndex.asp-chapter=2&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="01-Exercise.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="02-1-1.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>           
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

@@ -1,0 +1,221 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例8.14</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p style="text-indent: -36pt; margin-left: 36pt">例8.14 编写一个类似TYPE命令的程序，其要求如下：<br>      
+1)、用键盘输入文件名(可包含路径)，若输入的字符串为空，则程序运行结束；<br> 
+2)、若输入的文件存在，则显示其内容，否则，显示文件不存在的信息。</p>    
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" colspan="5">解：</td> 
+  </tr> 
+  <tr> 
+    <td width="6%" rowspan="45" valign="top"></td> 
+    <td width="94%" colspan="4">.MODEL　SMALL<br>
+      .DATA<br>
+      　 FName　DB　30, ?, 30 DUP(?), 0<br>    
+      　 Fail　　 DB　&quot;Not Found&quot;, 10, 13, &quot;$&quot;<br>    
+      　 Buff　　 DB　128 dup(?)<br>    
+      .CODE</td> 
+  </tr> 
+  <tr> 
+    <td width="4%"></td> 
+    <td width="90%" colspan="3">.STARTUP</td> 
+  </tr> 
+  <tr> 
+    <td width="94%" colspan="4">again:</td> 
+  </tr> 
+  <tr> 
+    <td width="4%" rowspan="17" valign="top"></td> 
+    <td width="6%">MOV</td> 
+    <td width="84%" colspan="2"> AH, 0AH</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">LEA</td> 
+    <td width="84%" colspan="2"> DX, FName</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">INT</td> 
+    <td width="30%"> 21H</td> 
+    <td width="54%">;输入的文件名</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="84%" colspan="2"> BL, FName+1</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">CMP</td> 
+    <td width="84%" colspan="2"> BL, 0</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">JZ</td> 
+    <td width="30%">over</td> 
+    <td width="54%">;检查文件名是否为空</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">XOR</td> 
+    <td width="84%" colspan="2">BH, BH</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="84%" colspan="2"> FName[BX+2], 0</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="84%" colspan="2"> DX, Offset FName+2</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="84%" colspan="2"> AL, 0H</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="84%" colspan="2"> AH, 3DH</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">INT</td> 
+    <td width="30%"> 21H</td> 
+    <td width="54%">;以只读方式打开文件</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">JNC</td> 
+    <td width="84%" colspan="2"> succ</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">LEA</td> 
+    <td width="84%" colspan="2"> DX, Fail</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="84%" colspan="2"> AH, 9H</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">INT</td> 
+    <td width="84%" colspan="2"> 21H</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">JMP</td> 
+    <td width="84%" colspan="2"> again</td> 
+  </tr> 
+  <tr> 
+    <td width="94%" colspan="4">succ:</td> 
+  </tr> 
+  <tr> 
+    <td width="4%"></td> 
+    <td width="6%">MOV</td> 
+    <td width="30%"> BX, AX</td>  
+    <td width="54%">;把文件句柄赋给BX</td> 
+  </tr> 
+  <tr> 
+    <td width="94%" colspan="4">read:</td> 
+  </tr> 
+  <tr> 
+    <td width="4%" rowspan="15" valign="top"></td> 
+    <td width="6%">LEA</td> 
+    <td width="84%" colspan="2"> DX, BUFF</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="84%" colspan="2">CX, 128</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="84%" colspan="2"> AH, 3FH</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">INT</td> 
+    <td width="30%"> 21H</td> 
+    <td width="54%">;从文件中最多一次读取128个字符</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">CMP</td> 
+    <td width="84%" colspan="2"> AX, 0</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">JZ</td> 
+    <td width="30%">close</td> 
+    <td width="54%">;读取的字符数为0</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">JC</td> 
+    <td width="30%"> close</td> 
+    <td width="54%">;读错误</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">PUSH</td> 
+    <td width="30%"> BX</td> 
+    <td width="54%">;保护文件句柄</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="84%" colspan="2"> DX, offset buff</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="84%" colspan="2">CX, AX</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="30%"> BX, 1</td>  
+    <td width="54%">;屏幕设备的句柄规定为1</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="84%" colspan="2"> AH, 40H</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">INT</td> 
+    <td width="30%"> 21H</td> 
+    <td width="54%">;把读出的字符显示在屏幕上</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">POP</td> 
+    <td width="30%"> BX</td> 
+    <td width="54%">;恢复文件句柄</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">JMP</td> 
+    <td width="84%" colspan="2"> read</td> 
+  </tr> 
+  <tr> 
+    <td width="94%" colspan="4">close:</td> 
+  </tr> 
+  <tr> 
+    <td width="4%" rowspan="3" valign="top"></td> 
+    <td width="6%">MOV</td> 
+    <td width="84%" colspan="2"> AH, 3EH</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">INT</td> 
+    <td width="84%" colspan="2"> 21H</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">JMP</td> 
+    <td width="84%" colspan="2"> AGAIN</td> 
+  </tr> 
+  <tr> 
+    <td width="94%" colspan="4">over:</td> 
+  </tr> 
+  <tr> 
+    <td width="4%" rowspan="2" valign="top"></td> 
+    <td width="6%">.EXIT</td> 
+    <td width="84%" colspan="2"> 0</td> 
+  </tr> 
+  <tr> 
+    <td width="90%" colspan="3">END</td> 
+  </tr> 
+</table> 
+   
+<p align="center"><a href="javascript:close();">关　闭</a></p>  
+             
+</body>  
+  
+</html>  

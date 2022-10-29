@@ -1,0 +1,236 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>9.6 宏的扩展——REPEAT/WHILE</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter09.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle09.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → 宏的扩充</td>                              
+    <td width="50%">             
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<h2>9.6 宏的扩充</h2>                   
+<p style="text-indent: 21.25pt">MASM                        
+6.11编程系统对宏定义及其相关语句进行了一定程度的扩充。虽然这些扩充给编程带来了一些方便，但它们不一定能被其它的汇编语言编程系统所接受，所以，程序员在使用这些方便的扩充功能时，要注意到可能带来的限制。</p>
+<p style="text-indent: 21.25pt">下面介绍MASM 6.11编程系统对宏及其相关语句的扩充。</p>                       
+<h3><a name="FORM">9.6.1 宏定义形式</a></h3>                   
+<p style="text-indent: 21.25pt">在MASM 6.11编程系统中，其宏定义的一般形式如下：</p>                       
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="11%">
+      <p style="margin-left: 30pt">宏名</td>
+    <td width="89%" colspan="2"><b> MACRO</b>&nbsp; [参数1[:tag]] [，参数2[:tag]...]</td>                     
+  </tr>
+  <tr>
+    <td width="11%" valign="top"></td>
+    <td width="26%">[LOCAL varlist]<br> 
+…<br>
+      [EXITM [value]]<br> 
+      ENDM</td>
+    <td width="63%" valign="top">   
+;宏定义体内的局部变量和标号<br>
+      ;宏的定义体</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">对上述宏定义的说明与<a href="09-1.htm#宏的定义">9.1.1节</a>中的说明完全一致，其需要增加的说明如下：</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="12%" align="right">tag——&nbsp;</td>
+    <td width="88%"> 其值可以是REQ、=&lt;缺省值&gt;或VARARG</td>
+  </tr>
+  <tr>
+    <td width="12%" align="right"></td>
+    <td width="88%">
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="13%" align="left">REQ</td>
+          <td width="87%"> 
+指定该参数是不可缺少。在宏引用时，若该参数不对应某个“实参”，那么，汇编程序会报错；</td>
+        </tr>
+        <tr>
+          <td width="13%" align="left">=&lt;缺省值&gt;</td>
+          <td width="87%"> 在宏引用时，若不指定该参数所对应的“实参”，那么，该参数就取其缺省值；</td>
+        </tr>
+        <tr>
+          <td width="13%" valign="top" align="left">VARARG</td>
+          <td width="87%"> 该参数对应一个可变长的实参表，各实参之间用逗号分开；若参数的属性指定为VARARG，那么，该参数一定要是最后一个参数。<br>
+有关该属性的应用，请见随后<a href="09-6-6.HTM#EXAMPLE">9.6.7节</a>中的举例。</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="12%" align="right">value——</td>
+    <td width="88%">&nbsp;宏功能的返回值，其为可选项。</td>
+  </tr>
+</table>
+<h3><a name="REPEAT">9.6.2</a> 重复伪指令REPEAT</h3>                   
+<p style="text-indent: 21.25pt">重复伪指令REPEAT与前面9.4.1节中伪指令<a href="09-4.htm#REPT">REPT</a>在功能和使用方式方面完全一致，设置该伪指令的主要原因是保证与先前版本的兼容性。</p>
+<p style="text-indent: 21.25pt">伪指令REPEAT的使用方式如下：</p>
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="14%" rowspan="3" valign="top">
+      <p style="margin-left: 30pt">REPEAT</td>
+    <td width="86%" colspan="2"> 数值表达式</td>
+  </tr>
+  <tr>
+    <td width="20%">
+语句序列</td>
+    <td width="66%"> ;被重复的汇编语言语句</td>
+  </tr>
+  <tr>
+    <td width="86%" colspan="2">ENDM</td>
+  </tr>
+</table>
+<h3><a name="WHILE">9.6.3</a> 循环伪指令WHILE</h3>                   
+<p style="text-indent: 21.25pt">循环伪指令WHILE的使用方式如下：</p>
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="13%" valign="top" rowspan="3">
+      <p style="margin-left: 30pt">WHILE</td>
+    <td width="87%" colspan="2"> Exp</td>
+  </tr>
+  <tr>
+    <td width="21%">
+语句序列</td>
+    <td width="66%"> ;被重复的汇编语言语句</td>
+  </tr>
+  <tr>
+    <td width="87%" colspan="2">ENDM</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">
+其功能是先判断表达式Exp是否为假(或为0)，若是，则终止该伪指令的功能，否则，循环汇编下面的指令块。表达式Exp是能在汇编时计算出其值的数值表达式。</p>
+<p style="text-indent: -43pt; margin-left: 43pt">
+例9.16：编写一个带有参数result和k的宏，其功能是把1+2+…+k的累加和存入result之中，其中：result是不可缺省的，k的缺省值为1。</p>
+<p>
+解：</p>
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="12%" rowspan="7" valign="top">
+      <p style="margin-left: 30pt">
+SUM</td>
+    <td width="88%" colspan="2"> MACRO　result:REQ, k:=&lt;1&gt;</td>                     
+  </tr>
+  <tr>
+    <td width="88%" colspan="2">
+LOCAL　n</td>
+  </tr>
+  <tr>
+    <td width="88%" colspan="2">
+n = k</td> 
+  </tr>
+  <tr>
+    <td width="7%">
+mov</td>
+    <td width="81%"> result, 0</td> 
+  </tr>
+  <tr>
+    <td width="7%" rowspan="2" valign="top">
+WHILE</td>
+    <td width="81%"> n</td>
+  </tr>
+  <tr>
+    <td width="81%">
+add&nbsp;&nbsp;&nbsp; result, n<br>                     
+n = n - 1<br>                     
+ENDM</td>
+  </tr>
+  <tr>
+    <td width="88%" colspan="2">
+ENDM</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">有了上面的宏定义，就可书写下面的宏引用来实现其相应的功能：</p>
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="8%" rowspan="4" valign="top"></td>
+    <td width="6%">
+SUM</td>
+    <td width="17%"> ax, 10</td> 
+    <td width="69%"> ;寄存器ax=1+2+3+…+10</td>
+  </tr>
+  <tr>
+    <td width="6%">
+SUM</td>
+    <td width="17%"> bh</td>
+    <td width="69%"> ;寄存器bh=1，因为第二个形参取其缺省值</td>
+  </tr>
+  <tr>
+    <td width="6%">
+SUM</td>
+    <td width="17%"> ecx, 100</td> 
+    <td width="69%"> ;寄存器ecx=1+2+3+…+100</td>
+  </tr>
+  <tr>
+    <td width="6%">
+SUM</td>
+    <td width="17%"> data, 20</td> 
+    <td width="69%"> ;存储单元data=1+2+3+…+20</td>
+  </tr>
+</table>
+      
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=9&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="09-5.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="09-6-4.HTM"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+      
+</body>      
+      
+</html>

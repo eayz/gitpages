@@ -1,0 +1,149 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.1 记录操作功能(FCB)的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能14H</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">从文件中读出下一个顺序块，并相应增加文件的指针</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝14H<br>
+      DS:DX＝先前打开文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝00H——读取成功　　01H——文件尾<br>
+      　　02H——段缠绕　　　03H——部分记录在文件尾</td>
+  </tr>
+</table>
+
+<p><a name="15H"><font color="#FF00FF">(2)、功能15H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">向文件写入下一个顺序数据块，并相应增加文件的指针</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝15H<br>
+      DS:DX＝先前打开文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝00H——写入成功　　01H——磁盘满　　02H——段缠绕</td>
+  </tr>
+</table>
+
+<p><a name="21H"><font color="#FF00FF">(3)、功能21H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">从文件中读出当前选定的记录</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝21H<br>
+      DS:DX＝先前打开文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝00H——读取成功　　　01H——文件尾<br>
+      　　02H——取消读操作　　03H——部分记录在文件尾</td>
+  </tr>
+</table>
+
+<p><a name="22H"><font color="#FF00FF">(4)、功能22H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">把内存中的数据写入在文件中当前选定的记录</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝22H<br>
+      DS:DX＝先前打开文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝00H—写入成功　　01H—磁盘满　　02H—取消写操作</td>
+  </tr>
+</table>
+
+<p><a name="24H"><font color="#FF00FF">(5)、功能24H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">设置FCB中相对记录数作为被打开FCB中的记录数</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝24H<br>
+      DS:DX＝先前打开文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL的值被破坏，其它寄存器不受影响，FCB中偏移量21H单元被修改</td>
+  </tr>
+</table>
+
+<p><a name="27H"><font color="#FF00FF">(6)、功能27H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">从文件中读出若干个记录到内存中</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝27H<br>
+      DS:DX＝先前打开文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝00H——读取成功　　　01H——文件尾<br>
+      　　02H——取消读操作　　03H——部分记录在文件尾<br>
+      CX＝实际读出的记录数</td>
+  </tr>
+</table>
+
+<p><a name="28H"><font color="#FF00FF">(7)、功能28H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">从内存向文件中写入若干个记录</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝28H<br>
+      CX＝要写入的记录数<br>
+      DS:DX＝先前打开文件控制块的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝00H——写入成功　　01H——磁盘满　　02H——段缠绕<br>
+      CX＝实际写入的记录数</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

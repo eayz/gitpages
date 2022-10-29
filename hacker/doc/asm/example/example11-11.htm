@@ -1,0 +1,360 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例11.11</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p>例11.11      
+编写一个子程序，求解一元二次方程的根ax<sup>2</sup> +         
+bx + c = 0的根。        
+</p>    
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" colspan="4">    
+<p>解：</p>    
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="4">    
+<p>;调用参数：方程的系数a、b和c，R1和R2是指向存放根的指针；    
+</p>    
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="100%" colspan="4">    
+<p>;返回参数：返回值存于AX中，其含义：0—有二个根，1—有一个根R1，2—无实根。</p>    
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="11%" valign="top" rowspan="24">Quadratic</td> 
+    <td width="89%" colspan="3"> 
+      <p style="text-indent: -41pt; margin-left: 41pt">PROC USES DS DI SI,  
+      AA:DWORD, BB:DWORD, CC:DWORD, R1:PDWORD, R2:PDWORD</td>   
+  </tr> 
+  <tr> 
+    <td width="8%">LES</td> 
+    <td width="24%">DI,      
+      R1</td> 
+    <td width="57%">;(ES:DI) →      
+      1st Root-R1</td>  
+  </tr> 
+  <tr> 
+    <td width="8%">LDS</td> 
+    <td width="25%">SI,      
+      R2</td> 
+    <td width="56%">;(DS:SI) →      
+      2nd Root-R2</td>  
+  </tr> 
+  <tr> 
+    <td width="8%">SUB</td> 
+    <td width="25%">BX,      
+      BX</td> 
+    <td width="56%">;用BX来标识方程有根的情况</td> 
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FLD1</td> 
+    <td width="56%">;栈顶寄存器置1</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FADD</td> 
+    <td width="25%">ST,      
+      ST</td> 
+    <td width="56%">;栈顶寄存器自加，变成2</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FLD</td> 
+    <td width="25%">ST</td> 
+    <td width="56%">;把数值2复制一份到新的栈顶</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FMUL</td> 
+    <td width="25%">AA</td> 
+    <td width="56%">;ST      
+      = 2A</td>  
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FTST</td> 
+    <td width="56%">;测试ST是否为0，即，考虑A=0的情况</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FSTSW</td> 
+    <td width="25%">AX</td> 
+    <td width="56%">;把当前状态寄存器存入AX中</td> 
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FWAIT</td> 
+    <td width="56%">;等待协处理器完成上面操作</td> 
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">SAHF</td> 
+    <td width="56%">;AH装入到标志寄存器中</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">JNZ</td> 
+    <td width="25%">Notzero</td> 
+    <td width="56%">;考虑A         
+      = 0的情况</td>     
+  </tr> 
+  <tr> 
+    <td width="8%">FLD</td> 
+    <td width="25%">CC</td> 
+    <td width="56%">;常数项C进栈</td> 
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FCHS</td> 
+    <td width="56%">;改变栈顶的符号，得到-C</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FLD</td> 
+    <td width="25%">BB</td> 
+    <td width="56%">;参数B进栈</td> 
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FTST</td> 
+    <td width="56%">;测试当前栈顶是否为0</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FSTSW</td> 
+    <td width="81%" colspan="2">AX</td> 
+  </tr> 
+  <tr> 
+    <td width="89%" colspan="3">SAHF</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">JZ</td> 
+    <td width="25%">EXIT2</td> 
+    <td width="56%">;考虑B         
+      = 0的情况</td>     
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FDIV</td> 
+    <td width="56%">;计算出-C/B</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FSTP</td> 
+    <td width="25%">dword      
+      ptr ES:[DI]</td> 
+    <td width="56%">;得到一个根，并弹出栈顶</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FSTP</td> 
+    <td width="25%">ST</td> 
+    <td width="56%">;弹出多余的堆栈数据</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">JMP</td> 
+    <td width="25%">EXIT1</td> 
+    <td width="56%">;返回，并标识有1个根</td> 
+  </tr> 
+  <tr> 
+    <td width="11%" rowspan="17" valign="top">Notzero:</td> 
+    <td width="89%" colspan="3"></td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FMUL</td> 
+    <td width="25%">ST(1),      
+      ST</td> 
+    <td width="56%">;ST(1)      
+      = 4A</td>  
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FXCH</td> 
+    <td width="56%">;ST和ST(1)交换</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FMUL</td> 
+    <td width="25%">CC</td> 
+    <td width="56%">;ST      
+      = 4AC</td>  
+  </tr> 
+  <tr> 
+    <td width="89%" colspan="3">FTST</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FSTSW</td> 
+    <td width="81%" colspan="2">AX</td> 
+  </tr> 
+  <tr> 
+    <td width="89%" colspan="3">SAHF</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">JP</td> 
+    <td width="25%">EXIT2</td> 
+    <td width="56%">;如果状态位C2=1，则4AC是无穷大</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FLD</td> 
+    <td width="25%">BB</td> 
+    <td width="56%">;装入参数B</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FMUL</td> 
+    <td width="25%">ST,      
+      ST</td> 
+    <td width="56%">;ST      
+      = B2</td>  
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FSUBR</td> 
+    <td width="56%">;ST      
+      = B2 - 4AC</td>  
+  </tr> 
+  <tr> 
+    <td width="89%" colspan="3">FTST</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FSTSW</td> 
+    <td width="81%" colspan="2">AX</td> 
+  </tr> 
+  <tr> 
+    <td width="89%" colspan="3">SAHF</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">JC</td> 
+    <td width="25%">EXIT2</td> 
+    <td width="56%">;如果C0=1，则B2         
+      &lt; 4AC</td>     
+  </tr> 
+  <tr> 
+    <td width="8%">JNZ</td> 
+    <td width="25%">Tworoot</td> 
+    <td width="56%">;如果C3=1，则B2         
+      = 4AC</td>     
+  </tr> 
+  <tr> 
+    <td width="8%">INC</td> 
+    <td width="25%">BX</td> 
+    <td width="56%">;标志有1个根</td> 
+  </tr> 
+  <tr> 
+    <td width="11%" rowspan="14" valign="top">Tworoot:</td> 
+    <td width="89%" colspan="3"></td> 
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FSQRT</td> 
+    <td width="56%">;求出B2         
+      - 4AC的平方根</td>     
+  </tr> 
+  <tr> 
+    <td width="8%">FLD</td> 
+    <td width="81%" colspan="2">BB</td> 
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FCHS</td> 
+    <td width="56%">;得到-B</td> 
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FXCH</td> 
+    <td width="56%">;ST 和ST(1)交换</td>    
+  </tr> 
+  <tr> 
+    <td width="8%">FLD</td> 
+    <td width="25%">ST</td> 
+    <td width="56%">;栈顶再复制一份</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FADD</td> 
+    <td width="25%">ST,      
+      ST(2)</td> 
+    <td width="56%">;ST      
+      = -B + SQRT(B2 - 4AC)</td>  
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FXCH</td> 
+    <td width="56%">;ST 和ST(1)交换</td>    
+  </tr> 
+  <tr> 
+    <td width="8%">FSUBP</td> 
+    <td width="25%">ST(2),      
+      ST</td> 
+    <td width="56%">;ST      
+      = -B - SQRT(B2 - 4AC)</td>  
+  </tr> 
+  <tr> 
+    <td width="8%">FDIV</td> 
+    <td width="25%">ST,      
+      ST(2)</td> 
+    <td width="56%">;得到一个根ST         
+      = ST/(2A)</td>     
+  </tr> 
+  <tr> 
+    <td width="8%">FSTP</td> 
+    <td width="25%">dword      
+      ptr ES:[DI]</td> 
+    <td width="56%">;存储第一个根</td> 
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FDIVR</td> 
+    <td width="56%">;得到另一个根ST         
+      = ST/(2A)</td>     
+  </tr> 
+  <tr> 
+    <td width="8%">FSTP</td> 
+    <td width="25%">dword      
+      ptr DS:[SI]</td> 
+    <td width="56%">;存储第二个根</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">JMP</td> 
+    <td width="81%" colspan="2">EXIT</td> 
+  </tr> 
+  <tr> 
+    <td width="11%" rowspan="3" valign="top">EXIT2:</td> 
+    <td width="89%" colspan="3"></td> 
+  </tr> 
+  <tr> 
+    <td width="8%">INC</td> 
+    <td width="25%">BX</td> 
+    <td width="56%">;无根时的返回出口</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FSTP</td> 
+    <td width="25%">ST</td> 
+    <td width="56%">;清除多余的堆栈数据</td> 
+  </tr> 
+  <tr> 
+    <td width="11%" rowspan="3" valign="top">EXIT1:</td> 
+    <td width="89%" colspan="3"></td> 
+  </tr> 
+  <tr> 
+    <td width="8%">INC</td> 
+    <td width="25%">BX</td> 
+    <td width="56%">;有一个根时的返回出口</td> 
+  </tr> 
+  <tr> 
+    <td width="8%">FSTP</td> 
+    <td width="25%">ST</td> 
+    <td width="56%">;清除多余的堆栈数据</td> 
+  </tr> 
+  <tr> 
+    <td width="11%" rowspan="3" valign="top">EXIT:</td> 
+    <td width="89%" colspan="3"></td> 
+  </tr> 
+  <tr> 
+    <td width="8%">MOV</td> 
+    <td width="81%" colspan="2">AX,      
+      BX</td> 
+  </tr> 
+  <tr> 
+    <td width="89%" colspan="3">RET</td> 
+  </tr> 
+  <tr> 
+    <td width="11%" rowspan="2" valign="top">Quadratic</td> 
+    <td width="89%" colspan="3">ENDP</td> 
+  </tr> 
+  <tr> 
+    <td width="89%" colspan="3">END</td> 
+  </tr> 
+</table> 
+   
+<p align="center"><a href="javascript:close();">关　闭</a></p>
+  
+</body> 
+ 
+</html> 

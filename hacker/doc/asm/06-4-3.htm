@@ -1,0 +1,306 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>6.4.3 简化段段名的引用</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter06.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle06.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="06-4.htm"> 简化的段定义</a>  → 简化段段名的引用</td>                                        
+    <td width="50%">             
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h3>6.4.3 简化段段名的引用</h3>                                 
+<p style="text-indent: 21.25pt">当使用简化的段定义时，一般情况下，程序员可以不知道这些段的段名、段地址堆齐类型和组合类型等。但当把简化定义的段和标准定义的段混合使用时，就需要知道简化定义段的基本属性。表6.3是在小模式下段的基本属性对应表。</p>      
+<p align="center">表6.3                                  
+小模式下简化段定义的缺省属性表</p>      
+<div align="center">  
+  <center>  
+  <table border="0" width="70%" cellpadding="0">  
+    <tr>  
+      <td bgcolor="#FFFF00">  
+        <p style="margin-left: 3pt">伪指令</td>  
+      <td bgcolor="#FFFF00">  
+        <p style="margin-left: 3pt">缺省段名</td>  
+      <td bgcolor="#FFFF00">  
+        <p style="margin-left: 3pt">对齐类型</td>  
+      <td bgcolor="#FFFF00">  
+        <p style="margin-left: 3pt">组合类型</td>  
+      <td bgcolor="#FFFF00">  
+        <p style="margin-left: 3pt">类别</td>  
+      <td bgcolor="#FFFF00">  
+        <p style="margin-left: 3pt">段组名</td>  
+    </tr>  
+    <tr>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 3pt">.CODE</td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 3pt">_TEXT</td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 3pt">WORD</td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 3pt">PUBLIC</td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 3pt">'CODE'</td>  
+      <td bgcolor="#00FFFF">  
+        <p style="margin-left: 3pt">　</td> 
+    </tr> 
+    <tr> 
+      <td> 
+        <p style="margin-left: 3pt">.FARDATA</td> 
+      <td> 
+        <p style="margin-left: 3pt">FAR_DATA</td> 
+      <td> 
+        <p style="margin-left: 3pt">PARA</td> 
+      <td> 
+        <p style="margin-left: 3pt">NONE</td> 
+      <td> 
+        <p style="margin-left: 3pt">'FAR_DATA'</td> 
+      <td> 
+        <p style="margin-left: 3pt"></td> 
+    </tr> 
+    <tr> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">.FARDATA?</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">FAR_BSS</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">PARA</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">NONE</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">'FAR_BSS'</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">　</td> 
+    </tr> 
+    <tr> 
+      <td> 
+        <p style="margin-left: 3pt">.STACK</td> 
+      <td> 
+        <p style="margin-left: 3pt">STACK</td> 
+      <td> 
+        <p style="margin-left: 3pt">PARA</td> 
+      <td> 
+        <p style="margin-left: 3pt">STACK</td> 
+      <td> 
+        <p style="margin-left: 3pt">'STACK'</td> 
+      <td> 
+        <p style="margin-left: 3pt">DGROUP</td> 
+    </tr> 
+    <tr> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">.DATA</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">DATA</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">WORD</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">PUBLIC</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">'DATA'</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">DGROUP</td> 
+    </tr> 
+    <tr> 
+      <td> 
+        <p style="margin-left: 3pt">.DATA?</td> 
+      <td> 
+        <p style="margin-left: 3pt">BSS</td> 
+      <td> 
+        <p style="margin-left: 3pt">WORD</td> 
+      <td> 
+        <p style="margin-left: 3pt">PUBLIC</td> 
+      <td> 
+        <p style="margin-left: 3pt">'BSS'</td> 
+      <td> 
+        <p style="margin-left: 3pt">DGROUP</td> 
+    </tr> 
+    <tr> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">.CONST</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">CONST</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">WORD</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">PUBLIC</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">'CONST'</td> 
+      <td bgcolor="#00FFFF"> 
+        <p style="margin-left: 3pt">DGROUP</td> 
+    </tr> 
+  </table> 
+  </center> 
+</div> 
+<p style="text-indent: 21.25pt">在其它存储模型下，由伪指令"<font color="#FF0000">.CODE</font>"说明的代码段段名在"<font color="#FF0000">_TEXT</font>"之前还要加上其模块名(源程序名)。假设，某模块名为<font color="#FF0000">ABC</font>，则其缺省的代码段段名就为<font color="#FF0000">ABC_TEXT</font>。因此，在这种情况下，程序的模块名或源程序名不要以数字开头。</p>    
+<p>例6.15 简化段定义的方法</p>                           
+<table border="0" width="100%" cellspacing="0" cellpadding="0">    
+  <tr>    
+    <td width="6%" rowspan="13" valign="top"></td>    
+    <td width="94%" colspan="4">.MODEL&nbsp; SMALL</td>                                  
+  </tr>       
+  <tr>       
+    <td width="94%" colspan="4">.STACK&nbsp; 128</td>                                  
+  </tr>       
+  <tr>       
+    <td width="94%" colspan="4">.DATA</td>      
+  </tr>      
+  <tr>      
+    <td width="5%"></td>      
+    <td width="7%">MSG</td>      
+    <td width="82%" colspan="2">DB　&quot;Simplified Segment Directives.$&quot;</td>                                  
+  </tr>       
+  <tr>       
+    <td width="94%" colspan="4">.CODE</td>      
+  </tr>      
+  <tr>      
+    <td width="5%" rowspan="8" valign="top"></td>      
+    <td width="7%">MOV&nbsp;</td>      
+    <td width="21%">AX, @DATA</td>                                  
+    <td width="61%"> ;取数据段的段值</td>      
+  </tr>   
+  <tr>   
+    <td width="7%">MOV</td>      
+    <td width="21%">DS, AX</td>        
+    <td width="61%"> ;把给段寄存器DS赋值</td>      
+  </tr>   
+  <tr>   
+    <td width="7%">MOV</td>      
+    <td width="82%" colspan="2">DX, offset MSG</td>        
+  </tr>   
+  <tr>   
+    <td width="7%">MOV</td>      
+    <td width="82%" colspan="2">AH, 9H</td>        
+  </tr>       
+  <tr>       
+    <td width="7%">INT</td>      
+    <td width="82%" colspan="2">21h</td>      
+  </tr>   
+  <tr>   
+    <td width="7%">MOV</td>      
+    <td width="82%" colspan="2">AX, 4C00H</td>        
+  </tr>   
+  <tr>   
+    <td width="7%">INT</td>      
+    <td width="82%" colspan="2">21h</td>      
+  </tr>      
+  <tr>      
+    <td width="89%" colspan="3">END</td>      
+  </tr>      
+</table>      
+<p style="text-indent: 21.25pt">另外，在汇编程序MASM中，还提供了二组简化的代码伪指令：<font color="#FF0000">.STARTUP</font>和<font color="#FF0000">.EXIT</font>。</p>      
+<p style="margin-left: 40pt"><img border="0" src="TextBookIMG/Ball3.gif" width="12">、.STARTUP——在代码段的开始，用于自动初始化寄存器<font color="#FF0000">DS</font>、<font color="#FF0000">SS</font>和<font color="#FF0000">SP</font>；<br>
+<img border="0" src="TextBookIMG/Ball3.gif" width="12">、.EXIT——用于结束程序的运行，它等价于下列二条语句：</p>      
+<p style="margin-left: 60pt">MOV　AH, 4CH<br>                            
+INT　　21h</p>
+<p style="text-indent: 21.25pt">当使用汇编程序TASM时，以上二条伪指令分别改为：<font color="#FF0000">STARTUPCODE</font>和<font color="#FF0000">EXITCODE</font>。假设使用汇编程序MASM，那么，例6.15可改写成例6.16的形式。</p>
+<p>例6.16</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="6%" rowspan="11" valign="top"></td>
+    <td width="94%" colspan="3">.MODEL&nbsp; SMALL</td>                                  
+  </tr>       
+  <tr>       
+    <td width="94%" colspan="3">.STACK&nbsp; 128</td>                                  
+  </tr>       
+  <tr>       
+    <td width="94%" colspan="3">.DATA</td>      
+  </tr>      
+  <tr>      
+    <td width="4%"></td>      
+    <td width="6%">MSG</td>      
+    <td width="90%">DB　&quot;Simplified Segment Directives.$&quot;</td>                                  
+  </tr>       
+  <tr>       
+    <td width="94%" colspan="3">.CODE</td>      
+  </tr>      
+  <tr>      
+    <td width="4%" valign="top" rowspan="6"></td>      
+    <td width="90%" colspan="2">.STARTUP　　　　&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                       
+      ;自动初始化寄存器DS、SS和SP</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="90%">DX, offset MSG</td>  
+  </tr>  
+  <tr>  
+    <td width="6%">MOV</td> 
+    <td width="90%">  AH, 9H</td>  
+  </tr>  
+  <tr>  
+    <td width="6%">INT</td> 
+    <td width="90%"> 21h</td> 
+  </tr> 
+  <tr> 
+    <td width="90%" colspan="2">.EXIT</td> 
+  </tr> 
+  <tr> 
+    <td width="90%" colspan="2">END</td> 
+  </tr> 
+</table> 
+        
+<p align="right">                
+<a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=6&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="06-4-2.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="06-5.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>               
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>         

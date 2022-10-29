@@ -1,0 +1,206 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例8.3</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p>例8.3 用“霓虹灯”的显示方式显示字符串“Hello”，按ESC键时结束程序的运行。</p>    
+<p style="text-indent: -22pt; margin-left: 22pt"> 
+解：我们用显示颜色的变化来模拟霓虹灯的显示方式，即用颜色15(亮白)作为字符的主要显示颜色，再用颜色12(亮红)从左到右逐个扫描。</p> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="7%" rowspan="43" valign="top"></td> 
+    <td width="93%" colspan="4">.MODEL SMALL, C</td>  
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">.DATA</td> 
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">　KBEsc　EQU　1BH</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">
+      　BUFF　DB　&quot;H&quot;, 15, &quot;e&quot;, 15, &quot;l&quot;, 15,   
+      &quot;l&quot;, 15, &quot;o&quot;, 15</td>  
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">.CODE</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="10" valign="top">Clear</td> 
+    <td width="31%" colspan="2">PROC Near Uses AX BX CX DX</td> 
+    <td width="54%">;清屏幕，并保护所用寄存器</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2">CL, 0</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2">CH, 0</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2">DL, 79</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="24%">DH, 24</td> 
+    <td width="54%">;(0,0)-(24,79)是屏幕的左上角和右下角</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2">BH, 7</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2">AL, 0</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2">AH, 6</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">INT</td> 
+    <td width="78%" colspan="2">10H</td> 
+  </tr> 
+  <tr> 
+    <td width="85%" colspan="3">RET</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="6" valign="top">Clear</td> 
+    <td width="85%" colspan="3">ENDP</td> 
+  </tr> 
+  <tr> 
+    <td width="85%" colspan="3">.STARTUP</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">CALL</td> 
+    <td width="78%" colspan="2"> Clear</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2"> AX, DS</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2"> ES, AX</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2"> SI, 9</td>  
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">again:</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="21" valign="top"></td> 
+    <td width="7%">MOV</td> 
+    <td width="24%"> BUFF[SI], 15</td>  
+    <td width="54%">   
+;把前一次的红色还原</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">ADD</td> 
+    <td width="78%" colspan="2"> SI, 2</td>  
+  </tr> 
+  <tr> 
+    <td width="85%" colspan="3">.IF&nbsp; SI &gt; 9<br>   
+      　　MOV　SI, 1<br>   
+      .ENDIF</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="24%"> BUFF[SI], 12</td>  
+    <td width="54%">   
+;把当前字符以红色显示</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2"> BH, 0</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2"> CX, 5</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2"> DH, 5</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="24%"> DL, 20</td>  
+    <td width="54%">   
+;显示位置从(5, 20)开始</td>   
+  </tr> 
+  <tr> 
+    <td width="7%">LEA</td> 
+    <td width="78%" colspan="2"> BP, BUFF</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2"> AL, 2</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2"> AH, 13H</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">INT</td> 
+    <td width="24%"> 10H</td> 
+    <td width="54%">   
+;调用中断10H之功能13H</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2"> AH, 1</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">INT</td> 
+    <td width="24%"> 16H</td> 
+    <td width="54%">   
+;检查是否有按键</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">JZ</td> 
+    <td width="24%"> again</td> 
+    <td width="54%">   
+;若无字符可读，则继续循环</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2"> AH, 0</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">INT</td> 
+    <td width="78%" colspan="2"> 16H</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">CMP</td> 
+    <td width="78%" colspan="2"> AL, KBEsc</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">JNZ</td> 
+    <td width="24%"> again</td> 
+    <td width="54%">   
+;若按键不是Escape，则继续循环</td> 
+  </tr> 
+  <tr> 
+    <td width="85%" colspan="3">.EXIT　0</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">END</td>
+  </tr>
+</table>
+  
+<p align="center"><a href="javascript:close();">关　闭</a></p>  
+             
+</body>  
+  
+</html>  

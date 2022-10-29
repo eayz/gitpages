@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>2.2 16位微机存储器的管理模式</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter02.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.GIF">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle02.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a> 
+      → 存储器的管理模式</td>                              
+    <td width="50%">          
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<h2>2.2 存储器的管理模式</h2>                                      
+<p style="text-indent: 21.25pt"><font color="#FF0000">Intel</font>公司的<font color="#FF0000">80X86</font>系列的<font color="#FF0000">CPU</font>基本上采用内存分段的管理模式。它把内存和程序分成若干个段，每个段的起点用一个段寄存器来记忆，所以，学习微机汇编语言，必须要清楚地理解存储器的分段含义、存储单元的逻辑地址和其物理地址之间的转换关系。</p>     
+<h3>2.2.1 16位微机的内存管理模式</h3>                                       
+<p><font color="#FF00FF">1、存储器的分段</font></p>      
+<p style="text-indent: 21.25pt">我们知道：计算机的内存单元是以“字节”为最小单位进行线性编址的。为了标识每个存储单元，就给每个存储单元规定一个编号，此编号就是该存储单元的物理地址。</p>     
+<p style="text-indent: 21.25pt">存储单元的物理地址是一个无符号的二进制数。但为了书写的简化，物理地址通常用十六进制来表示。</p>     
+<p style="text-indent: 21.25pt">16位<font color="#FF0000">CPU</font>内部有20根地址线，其编码区间为：00000H~0FFFFFH，所以，它可直接访问的物理空间为1M(2<sup>20</sup>)字节。而16位<font color="#FF0000">CPU</font>内部存放存储单元偏移量的寄存器（如：IP、SP、BP、SI、DI和BX等）都是16位，它们的编码范围仅为：00000H~0FFFFH。这样，如果用16位寄存器来访问内存的话，则只能访问内存的最低端的64K，其它的内存将无法访问。为了能用16位寄存器来有效地访问1M的存储空间，16位<font color="#FF0000">CPU</font>采用了内存分段的管理模式，并引用段寄存器的概念。</p>    
+<table border="0" width="100%" cellspacing="0" cellpadding="3">    
+  <tr>    
+    <td width="67%" colspan="2">    
+      <p style="text-indent: 21.25pt">16位微机把内存空间划分成若干个逻辑段，每个逻辑段的要求如下：</td>    
+    <td width="33%" rowspan="4">    
+      <p align="center"><img border="0" src="TextBookIMG/02-4.gif" width="146"></p>    
+      <p align="center">图2.4 16位微机内存分段管理示意图</td>                                      
+  </tr>     
+  <tr>     
+    <td width="6%" valign="top">     
+      <p align="right"><img border="0" src="TextBookIMG/Ball3.gif" width="12"></td>     
+    <td width="61%">逻辑段的起始地址(通常简称为：段地址)必须是16的倍数，即最低4位二进制必须全为0；</td>    
+  </tr>    
+  <tr>    
+    <td width="6%" valign="top">    
+      <p align="right"><img border="0" src="TextBookIMG/Ball3.gif" width="12"></td>    
+    <td width="61%">逻辑段的最大容量为64K，这由16位寄存器的寻址空间所决定。</td>    
+  </tr>    
+  <tr>    
+    <td width="67%" colspan="2">    
+      <p style="text-indent: 21.25pt">按上述规定，1M内存最多可分成64K个段，即65536个段(段之间相互重叠)，至少可分成16个相互不重叠的段。</p>    
+      <p style="text-indent: 21.25pt">右图2.4是内存各逻辑段之间的分布情况示意图，其中有相连的段(如：C和D段)、不相连的段(如：A和B段)以及相互重叠的段(如：B和C段)。</p>    
+    </td>    
+  </tr>    
+</table>    
+      <p style="text-indent: 21.25pt">这种存储器分段的内存管理方法不仅实现了用两个16位寄存器来访问1M的内存空间，而且对程序的重定位、浮动地址的编码和提高内存的利用率等方面都具有重要的实用价值。    
+    
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><A href="asp/QuestionIndex.asp-chapter=2&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="02-1-2.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="02-2-1.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>  
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

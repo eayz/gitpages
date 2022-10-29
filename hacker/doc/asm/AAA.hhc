@@ -1,0 +1,1074 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN"><HTML><HEAD><meta name="GENERATOR" content="Gezehua&reg; Visual CHM V3.10"><!-- Sitemap 1.0 --></HEAD><BODY><OBJECT type="text/site properties">
+<param name="FrameName" value="right">
+<param name="ImageType" value="Folder">
+<param name="Window Styles" value="0x627">
+<param name="Foreground" value="0x80000008">
+<param name="Background" value="0xFFFFFF">
+<param name="Font" value="MS Sans Serif,9,0">
+</OBJECT><UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="前言">
+<param name="Local" value="content.html">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="课程介绍">
+<param name="Local" value="Assember.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="第1章 预备知识">
+<param name="Local" value="chapter01.htm">
+<param name="ImageNumber" value="2">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="1.1 汇编语言的由来">
+<param name="Local" value="01-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="1.1.4 汇编语言的特点">
+<param name="Local" value="01-1-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="1.1.5 汇编语言的应用领域">
+<param name="Local" value="01-1-5.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="1.2 数据地表示和类型">
+<param name="Local" value="01-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="1.2.1 数值表示及其扩展">
+<param name="Local" value="01-2-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="1.2.2 非数值数据的表示">
+<param name="Local" value="01-2-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="1.2.3 基本的数据类型">
+<param name="Local" value="01-2-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="1.3 习题">
+<param name="Local" value="01-Exercise.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="第2章 CPU资源和存储器">
+<param name="Local" value="chapter02.htm">
+<param name="ImageNumber" value="2">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="2.1 寄存器组">
+<param name="Local" value="02-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="2.1.2 通用存储器的作用">
+<param name="Local" value="02-1-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="2.1.3 程序状态字">
+<param name="Local" value="02-1-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="2.2 16位微机存储器的管理模式">
+<param name="Local" value="02-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="2.2.1 物理地址的形成方式">
+<param name="Local" value="02-2-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="2.2.1 段寄存器的引用">
+<param name="Local" value="02-2-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="2.2.1 存储单元的内容">
+<param name="Local" value="02-2-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="2.2.2 32位微机存储器的管理模式">
+<param name="Local" value="02-2-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="2.3 习题">
+<param name="Local" value="02-Exercise.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="第3章 操作数的寻址方式">
+<param name="Local" value="chapter03.htm">
+<param name="ImageNumber" value="2">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="3.1 立即数寻址方式">
+<param name="Local" value="03-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="3.2 寄存器寻址方式">
+<param name="Local" value="03-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="3.3 直接寻址方式">
+<param name="Local" value="03-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="3.4 寄存器间接寻址方式">
+<param name="Local" value="03-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="3.5 寄存器相对寻址方式">
+<param name="Local" value="03-5.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="3.6 基址加变址寻址方式">
+<param name="Local" value="03-6.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="3.7 相对基址加变址寻址方式">
+<param name="Local" value="03-7.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="3.8 32位地址的寻址方式">
+<param name="Local" value="03-8.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="3.10 习题">
+<param name="Local" value="03-Exercise.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="第4章 标识符和表达式">
+<param name="Local" value="chapter04.htm">
+<param name="ImageNumber" value="2">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.1 标识符">
+<param name="Local" value="04-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.2.2 字节变量的定义">
+<param name="Local" value="04-2-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.2.3-4 字/双字变量的定义">
+<param name="Local" value="04-2-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.2.5 多字变量的定义">
+<param name="Local" value="04-2-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.3 调整偏移量的伪指令">
+<param name="Local" value="04-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.3.3 调整偏移量伪指令ORG">
+<param name="Local" value="04-3-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.4 复合内存变量的定义">
+<param name="Local" value="04-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.4.2 结构类型的定义">
+<param name="Local" value="04-4-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.4.2 结构变量的定义">
+<param name="Local" value="04-4-21.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.4.3 联合类型的定义">
+<param name="Local" value="04-4-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.4.3 联合变量的定义">
+<param name="Local" value="04-4-31.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.4.4 记录类型的定义">
+<param name="Local" value="04-4-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.4.4 记录类型的定义">
+<param name="Local" value="04-4-41.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.4.5 数据类型的自定义">
+<param name="Local" value="04-4-5.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.5 标号、属性">
+<param name="Local" value="04-56.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.6.3 类型属性操作符">
+<param name="Local" value="04-6-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.6.6 强制属性操作符">
+<param name="Local" value="04-6-6.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.6.7 存储单元别名操作符">
+<param name="Local" value="04-6-7.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.7 表达式">
+<param name="Local" value="04-7.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.7.2 数值表达式">
+<param name="Local" value="04-7-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.7.3 地址表达式">
+<param name="Local" value="04-7-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.8 符号定义语句">
+<param name="Local" value="04-8.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.8.2 等号语句">
+<param name="Local" value="04-8-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="4.9 习题">
+<param name="Local" value="04-Exercise.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="第5章 微机CPU的指令系统">
+<param name="Local" value="chapter05.htm">
+<param name="ImageNumber" value="2">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.1 汇编语言指令格式">
+<param name="Local" value="05-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2 指令系统">
+<param name="Local" value="05-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.1-传送－填充指令">
+<param name="Local" value="05-2-011.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.1-取有效地址指令">
+<param name="Local" value="05-2-012.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.1-堆栈操作指令">
+<param name="Local" value="05-2-013.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.2 标志位操作指令">
+<param name="Local" value="05-2-02.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.3 算术运算指令">
+<param name="Local" value="05-2-03.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.3 减法指令">
+<param name="Local" value="05-2-031.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.3 乘法指令">
+<param name="Local" value="05-2-032.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.3 除法指令">
+<param name="Local" value="05-2-033.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.3 类型转换指令">
+<param name="Local" value="05-2-034.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.4 逻辑运算指令">
+<param name="Local" value="05-2-04.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.5 移位操作指令">
+<param name="Local" value="05-2-05.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.5 逻辑移位指令">
+<param name="Local" value="05-2-051.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.5 双精度移位指令">
+<param name="Local" value="05-2-052.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.5 循环移位指令">
+<param name="Local" value="05-2-053.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.5 带进位的循环移位指令">
+<param name="Local" value="05-2-054.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.6 位操作指令">
+<param name="Local" value="05-2-06.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.6 位操作指令">
+<param name="Local" value="05-2-061.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.7 比较运算指令">
+<param name="Local" value="05-2-07.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.8 循环指令">
+<param name="Local" value="05-2-08.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.8-循环指令">
+<param name="Local" value="05-2-081.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.9 转移指令">
+<param name="Local" value="05-2-09.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.9-条件转移指令">
+<param name="Local" value="05-2-091.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.10 条件设置字节指令">
+<param name="Local" value="05-2-10.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.11-字符串操作指令">
+<param name="Local" value="05-2-11.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.11-字符串比较指令">
+<param name="Local" value="05-2-111.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.11-重复字符串操作指令">
+<param name="Local" value="05-2-112.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.12-ASCII-BCD调整指令">
+<param name="Local" value="05-2-12.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.12-乘、除法调整指令">
+<param name="Local" value="05-2-121.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.12-十进制调整指令">
+<param name="Local" value="05-2-122.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.2.13 处理器指令">
+<param name="Local" value="05-2-13.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="5.3 习题">
+<param name="Local" value="05-Exercise.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="第6章 程序的基本结构">
+<param name="Local" value="chapter06.htm">
+<param name="ImageNumber" value="2">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.1 程序的基本组成">
+<param name="Local" value="06-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.1.2 段寄存器的说明语句">
+<param name="Local" value="06-1-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.1.3 堆栈段的说明">
+<param name="Local" value="06-1-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.1.4 源程序的结构">
+<param name="Local" value="06-1-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.2 程序的基本结构">
+<param name="Local" value="06-2-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.2 程序的基本结构举例">
+<param name="Local" value="06-2-11.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.2.2 分支结构">
+<param name="Local" value="06-2-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.2.2 分支结构">
+<param name="Local" value="06-2-2-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.2.2 用伪指令实现分支结构">
+<param name="Local" value="06-2-2-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.2.3 循环结构">
+<param name="Local" value="06-2-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.2.3 伪指令实现的循环结构">
+<param name="Local" value="06-2-3-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.2.3 辅助循环伪指令">
+<param name="Local" value="06-2-3-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.3 段的基本属性">
+<param name="Local" value="06-3-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.3.3 段的类别和段组">
+<param name="Local" value="06-3-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.4 简化的段定义">
+<param name="Local" value="06-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.4.2 段简化定义伪指令">
+<param name="Local" value="06-4-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.4.3 简化段段名的引用">
+<param name="Local" value="06-4-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.5 源程序的辅助说明伪指令">
+<param name="Local" value="06-5.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="6.6 习题">
+<param name="Local" value="06-Exercise.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="第7章 子程序和库">
+<param name="Local" value="chapter07.htm">
+<param name="ImageNumber" value="2">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.1 子程序的定义">
+<param name="Local" value="07-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.2 子程序的调用和返回">
+<param name="Local" value="07-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.2.2 子程序的返回指令">
+<param name="Local" value="07-2-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.2.2 子程序的举例">
+<param name="Local" value="07-2-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.3 子程序的参数传递">
+<param name="Local" value="07-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.3.2 存储单元传递参数">
+<param name="Local" value="07-3-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.3.3 堆栈传递参数">
+<param name="Local" value="07-3-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.4 寄存器的保护与恢复">
+<param name="Local" value="07-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.5 子程序的完整定义">
+<param name="Local" value="07-5-01.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.5.2 子程序的位距和语言类型">
+<param name="Local" value="07-5-02.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.5.4 子程序的可见性和首尾宏操作">
+<param name="Local" value="07-5-04.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.5.6 寄存器的保护与恢复">
+<param name="Local" value="07-5-06.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.5.7 子程序参数传递">
+<param name="Local" value="07-5-07.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.5.9 子程序调用伪指令">
+<param name="Local" value="07-5-09.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.5.10 局部变量的定义">
+<param name="Local" value="07-5-10.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.6 子程序库">
+<param name="Local" value="07-6.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.6.3 库文件的应用">
+<param name="Local" value="07-6-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.6.3 库文件的应用举例">
+<param name="Local" value="07-6-31.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.6.4 库文件的好处">
+<param name="Local" value="07-6-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="7.7 习题">
+<param name="Local" value="07-Exercise.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="第8章 输入输出和中断">
+<param name="Local" value="chapter08.htm">
+<param name="ImageNumber" value="2">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.1 输入输出的基本概念">
+<param name="Local" value="08-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.1.2 I/O指令">
+<param name="Local" value="08-1-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.2 中断">
+<param name="Local" value="08-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.2.2 中断指令">
+<param name="Local" value="08-2-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.2.3 中断返回指令">
+<param name="Local" value="08-2-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.3 中断功能的分类">
+<param name="Local" value="08-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.3.1 键盘输入中断">
+<param name="Local" value="08-3-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.3.2 屏幕中断功能">
+<param name="Local" value="08-3-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.3.2 屏幕中断功能">
+<param name="Local" value="08-3-2-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.3.2 屏幕中断功能">
+<param name="Local" value="08-3-2-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.3.2 键盘中断的处理过程">
+<param name="Local" value="08-3-1-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.3.2 键盘中断举例">
+<param name="Local" value="08-3-1-7.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.3.3 打印输出中断">
+<param name="Local" value="08-3-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.3.4 串行口中断功能">
+<param name="Local" value="08-3-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.3.5 鼠标功能中断">
+<param name="Local" value="08-3-5.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.3.6 目录和文件的中断功能">
+<param name="Local" value="08-3-6.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.3.7 内存管理的中断功能">
+<param name="Local" value="08-3-7.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.3.8 读取和设置中断向量">
+<param name="Local" value="08-3-7-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.3.8 修改中断向量">
+<param name="Local" value="08-3-7-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="8.4 习题">
+<param name="Local" value="08-Exercise.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="第9章 宏">
+<param name="Local" value="chapter09.htm">
+<param name="ImageNumber" value="2">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.1 宏的定义">
+<param name="Local" value="09-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.1.2 宏的引用">
+<param name="Local" value="09-1-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.1.4 宏的嵌套定义">
+<param name="Local" value="09-1-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.1.5 宏与子程序的区别">
+<param name="Local" value="09-1-5.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.2 宏参数的特殊运算符">
+<param name="Local" value="09-2-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.2.3 字符转义运算符">
+<param name="Local" value="09-2-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.3 与宏有关的伪指令">
+<param name="Local" value="09-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.3 与宏有关的伪指令">
+<param name="Local" value="09-3-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.4 重复汇编伪指令">
+<param name="Local" value="09-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.4 重复汇编伪指令">
+<param name="Local" value="09-4-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.5 条件汇编伪指令">
+<param name="Local" value="09-5.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.6 宏的扩展——REPEAT/WHILE">
+<param name="Local" value="09-6.HTM">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.6 宏的扩展——FOR/FORC">
+<param name="Local" value="09-6-4.HTM">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.6 宏的扩展——GOTO">
+<param name="Local" value="09-6-6.HTM">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.6 宏的扩展——系统定义的宏">
+<param name="Local" value="09-6-8.HTM">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="9.7 习题">
+<param name="Local" value="09-Exercise.HTM">
+<param name="ImageNumber" value="11">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="第10章 应用程序设计">
+<param name="Local" value="chapter10.htm">
+<param name="ImageNumber" value="2">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.1 字符串的处理程序">
+<param name="Local" value="10-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.1 字符串的处理程序">
+<param name="Local" value="10-1-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.1 字符串的处理程序">
+<param name="Local" value="10-1-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.2 数据的分类统计程序">
+<param name="Local" value="10-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.2 分类统计程序举例">
+<param name="Local" value="10-2-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.3 数据转换程序">
+<param name="Local" value="10-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.3 数据转换程序举例">
+<param name="Local" value="10-3-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.3 数据转换程序举例">
+<param name="Local" value="10-3-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.3 数据转换程序举例">
+<param name="Local" value="10-3-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.4 文件操作程序">
+<param name="Local" value="10-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.4 文件操作程序举例">
+<param name="Local" value="10-4-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.5 动态数据的编程">
+<param name="Local" value="10-5.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.6 COM文件的编程">
+<param name="Local" value="10-6.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.7 驻留程序">
+<param name="Local" value="10-7.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.8 程序段前缀及其应用">
+<param name="Local" value="10-8.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.8.2 程序段前缀的应用">
+<param name="Local" value="10-8-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="10.9 习题">
+<param name="Local" value="10-Exercise.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="第11章 数值运算协处理器">
+<param name="Local" value="chapter11.htm">
+<param name="ImageNumber" value="2">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="11.1 协处理器的数据格式">
+<param name="Local" value="11-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="11.1.3 浮点数">
+<param name="Local" value="11-1-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="11.1 浮点数转化为十进制数">
+<param name="Local" value="11-1-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="11.2 协处理器的结构">
+<param name="Local" value="11-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="11.2.2 状态寄存器">
+<param name="Local" value="11-2-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="11.2.2 存取状态寄存器">
+<param name="Local" value="11-2-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="11.2 协处理器的结构">
+<param name="Local" value="11-2-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="11.3 协处理器的指令系统">
+<param name="Local" value="11-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="11.3.2 数据传送类指令">
+<param name="Local" value="11-3-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="11.3.3 数学运算类指令">
+<param name="Local" value="11-3-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="11.3.4 比较●超越函数运算指令">
+<param name="Local" value="11-3-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="11.3.6 常数操作●控制指令">
+<param name="Local" value="11-3-7.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="11.4 协处理器的编程举例 ">
+<param name="Local" value="11-4.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="11.5 习题 ">
+<param name="Local" value="11-Exercise.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="第12章 汇编语言和C语言">
+<param name="Local" value="chapter12.htm">
+<param name="ImageNumber" value="2">
+</OBJECT>
+<UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="12.1 汇编指令的嵌入">
+<param name="Local" value="12-1.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="12.2 C语言源程序的汇编输出">
+<param name="Local" value="12-2.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="12.3 简单的屏幕编辑程序 ">
+<param name="Local" value="12-3.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="12.4 习题 ">
+<param name="Local" value="12-Exercise.htm">
+<param name="ImageNumber" value="11">
+</OBJECT>
+</UL>
+<LI> <OBJECT type="text/sitemap">
+<param name="Name" value="附录">
+<param name="Local" value="appendix.htm">
+<param name="ImageNumber" value="1">
+</OBJECT>
+</UL>
+</BODY></HTML>

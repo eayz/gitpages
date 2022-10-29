@@ -1,0 +1,139 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例11.8</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p style="text-indent: -36pt; margin-left: 36pt">例11.8 已知L=4.0，F按每次递增10.0的幅度从10.0增加到1000.0，试按公式Y＝2πFL，计算出100个Y值，并把它们存入数组RES中。           
+</p>      
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" colspan="5">      
+<p>解：     
+ </p>     
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="7%" rowspan="26" valign="top"></td> 
+    <td width="93%" colspan="4">.MODEL             
+SMALL</td> 
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">.386</td> 
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">.387</td> 
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">.DATA</td> 
+  </tr> 
+  <tr> 
+    <td width="8%"> 
+      <p style="margin-left: 15pt">L</td> 
+    <td width="85%" colspan="3">DD　4.0</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 15pt">F</td>
+    <td width="33%" colspan="2">DD　1000.0</td>
+    <td width="52%">;为了便于循环控制，F“从大到小”来计算</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 15pt">TEN</td>
+    <td width="85%" colspan="3">DD　10.0</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 15pt">Y</td>
+    <td width="85%" colspan="3">DD　100          
+DUP(?)</td> 
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">.CODE</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="6" valign="top"></td> 
+    <td width="85%" colspan="3">.STARTUP</td> 
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FLDPI</td> 
+    <td width="52%">;装入π</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">FADD</td> 
+    <td width="26%">ST, ST(0)</td>  
+    <td width="52%">;自身相加，得到2π</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">FMUL</td> 
+    <td width="26%">L</td> 
+    <td width="52%">;计算出不变的结果2πL</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2">ECX, 100</td>  
+  </tr> 
+  <tr> 
+    <td width="7%">MOV</td> 
+    <td width="78%" colspan="2">EDI, OFFSET Y-4</td>  
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="4">again:</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="10" valign="top"></td> 
+    <td width="7%">FLD</td> 
+    <td width="78%" colspan="2">F</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">FMUL</td> 
+    <td width="26%">ST, ST(1)</td>  
+    <td width="52%">;得到一个计算结果2πLF</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">FSTP</td> 
+    <td width="26%">dword ptr [EDI+4*ECX]</td>  
+    <td width="52%">;保存当前得到结果(从后向前)</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">FLD</td> 
+    <td width="78%" colspan="2">F</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">FSUB</td> 
+    <td width="78%" colspan="2">TEN</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">FSTP</td> 
+    <td width="26%">F</td> 
+    <td width="52%">;F的值变小10.0</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">LOOP</td> 
+    <td width="78%" colspan="2">again   
+    </td> 
+  </tr> 
+  <tr> 
+    <td width="33%" colspan="2">FCOMP</td> 
+    <td width="52%">;先前计算出结果2πL出栈，使之为空</td> 
+  </tr> 
+  <tr> 
+    <td width="85%" colspan="3">.EXIT 0</td>   
+  </tr> 
+  <tr> 
+    <td width="85%" colspan="3">END</td> 
+  </tr> 
+</table> 
+   
+<p align="center"><a href="javascript:close();">关　闭</a></p>
+  
+</body>  
+  
+</html>  

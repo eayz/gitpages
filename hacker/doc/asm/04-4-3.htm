@@ -1,0 +1,169 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>4.4.3 联合类型的定义</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter04.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle04.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="04-4.htm"> 复合变量的定义</a> → <span style="font-family: 宋体; mso-ascii-font-family: Arial; mso-hansi-font-family: Arial; mso-bookmark: _Toc514474324">联合</span>类型的定义</td>                                         
+    <td width="50%">          
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+    
+<h3>4.4.3 联合类型的定义</h3>                     
+<p style="text-indent: 21.25pt">联合数据类型是一种特殊的数据类型。它可以实现：以一种数据类型存储数据，以另一种数据类型来读取数据。程序员可以根据不同的需要，以不同的数据类型来读取联合类型中的数据。也就是说，在一些情况下，以一种数据类型来读取联合类型中的数据，而在另一些情况下，又以另一种数据类型来读取其数据。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、联合类型的说明</font></p>
+<p style="text-indent: 21.25pt">联合数据类型其说明格式如下：</p>
+<p style="margin-left: 40pt">[联合类型名]　UNION &nbsp;[Alignment] [，NONUNIQUE]</p>                        
+<p style="margin-left: 110pt">数据定义语句序列</p>
+<p style="margin-left: 40pt">[联合类型名]　ENDS</p>
+<p style="text-indent: 21.25pt">联合类型中的各字段相互覆盖，即同样的存储单元被多个不同的字段所对应，并且其每个字段的偏移量都为0。</p>
+<p style="text-indent: 21.25pt">联合类型所占的字节数是其所有字段所占字节数的最大值。</p>
+<p style="text-indent: -134pt; margin-left: 160pt"><img border="0" src="TextBookIMG/redball.gif" width="17">、对齐方式(Alignment)：可用1、2或4来指定结构字节的边界，其缺省值为1。它还用可伪指令ALIGN或EVEN来重新定界，也可用命令行选项/Zp来定界；</p>
+<p style="text-indent: -100pt; margin-left: 126pt"><img border="0" src="TextBookIMG/redball.gif" width="17">、NONUNIQUE：要求联合类型中的字段必须用全名才能访问，引用联合类型字段的方法见下面的“联合类型字段的引用”。</p>
+<p style="text-indent: 21.25pt">例如：</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="9%" valign="top"></td>
+    <td width="13%" valign="top"> 
+      DATATYPE</td>
+    <td width="78%" valign="top" colspan="2">UNION</td>
+  </tr>
+  <tr>
+    <td width="9%"></td>
+    <td width="13%"></td>
+    <td width="18%">BB　DB　?&nbsp;</td>
+    <td width="60%">;定义一个字节类型的字段</td>
+  </tr>
+  <tr>
+    <td width="9%"></td>
+    <td width="13%"></td>
+    <td width="18%">WW　DW　?&nbsp;</td>
+    <td width="60%">;定义一个字类型的字段</td>
+  </tr>
+  <tr>
+    <td width="9%"></td>
+    <td width="13%"></td>
+    <td width="18%">DD　DD　?&nbsp;</td>
+    <td width="60%">;定义一个双字类型的字段</td>
+  </tr>
+  <tr>
+    <td width="9%"></td>
+    <td width="13%"> 
+      DATATYPE</td>
+    <td width="78%" colspan="2">ENDS</td>
+  </tr>
+</table>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="55%">
+<p style="text-indent: 21.25pt">联合类型DATATYPE的字段分布如图4.8所示。   
+<p style="text-indent: 21.25pt">在联合类型的最外层定义中，在伪指令UNION和ENDS的前面一定要书写该联合类型名，而在其嵌套定义的内层，伪指令UNION和ENDS之前一定不能写联合类型名。</p>
+    </td>
+    <td width="45%">
+<p align="center"><img border="0" src="TextBookIMG/04-8.gif" width="130">
+      <p align="center">图4.8 DATATYPE的字段分布示意图</p>                      
+    </td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt"><a name="union1">例如：</a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="10%" rowspan="8" valign="top"></td>
+    <td width="9%" rowspan="7" valign="top"> 
+      UNION1</td>
+    <td width="81%" colspan="3">UNION</td>
+  </tr>
+  <tr>
+    <td width="7%">BB</td>
+    <td width="74%" colspan="2">DB　?</td>
+  </tr>
+  <tr>
+    <td width="7%">WW</td>
+    <td width="74%" colspan="2">DW　?</td>
+  </tr>
+  <tr>
+    <td width="24%" colspan="2">UNION</td>
+    <td width="57%">;联合类型的嵌套定义形式</td>
+  </tr>
+  <tr>
+    <td width="7%">　W1</td>
+    <td width="74%" colspan="2">DW　?</td>
+  </tr>
+  <tr>
+    <td width="7%">　B1</td>
+    <td width="17%">DB　?</td>
+    <td width="57%"></td>
+  </tr>
+  <tr>
+    <td width="81%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="9%"> 
+      UNION1</td>
+    <td width="81%" colspan="3">ENDS</td>
+  </tr>
+</table>
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=4&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="04-4-21.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="04-4-31.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                            
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2>                                                  
+    <option selected value="#">课件章节</option>       
+    <option value="course.htm">课件目录</option>       
+    <option value="01-1.htm">第1章 预备知识</option>             
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>             
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>             
+    <option value="04-1.htm">第4章 标识符和表达式</option>             
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>             
+    <option value="06-1.htm">第6章 程序的基本结构</option>             
+    <option value="07-1.htm">第7章 子程序和库</option>             
+    <option value="08-1.htm">第8章 输入输出和中断</option>             
+    <option value="09-1.htm">第9章 宏</option>             
+    <option value="10-1.htm">第10章 应用程序的设计</option>             
+    <option value="11-1.htm">第11章 数值运算协处理器</option>       
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>       
+  </select></p>
+               
+</body>               
+               
+</html>               

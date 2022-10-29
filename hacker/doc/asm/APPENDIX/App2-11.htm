@@ -1,0 +1,254 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录2.11 字符串操作指令</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body background="image/background.gif">
+
+<h2>11、字符串操作指令</h2>
+         
+<h3>11.1、取字符串数据指令</h3>
+         
+  <table border="1" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="226"><p style="MARGIN-LEFT: 4pt">指令的语法</p></td>
+      <td width="305"><p style="MARGIN-LEFT: 4pt">举例</p></td>
+      <td width="139"><p style="MARGIN-LEFT: 4pt">周期数</p></td>
+    </tr>
+  <tr>
+    <td width="226"><p style="MARGIN-LEFT: 4pt">LODS [segreg:]src</p></td>          
+    <td width="305"><p style="MARGIN-LEFT: 4pt">lods es:source</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">LODSB [[segreg:]src]</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">Lodsb</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">LODSW [[segreg:]src]</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">Lodsw</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td>    
+  </tr>    
+  <tr>    
+    <td width="226"><p style="MARGIN-LEFT: 4pt">LODSD [[segreg:]src]</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">Lodsd</p></td>    
+    <td width="139"><p style="MARGIN-LEFT: 4pt">2</p></td>    
+  </tr>    
+</table>    
+<h3>11.2、置字符串数据指令</h3>  
+           
+<table border="1" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">STOS [ES:]dest</p></td>          
+    <td width="305"><p style="MARGIN-LEFT: 4pt">stor es:dstring</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">STOSB [[ES:]dest]</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">stosb</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">STOSW [[ES:]dest]</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">stosw</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">STOSD [[ES:]dest]</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">stosd</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td>     
+  </tr>     
+</table>     
+<h3>11.3、字符串传送指令</h3>  
+           
+<table border="1" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="377"><p style="MARGIN-LEFT: 4pt">MOVS [es:]dest, [segreg:]src</p></td>          
+    <td width="214"><p style="MARGIN-LEFT: 4pt">movs dest,es:source</p></td>       
+    <td width="79"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="377"><p style="MARGIN-LEFT: 4pt">MOVSB [[es:]dest, [segreg:]src]</p></td>       
+    <td width="214"><p style="MARGIN-LEFT: 4pt">movsb</p></td>     
+    <td width="79"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="377"><p style="MARGIN-LEFT: 4pt">MOVSW [[es:]dest, [segreg:]src]</p></td>       
+    <td width="214"><p style="MARGIN-LEFT: 4pt">movsw</p></td>     
+    <td width="79"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="377"><p style="MARGIN-LEFT: 4pt">MOVSD [[es:]dest, [segreg:]src]</p></td>       
+    <td width="214"><p style="MARGIN-LEFT: 4pt">movsd</p></td>     
+    <td width="79"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+</table>     
+<h3>11.4、输入字符串指令</h3>   
+  <table border="1" width="100%" cellspacing="0" cellpadding="0">   
+    <tr>       
+      <td width="223"><p style="MARGIN-LEFT: 4pt">INS [ES:]dest, DX</p></td>            
+      <td width="184"><p style="MARGIN-LEFT: 4pt">ins es:instr,dx</p></td>        
+      <td width="263"><p style="MARGIN-LEFT: 4pt">9, pm=6,24*, vm=22</p></td>        
+    </tr>        
+    <tr>        
+      <td width="223"><p style="MARGIN-LEFT: 4pt">INSB</p></td>     
+      <td width="184"><p style="MARGIN-LEFT: 4pt">Insb</p></td>     
+      <td width="263"><p style="MARGIN-LEFT: 4pt">9, pm=6,24*, vm=22</p></td>        
+    </tr>        
+    <tr>        
+      <td width="223"><p style="MARGIN-LEFT: 4pt">INSW</p></td>     
+      <td width="184"><p style="MARGIN-LEFT: 4pt">Insw</p></td>     
+      <td width="263"><p style="MARGIN-LEFT: 4pt">9, pm=6,24*, vm=22</p></td>        
+    </tr>        
+    <tr>        
+      <td width="223"><p style="MARGIN-LEFT: 4pt">INSD</p></td>     
+      <td width="184"><p style="MARGIN-LEFT: 4pt">Insd</p></td>     
+      <td width="263"><p style="MARGIN-LEFT: 4pt">9, pm=6,24*, vm=22</p></td>        
+    </tr>        
+  </table>        
+<h3>11.5、输出字符串指令</h3>   
+  <table border="1" width="100%" cellspacing="0" cellpadding="0">   
+    <tr>      
+      <td width="289"><p style="MARGIN-LEFT: 4pt">OUTS DX,[segreg:]src</p></td>         
+      <td width="152"><p style="MARGIN-LEFT: 4pt">outs dx,buffer</p></td>      
+      <td width="229"><p style="MARGIN-LEFT: 4pt">13, pm=10,27, VM=24</p></td>      
+    </tr>     
+    <tr>     
+      <td width="289"><p style="MARGIN-LEFT: 4pt">OUTSB [DX,[segreg:]src]</p></td>      
+      <td width="152"><p style="MARGIN-LEFT: 4pt">outsb</p></td>    
+      <td width="229"><p style="MARGIN-LEFT: 4pt">13, pm=10,27, VM=24</p></td>      
+    </tr>     
+    <tr>     
+      <td width="289"><p style="MARGIN-LEFT: 4pt">OUTSW [DX,[segreg:]src]</p></td>      
+      <td width="152"><p style="MARGIN-LEFT: 4pt">outsw</p></td>    
+      <td width="229"><p style="MARGIN-LEFT: 4pt">13, pm=10,27, VM=24</p></td>      
+    </tr>     
+    <tr>     
+      <td width="289"><p style="MARGIN-LEFT: 4pt">OUTSD [DX,[segreg:]src]</p></td>    
+      <td width="152"><p style="MARGIN-LEFT: 4pt">outsd</p></td>    
+      <td width="229"><p style="MARGIN-LEFT: 4pt">13, pm=10,27, VM=24</p></td>      
+    </tr>     
+  </table>     
+          
+<h3>11.6、字符串比较指令</h3>  
+           
+<table border="1" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="378"><p style="MARGIN-LEFT: 4pt">CMPS     
+      [segreg:] src, [ES:]dest</p></td>         
+    <td width="213"><p style="MARGIN-LEFT: 4pt">cmps source,es:dest</p></td>      
+    <td width="79"><p style="MARGIN-LEFT: 4pt">5</p></td>    
+  </tr>    
+  <tr>    
+    <td width="378"><p style="MARGIN-LEFT: 4pt">CMPSB [[segreg:[src,] ES:] dest]</p></td>      
+    <td width="213"><p style="MARGIN-LEFT: 4pt">cmpsb</p></td>    
+    <td width="79"><p style="MARGIN-LEFT: 4pt">5</p></td>    
+  </tr>    
+  <tr>    
+    <td width="378"><p style="MARGIN-LEFT: 4pt">CMPSW [[segreg:[src,] ES:]dest]</p></td>      
+    <td width="213"><p style="MARGIN-LEFT: 4pt">cmpsw</p></td>    
+    <td width="79"><p style="MARGIN-LEFT: 4pt">5</p></td>    
+  </tr>    
+  <tr>    
+    <td width="378"><p style="MARGIN-LEFT: 4pt">CMPSD [[segreg:[src,] ES:] dest]</p></td>      
+    <td width="213"><p style="MARGIN-LEFT: 4pt">cmpsd</p></td>    
+    <td width="79"><p style="MARGIN-LEFT: 4pt">5</p></td>    
+  </tr>    
+</table>    
+<h3>11.7、字符串扫描指令</h3>  
+           
+<table border="1" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SCAS [ES]:dest</p></td>          
+    <td width="305"><p style="MARGIN-LEFT: 4pt">scas es:destin</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SCASB</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">Scasb</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SCASW</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">Scasw</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SCASD</p></td>     
+    <td width="305"><p style="MARGIN-LEFT: 4pt">Scasd</p></td>     
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+</table>     
+     
+<h3>11.8、重复前缀指令</h3>  
+           
+<table border="1" width="100%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="243"><p style="MARGIN-LEFT: 4pt">REP INS dest,DX</p></td>         
+    <td width="222"><p style="MARGIN-LEFT: 4pt">rep ins dest,dx</p></td>      
+    <td width="283"><p style="MARGIN-LEFT: 4pt">11+3n, pm=(8,25)+3n<sup>*</sup></p></td>    
+  </tr>   
+  <tr>   
+    <td width="243"><p style="MARGIN-LEFT: 4pt">REP MOVS dest,src</p></td>     
+    <td width="222"><p style="MARGIN-LEFT: 4pt">rep movs dest,source</p></td>     
+    <td width="283"><p style="MARGIN-LEFT: 4pt">6, 13n</p></td>     
+  </tr>    
+  <tr>    
+    <td width="243"><p style="MARGIN-LEFT: 4pt">REP OUTS DX,src</p></td>     
+    <td width="222"><p style="MARGIN-LEFT: 4pt">rep outs dx,source</p></td>     
+    <td width="283"><p style="MARGIN-LEFT: 4pt">13+4n, pm=(10,27)+4n<sup>*</sup></p></td>     
+  </tr>    
+  <tr>    
+    <td width="243"><p style="MARGIN-LEFT: 4pt">REP LODS dest</p></td>     
+    <td width="222"><p style="MARGIN-LEFT: 4pt">rep lods dest</p></td>     
+    <td width="283"><p style="MARGIN-LEFT: 4pt">7, 7+3n</p></td>     
+  </tr>    
+  <tr>    
+    <td width="243"><p style="MARGIN-LEFT: 4pt">REP STOS dest</p></td>     
+    <td width="222"><p style="MARGIN-LEFT: 4pt">rep stos dest</p></td>     
+    <td width="283"><p style="MARGIN-LEFT: 4pt">6, 9+3n</p></td>     
+  </tr>    
+</table>    
+<p>注：当CPL≤IOPL时，执行时间是第一个时钟周期，否则是第二个时钟周期。</p>  
+<h3>11.9、相等重复前缀指令</h3> 
+          
+<table border="1" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="226"><p style="MARGIN-LEFT: 4pt">REPE CMPS src,dest</p></td>          
+    <td width="305"><p style="MARGIN-LEFT: 4pt">repe cmps src,dest</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7, 9+4n</p></td>       
+  </tr>      
+  <tr>      
+    <td width="226"><p style="MARGIN-LEFT: 4pt">REPE SCAS dest</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">repe scas dest</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7, 9+4n</p></td>       
+  </tr>      
+</table>      
+<h3>11.10、不相等重复前缀指令</h3>  
+           
+<table border="1" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="252"><p style="MARGIN-LEFT: 4pt">REPNE CMPS src,dest</p></td>          
+    <td width="279"><p style="MARGIN-LEFT: 4pt">repne cmps src,dest</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7, 8+4n</p></td>       
+  </tr>      
+  <tr>      
+    <td width="252"><p style="MARGIN-LEFT: 4pt">REPNE SCAS dest</p></td>       
+    <td width="279"><p style="MARGIN-LEFT: 4pt">repne scas dest</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">7, 9+4n</p></td>       
+  </tr>      
+</table>      
+      
+<p align="center"><A href="App2-09.htm"><IMG language=javascript id=PrevPage onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" height=28 src ="../Button/prevpage1.gif" width=96 border=0></A>　　　<A href="App2-12.htm"><IMG language=javascript id=NextPage onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" height=28 src ="../Button/NextPage1.gif" width=96 border=0></A></p>
+         
+</body>        
+        
+</html>        

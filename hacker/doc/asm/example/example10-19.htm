@@ -1,0 +1,393 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例10.19</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+
+<p>例10.19 编写一个类型于DOS内部命令TYPE的程序，该命令的使用方法如下：          
+</p>     
+<p style="margin-left: 30pt">……&gt;type           
+文件1，文件2，…     
+</p>     
+<p style="margin-left: 30pt">其功能是分别显示其参数文件1、文件2等内容，在显示文件内容前先显示文件名。显示完内容后，暂停，等待用户按任意键。若某文件不存在，则显示相应的提示信息。     
+</p>     
+<p style="text-indent: -21.25pt; margin-left: 21.25pt">解：为了较好地解答本题，我们可以对该问题按以下步骤来解决：<br> 
+1、若命令行参数中的字符数为0，则结束本程序的运行；<br> 
+2、从命令行参数中分离出一个文件名；<br> 
+3、调用子程序，显示当前文件名、文件内容和等待用户按键；<br> 
+4、重复步骤1~3，直到所有参数被处理完。    
+</p>    
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="8%" rowspan="83" valign="top"></td> 
+    <td width="92%" colspan="4">.MODEL　SMALL, C</td>   
+  </tr> 
+  <tr> 
+    <td width="92%" colspan="4">.DATA</td> 
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">File</td> 
+    <td width="83%" colspan="3">DB　14 DUP(' ')</td>   
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">Buff&nbsp;</td> 
+    <td width="83%" colspan="3">DB　128 DUP(0)</td>  
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">Msg1</td> 
+    <td width="83%" colspan="3">DB　0DH, 0AH, &quot;$&quot;</td>   
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">Msg2</td> 
+    <td width="83%" colspan="3">DB　&quot;Not Found$&quot;</td>   
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">Msg3</td> 
+    <td width="83%" colspan="3">DB　&quot;Press any key...$&quot;</td>   
+  </tr> 
+  <tr> 
+    <td width="92%" colspan="4">.CODE</td> 
+  </tr> 
+  <tr> 
+    <td width="92%" colspan="4">;显示字符串MSG后，再进行回车、换行</td> 
+  </tr> 
+  <tr> 
+    <td width="9%">DispStr</td> 
+    <td width="83%" colspan="3">PROC USES AX DX, MSG:PTR BYTE</td>  
+  </tr> 
+  <tr> 
+    <td width="9%" rowspan="7" valign="top"></td> 
+    <td width="10%">MOV</td> 
+    <td width="33%">  
+DX, MSG</td>  
+    <td width="40%"> ;显示指定的信息&nbsp;</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">AH, 09H</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">INT</td> 
+    <td width="73%" colspan="2">21H</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">LEA</td> 
+    <td width="33%">DX, Msg1</td>  
+    <td width="40%">  
+;显示回车、换行</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">AH, 09H</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">INT</td> 
+    <td width="73%" colspan="2">21H</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">RET</td> 
+  </tr> 
+  <tr> 
+    <td width="9%">DispStr</td> 
+    <td width="83%" colspan="3">ENDP</td> 
+  </tr> 
+  <tr> 
+    <td width="92%" colspan="4">;文件名的长度为传递参数Len。若文件不存在，则显示提示信息，否则，显示文件内容；<br> 
+      ;完成上述操作后，等待用户按键</td> 
+  </tr> 
+  <tr> 
+    <td width="9%" rowspan="15" valign="top">Disp</td> 
+    <td width="83%" colspan="3">PROC USES AX BX CX DX, Len:BYTE</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">XOR</td> 
+    <td width="73%" colspan="2">BX, BX</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">BL, Len</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">File[BX], '$'</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">INVOKE</td> 
+    <td width="33%">DispStr, ADDR File</td>  
+    <td width="40%">;显示文件名</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">File[BX],0</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">LEA</td> 
+    <td width="73%" colspan="2">DX, File</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">AL, 0H</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">AH, 3DH</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">INT</td> 
+    <td width="73%" colspan="2">21H</td> 
+  </tr> 
+  <tr> 
+    <td width="43%" colspan="2">.IF CARRY?</td> 
+    <td width="40%">  
+;若创建失败，则显示失败信息</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3"> 
+      <p style="margin-left: 18pt">INVOKE　DispStr, ADDR Msg2</td>   
+  </tr> 
+  <tr> 
+    <td width="10%"> 
+      <p style="margin-left: 18pt">JMP</td> 
+    <td width="73%" colspan="2">over1</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">.ENDIF</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="33%">  
+BX, AX</td>  
+    <td width="40%"> ;参见例8.14中的有关说明</td> 
+  </tr> 
+  <tr> 
+    <td width="92%" colspan="4">read:</td> 
+  </tr> 
+  <tr> 
+    <td width="9%" rowspan="15" valign="top"></td> 
+    <td width="10%">LEA</td> 
+    <td width="73%" colspan="2">DX, Buff</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">CX, 128</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">AH, 3FH</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">INT</td> 
+    <td width="73%" colspan="2">21H</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">.IF CARRY? || AX==0</td>  
+  </tr> 
+  <tr> 
+    <td width="10%"> 
+      <p style="margin-left: 18pt">JZ</td> 
+    <td width="73%" colspan="2">close</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">.ENDIF</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">PUSH</td> 
+    <td width="73%" colspan="2">BX</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">LEA</td> 
+    <td width="73%" colspan="2">DX, Buff</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">CX, AX</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">BX, 1</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">AH, 40H</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">INT</td> 
+    <td width="73%" colspan="2">21H</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">POP</td> 
+    <td width="73%" colspan="2">BX</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">JMP</td> 
+    <td width="73%" colspan="2">read</td> 
+  </tr> 
+  <tr> 
+    <td width="92%" colspan="4">close:</td> 
+  </tr> 
+  <tr> 
+    <td width="9%" rowspan="2" valign="top"></td> 
+    <td width="10%">MOV</td> 
+    <td width="33%">   
+AH, 3EH</td>  
+    <td width="40%"> ;关闭已打开的文件</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">INT</td> 
+    <td width="73%" colspan="2">21H</td> 
+  </tr> 
+  <tr> 
+    <td width="9%" rowspan="5" valign="top">over1:</td> 
+    <td width="83%" colspan="3"></td> 
+  </tr> 
+  <tr> 
+    <td width="10%">INVOKE</td> 
+    <td width="33%">DispStr, ADDR Msg3</td>  
+    <td width="40%">;显示等待用户按键提示信息</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">AH, 07H</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">INT</td> 
+    <td width="33%">  
+21H</td> 
+    <td width="40%">;等待用户按键</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">RET</td> 
+  </tr> 
+  <tr> 
+    <td width="9%" rowspan="25" valign="top">Disp</td> 
+    <td width="83%" colspan="3">ENDP</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">.STARTUP</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">AH, 51H</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">INT</td> 
+    <td width="73%" colspan="2">21H</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">ES, BX</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">BX, 80H</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">MOV</td> 
+    <td width="73%" colspan="2">CL, ES:[BX]</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">DEC</td> 
+    <td width="73%" colspan="2">CL</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">INC</td> 
+    <td width="73%" colspan="2">BX</td> 
+  </tr> 
+  <tr> 
+    <td width="43%" colspan="2">.WHILE       
+CL&gt;0</td> 
+    <td width="40%">  
+;CL=未被处理的参数字符数</td> 
+  </tr> 
+  <tr> 
+    <td width="10%"> 
+      <p style="margin-left: 12pt">XOR</td> 
+    <td width="33%">  
+AL, AL</td>  
+    <td width="40%">;记录文件名的长度</td> 
+  </tr> 
+  <tr> 
+    <td width="10%"> 
+      <p style="margin-left: 12pt">LEA</td> 
+    <td width="73%" colspan="2">DI, File</td>  
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3"> 
+      <p style="margin-left: 12pt">.REPEAT</td> 
+  </tr> 
+  <tr> 
+    <td width="10%"> 
+      <p style="margin-left: 23pt">INC</td> 
+    <td width="73%" colspan="2">BX</td> 
+  </tr> 
+  <tr> 
+    <td width="10%"> 
+      <p style="margin-left: 23pt">MOV</td> 
+    <td width="73%" colspan="2">AH, ES:[BX]</td> 
+  </tr> 
+  <tr> 
+    <td width="10%"> 
+      <p style="margin-left: 23pt">DEC</td> 
+    <td width="73%" colspan="2">CL</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3"> 
+      <p style="margin-left: 23pt">.BREAK　.IF　AH==','</td>
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 23pt">MOV</td>
+    <td width="33%"> 
+[DI], AH</td> 
+    <td width="40%"> ;从参数中分离出字符，存入文件名中</td>
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 23pt">INC</td>
+    <td width="73%" colspan="2">DI</td>
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 23pt">INC</td>
+    <td width="73%" colspan="2">AL</td>
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 12pt">.UNTIL</td>
+    <td width="73%" colspan="2">CL==0</td>
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 12pt">INVOKE</td>
+    <td width="33%">Disp, AL</td> 
+    <td width="40%"> 
+;处理当前分离出来的文件名</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">.ENDW</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">.EXIT　0</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">END</td>
+  </tr>
+</table>
+
+<p align="center"><a href="javascript:close();">关　闭</a></p>
+  
+</body>   
+   
+</html>   

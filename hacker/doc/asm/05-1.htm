@@ -1,0 +1,98 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>第5章 微机CPU的指令系统</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter05.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle05.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    </td>                 
+    <td width="50%">         
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+     
+<h1 align="center">第5章 微机CPU的指令系统</h1>                                                    
+                            
+<p style="text-indent: 21.25pt">指令系统确定了<font color="#FF0000">CPU</font>所能完成的功能，是用汇编语言进行程序设计的最基本部分。如果不熟悉汇编指令的功能及其有关规定，那么，肯定不能灵活运用汇编语言。所以，本章的内容是学习本课程的重点和难点。</p>  
+<h2>5.1 汇编语言指令格式</h2>                          
+<p style="text-indent: 21.25pt">为了介绍指令系统中指令的功能，先要清楚汇编语言是如何书写指令的，这就象在学习高级语言程序设计时，要清楚高级语言语句的语义、语法及其相关规定一样。</p>  
+<h3>5.1.1 指令格式</h3>                          
+<p style="text-indent: 21.25pt">汇编语言的指令格式如下：</p>  
+<p style="margin-left: 40pt">指令助忆符 [操作数1                            
+[, 操作数2 [, 操作数3]]]　　　[;注释]</p>
+<p style="text-indent: 21.25pt">指令助忆符体现该指令的功能，它对应一条二进制编码的机器指令。指令的操作数个数由该指令的确定，可以没有操作数，也可以有一个、二个或三个操作数。绝大多数指令的操作数要显式的写出来，但也有指令的操作数是隐含的，不需要在指令中写出。</p>
+<p style="text-indent: 21.25pt">当指令含有操作数，并要求在指令中显式地写出来时，则在书写时必须遵守：</p>
+    <p style="margin-left: 35pt"><img border="0" src="TextBookIMG/Ball3.gif" width="12">指令助忆符和操作数之间要有分隔符，分隔符可以是若干个空格或<font color="#FF0000">TAB</font>键；<br>
+    <img border="0" src="TextBookIMG/Ball3.gif" width="12">如果指令含有多个操作数，那么，操作数之间要用逗号"，"分开。
+<p style="text-indent: 21.25pt">指令后面还可以书写注释内容，不过，要在注释之前书写分号"；"。</p>
+<h3>5.1.2 <a name="Aspect">了解指令的几个方面</a></h3>                         
+<p style="text-indent: 21.25pt">在学习汇编指令时，指令的功能无疑是我们学习和掌握的重点，但要准确、有效地运用这些指令，我们还要熟悉系统对每条指令的一些规定或约束。</p> 
+<p style="text-indent: 21.25pt">归纳起来，对指令还要掌握以下几个方面内容：</p> 
+<p style="margin-left: 40pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、要求指令操作数的寻址方式；<br> 
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、指令对标志位的影响、标志位对指令的影响；<br> 
+<img border="0" src="TextBookIMG/redpoint.gif" width="20">、指令的执行时间，对可完成同样功能的指令，要选用执行时间短的指令(<a href="Appendix/App2-01.htm" target="_blank">见附录2</a>)。</p>
+         
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=5&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="04-Exercise.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="05-2.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>             
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->    
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+        
+</body>        
+        
+</html>        

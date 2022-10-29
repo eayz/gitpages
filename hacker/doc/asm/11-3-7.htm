@@ -1,0 +1,341 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>11.3.6 常数操作指令等</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter11.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle11.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="11-3.htm">浮点运算指令</a>                    
+      → 常数操作指令</td>                                     
+    <td width="50%">             
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h3>11.3.6 常数操作指令</h3>                              
+<p style="text-indent: 21.25pt">为了计算的方便，协处理器提供了几个将常用常数压栈的指令。如表11.7所示。</p>
+<p align="center">表11.7 常数压栈指令及其常数值</p>                              
+<div align="center">
+  <center>
+  <table border="0" width="60%" cellpadding="0">
+    <tr>
+      <td width="25%" bgcolor="#FFFF00" height="22" align="center" valign="middle">指令格式</td>
+      <td width="25%" bgcolor="#FFFF00" height="22" align="center" valign="middle">指令的功能</td>
+      <td width="25%" bgcolor="#FFFF00" height="22" align="center" valign="middle">指令格式</td>
+      <td width="25%" bgcolor="#FFFF00" height="22" align="center" valign="middle">指令的功能</td>
+    </tr>
+    <tr>
+      <td width="25%" height="22" valign="middle" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FLDZ</td>
+      <td width="25%" height="22" valign="middle" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">ST=+0.0</td>
+      <td width="25%" height="22" valign="middle" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FLDL2T</td>
+      <td width="25%" height="22" valign="middle" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">ST= log<sub>2</sub>10</td>
+    </tr>
+    <tr>
+      <td width="25%" height="22" valign="middle">
+        <p style="margin-left: 8pt">FLD1</td>
+      <td width="25%" height="22" valign="middle">
+        <p style="margin-left: 8pt">ST=+1.0</td>
+      <td width="25%" height="22" valign="middle">
+        <p style="margin-left: 8pt">FLDLG2</td>
+      <td width="25%" height="22" valign="middle">
+        <p style="margin-left: 8pt">ST= log<sub>10</sub>2</td>
+    </tr>
+    <tr>
+      <td width="25%" height="23" valign="middle" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FLDPI</td>
+      <td width="25%" height="23" valign="middle" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">ST=π</p>
+      </td>
+      <td width="25%" height="23" valign="middle" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FLDLN2</td>
+      <td width="25%" height="23" valign="middle" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">ST= log<sub>e</sub>2</td>
+    </tr>
+    <tr>
+      <td width="25%" height="23" valign="middle">
+        <p style="margin-left: 8pt">FLDL2E</td>
+      <td width="25%" height="23" valign="middle">
+        <p style="margin-left: 8pt">ST=log2e</td>
+      <td width="25%" height="23" valign="middle">
+        <p style="margin-left: 8pt">　</td>
+      <td width="25%" height="23" valign="middle">
+        <p style="margin-left: 8pt">　</td>
+    </tr>
+  </table>
+  </center>
+</div>
+             
+<h3><a name="控制指令">11.3.7 协处理器控制指令</a></h3>                         
+<p style="text-indent: 21.25pt">协处理器控制指令是用来实现控制协处理器状态而设置的，它包括协处理器的初始化、状态寄存器内容的存取、异常处理和任务切换等操作。具体的指令及其功能说明如表11.8所列。</p>
+<p align="center">表11.8 比较运算指令及其功能</p>                         
+<div align="center">
+  <center>
+  <table border="0" width="70%" cellpadding="0">
+    <tr>
+      <td width="28%" bgcolor="#FFFF00">
+        <p style="margin-left: 20pt">指令格式</td>
+      <td width="72%" bgcolor="#FFFF00">
+        <p style="margin-left: 20pt">指令的功能</td>
+    </tr>
+    <tr>
+      <td width="28%" valign="top" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FINIT/FNINIT</td>
+      <td width="72%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">初始化协处理器，初始化后协处理器的状态如表11.9所列。</td>
+    </tr>
+    <tr>
+      <td width="28%" valign="top">
+        <p style="margin-left: 8pt">FLDCW　Mem16</td> 
+      <td width="72%">
+        <p style="margin-left: 8pt">将由操作数指定的字存储单元内容存储到控制寄存器中。</td>
+    </tr>
+    <tr>
+      <td width="28%" valign="top" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FSTCW　Mem16<br> 
+        FNSTCW　Mem16</td>    
+      <td width="72%" valign="top" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">把控制寄存器的内容存储到由操作数指定的字存储单元。与指令“FLDCW”相对应。</td>
+    </tr>
+    <tr>
+      <td width="28%" valign="top">
+        <p style="margin-left: 8pt">FSTSW　Mem16<br> 
+        FSTSW　AX<br> 
+        FNSTSW　Mem16<br> 
+        FNSTSW　AX</td> 
+      <td width="72%" valign="top">
+        <p style="margin-left: 8pt">将控制寄存器的内容传送到寄存器AX中。
+        <p style="margin-left: 8pt">在8087协处理器中无此指令。</td>
+    </tr>
+    <tr>
+      <td width="28%" valign="top" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FCLEX/FNCLEX</td>
+      <td width="72%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">清除状态寄存器中的“错误”和“忙”标志。</td>
+    </tr>
+    <tr>
+      <td width="28%" valign="top">
+        <p style="margin-left: 8pt">FSAVE　Mem<br>
+        FNSAVE　Mem</td>
+      <td width="72%">
+        <p style="margin-left: 8pt">将全部机器状态存储到内存中。</td>
+    </tr>
+    <tr>
+      <td width="28%" valign="top" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FRSTOR　Mem</td> 
+      <td width="72%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">从内存复原机器状态，它可恢复由指令“FSAVE/FNSAVE”保存的信息。</td>
+    </tr>
+    <tr>
+      <td width="28%" valign="top">
+        <p style="margin-left: 8pt">FSTENV　Mem<br> 
+        FNSTENVMem</td> 
+      <td width="72%" valign="top">
+        <p style="margin-left: 8pt">存储协处理器环境。</td>
+    </tr>
+    <tr>
+      <td width="28%" valign="top" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FLDENV　Mem</td> 
+      <td width="72%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">重新装入由指令FSTENV/FNSTENV存储的协处理器环境</td>
+    </tr>
+    <tr>
+      <td width="28%" valign="top">
+        <p style="margin-left: 8pt">FINCST</td>
+      <td width="72%">
+        <p style="margin-left: 8pt">堆栈指针加1。</td>
+    </tr>
+    <tr>
+      <td width="28%" valign="top" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FDECSTP</td>
+      <td width="72%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">堆栈指针减1。</td>
+    </tr>
+    <tr>
+      <td width="28%" valign="top">
+        <p style="margin-left: 8pt">FFREE ST(i)</td>                         
+      <td width="72%">
+        <p style="margin-left: 8pt">释放堆栈寄存器，即使其标记为空，但其内容并没有改变。</td>
+    </tr>
+    <tr>
+      <td width="28%" valign="top" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">FNOP</td>
+      <td width="72%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">协处理器的空操作</td>
+    </tr>
+    <tr>
+      <td width="28%" valign="top">
+        <p style="margin-left: 8pt">FWAIT</td>
+      <td width="72%">
+        <p style="margin-left: 8pt">使处理器处于等待状态，以便协处理器完成其操作。该指令主要用于在CPU访问被协处理器影响的内存数据之前。</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="center">表11.9 协处理器初始化的状态</p>                         
+<div align="center">
+  <center>
+  <table border="0" width="50%" cellpadding="0">
+    <tr>
+      <td width="27%" bgcolor="#00FFFF" align="center">控制项</td>
+      <td width="19%" bgcolor="#00FFFF" align="center">值</td>
+      <td width="54%" bgcolor="#00FFFF" align="center">状态含义</td>
+    </tr>
+    <tr>
+      <td width="27%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">控制位IC</td>
+      <td width="19%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">0</td>
+      <td width="54%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">投影</td>
+    </tr>
+    <tr>
+      <td width="27%">
+        <p style="margin-left: 8pt">控制位PC</td>
+      <td width="19%">
+        <p style="margin-left: 8pt">10</td>
+      <td width="54%">
+        <p style="margin-left: 8pt">扩展精度</td>
+    </tr>
+    <tr>
+      <td width="27%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">控制位RC</td>
+      <td width="19%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">00</td>
+      <td width="54%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">最近舍入或偶数</td>
+    </tr>
+    <tr>
+      <td width="27%">
+        <p style="margin-left: 8pt">错误屏蔽</td>
+      <td width="19%">
+        <p style="margin-left: 8pt">11111</td>
+      <td width="54%">
+        <p style="margin-left: 8pt">错误位关闭</td>
+    </tr>
+    <tr>
+      <td width="27%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">忙标志</td>
+      <td width="19%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">0</td>
+      <td width="54%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">不忙</td>
+    </tr>
+    <tr>
+      <td width="27%">
+        <p style="margin-left: 8pt">C3~C0</td>
+      <td width="19%">
+        <p style="margin-left: 8pt">????</td>
+      <td width="54%">
+        <p style="margin-left: 8pt">未定</td>
+    </tr>
+    <tr>
+      <td width="27%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">TOP</td>
+      <td width="19%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">000</td>
+      <td width="54%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">堆栈栈顶设定为寄存器0</td>
+    </tr>
+    <tr>
+      <td width="27%">
+        <p style="margin-left: 8pt">ES</td>
+      <td width="19%">
+        <p style="margin-left: 8pt">0</td>
+      <td width="54%">
+        <p style="margin-left: 8pt">无错误</td>
+    </tr>
+    <tr>
+      <td width="27%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">错误位</td>
+      <td width="19%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">00000</td>
+      <td width="54%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">无错误</td>
+    </tr>
+    <tr>
+      <td width="27%">
+        <p style="margin-left: 8pt">全部标记</td>
+      <td width="19%">
+        <p style="margin-left: 8pt">11</td>
+      <td width="54%">
+        <p style="margin-left: 8pt">空</td>
+    </tr>
+    <tr>
+      <td width="27%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">寄存器</td>
+      <td width="19%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">--</td>
+      <td width="54%" bgcolor="#00FFFF">
+        <p style="margin-left: 8pt">不改变</td>
+    </tr>
+  </table>
+  </center>
+</div>
+             
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=11&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="11-3-4.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="11-4.htm"><img border="0" src="Button/NextPage1.gif" width="96"></a>       
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">           
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>    
+        
+</body>        
+        
+</html>        

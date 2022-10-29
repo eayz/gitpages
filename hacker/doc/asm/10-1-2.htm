@@ -1,0 +1,327 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>10.1 字符串的处理程序</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter10.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle10.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="10-1.htm">字符串的处理</a>                      
+      → 字符串的处理程序</td>                                                  
+    <td width="50%">                          
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+<p><a name="例10.2">例10.2</a> 编写一个把字符串中的所有小写字符转换成大写字符的子程序<b>Strupr</b>，要求字符串的首地址和结束符为其入口参数。                                    
+</p>           
+<table border="0" width="100%" cellspacing="0" cellpadding="0">           
+  <tr>           
+    <td width="100%" colspan="4">解：</td>           
+  </tr>          
+  <tr>
+    <td width="7%" rowspan="20" valign="top"></td>           
+    <td width="93%" colspan="3">.MODEL　SMALL,                                    
+      C</td>          
+  </tr>
+  <tr>          
+    <td width="93%" colspan="3">.DATA</td>          
+  </tr>          
+  <tr>          
+    <td width="6%">
+      <p align="center">buff</p>
+    </td>          
+    <td width="87%" colspan="2">DB&nbsp;&nbsp;                                     
+      &quot;This is a example.&quot;, 0</td>                                    
+  </tr>           
+  <tr>           
+    <td width="93%" colspan="3">.CODE</td>           
+  </tr>           
+  <tr>           
+    <td width="6%" rowspan="11" valign="top">Strupr</td>           
+    <td width="87%" colspan="2">PROC&nbsp;&nbsp; USES AX BX, String:PTR BYTE,                                     
+      Tail:BYTE</td>           
+  </tr>           
+  <tr>           
+    <td width="7%">MOV</td>           
+    <td width="80%">BX,             
+      String</td>           
+  </tr>           
+  <tr>           
+    <td width="87%" colspan="2">.REPEAT</td>           
+  </tr>           
+  <tr>           
+    <td width="7%">
+      <p style="margin-left: 10pt">MOV</p>
+    </td>           
+    <td width="80%">AL,             
+      [BX]</td>           
+  </tr>           
+  <tr>           
+    <td width="87%" colspan="2">
+      <p style="margin-left: 10pt">.IF　AL&gt;='a' &amp;&amp;                         
+      AL&lt;='z'</p>
+    </td>          
+  </tr>          
+  <tr>          
+    <td width="9%">
+      <p style="margin-left: 15pt">SUB</td>          
+    <td width="78%">AL, 20H</td>           
+  </tr>          
+  <tr>          
+    <td width="9%">
+      <p style="margin-left: 15pt">MOV</td>          
+    <td width="78%">[BX], AL</td>           
+  </tr>          
+  <tr>          
+    <td width="87%" colspan="2">
+      <p style="margin-left: 10pt">.ENDIF</p>
+    </td>           
+  </tr>           
+  <tr>           
+    <td width="8%">
+      <p style="margin-left: 10pt">INC</p>
+    </td>           
+    <td width="79%">BX</td>           
+  </tr>           
+  <tr>           
+    <td width="8%">.UNTIL&nbsp;</td>           
+    <td width="79%">AL==Tail</td>           
+  </tr>           
+  <tr>           
+    <td width="87%" colspan="2">RET</td>           
+  </tr>           
+  <tr>           
+    <td width="6%" rowspan="5" valign="top">Strupr</td>           
+    <td width="87%" colspan="2">ENDP</td>           
+  </tr>           
+  <tr>           
+    <td width="87%" colspan="2">.STARTUP</td>           
+  </tr>           
+  <tr>           
+    <td width="87%" colspan="2">INVOKE　Strupr,                                     
+      ADDR buff, 0</td>                                    
+  </tr>           
+  <tr>           
+    <td width="87%" colspan="2">.EXIT　0</td>           
+  </tr>          
+  <tr>          
+    <td width="87%" colspan="2">END</td>          
+  </tr>          
+</table>          
+                   
+<p style="text-indent: -35pt; margin-left: 35pt">例10.3                                    
+编写一个从字符串中拷贝子串的子程序Strncpy，它有四个参数str1、str2、idx和num，其具体功能为把字符串str2中从第idx个(从0开始记数)字符开始、num个字符传送给str1，字符串str1和str2都是以ASCII码0为结束符。          
+</p>          
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="5">解：</td>
+  </tr>
+  <tr>
+    <td width="7%" rowspan="33" valign="top"></td>
+    <td width="8%">.MODEL</td>
+    <td width="85%" colspan="3">SMALL, C</td> 
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">.DATA</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p align="center">str1</td>
+    <td width="85%" colspan="3">DB　&quot;12345ABCDEF&quot;,                                  
+      0</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p align="center">str2</td>
+    <td width="85%" colspan="3">DB　20 DUP('A')</td>                       
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">.CODE</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="2" valign="top">Strlen</td>
+    <td width="85%" colspan="3">PROC &nbsp;USES AX BX, String:PTR BYTE</td>                        
+  </tr>
+  <tr>
+    <td width="38%" colspan="2">……</td>
+    <td width="47%">;参见<a href="10-1.htm#例10.1">例10.1</a></td>
+  </tr>
+  <tr>
+    <td width="8%">         
+Strlen</td>
+    <td width="85%" colspan="3">ENDP</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="19" valign="top">Strncpy</td>
+    <td width="85%" colspan="3">PROC&nbsp; USES                               
+      AX CX DI SI DS ES, str1:FAR PTR BYTE, str2:FAR                              
+      PTR BYTE, idx:WORD,                              
+      num:WORD</td>
+  </tr>
+  <tr>
+    <td width="8%">LES</td>
+    <td width="77%" colspan="2">DI,       
+      str1</td>
+  </tr>
+  <tr>
+    <td width="8%">LDS</td>
+    <td width="30%">SI,       
+      str2</td>
+    <td width="47%">;取两个字符串的首地址</td>
+  </tr>
+  <tr>
+    <td width="8%">INVOKE</td>
+    <td width="30%"> Strlen, SI</td> 
+    <td width="47%">;计算源字符串的长度，在<b>CX</b>中</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">AX,           
+      idx</td>
+  </tr>
+  <tr>
+    <td width="38%" colspan="2">.IF AX           
+      &gt;= CX</td> 
+    <td width="47%">;若字符起点就超过源串的长度</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 10pt">MOV</td>
+    <td width="30%">BYTE           
+      PTR ES:[DI], 0</td> 
+    <td width="47%">;拷贝的字符串为“空”</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 10pt">JMP</td>
+    <td width="77%" colspan="2">over</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">.ENDIF</td>
+  </tr>
+  <tr>
+    <td width="8%">ADD</td>
+    <td width="30%">SI,           
+      AX</td>
+    <td width="47%">;定源串中字符的起点<b>SI</b></td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">CX,           
+      num</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">CLD</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">.REPEAT</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">
+      <p style="margin-left: 10pt">LODSB</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">
+      <p style="margin-left: 10pt">STOSB</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">.UNTILCXZ AL==0</td> 
+  </tr>
+  <tr>
+    <td width="38%" colspan="2">.IF AL!=0</td>
+    <td width="47%">;设置目标串的结束符</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p align="center">MOV</td>
+    <td width="77%" colspan="2">BYTE           
+      PTR[DI], 0</td> 
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">.ENDIF</td>
+  </tr>
+  <tr>
+    <td width="8%">over:</td>
+    <td width="85%" colspan="3">RET</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="5" valign="top">Strncpy</td>
+    <td width="85%" colspan="3">ENDP</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">.STARTUP</td>
+  </tr>
+  <tr>
+    <td width="8%">INVOKE</td>
+    <td width="77%" colspan="2">Strncpy, ADDR str2, ADDR str1, 3, 5</td> 
+  </tr>
+  <tr>
+    <td width="8%">.EXIT</td>
+    <td width="77%" colspan="2">0</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">END</td>
+  </tr>
+</table>
+                  
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=10&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="10-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="10-1-3.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>     
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">            
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>       
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>       
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>       
+    <option value="04-1.htm">第4章 标识符和表达式</option>       
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>       
+    <option value="06-1.htm">第6章 程序的基本结构</option>       
+    <option value="07-1.htm">第7章 子程序和库</option>       
+    <option value="08-1.htm">第8章 输入输出和中断</option>       
+    <option value="09-1.htm">第9章 宏</option>       
+    <option value="10-1.htm">第10章 应用程序的设计</option>       
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>         

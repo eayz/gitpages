@@ -1,0 +1,498 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>10.4 文件操作程序</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter10.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle10.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → 文件操作程序</td>                                  
+    <td width="50%">                          
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+<h2>10.4 文件操作程序</h2>                          
+<p style="text-indent: 21.25pt">有关目录和顺序文件的操作在第8.3.6节中已有介绍和举例，本节主要介绍对记录文件的读写方法。记录文件是指文件中的每个分量是一个结构的文件，如：<b>Fox</b>系列数据库管理系统中的<b>DBF</b>文件，该文件除了文件头是由记录文件的整体信息和各字段描述信息之外，文件的主体内容就是由同一个结构组成的。        
+</p>        
+<p style="text-indent: 21.25pt">下面通过二个例子来介绍记录文件的读写方法。        
+</p>        
+<p style="text-indent: -42pt; margin-left: 42pt"><a name="例10.11">例10.11</a>          
+假设有一个简单的学生结构类型student，其包括：学号、姓名和年龄等信息，要求编写一个程序，该程序接受从键盘输入的学生记录信息，并把它们保存在文件students.dat之中。                          
+</p>        
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="5">解：</td>
+  </tr>
+  <tr>
+    <td width="7%" rowspan="97" valign="top"></td>
+    <td width="93%" colspan="4">.MODEL SMALL,                          
+      C</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">.486</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="4" valign="top">student</td>
+    <td width="85%" colspan="3">STRUCT</td>
+  </tr>
+  <tr>
+    <td width="8%">id</td>
+    <td width="77%" colspan="2">DW ?</td>
+  </tr>
+  <tr>
+    <td width="8%">sname</td>
+    <td width="77%" colspan="2">DB 10        
+      DUP(?)</td>
+  </tr>
+  <tr>
+    <td width="8%">age</td>
+    <td width="77%" colspan="2">DB ?</td>
+  </tr>
+  <tr>
+    <td width="8%">student</td>
+    <td width="85%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">.DATA</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 12pt">fname</td>
+    <td width="85%" colspan="3">DB　&quot;Students.dat&quot;,0</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 12pt">msg1</td>
+    <td width="85%" colspan="3">DB　&quot;Id:$&quot;</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 12pt">msg2</td>
+    <td width="85%" colspan="3">DB　&quot;Name:$&quot;</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 12pt">msg3</td>
+    <td width="85%" colspan="3">DB　&quot;Age:$&quot;</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 12pt">msg4</td>
+    <td width="85%" colspan="3">DB　&quot;Continue?$&quot;</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 12pt">msg5</td>
+    <td width="85%" colspan="3">DB　&quot;Fail to create file$&quot;</td>                  
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 12pt">CRLF</td>
+    <td width="85%" colspan="3">DB　0AH, 0DH, &quot;$&quot;</td>                   
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 12pt">buff</td>
+    <td width="85%" colspan="3">DB　?, ?, 11 DUP(?)</td>                   
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 12pt">peason</td>
+    <td width="85%" colspan="3">STUDENT &lt;&gt;</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">.CODE</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="2" valign="top">DispMsg</td>
+    <td width="34%" colspan="2">PROC USES AX DX, Msg:PTR BYTE</td> 
+    <td width="51%">;显示字符串Msg</td>
+  </tr>
+  <tr>
+    <td width="34%" colspan="2">……</td>
+    <td width="51%">;参见例<a href="10-3.htm#例10.7">10.7</a></td>
+  </tr>
+  <tr>
+    <td width="8%">DispMsg</td>
+    <td width="85%" colspan="3">ENDP</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">;程序功能：把字符串Data转化成数值，不考虑负数。当遇到非法字符时，则结束转换操作；</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">;入口参数：Data为字符串的首地址，Len为该字符串的长度；</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">;出口参数：数值存放在AX中。</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="15" valign="top">GetData</td>
+    <td width="85%" colspan="3">PROC USES BX CX SI, Len:BYTE, Data:PTR BYPE</td> 
+  </tr>
+  <tr>
+    <td width="8%">XOR</td>
+    <td width="77%" colspan="2">CX, CX</td> 
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">CL, Len</td> 
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">SI, Data</td>
+  </tr>
+  <tr>
+    <td width="8%">XOR</td>
+    <td width="77%" colspan="2">AX, AX</td> 
+  </tr>
+  <tr>
+    <td width="8%">XOR</td>
+    <td width="77%" colspan="2">BX, BX</td> 
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">.REPEAT</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 12pt">MOV</td>
+    <td width="77%" colspan="2">BL, [SI]</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 12pt">SUB</td>
+    <td width="77%" colspan="2">BL, '0'</td>
+  </tr>
+  <tr>
+    <td width="34%" colspan="2">
+      <p style="margin-left: 12pt">.BREAK .IF BL&lt;0 || BL&gt;9</td> 
+    <td width="51%">;判断当前数值是否在0~9之间</td>
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 12pt">IMUL</td>
+    <td width="77%" colspan="2">AX, 10</td> 
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 12pt">ADD</td>
+    <td width="77%" colspan="2">AX, BX</td> 
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 12pt">INC</td>
+    <td width="77%" colspan="2">SI</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">.UNTILCXZ</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">RET</td>
+  </tr>
+  <tr>
+    <td width="8%">GetData</td>
+    <td width="85%" colspan="3">ENDP</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">;程序功能：读取指定长度的字符串，在输入前，显示有关输入内容的提示信息；</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">;入口参数：读入字符串的长度为Len，提示信息的首地址为MSG；</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">;出口参数：读入信息(字符串)存放缓冲区buff中。</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="9" valign="top">GetInfo</td>
+    <td width="85%" colspan="3">PROC &nbsp;USES AX DX, Len:BYTE,                           
+Msg:PTR BYTE</td>                    
+  </tr>
+  <tr>
+    <td width="8%">INVOKE</td>
+    <td width="26%">DispMsg, Msg</td> 
+    <td width="51%">;显示提示信息</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">AL, Len</td> 
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">buff, AL</td> 
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">AH, 0AH</td> 
+  </tr>
+  <tr>
+    <td width="8%">LEA</td>
+    <td width="77%" colspan="2">DX, buff</td> 
+  </tr>
+  <tr>
+    <td width="8%">INT</td>
+    <td width="77%" colspan="2">21H</td>
+  </tr>
+  <tr>
+    <td width="8%">INVOKE</td>
+    <td width="26%">DispMsg, ADDR CRLF</td> 
+    <td width="51%">;显示回车、换行</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">RET</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="13" valign="top">GetInfo</td>
+    <td width="85%" colspan="3">ENDP</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">.STARTUP</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">AX, DS</td> 
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">ES, AX</td> 
+  </tr>
+  <tr>
+    <td width="8%">LEA</td>
+    <td width="77%" colspan="2">DX, fname</td> 
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">CX, 20H</td> 
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">AH, 3CH</td> 
+  </tr>
+  <tr>
+    <td width="8%">INT</td>
+    <td width="26%">21H</td>
+    <td width="51%">;创建文件</td>
+  </tr>
+  <tr>
+    <td width="34%" colspan="2">.IF CARRY?</td>                   
+    <td width="51%">;若创建失败，则显示失败信息</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">
+      <p style="margin-left: 15pt">INVOKE　DispMsg, ADDR msg5</td>                    
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">
+      <p style="margin-left: 15pt">JMP　over</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">.ENDIF</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="26%">BX, AX</td> 
+    <td width="51%">;把句柄存入BX，为后面使用作准备</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">again:</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="28" valign="top"></td>
+    <td width="8%">INVOKE</td>
+    <td width="26%">DispMsg, ADDR CRLF</td> 
+    <td width="51%">;显示回车、换行</td>
+  </tr>
+  <tr>
+    <td width="8%">INVOKE</td>
+    <td width="26%">GetInfo, 5, ADDR msg1</td> 
+    <td width="51%">;读取学号(假定学号为4位整数)</td>
+  </tr>
+  <tr>
+    <td width="8%">INVOKE</td>
+    <td width="26%">GetData, 4, ADDR buff+2</td> 
+    <td width="51%">;把学号字符串转化成数值</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="26%">peason.id, AX</td> 
+    <td width="51%">;把数值型学号存入学号字段</td>
+  </tr>
+  <tr>
+    <td width="8%">INVOKE</td>
+    <td width="26%">GetInfo, 11, ADDR msg2</td> 
+    <td width="51%">;读取姓名(假定姓名为10个字符)</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">CX, 10</td> 
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">AL, ' '                          
+      &nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8%">LEA</td>
+    <td width="77%" colspan="2">DI, peason.sname</td> 
+  </tr>
+  <tr>
+    <td width="8%">REP</td>
+    <td width="26%">STOSB</td>
+    <td width="51%">;先置姓名字段为10个空格</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">CL, buff+1</td> 
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">SI, OFFSET buff+2</td> 
+  </tr>
+  <tr>
+    <td width="8%">LEA</td>
+    <td width="77%" colspan="2">DI, peason.sname</td> 
+  </tr>
+  <tr>
+    <td width="8%">REP</td>
+    <td width="26%">MOVSB</td>
+    <td width="51%">;把输入的姓名存入姓名字段</td>
+  </tr>
+  <tr>
+    <td width="8%">INVOKE</td>
+    <td width="26%">GetInfo, 3, ADDR msg3</td> 
+    <td width="51%">;读取年龄(假定年龄为<b>2</b>位整数)&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="8%">INVOKE</td>
+    <td width="26%">GetData, 2, ADDR buff+2</td> 
+    <td width="51%">;把年龄字符串转化成数值</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="26%">peason.age, AL</td> 
+    <td width="51%">;把数值型年龄存入年龄字段</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">CX, SIZE peason</td> 
+  </tr>
+  <tr>
+    <td width="8%">LEA</td>
+    <td width="77%" colspan="2">DX, peason</td> 
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">AH, 40H</td> 
+  </tr>
+  <tr>
+    <td width="8%">INT</td>
+    <td width="26%">21H</td>
+    <td width="51%">;把学生记录写入文件</td>
+  </tr>
+  <tr>
+    <td width="8%">INVOKE</td>
+    <td width="26%">DispMsg, ADDR msg4</td> 
+    <td width="51%">;提示是否继续输入</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">AH, 1</td> 
+  </tr>
+  <tr>
+    <td width="8%">INT</td>
+    <td width="77%" colspan="2">21H</td>
+  </tr>
+  <tr>
+    <td width="8%">AND</td>
+    <td width="77%" colspan="2">AL, 0DFH</td> 
+  </tr>
+  <tr>
+    <td width="8%">CMP</td>
+    <td width="77%" colspan="2">AL, 'Y'&nbsp;</td>                   
+  </tr>
+  <tr>
+    <td width="8%">JZ</td>
+    <td width="26%">again</td>
+    <td width="51%">;若按y或Y，则继续输入</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="77%" colspan="2">AH, 3EH</td> 
+  </tr>
+  <tr>
+    <td width="8%">INT</td>
+    <td width="77%" colspan="2">21H</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">over:</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="2" valign="top"></td>
+    <td width="8%">.EXIT</td>
+    <td width="77%" colspan="2">0</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">END</td>
+  </tr>
+</table>
+          
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=10&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="10-3-4.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="10-4-2.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>        
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->       
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">            
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>       
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>       
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>       
+    <option value="04-1.htm">第4章 标识符和表达式</option>       
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>       
+    <option value="06-1.htm">第6章 程序的基本结构</option>       
+    <option value="07-1.htm">第7章 子程序和库</option>       
+    <option value="08-1.htm">第8章 输入输出和中断</option>       
+    <option value="09-1.htm">第9章 宏</option>       
+    <option value="10-1.htm">第10章 应用程序的设计</option>       
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>         

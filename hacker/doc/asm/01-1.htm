@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0052)http://www.mdjx.net/course/hep/huibianyuyan/01-1.htm -->
+<HTML><HEAD><TITLE>第1章 预备知识</TITLE>
+<META http-equiv=Content-Language content=zh-cn>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="MSHTML 6.00.2800.1400" name=GENERATOR>
+<META content=FrontPage.Editor.Document name=ProgId><LINK 
+href="01-1.files/Assember.css" rel=stylesheet>
+<SCRIPT language=javascript src="01-1.files/Assember.js"></SCRIPT>
+
+<SCRIPT language=JavaScript1.2 src="01-1.files/menus.js"></SCRIPT>
+
+<SCRIPT language=JavaScript1.2 src="01-1.files/chapter01.js"></SCRIPT>
+
+<SCRIPT language=javascript id=clientEventHandlersJS>
+<!--
+
+function compiler_onmouseover() {
+	compiler.src = "textbookIMG\\01-1-d.gif";
+}
+
+function compiler_onmouseout() {
+	compiler.src = "textbookIMG\\01-1.gif";
+}
+
+//-->
+</SCRIPT>
+</HEAD>
+<BODY leftMargin=0 background=01-1.files/background.gif topMargin=1>
+<SCRIPT language=JavaScript1.2>fwLoadMenus();</SCRIPT>
+
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="100%" colSpan=2>
+      <P align=center><IMG src="01-1.files/Btitle01.gif" width=778 
+    border=0></P></TD></TR>
+  <TR>
+    <TD width="100%" colSpan=2>
+      <P align=center><A 
+      href="http://www.mdjx.net/course/hep/huibianyuyan/index.htm"><IMG 
+      language=javascript id=Home0 onmouseover="return Home0_onmouseover()" 
+      onmouseout="return Home0_onmouseout()" src="01-1.files/home1.gif" width=96 
+      border=0></A><A 
+      href="http://www.mdjx.net/course/hep/huibianyuyan/homework.htm"><IMG 
+      language=javascript id=Homework 
+      onmouseover="return Homework_onmouseover()" 
+      onmouseout="return  Homework_onmouseout()" src="01-1.files/homework1.gif" 
+      width=96 border=0></A><A 
+      href="http://www.mdjx.net/course/hep/huibianyuyan/bbs/index.asp"><IMG 
+      language=javascript id=Discuss onmouseover="return Discuss_onmouseover()" 
+      onmouseout="return  Discuss_onmouseout()" height=28 
+      src="01-1.files/discuss1.gif" width=96 border=0></A><A 
+      href="http://www.mdjx.net/course/hep/huibianyuyan/question.htm"><IMG 
+      language=javascript id=Problem onmouseover="return Problem_onmouseover()" 
+      onmouseout="return  Problem_onmouseout()" height=28 
+      src="01-1.files/problem1.gif" width=96 border=0></A><A 
+      href="http://www.mdjx.net/course/hep/huibianyuyan/test.asp"><IMG 
+      language=javascript id=Test onmouseover="return Test_onmouseover()" 
+      onmouseout="return  Test_onmouseout()" src="01-1.files/test1.gif" width=96 
+      border=0></A><A 
+      href="http://www.mdjx.net/course/hep/huibianyuyan/search.htm"><IMG 
+      language=javascript id=Search onmouseover="return Search_onmouseover()" 
+      onmouseout="return  Search_onmouseout()" src="01-1.files/search1.gif" 
+      width=96 border=0></A> </P></TD></TR>
+  <TR>
+    <TD vAlign=top width="50%"><A 
+      onmouseover=window.FW_showMenu(window.fw_menu_0,50,115); 
+      onmouseout=FW_startTimeout(); 
+      href="http://www.mdjx.net/course/hep/huibianyuyan/01-1.htm#"><IMG 
+      src="01-1.files/menu.gif" width=51 border=0 name=menu1></A> </TD>
+    <TD width="50%">
+      <P align=right><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><SELECT id=Chapter1 
+      onchange=location.href=chapter1.options[chapter1.selectedIndex].value 
+      size=1 name=chapter1> <OPTION value=# selected>课件章节</OPTION> <OPTION 
+        value=course.htm>课件目录</OPTION> <OPTION value=01-1.htm>第1章 预备知识</OPTION> 
+        <OPTION value=02-1.htm>第2章 CPU资源和存储器</OPTION> <OPTION value=03-1.htm>第3章 
+        操作数的寻址方式</OPTION> <OPTION value=04-1.htm>第4章 标识符和表达式</OPTION> <OPTION 
+        value=05-1.htm>第5章 微机CPU的指令系统</OPTION> <OPTION value=06-1.htm>第6章 
+        程序的基本结构</OPTION> <OPTION value=07-1.htm>第7章 子程序和库</OPTION> <OPTION 
+        value=08-1.htm>第8章 输入输出和中断</OPTION> <OPTION value=09-1.htm>第9章 
+        宏</OPTION> <OPTION value=10-1.htm>第10章 应用程序的设计</OPTION> <OPTION 
+        value=11-1.htm>第11章 数值运算协处理器</OPTION> <OPTION value=12-1.htm>第12章 
+        汇编语言和C语言</OPTION></SELECT></P></TD></TR></TBODY></TABLE>
+<H1 align=center>第1章 预备知识</H1>
+<P style="TEXT-INDENT: 21.25pt">本章介绍汇编语言的一些基本概念，给出一些用汇编语言编程所需要的基本知识。</P>
+<H2>1.1 汇编语言的由来及其特点</H2>
+<H3>1.1.1 机器语言</H3>
+<P style="TEXT-INDENT: 21.25pt">机器指令是<FONT 
+color=#ff0000>CPU</FONT>能直接识别并执行的指令，它的表现形式是二进制编码。机器指令通常由操作码和操作数两部分组成，操作码指出该指令所要完成的操作，即指令的功能，操作数指出参与运算的对象，以及运算结果所存放的位置等。</P>
+<P style="TEXT-INDENT: 21.25pt">由于机器指令与<FONT face=Arial 
+color=#ff0000>CPU</FONT>紧密相关，所以，不同种类的<FONT 
+color=#ff0000>CPU</FONT>所对应的机器指令也就不同，而且它们的指令系统往往相差很大。但对同一系列的<FONT 
+color=#ff0000>CPU</FONT>来说，为了满足各型号之间具有良好的兼容性，要做到：新一代<FONT 
+color=#ff0000>CPU</FONT>的指令系统必须包括先前同系列<FONT 
+color=#ff0000>CPU</FONT>的指令系统。只有这样，先前开发出来的各类程序在新一代<FONT 
+color=#ff0000>CPU</FONT>上才能正常运行。</P>
+<P style="TEXT-INDENT: 21.25pt">机器语言是用来直接描述机器指令、使用机器指令的规则等。它是<FONT 
+color=#ff0000>CPU</FONT>能直接识别的唯一一种语言，也就是说，<FONT 
+color=#ff0000>CPU</FONT>能直接执行用机器语言描述的程序。</P>
+<P 
+style="TEXT-INDENT: 21.25pt">用机器语言编写程序是早期经过严格训练的专业技术人员的工作，普通的程序员一般难以胜任，而且用机器语言编写的程序不易读、出错率高、难以维护，也不能直观地反映用计算机解决问题的基本思路。</P>
+<P style="TEXT-INDENT: 21.25pt">由于用机器语言编写程序有以上诸多的不便，现在几乎没有程序员这样编写程序了。</P>
+<H3><A name=汇编语言>1.1.2 </A>汇编语言</H3>
+<P style="TEXT-INDENT: 21.25pt">虽然用机器语言编写程序有很高的要求和许多不便，但编写出来的程序执行效率高，<FONT 
+color=#ff0000>CPU</FONT>严格按照程序员的要求去做，没有多余的额外操作。所以，在保留“程序执行效率高”的前提下，人们就开始着手研究一种能大大改善程序可读性的编程方法。</P>
+<P 
+style="TEXT-INDENT: 21.25pt">为了改善机器指令的可读性，选用了一些能反映机器指令功能的单词或词组来代表该机器指令，而不再关心机器指令的具体二进制编码。与此同时，也把<FONT 
+color=#ff0000>CPU</FONT>内部的各种资源符号化，使用该符号名也等于引用了该具体的物理资源。</P>
+<P 
+style="TEXT-INDENT: 21.25pt">如此一来，令人难懂的二进制机器指令就可以用通俗易懂的、具有一定含义的符号指令来表示了，于是，汇编语言就有了雏型。现在，我们称这些具有一定含义的符号为助忆符，用指令助忆符、符号地址等组成的符号指令称为汇编格式指令(或汇编指令)。</P>
+<P 
+style="TEXT-INDENT: 21.25pt">汇编语言是汇编指令集、伪指令集和使用它们规则的统称。伪指令是在程序设计时所需要的一些辅助性说明指令，它不对应具体的机器指令，有关内容在以后的各章节中会有详细叙述，在此不展开介绍。</P>
+<P 
+style="TEXT-INDENT: 21.25pt">用汇编语言编写的程序称为汇编语言程序，或汇编语言源程序，在本教材中或特定的环境下，也可简称为源程序。汇编语言程序要比用机器指令编写的程序容易理解和维护。</P>
+<H3><A name=汇编程序>1.1.3 </A>汇编程序</H3>
+<P style="TEXT-INDENT: 21.25pt">用汇编语言编写的程序大大提高了程序的可读性，但失去了<FONT 
+color=#ff0000>CPU</FONT>能直接识别的特性。例如用汇编语言书写的指令：<FONT color=#ff0000>MOV AX, 
+BX</FONT>，<FONT color=#ff0000>CPU</FONT>不会知道这几个字符所表达出来的功能，但程序员一看就知道：要求<FONT 
+color=#ff0000>CPU</FONT>把寄存器<FONT color=#ff0000>BX</FONT>的值传送给寄存器<FONT 
+color=#ff0000>AX</FONT>。</P>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width="53%">
+      <P style="TEXT-INDENT: 21.25pt">把机器指令符号化增加了程序的可读性，但引起了如何让<FONT 
+      color=#ff0000>CPU</FONT>知道程序员的用意，并按照其要求完成相应操作的问题。解决该问题就需要一个翻译程序，它能把汇编语言编写的源程序翻译成<FONT 
+      color=#ff0000>CPU</FONT>能识别的机器指令序列。这里，我们称该翻译程序为汇编程序。 
+      <P style="TEXT-INDENT: 21.25pt">图1.1是汇编程序翻译过程的示意图。 
+      <P style="TEXT-INDENT: 21.25pt"><SPAN 
+      style="BACKGROUND-COLOR: #00ffff">把鼠标放到图上，将会看到动画效果，对此后的有关图片不再一一说明。</SPAN></P></TD>
+    <TD width="47%">
+      <P align=center><IMG language=javascript id=compiler 
+      onmouseover="return compiler_onmouseover()" 
+      onmouseout="return compiler_onmouseout()" src="01-1.files/01-1.gif" 
+      width=270 border=0></P>
+      <P align=center>图1.1 汇编语言指令到机器指令的示意图</P></TD></TR></TBODY></TABLE>
+<P 
+style="TEXT-INDENT: 21.25pt">从图中不难看出：汇编程序能把左边汇编语言源程序翻译成右边的机器指令序列。其中，把汇编语言指令“<FONT 
+color=#ff0000>MOV AX, BX</FONT>”和“<FONT color=#ff0000>ADD AX, 
+5</FONT>”分别转换成机器指令<FONT color=#ff0000>89D8H</FONT>和<FONT 
+color=#ff0000>050500H</FONT>，而后者都是<FONT 
+color=#ff0000>CPU</FONT>能直接识别的，所以，可执行它们。</P>
+<P style="TEXT-INDENT: 21.25pt">目前，常用的汇编程序有：<A 
+href="http://www.mdjx.net/course/hep/huibianyuyan/Appendix/App1-1.htm">MASM</A>、<A 
+href="http://www.mdjx.net/course/hep/huibianyuyan/Appendix/App1-4.htm">TASM</A>和<A 
+href="http://www.mdjx.net/course/hep/huibianyuyan/Appendix/App1-5.htm">DEBUG</A>等。</P>
+<P align=right><A 
+href="http://www.mdjx.net/course/hep/huibianyuyan/index.htm"><IMG 
+language=javascript id=Home onmouseover="return Home_onmouseover()" 
+onmouseout="return Home_onmouseout()" src="01-1.files/home1.gif" width=96 
+border=0></A><A 
+href="http://www.mdjx.net/course/hep/huibianyuyan/asp/QuestionIndex.asp?chapter=1&amp;sort=date"><IMG 
+language=javascript id=Question onmouseover="return Question_onmouseover()" 
+onmouseout="return Question_onmouseout()" src="01-1.files/question1.gif" 
+width=96 border=0></A><A 
+href="http://www.mdjx.net/course/hep/huibianyuyan/01-1-4.htm"><IMG 
+language=javascript id=NextPage onmouseover="return NextPage_onmouseover()" 
+onmouseout="return NextPage_onmouseout()" src="01-1.files/NextPage1.gif" 
+width=96 border=0></A> <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" --><SELECT id=Chapter2 
+onchange=location.href=chapter2.options[chapter2.selectedIndex].value size=1 
+name=chapter2> <OPTION value=# selected>课件章节</OPTION> <OPTION 
+  value=course.htm>课件目录</OPTION> <OPTION value=01-1.htm>第1章 预备知识</OPTION> 
+  <OPTION value=02-1.htm>第2章 CPU资源和存储器</OPTION> <OPTION value=03-1.htm>第3章 
+  操作数的寻址方式</OPTION> <OPTION value=04-1.htm>第4章 标识符和表达式</OPTION> <OPTION 
+  value=05-1.htm>第5章 微机CPU的指令系统</OPTION> <OPTION value=06-1.htm>第6章 
+  程序的基本结构</OPTION> <OPTION value=07-1.htm>第7章 子程序和库</OPTION> <OPTION 
+  value=08-1.htm>第8章 输入输出和中断</OPTION> <OPTION value=09-1.htm>第9章 宏</OPTION> 
+  <OPTION value=10-1.htm>第10章 应用程序的设计</OPTION> <OPTION value=11-1.htm>第11章 
+  数值运算协处理器</OPTION> <OPTION value=12-1.htm>第12章 
+汇编语言和C语言</OPTION></SELECT></P></BODY></HTML>

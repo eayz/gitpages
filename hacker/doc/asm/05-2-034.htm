@@ -1,0 +1,216 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>5.2.3 类型转换指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter05.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle05.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="05-2.htm"> 指令系统</a>  → 类型转换指令</td>                                               
+    <td width="50%">               
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<p style="text-indent: 21.25pt"><font color="#FF00FF">5、类型转换指令</font></p>            
+<p style="text-indent: 21.25pt">在作有符号除法时，有时需要把短位数的被除数转换成位数更长的数据类型。比如，要用<font color="#FF0000">BL</font>中的数据去除<font color="#FF0000">AL</font>，但根据除法指令的规定：除数是8位，则被除数必须是<font color="#FF0000">AX</font>，于是就涉及到<font color="#FF0000">AH</font>的取值问题。</p>    
+<p style="text-indent: 21.25pt">为了方便说明，假设：(AH)=1H，(AL)=90H=-112D，(BL)=10H。</p>    
+<p style="text-indent: 21.25pt">1)、在作除法运算前，必须处理<font color="#FF0000">AH</font>的原有内容</p>   
+<p style="text-indent: 21.25pt">假设在作除法时，不管<font color="#FF0000">AH</font>中的值，这时，<font color="#FF0000">(AH</font><font color="#FF0000">、</font><font color="#FF0000">AL)/BL</font>的商是19H，但我们知道：<font color="#FF0000">AL/BL</font>的商应是-7，这就导致：计算结果不是所预期的结果，所以，在作除法运算前，程序员必须要处理<font color="#FF0000">AH</font>中的值。</p>   
+<p style="text-indent: 21.25pt">2)、作无符号数除法时</p>   
+<p style="text-indent: 21.25pt">可强置<font color="#FF0000">AH</font>的值为0，于是，可得到正确的结果。</p>   
+<p style="text-indent: 21.25pt">3)、作有符号数除法时</p>   
+<p style="text-indent: 21.25pt">如果强置<font color="#FF0000">AH</font>为0，则AX=0090H，这时，<font color="#FF0000">AX/BL</font>的商为9，显然结果也不正确。</p>   
+<p style="text-indent: 21.25pt">如果把<font color="#FF0000">AL</font>的符号位1，扩展到<font color="#FF0000">AH</font>中，得：AX=0FF90H=-112D，这时，<font color="#FF0000">AX/BL</font>的商就是我们所要的正确结果。</p>   
+<p style="text-indent: 21.25pt">综上所述，因为在进行有符号数除法时存在隐含操作数数据类型转换的问题，所以，系统提供了四条数据类型转换指令：CBW、<a href="#CWD">CWD</a>、<a href="#CWDE">CWDE</a>和<a href="#CDQ">CDQ</a>。</p>   
+<p style="text-indent: 21.25pt"><a name="CBW"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、字节转换为字指令<font color="#FF0000">CBW</font>(Convent                                         
+Byte to Word)</a></p>                                        
+<p style="margin-left: 40pt">指令的格式：CBW<br>  
+该指令的隐含操作数为<font color="#FF0000">AH</font>和<font color="#FF0000">AL</font>。其功能是用<font color="#FF0000">AL</font>的符号位去填充<font color="#FF0000">AH</font>，即：当<font color="#FF0000">AL</font>为正数，则AH=0，否则，AH=0FFH。<br> 
+指令的执行不影响任何标志位。</p>    
+<p style="text-indent: 21.25pt"><a name="CWD"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、字转换为双字指令<font color="#FF0000">CWD</font>(Convent                                         
+Word to Doubleword)</a></p>                                        
+<p style="margin-left: 40pt">指令的格式：CWD<br>  
+该指令的隐含操作数为<font color="#FF0000">DX</font>和<font color="#FF0000">AX</font>，其功能是用<font color="#FF0000">AX</font>的符号位去填充<font color="#FF0000">DX</font>。指令的执行不影响任何标志位。</p>    
+<p style="text-indent: 21.25pt"><a name="CWDE"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、字转换为扩展的双字指令<font color="#FF0000">CWDE</font>(Convent Word to Extended Doubleword)</a></p>                                        
+<p style="margin-left: 40pt">指令的格式：CWDE　　　　　　　　;80386+<br>
+该指令的隐含操作数为<font color="#FF0000">DX</font>和<font color="#FF0000">AX</font>，其功能是用<font color="#FF0000">AX</font>的符号位填充<font color="#FF0000">EAX</font>的高字位。指令的执行不影响任何标志位。</p>    
+<p style="text-indent: 21.25pt"><a name="CDQ"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、双字转换为四字指令<font color="#FF0000">CDQ</font>(Convent                                         
+Doubleword to Quadword)</a></p>                                        
+<p style="margin-left: 40pt">指令的格式：CDQ　　　　　　　　　;80386+<br>
+该指令的隐含操作数为<font color="#FF0000">EDX</font>和<font color="#FF0000">EAX</font>，指令的功能是用<font color="#FF0000">EAX</font>的符号位填充<font color="#FF0000">EDX</font>。指令的执行不影响任何标志位。</p>    
+      
+<p style="text-indent: 21.25pt">下面是学习和掌握除法类指令的控件，可模拟执行<a href="05-2-033.htm#DIV">DIV</a>、<a href="05-2-033.htm#IDIV">IDIV</a>、<a href="#CBW">CBW</a>、<a href="#CWD">CWD</a>、<a href="#CWDE">CWDE</a>和<a href="#CDQ">CDQ</a>等指令。</p>  
+       
+<p align="center">
+<object classid="clsid:8891E52F-AC54-4010-863F-88620D1F13FB" id="divide1" width="401" height="243">
+</object>
+</p>  
+             
+<p style="text-indent: -30pt; margin-left: 30pt">例5.5                       
+编写程序段，完成下面计算公式，并把所得的商和余数分别存入X和Y中(其中：A，B，C，X和Y都是有符号的字变量)。</p>    
+<p align="center">(C - 120 + A*B) / C</p>                                        
+<table border="0" width="100%" cellspacing="0" cellpadding="2"> 
+  <tr> 
+    <td width="100%" colspan="4">解：</td> 
+  </tr> 
+  <tr> 
+    <td width="6%" rowspan="20" valign="top"></td> 
+    <td width="94%" colspan="3">…</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">A</td> 
+    <td width="88%" colspan="2"> DW&nbsp; ?</td>                                    
+  </tr>  
+  <tr>  
+    <td width="6%">B</td> 
+    <td width="88%" colspan="2"> DW&nbsp; ?</td>                                    
+  </tr>  
+  <tr>  
+    <td width="6%">C</td> 
+    <td width="88%" colspan="2"> DW&nbsp; ?</td>                                    
+  </tr>  
+  <tr>  
+    <td width="6%">X</td> 
+    <td width="88%" colspan="2"> DW&nbsp; ?</td>                                    
+  </tr>  
+  <tr>  
+    <td width="6%">Y</td> 
+    <td width="88%" colspan="2"> DW&nbsp; ?</td>                                    
+  </tr>  
+  <tr>  
+    <td width="94%" colspan="3">…</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="88%" colspan="2">      
+AX, C</td>    
+  </tr>  
+  <tr>  
+    <td width="6%">SUB</td> 
+    <td width="18%">      
+AX, 120D</td>    
+    <td width="70%">;书写指令“ADD AX, -120D”也可以</td>                                    
+  </tr>  
+  <tr>  
+    <td width="94%" colspan="3">CWD</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="88%" colspan="2">      
+CX, DX</td>    
+  </tr>  
+  <tr>  
+    <td width="6%">MOV</td> 
+    <td width="18%">      
+BX, AX</td>    
+    <td width="70%"> ;(CX, BX)←(DX,                                         
+AX)，调度寄存器，为作乘法准备必要的寄存器</td>  
+  </tr>  
+  <tr>  
+    <td width="6%">MOV</td> 
+    <td width="88%" colspan="2">      
+AX, A</td>    
+  </tr>  
+  <tr>  
+    <td width="6%">IMUL</td> 
+    <td width="18%">      
+B</td> 
+    <td width="70%"> ;(DX, AX)←A*B</td>    
+  </tr>  
+  <tr>  
+    <td width="6%">ADD</td> 
+    <td width="18%">      
+AX, BX</td>    
+    <td width="70%"> ;计算32位二进制之和，为作除法作准备</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">ADC</td> 
+    <td width="88%" colspan="2">      
+DX, CX</td>    
+  </tr>  
+  <tr>  
+    <td width="6%">IDIV</td> 
+    <td width="18%">      
+C</td> 
+    <td width="70%"> ;AX是商，DX是余数</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="18%">      
+X, AX</td>    
+    <td width="70%"> ;分别保存商和余数到指定的字变量单元里</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="88%" colspan="2">      
+Y, DX</td>    
+  </tr>  
+  <tr>  
+    <td width="94%" colspan="3">…</td> 
+  </tr> 
+</table> 
+       
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=5&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="05-2-033.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="05-2-04.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                   
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->   
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

@@ -1,0 +1,234 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>11.3.2 数据传送类指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter11.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle11.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="11-3.htm">浮点运算指令</a> <font face="Arial">→                            
+      </font>浮点数传送指令</td>              
+    <td width="50%">              
+      <p align="right"> 
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h3>11.3.2 数据传送指令</h3>                            
+<p style="text-indent: 21.25pt">为了满足协处理器和CPU之间进行数据交流的需求，就需要实现内存单元和协处理器之间进行数据传送的指令。协处理器的指令系统中有三大类数据传送指令：BCD传送指令、浮点数传送和整数传送指令。</p> 
+<p style="text-indent: 21.25pt"><font color="#FF00FF">一、BCD传送指令</font></p> 
+<p style="text-indent: 21.25pt">1、FBLD</p> 
+<p style="margin-left: 40pt">指令格式：FBLD　MemBCD<sup>(*)<br>
+</sup>指令功能：将内存中的BCD数据压入协处理器的堆栈中；</p>
+<p style="text-indent: 21.25pt">(*) MemType是指定数据类型Type的内存单元，如：MemBCD是BCD类型的存储单元。此后不再说明。</p>                            
+<p style="text-indent: 21.25pt">2、FBSTP</p> 
+<p style="margin-left: 40pt">指令格式：FBSTP　MemBCD<br>
+指令功能：将协处理器中的BCD数据存入内存，并进行堆栈的弹出操作。</p>
+<p style="text-indent: 21.25pt">例如：</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="7%" rowspan="6" valign="top"></td>
+    <td width="93%" colspan="3">.387</td>
+  </tr>
+  <tr>
+    <td width="7%">data1</td>
+    <td width="86%" colspan="2">DT　123, -543</td>                            
+  </tr> 
+  <tr> 
+    <td width="7%">data2</td> 
+    <td width="86%" colspan="2">DT　2.5</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="3">……</td>
+  </tr>
+  <tr>
+    <td width="7%">FBLD</td>
+    <td width="27%">data1</td>
+    <td width="59%">;把BCD数据123压进栈</td>
+  </tr>
+  <tr>
+    <td width="7%">FBSTP</td>
+    <td width="27%">data2</td>
+    <td width="59%">;把当前堆顶数据弹出，并传送给BCD型的内参单元</td>
+  </tr>
+</table>
+             
+<p style="text-indent: 21.25pt"><font color="#FF00FF">二、浮点数传送指令</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="3">
+      <p style="text-indent: 21.25pt">1、FLD</td>
+  </tr>
+  <tr>
+    <td width="6%" rowspan="2" valign="top"></td>
+    <td width="10%" valign="top">指令格式：</td>
+    <td width="84%" valign="top">FLD　STReg<sup>(*)</sup>/MemReal</td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top">指令功能：</td>
+    <td width="84%">将浮点数据压入协处理器的堆栈中。当进行内存单元内容压栈时，系统会自动决定传送数据的精度。比如：用DD或REAL4定义的内存单元数值是单精度数等。</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">(*) STReg是协处理器堆栈寄存器ST(0)~ST(7)。</p>                         
+<p style="text-indent: 21.25pt">例如：</p> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="6%" rowspan="9" valign="top"></td> 
+    <td width="94%" colspan="3">.387</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">data1</td> 
+    <td width="88%" colspan="2">DD　123, -543</td>                         
+  </tr> 
+  <tr> 
+    <td width="6%">data2</td> 
+    <td width="88%" colspan="2">REAL8　-321.5</td>
+  </tr>
+  <tr>
+    <td width="6%">data3</td>
+    <td width="88%" colspan="2">REAL10　2.5</td>
+  </tr>
+  <tr>
+    <td width="94%" colspan="3">……</td>
+  </tr>
+  <tr>
+    <td width="6%">FLD</td>
+    <td width="18%">data1</td>
+    <td width="70%">;压一个单精度数据进栈</td>
+  </tr>
+  <tr>
+    <td width="6%">FLD</td>
+    <td width="18%">data2</td>
+    <td width="70%">;压一个双精度数据进栈</td>
+  </tr>
+  <tr>
+    <td width="6%">FLD</td>
+    <td width="18%">ST(0)</td>
+    <td width="70%">;把堆栈寄存器ST(0)的值再压进栈</td>
+  </tr>
+  <tr>
+    <td width="6%">FLD</td>
+    <td width="18%">data3</td>
+    <td width="70%">;压一个扩展精度数据进栈</td>
+  </tr>
+</table>
+      <p style="text-indent: 21.25pt">2、FST
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="6%" rowspan="2" valign="top"></td>
+    <td width="10%" valign="top">指令格式：</td>
+    <td width="84%">FST&nbsp; STReg/MemReal</td>                         
+  </tr> 
+  <tr> 
+    <td width="10%" valign="top">指令功能：</td> 
+    <td width="84%">将协处理器堆栈栈顶的数据传送到目标操作数中。在进行数据传送时，系统自动根据控制寄存器中舍入控制位的设置把栈顶浮点数舍入成相应精度的数据。</td> 
+  </tr> 
+</table> 
+<p style="text-indent: 21.25pt">3、FSTP</p> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="6%" rowspan="2" valign="top"></td> 
+    <td width="10%" valign="top">指令格式：</td> 
+    <td width="84%">FSTP&nbsp; STReg/MemReal</td>                         
+  </tr> 
+  <tr> 
+    <td width="10%" valign="top">指令功能：</td> 
+    <td width="84%">与FST相类似，所不同的是：指令FST执行完后，不进行堆栈的弹出操作，即：堆栈不发生变化，而指令FSTP执行完后，则需要进行堆栈的弹出操作，堆栈将发生变化。请见<a href="11-3.htm#命名规则">11.3.1节</a>中的指令操作符命名规则的说明。</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">4、FXCH</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="6%" rowspan="2" valign="top"></td>
+    <td width="10%" valign="top">指令格式：</td>
+    <td width="84%">FXCH　[STReg]</td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top">指令功能：</td>
+    <td width="84%">将指定的寄存器中的浮点数与堆顶浮点数进行交换。如果不指定操作数，那么，默认ST和ST(1)二者之间交换数据。</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">例如：FXCH&nbsp; ST(2)——栈顶数据与堆栈寄存器ST(2)进行数据交换。</p>                         
+<p style="text-indent: 21.25pt"><font color="#FF00FF">三、整数传送指令</font></p> 
+<p style="text-indent: 21.25pt">1、FILD</p> 
+<p style="text-indent: 21.25pt">指令格式：FILD　MemInt</p>
+<p style="text-indent: 21.25pt">其中：MemInt是定义为整型数据类型的内存单元，但不能是用DB定义的存储单元。下同，不再叙述。</p>
+<p style="text-indent: 21.25pt">2、FIST/FISTP</p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="6%" rowspan="3" valign="top"></td>
+    <td width="10%" valign="top">指令格式：</td>
+    <td width="84%">FIST　MemInt<br>
+      FISTP　MemInt</td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top">其中：</td>
+    <td width="84%">Mem是定义整型数据类型的内存单元，但不能是用DB定义的存储单元。</td>
+  </tr>
+  <tr>
+    <td width="10%" valign="top">指令功能：</td>
+    <td width="84%">将协处理器堆栈栈顶的数据传送到目标存储单元中。在进行数据传送时，系统自动根据控制寄存器中舍入控制位的设置把栈顶浮点数舍入成整型数据。</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">指令FIST和FISTP的区别在于堆栈操作，详细请见11.3.1中的<a href="11-3.htm#命名规则">命名规则说明</a>。</p>
+             
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=11&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="11-3.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="11-3-3.htm"><img border="0" src="Button/NextPage1.gif" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">           
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>    
+        
+</body>        
+        
+</html>

@@ -1,0 +1,153 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>5.2.9 转移指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter05.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle05.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="05-2.htm">指令系统</a>    → 转移指令</td>                                       
+    <td width="50%">             
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<h3>5.2.9 转移指令</h3>                               
+<p style="text-indent: 21.25pt">转移指令是汇编语言程序员经常使用的一组指令。在高级语言中，时常有“尽量不要使用转移语句”的劝告，但如果在汇编语言的程序中也尽量不用转移语句，那么该程序要么无法编写，要么没有多少功能，所以，在汇编语言中，不但要使用转移指令，而且还要灵活运用，因为指令系统中有大量的转移指令。</p>    
+<p style="text-indent: 21.25pt">转移指令分无条件转移指令和有条件转移指令两大类。</p>    
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、无条件转移指令(Transfer                                 
+Unconditionally)</font></p>     
+<p style="text-indent: 21.25pt">无条件转移指令包括：<font color="#FF0000">JMP</font>、子程序的<a href="07-2.htm">调用</a>和<a href="07-2-2.htm">返回指令</a>、中断的<a href="08-2-2.htm">调用</a>和<a href="08-2-3.htm">返回指令</a>等。</p>   
+<p style="text-indent: 21.25pt">下面只介绍无条件转移指令<font color="#FF0000">JMP</font>(Unconditional                               
+Jump)。</p>    
+<p style="text-indent: 21.25pt"><font color="#FF0000">JMP</font>指令的一般形式：</p>   
+<p style="margin-left: 40pt">JMP&nbsp; 标号/Reg/Mem</p>                            
+<p style="text-indent: 21.25pt"><font color="#FF0000">JMP</font>指令是从程序当前执行的地方无条件转移到另一个地方执行。这种转移可以是一个短(<font color="#FF0000">short</font>)转移(偏移量在[-128,                               
+127]范围内)，近(<font color="#FF0000">near</font>)转移(偏移量在[-32K, 32K]范围内)或远(<font color="#FF0000">far</font>)转移(在不同的代码段之间转移)。</p>                             
+<p style="text-indent: 21.25pt">短和近转移是段内转移，<font color="#FF0000">JMP</font>指令只把目标指令位置的偏移量赋值指令指针寄存器<font color="#FF0000">IP</font>，从而实现转移功能。但远转移是段间转移，<font color="#FF0000">JMP</font>指令不仅会改变指令指针寄存器<font color="#FF0000">IP</font>的值，而且还会改变代码段寄存器<font color="#FF0000">CS</font>的值。</p>   
+<p style="text-indent: 21.25pt">该转移指令的执行不影响任何标志位。</p>   
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+  <tr>
+    <td width="100%" colspan="4">  
+<p style="text-indent: 21.25pt">例如：</p>  
+    </td>
+  </tr>
+  <tr>
+    <td width="9%"></td>
+    <td width="91%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="9%" rowspan="5" valign="top">next1:</td>
+    <td width="91%" colspan="3">    
+…</td>
+  </tr>
+  <tr>
+    <td width="6%">JMP</td>
+    <td width="10%"> next1</td>
+    <td width="75%">    
+;向前转移，偏移量之差为负数</td>
+  </tr>
+  <tr>
+    <td width="91%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="6%">JMP</td>
+    <td width="10%"> next2</td>
+    <td width="75%">    
+;向后转移，偏移量之差为正数</td>
+  </tr>
+  <tr>
+    <td width="91%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="9%">next2:</td>
+    <td width="91%" colspan="3">    
+…</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt"><a name="SHORT">在目前</a>流行的汇编系统中，当段内转移时，有些软件把该转移指令默认为近转移，从而使指令的偏移量用一个字来表示，于是生成3个字节的指令代码，但如果程序员自己清楚转移的幅度在一个短转移的范围之内，那么，可用前置<font color="#FF0000">short</font>的办法来告诉汇编程序，让它产生2个字节的指令代码。</p>  
+<p style="text-indent: 21.25pt">比如：如果程序员知道在上例中的标号<font color="#FF0000">next2</font>离“<font color="#FF0000">JMP 
+next2</font>”指令的偏移量不会超过<font color="#FF0000">127</font>，那么，可用下面的转移方式来省掉一个字节的指令代码。</p>  
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+  <tr>
+    <td width="9%" rowspan="4" valign="bottom">next2:</td>
+    <td width="91%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="7%">JMP</td>
+    <td width="14%"> short next2</td>  
+    <td width="70%">    
+;生成2个字节的转移指令，从而节省一个字节</td>
+  </tr>
+  <tr>
+    <td width="91%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="91%" colspan="3"> 
+…</td>
+  </tr>
+</table>
+       
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=5&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="05-2-081.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="05-2-091.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>             
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->   
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

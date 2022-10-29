@@ -1,0 +1,162 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>4.6.3 类型属性操作符</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter04.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle04.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="04-56.htm#变量和标号的属性">变量和标号的属性</a>                                
+      → 类型属性操作符</td>                                       
+    <td width="50%">            
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+    
+<h3>4.6.3 类型属性操作符</h3>                                
+<p style="text-indent: 21.25pt">类型属性操作符(<font color="#FF0000">TYPE</font>)是返回该变量所占字节数，或标号的“远”(<font color="#FF0000">FAR</font>)、“近”(<font color="#FF0000">NEAR</font>)类型。常用标识符的类型值如表4.1所列。</p>     
+                             
+<p align="center">表4.1 常用标识符的类型值列表</p>                                         
+              
+<div align="center">     
+  <center>     
+  <table border="0" width="461" cellpadding="0">     
+    <tr>     
+      <td align="center" bgcolor="#FFFF00" width="83">标识符种类</td>     
+      <td align="center" bgcolor="#FFFF00" width="69">字节变量</td>     
+      <td align="center" bgcolor="#FFFF00" width="55">字变量</td>     
+      <td align="center" bgcolor="#FFFF00" width="72">双字变量</td>     
+      <td align="center" bgcolor="#FFFF00" width="82">近标号(NEAR)</td>     
+      <td align="center" bgcolor="#FFFF00" width="74">远标号(FAR)</td>     
+    </tr>     
+    <tr>     
+      <td align="center" bgcolor="#00FFFF" width="83">TYPE的值</td>     
+      <td align="center" bgcolor="#00FFFF" width="69">1</td>     
+      <td align="center" bgcolor="#00FFFF" width="55">2</td>     
+      <td align="center" bgcolor="#00FFFF" width="72">4</td>     
+      <td align="center" bgcolor="#00FFFF" width="82">-1</td>     
+      <td align="center" bgcolor="#00FFFF" width="74">-2</td>     
+    </tr>     
+  </table>     
+  </center>     
+</div>     
+      <p style="text-indent: 21.25pt">例如：     
+<table border="0" width="100%" cellspacing="0" cellpadding="2">     
+  <tr>     
+    <td width="11%" valign="top" rowspan="9"></td>     
+    <td width="10%" valign="top">PEASON</td>     
+    <td width="80%" colspan="3">STRUC</td>     
+  </tr>     
+  <tr>     
+    <td width="10%" rowspan="3" valign="top"></td>     
+    <td width="9%">NO</td>     
+    <td width="6%">DD</td>     
+    <td width="65%">?</td>     
+  </tr>     
+  <tr>     
+    <td width="9%">NAME</td>       
+    <td width="6%">DB&nbsp;</td>       
+    <td width="65%">10 dup (?)</td>                                     
+  </tr>          
+  <tr>          
+    <td width="9%"></td>          
+    <td width="6%">DW&nbsp;</td>         
+    <td width="65%">1</td>         
+  </tr>         
+  <tr>       
+    <td width="10%">PEASOM</td>         
+    <td width="80%" colspan="3">ENDS</td>         
+  </tr>       
+  <tr>       
+    <td width="90%" colspan="4">…</td>         
+  </tr>       
+  <tr>       
+    <td width="10%">B1</td>         
+    <td width="9%">DB</td>         
+    <td width="71%" colspan="2">1, 2, 3</td>           
+  </tr>        
+  <tr>          
+    <td width="10%">W1</td>         
+    <td width="9%">DW</td>         
+    <td width="71%" colspan="2">200 DUP(1,2,30 DUP(10,20)), 101H, -1</td>           
+  </tr>          
+  <tr>        
+    <td width="10%">PEOPLE</td>         
+    <td width="9%">PEASON</td>         
+    <td width="71%" colspan="2">&lt;&gt;</td>         
+  </tr>       
+</table>         
+<p style="text-indent: 21.25pt">按属性<font color="#FF0000">TYPE</font>的含义，TYPE B1、TYPE W1和TYPE                                    
+PEOPLE的值分别为：1，2和16。</p>     
+<h3><a name="length">4.6.4 长度属性操作符</a></h3>                                
+<p style="text-indent: 21.25pt">长度属性操作符(<font color="#FF0000">LENGTH</font>)是针对内存变量的操作符，它返回重复操作符<font color="#FF0000">DUP</font>中的重复数。如果有嵌套的<font color="#FF0000">DUP</font>，则只返回最外层的重复数；如果没有操作符<font color="#FF0000">DUP</font>，则返回1。</p>     
+<p style="text-indent: 21.25pt">如上例所示，根据属性<font color="#FF0000">LENGTH</font>的含义，<font color="#FF0000">LENGTH</font>       
+B1、<font color="#FF0000">LENGTH</font> W1和<font color="#FF0000">LENGTH</font> PEOPLE的值分别为：1，200和1。</p>                           
+<h3><a name="size">4.6.5 容量属性操作符</a></h3>        
+<p style="text-indent: 21.25pt">容量属性操作符(<font color="#FF0000">SIZE</font>)也是针对内存变量的操作符。它的返回值按下列公式计算：</p>     
+<p style="margin-left: 40pt">SIZE 变量 ＝ (LENGTH 变量) × (TYPE 变量)</p>        
+<p style="text-indent: 21.25pt">如上例所示，<font color="#FF0000">SIZE</font> B1、<font color="#FF0000">SIZE</font> W1和<font color="#FF0000">SIZE</font>          
+PEOPLE的值分别为：1，400和16。</p>       
+              
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=4&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="04-56.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="04-6-6.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                       
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2>                             
+    <option selected value="#">课件章节</option>             
+    <option value="course.htm">课件目录</option>             
+    <option value="01-1.htm">第1章 预备知识</option>                   
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>                   
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>                   
+    <option value="04-1.htm">第4章 标识符和表达式</option>                   
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>                   
+    <option value="06-1.htm">第6章 程序的基本结构</option>                   
+    <option value="07-1.htm">第7章 子程序和库</option>                   
+    <option value="08-1.htm">第8章 输入输出和中断</option>                   
+    <option value="09-1.htm">第9章 宏</option>                   
+    <option value="10-1.htm">第10章 应用程序的设计</option>                   
+    <option value="11-1.htm">第11章 数值运算协处理器</option>             
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>             
+  </select></p>                
+                     
+</body>                     
+                     
+</html>                     

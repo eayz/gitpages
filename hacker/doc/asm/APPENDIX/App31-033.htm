@@ -1,0 +1,144 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.1 磁盘管理功能的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能0DH</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%" valign="top">功能描述：</td>
+    <td width="81%">清空当前的文件缓冲区，但在MS-DOS内，暂时写入缓冲区的数据将写入磁盘</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝0DH</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">无</td>
+  </tr>
+</table>
+
+<p><font color="#FF00FF"><a name="0EH">(2)、功能</a></font><a name="0EH"><font color="#FF00FF" face="Arial">0EH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">指定当前驱动器</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝0EH<br>
+      DL＝驱动器号(0＝A，1＝B，...)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝系统中当前的驱动器号</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="19H">(3)、功能</a></font><a name="19H"><font color="#FF00FF" face="Arial">19H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">取当前缺省驱动器号</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝19H</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝驱动器号(0＝A，1＝B，...)</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="1BH和1CH">(4)、功能</a></font><a name="1BH和1CH"><font color="#FF00FF" face="Arial">1BH</font><font color="#FF00FF">和</font><font color="#FF00FF" face="Arial">1CH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">获得驱动器的分配信息</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝1BH——为缺省驱动器<br>
+      AH＝1CH——为任意驱动器，DL＝驱动器号(0＝缺省，1＝A，...)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝0FFH——失败，否则，<br>
+      　　AL＝每簇的扇区数<br>
+      　　DS:BX＝ID字节的地址<br>
+      　　CX＝物理扇区的大小(字节数)<br>
+      　　DX＝驱动器的簇数</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="2EH">(5)、功能</a></font><a name="2EH"><font color="#FF00FF" face="Arial">2EH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">设置／清除操作系统自动读取检验标志</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝2EH<br>
+      DL＝00H<br>
+      AL＝00H——清除该标志，01H——设置该标志</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">无</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="36H">(6)、功能</a></font><a name="36H"><font color="#FF00FF" face="Arial">36H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">取选定驱动器的信息</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝36H<br>
+      DL＝驱动器号(0-缺省，1=A，2=B，…)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">若功能调用失败，AX=0FFFFH，否则，<br>
+      　　AX＝每簇的扇区数<br>
+      　　BX＝可用的簇数<br>
+      　　CX＝物理扇区的大小(字节数)<br>
+      　　DX＝驱动器中的簇数</td>
+  </tr>
+</table>
+<p><font color="#FF00FF"><a name="54H">(7)、功能</a></font><a name="54H"><font color="#FF00FF" face="Arial">54H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">读取校验标志</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝54H</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">AL＝当前检验标志值：00H—关检验，01H—开检验</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

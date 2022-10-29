@@ -1,0 +1,240 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.3 其它DOS中断的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、中断INT 20H</font></p>      
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="15%">功能描述：</td>
+    <td width="81%">终止当前正在运行的程序，它是几种终止程序运行方法之一</td>   
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="81%">CS＝PSP的段地址</td>
+  </tr>
+  <tr>
+    <td width="15%">出口参数：</td>
+    <td width="81%">无</td>
+  </tr>
+</table>
+<p><a name="22H"><font color="#FF00FF">(2)、中断INT 22H</font></a></p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top"></td>
+    <td width="15%" valign="top">功能描述：</td>
+    <td width="81%">终止处理程序的地址，该地址在程序装入内存运行前被放入PSP的0AH~0DH的单元内。该中断指令从不直接书写在程序之中</td>   
+  </tr>
+</table>
+<p><a name="23H"><font color="#FF00FF">(3)、中断INT 23H</font></a></p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top"></td>
+    <td width="15%">功能描述：</td>
+    <td width="81%">Ctrl+C处理程序。该中断指令从不直接书写在程序之中</td>   
+  </tr>
+</table>
+<p><a name="24H"><font color="#FF00FF">(4)、中断INT 24H</font></a></p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top"></td>
+    <td width="15%">功能描述：</td>
+    <td width="81%">致命错误处理程序。该中断指令从不直接书写在程序之中</td>   
+  </tr>
+</table>
+<p><a name="25H"><font color="#FF00FF">(5)、中断INT 25H</font></a></p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="15%">功能描述：</td>
+    <td width="81%">绝对读磁盘，直接从逻辑设备中读出数据到内存单元中</td>   
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="81%">AL＝驱动器号(0=A、1=B、……)
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="36%" valign="top">
+            <p align="right">分区容量≤32M，有：</td>
+          <td width="64%">CX＝读出的扇区数<br>
+            DX＝起始扇区数<br>
+            DS:BX＝存放数据缓冲区的地址</td>
+        </tr>
+        <tr>
+          <td width="36%" valign="top">
+            <p align="right">否则，有：</td>
+          <td width="64%">CX＝-1<br>
+            DS:BX＝参数块缓冲区的地址，该参数块的结构如下：
+            <table border="0" width="100%" cellspacing="1">
+              <tr>
+                <td width="30%" align="center">字节</td>
+                <td width="70%">描述</td>
+              </tr>
+              <tr>
+                <td width="30%" align="center">00~03H</td>
+                <td width="70%">32位扇区数</td>
+              </tr>
+              <tr>
+                <td width="30%" align="center">04~05H </td>
+                <td width="70%">将被读出的扇区数</td>
+              </tr>
+              <tr>
+                <td width="30%" align="center">06~07H</td>
+                <td width="70%">存放数据的缓冲区的偏移量</td>
+              </tr>
+              <tr>
+                <td width="30%" align="center">08~09H</td>
+                <td width="70%">存放数据的缓冲区的段地址</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——操作成功，否则，AX＝错误号，其含义见下错误代码表
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="24%" align="center">错误代码</td>
+          <td width="76%">错误含义</td>
+        </tr>
+        <tr>
+          <td width="24%" align="center">80H</td>
+          <td width="76%">附件响应失败</td>
+        </tr>
+        <tr>
+          <td width="24%" align="center">40H</td>
+          <td width="76%">定位操作失败</td>
+        </tr>
+        <tr>
+          <td width="24%" align="center">20H</td>
+          <td width="76%">设备控制器失败</td>
+        </tr>
+        <tr>
+          <td width="24%" align="center">10H</td>
+          <td width="76%">数据错(错误的CRC)</td>
+        </tr>
+        <tr>
+          <td width="24%" align="center">08H </td>
+          <td width="76%">DMA失败</td>
+        </tr>
+        <tr>
+          <td width="24%" align="center">04H</td>
+          <td width="76%">需要的扇区未发现</td>
+        </tr>
+        <tr>
+          <td width="24%" align="center">02H</td>
+          <td width="76%">错误的地址标志</td>
+        </tr>
+        <tr>
+          <td width="24%" align="center">01H</td>
+          <td width="76%">错误命令</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p><a name="26H"><font color="#FF00FF">(6)、INT 26H</font></a></p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="15%">功能描述：</td>
+    <td width="81%">绝对写磁盘，直接把内存单元中的内容写入逻辑设备</td>   
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="81%">与前面的INT 25H相一致</td>    
+  </tr>
+  <tr>
+    <td width="15%">出口参数：</td>
+    <td width="81%">与前面的INT 25H相一致</td>    
+  </tr>
+</table>
+<p><a name="27H"><font color="#FF00FF">(7)、INT 27H</font></a></p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="15%">功能描述：</td>
+    <td width="81%">终止，并驻留在内存</td>   
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="81%">CS＝PSP的段值<br>
+      DX＝被保护程序最后一个字节的偏移量再加1</td>
+  </tr>
+  <tr>
+    <td width="15%">出口参数：</td>
+    <td width="81%">无</td>
+  </tr>
+</table>
+<p><a name="28H"><font color="#FF00FF">(8)、INT 28H</font></a></p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="15%">功能描述：</td>
+    <td width="81%">DOS空闲中断</td>   
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="81%">无</td>
+  </tr>
+  <tr>
+    <td width="15%">出口参数：</td>
+    <td width="81%">无</td>
+  </tr>
+</table>
+<p><a name="2FH"><font color="#FF00FF">(9)、INT 2FH</font></a></p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="3" valign="top"></td>
+    <td width="15%" valign="top">功能描述：</td>
+    <td width="81%">多重中断服务，允许多个驻留程序通过单个中断与其它进程通信。</td>   
+  </tr>
+  <tr>
+    <td width="15%" valign="top">入口参数：</td>
+    <td width="81%">AH＝标识号，AL＝功能号，功能号及其含义如下：
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="25%" align="center">功能号</td>
+          <td width="75%">功能描述</td>
+        </tr>
+        <tr>
+          <td width="25%" align="center">01H</td>
+          <td width="75%">假脱机打印</td>
+        </tr>
+        <tr>
+          <td width="25%" align="center">06H</td>
+          <td width="75%">驻留ASSIGN命令</td>
+        </tr>
+        <tr>
+          <td width="25%" align="center">10H</td>
+          <td width="75%">驻留SHARE命令</td>
+        </tr>
+        <tr>
+          <td width="25%" align="center">B7H</td>
+          <td width="75%">驻留APPEND命令</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="15%">出口参数：</td>
+    <td width="81%">若入口AL为0，则出口AL＝0FFH，否则，其值取决于处理程序</td>
+  </tr>
+</table>
+         
+</body>        
+        
+</html>        

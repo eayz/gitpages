@@ -1,0 +1,147 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>5.2.1-传送－填充指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter05.js"></script>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+
+function MOVSX_onmouseover() {
+	MOVSX.src = "textbookIMG\\05-02A-d.gif";
+}
+
+function MOVSX_onmouseout() {
+	MOVSX.src = "textbookIMG\\05-02A.gif";
+}
+
+function MOVZX_onmouseover() {
+	MOVZX.src = "textbookIMG\\05-02B-d.gif";
+}
+
+function MOVZX_onmouseout() {
+	MOVZX.src = "textbookIMG\\05-02B.gif";
+}
+//-->
+</SCRIPT>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle05.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="05-2.htm">指令系统</a> → 传送—填充指令</td>                                               
+    <td width="50%">          
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、传送—填充指令(Move-and-Fill                                            
+Instruction)</font></p>      
+<p style="text-indent: 21.25pt">传送—填充指令是把位数短的源操作数传送给位数长的目的操作数。指令格式如下：</p>    
+<p style="margin-left: 40pt">MOVSX/MOVZX&nbsp; Reg/Mem, Reg/Mem/Imm　　　　　;<font color="#FF0000">80386+</font></p> 
+<p style="text-indent: 21.25pt">其中：<font color="#FF0000" face="Arial">80386+</font>表示<font color="#FF0000" face="Arial">80386</font>及其之后的<font color="#FF0000" face="Arial">CPU</font>，其它类似符号含义类同，不再说明。</p>
+<p style="text-indent: 21.25pt">指令的主要功能和限制与MOV指令类似，不同之处是：在传送时，对目的操作数的高位进行填充。根据其填充方式，又分为：符号填充和零填充。</p>
+<p style="text-indent: 21.25pt">传送—填充指令的功能如图5.2所示。</p>    
+<table border="0" width="100%" cellspacing="1">
+  <tr>
+    <td width="50%" align="center"><img border="0" src="TextBookIMG/05-02A.gif" width="221" id=MOVSX LANGUAGE=javascript onmouseover="return MOVSX_onmouseover()" onmouseout="return MOVSX_onmouseout()">    
+<p align="center">(a). MOVSX的执行效果</p>                                       
+    </td>
+    <td width="50%" align="center"><img border="0" src="TextBookIMG/05-02B.gif" width="208" id=MOVZX LANGUAGE=javascript onmouseover="return MOVZX_onmouseover()" onmouseout="return MOVZX_onmouseout()">    
+<p align="center">(b). MOVZX的执行效果</p>                                       
+    </td>
+  </tr>
+</table>
+<p align="center">图5.2 传送—填充指令执行过程示意图</p>                                        
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/Ball3.gif" width="12">、符号填充指令<font color="#FF0000">MOVSX</font>(Move                                            
+with Sign-Extend)</p>                                           
+<p style="margin-left: 40pt"><font color="#FF0000">MOVSX</font>的填充方式是：用源操作数的<font color="#FF0000">符号位</font>来填充目的操作数的高位数据位。</p>    
+<p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/Ball3.gif" width="12">、零填充指令<font color="#FF0000">MOVZX</font>(Move                                            
+with Zero-Extend)</p>                                           
+<p style="margin-left: 40pt"><font color="#FF0000">MOVZX</font>的填充方式是：恒用<font color="#FF0000">0</font>来填充目的操作数的高位数据位。</p>    
+<p>例5.1 已知：AL=87H，指令MOVSX&nbsp; CX,                                           
+AL，MOVZX&nbsp; DX, AL执行后，问CX和DX的值是什么？<br>                                       
+解：根据传送－填充指令的填充方式可知：</p>    
+<p style="text-indent: 21.25pt">指令MOVSX CX, AL执行后，(CX)=0FF87H，指令MOVZX DX, AL执行后，(DX)=0087H。</p>                                        
+<p style="text-indent: 21.25pt">从上例可看出，两条指令的源操作数完全一样，但因为它们的填充方式不同，所得到的结果而就不同。</p>    
+<p style="text-indent: 21.25pt">试比较下列指令，分析它们执行结果的相同和不同之处：</p>    
+<p style="margin-left: 40pt">MOV　AX, 87H　　　MOVSX　AX, 87H　　　MOVZX　AX, 87H</p>                                           
+<p style="text-indent: 21.25pt"><font color="#FF00FF"><a name="XCHG">3、交换指令<font color="#FF00FF">XCHG(Exchange                                            
+Instruction)</font></a></font></p>      
+<table border="0" width="100%" cellspacing="1">
+  <tr>
+    <td width="60%">      
+<p style="text-indent: 21.25pt">交换指令<font color="#FF0000">XCHG</font>是两个寄存器，寄存器和内存变量之间内容的交换指令，两个操作数的数据类型要相同。其指令格式如下：</p>    
+<p style="margin-left: 40pt">XCHG&nbsp; Reg/Mem, Reg/Mem</p>                                           
+<p style="text-indent: 21.25pt">该指令的功能和<font color="#FF0000">MOV</font>指令不同，后者是一个操作数的内容被修改，而前者是两个操作数都会发生改变。寄存器不能是段寄存器，两个操作数也不能同时为内存变量。</p>    
+<p style="text-indent: 21.25pt"> XCHG指令的功能如图5.3所示。</p>    
+    </td>
+    <td width="40%">
+      <p align="center"><img border="0" src="TextBookIMG/05-03.gif" width="234"></p>
+      <p align="center">图5.3 XCHG指令的执行功能示意图</td>                                  
+  </tr>
+</table>
+<p>例5.2 已知：AX=5678H，BX=1234H，指令XCHG&nbsp;                                           
+AX, BX执行后，AX和BX的值是什么？<br>                                       
+解：这是两个寄存器内容进行交换，指令执行后，有：(AX)=1234H，(BX)=5678H。</p>    
+      
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=5&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="05-2.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="05-2-012.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                          
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->   
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

@@ -1,0 +1,378 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>课后作业</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body background="images/homework.gif" topmargin="1" leftmargin="0">
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%">
+      <p align="center"><img border="0" src="images/btitle.gif" width="778" height="70"></td>
+  </tr>
+  <tr>
+    <td width="100%">
+      <p align="center"><a href="Default.htm"><IMG border=0 id=Home  language=javascript onmouseout="return Home_onmouseout()"  onmouseover="return Home_onmouseover()" src="Button/home1.gif" width="96"></a><A href="course.htm"><IMG border=0 id=Study language=javascript onmouseout="return  Study_onmouseout()" onmouseover="return Study_onmouseover()" src="Button/study1.GIF" width="96"></A><A href="bbs/index.asp"><IMG border=0  id=Discuss language=javascript onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></A><A href="question.htm"><IMG border=0  id=Problem language=javascript onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></A><A href="test.asp"><IMG border=0  id=Test language=javascript onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></A><A href="search.htm"><IMG border=0  id=Search language=javascript onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></A></td>
+  </tr>
+</table>
+    
+<p style="text-indent: 21.25pt">根据学习进度，布置(显示)所需要完成的课后作业，学生可用各种方式提交所做的作业。教师可把作业中好的做法在网上以参考答案的形式公布出来，并给出完成者的代号或姓名以示鼓励，这样可激励学生努力学习，争取“网上有名”。</p>   
+   
+<!--webbot BOT="GeneratedScript" PREVIEW=" " startspan --><script Language="JavaScript"><!--
+function FrontPage_Form1_Validator(theForm)
+{
+
+  if (theForm.QuestionNumberXZ.value == "")
+  {
+    alert("请在 选择题 域中输入值。");
+    theForm.QuestionNumberXZ.focus();
+    return (false);
+  }
+
+  if (theForm.QuestionNumberXZ.value.length < 1)
+  {
+    alert("在 选择题 域中，请至少输入 1 个字符。");
+    theForm.QuestionNumberXZ.focus();
+    return (false);
+  }
+
+  if (theForm.QuestionNumberXZ.value.length > 2)
+  {
+    alert("在 选择题 域中，请最多输入 2 个字符。");
+    theForm.QuestionNumberXZ.focus();
+    return (false);
+  }
+
+  var checkOK = "0123456789-";
+  var checkStr = theForm.QuestionNumberXZ.value;
+  var allValid = true;
+  var decPoints = 0;
+  var allNum = "";
+  for (i = 0;  i < checkStr.length;  i++)
+  {
+    ch = checkStr.charAt(i);
+    for (j = 0;  j < checkOK.length;  j++)
+      if (ch == checkOK.charAt(j))
+        break;
+    if (j == checkOK.length)
+    {
+      allValid = false;
+      break;
+    }
+    allNum += ch;
+  }
+  if (!allValid)
+  {
+    alert("在 选择题 域中，只能输入 数字 个字符。");
+    theForm.QuestionNumberXZ.focus();
+    return (false);
+  }
+
+  var chkVal = allNum;
+  var prsVal = parseInt(allNum);
+  if (chkVal != "" && !(prsVal >= "0" && prsVal <= "10"))
+  {
+    alert("请在 选择题 域中输入值 大于或等于 0 与 小于或等于 10。");
+    theForm.QuestionNumberXZ.focus();
+    return (false);
+  }
+
+  if (theForm.QuestionNumberPD.value == "")
+  {
+    alert("请在 QuestionNumberPD 域中输入值。");
+    theForm.QuestionNumberPD.focus();
+    return (false);
+  }
+
+  if (theForm.QuestionNumberPD.value.length < 1)
+  {
+    alert("在 QuestionNumberPD 域中，请至少输入 1 个字符。");
+    theForm.QuestionNumberPD.focus();
+    return (false);
+  }
+
+  if (theForm.QuestionNumberPD.value.length > 2)
+  {
+    alert("在 QuestionNumberPD 域中，请最多输入 2 个字符。");
+    theForm.QuestionNumberPD.focus();
+    return (false);
+  }
+
+  var checkOK = "0123456789-";
+  var checkStr = theForm.QuestionNumberPD.value;
+  var allValid = true;
+  var decPoints = 0;
+  var allNum = "";
+  for (i = 0;  i < checkStr.length;  i++)
+  {
+    ch = checkStr.charAt(i);
+    for (j = 0;  j < checkOK.length;  j++)
+      if (ch == checkOK.charAt(j))
+        break;
+    if (j == checkOK.length)
+    {
+      allValid = false;
+      break;
+    }
+    allNum += ch;
+  }
+  if (!allValid)
+  {
+    alert("在 QuestionNumberPD 域中，只能输入 数字 个字符。");
+    theForm.QuestionNumberPD.focus();
+    return (false);
+  }
+
+  var chkVal = allNum;
+  var prsVal = parseInt(allNum);
+  if (chkVal != "" && !(prsVal >= "0" && prsVal <= "5"))
+  {
+    alert("请在 QuestionNumberPD 域中输入值 大于或等于 0 与 小于或等于 5。");
+    theForm.QuestionNumberPD.focus();
+    return (false);
+  }
+
+  if (theForm.QuestionNumberTK.value == "")
+  {
+    alert("请在 QuestionNumberTK 域中输入值。");
+    theForm.QuestionNumberTK.focus();
+    return (false);
+  }
+
+  if (theForm.QuestionNumberTK.value.length < 1)
+  {
+    alert("在 QuestionNumberTK 域中，请至少输入 1 个字符。");
+    theForm.QuestionNumberTK.focus();
+    return (false);
+  }
+
+  if (theForm.QuestionNumberTK.value.length > 1)
+  {
+    alert("在 QuestionNumberTK 域中，请最多输入 1 个字符。");
+    theForm.QuestionNumberTK.focus();
+    return (false);
+  }
+
+  var checkOK = "0123456789-";
+  var checkStr = theForm.QuestionNumberTK.value;
+  var allValid = true;
+  var decPoints = 0;
+  var allNum = "";
+  for (i = 0;  i < checkStr.length;  i++)
+  {
+    ch = checkStr.charAt(i);
+    for (j = 0;  j < checkOK.length;  j++)
+      if (ch == checkOK.charAt(j))
+        break;
+    if (j == checkOK.length)
+    {
+      allValid = false;
+      break;
+    }
+    allNum += ch;
+  }
+  if (!allValid)
+  {
+    alert("在 QuestionNumberTK 域中，只能输入 数字 个字符。");
+    theForm.QuestionNumberTK.focus();
+    return (false);
+  }
+
+  var chkVal = allNum;
+  var prsVal = parseInt(allNum);
+  if (chkVal != "" && !(prsVal >= "0" && prsVal <= "5"))
+  {
+    alert("请在 QuestionNumberTK 域中输入值 大于或等于 0 与 小于或等于 5。");
+    theForm.QuestionNumberTK.focus();
+    return (false);
+  }
+
+  if (theForm.QuestionNumberJD.value == "")
+  {
+    alert("请在 QuestionNumberBC 域中输入值。");
+    theForm.QuestionNumberJD.focus();
+    return (false);
+  }
+
+  if (theForm.QuestionNumberJD.value.length < 1)
+  {
+    alert("在 QuestionNumberBC 域中，请至少输入 1 个字符。");
+    theForm.QuestionNumberJD.focus();
+    return (false);
+  }
+
+  if (theForm.QuestionNumberJD.value.length > 1)
+  {
+    alert("在 QuestionNumberBC 域中，请最多输入 1 个字符。");
+    theForm.QuestionNumberJD.focus();
+    return (false);
+  }
+
+  var checkOK = "0123456789-";
+  var checkStr = theForm.QuestionNumberJD.value;
+  var allValid = true;
+  var decPoints = 0;
+  var allNum = "";
+  for (i = 0;  i < checkStr.length;  i++)
+  {
+    ch = checkStr.charAt(i);
+    for (j = 0;  j < checkOK.length;  j++)
+      if (ch == checkOK.charAt(j))
+        break;
+    if (j == checkOK.length)
+    {
+      allValid = false;
+      break;
+    }
+    allNum += ch;
+  }
+  if (!allValid)
+  {
+    alert("在 QuestionNumberBC 域中，只能输入 数字 个字符。");
+    theForm.QuestionNumberJD.focus();
+    return (false);
+  }
+
+  var chkVal = allNum;
+  var prsVal = parseInt(allNum);
+  if (chkVal != "" && !(prsVal >= "0" && prsVal <= "3"))
+  {
+    alert("请在 QuestionNumberBC 域中输入值 大于或等于 0 与 小于或等于 3。");
+    theForm.QuestionNumberJD.focus();
+    return (false);
+  }
+
+  if (theForm.QuestionNumberBC.value == "")
+  {
+    alert("请在 QuestionNumberBC 域中输入值。");
+    theForm.QuestionNumberBC.focus();
+    return (false);
+  }
+
+  if (theForm.QuestionNumberBC.value.length < 1)
+  {
+    alert("在 QuestionNumberBC 域中，请至少输入 1 个字符。");
+    theForm.QuestionNumberBC.focus();
+    return (false);
+  }
+
+  if (theForm.QuestionNumberBC.value.length > 1)
+  {
+    alert("在 QuestionNumberBC 域中，请最多输入 1 个字符。");
+    theForm.QuestionNumberBC.focus();
+    return (false);
+  }
+
+  var checkOK = "0123456789-";
+  var checkStr = theForm.QuestionNumberBC.value;
+  var allValid = true;
+  var decPoints = 0;
+  var allNum = "";
+  for (i = 0;  i < checkStr.length;  i++)
+  {
+    ch = checkStr.charAt(i);
+    for (j = 0;  j < checkOK.length;  j++)
+      if (ch == checkOK.charAt(j))
+        break;
+    if (j == checkOK.length)
+    {
+      allValid = false;
+      break;
+    }
+    allNum += ch;
+  }
+  if (!allValid)
+  {
+    alert("在 QuestionNumberBC 域中，只能输入 数字 个字符。");
+    theForm.QuestionNumberBC.focus();
+    return (false);
+  }
+
+  var chkVal = allNum;
+  var prsVal = parseInt(allNum);
+  if (chkVal != "" && !(prsVal >= "0" && prsVal <= "2"))
+  {
+    alert("请在 QuestionNumberBC 域中输入值 大于或等于 0 与 小于或等于 2。");
+    theForm.QuestionNumberBC.focus();
+    return (false);
+  }
+  return (true);
+}
+//--></script><!--webbot BOT="GeneratedScript" endspan --><form method="POST" action="exercise.asp" name="FrontPage_Form1" onsubmit="return FrontPage_Form1_Validator(this)">
+  <table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="100%" colspan="2">
+        <p style="margin-left: 30PT">　　章节：<select size="1" name="chapter" size="1" tabindex="1">
+    <option value="01">第1章 预备知识</option>      
+    <option value="02">第2章 CPU资源和存储器</option>      
+    <option value="03">第3章 操作数的寻址方式</option>      
+    <option value="04">第4章 标识符和表达式</option>      
+    <option value="05">第5章 微机CPU的指令系统</option>      
+    <option value="06">第6章 程序的基本结构</option>      
+    <option value="07">第7章 子程序和库</option>      
+    <option value="08">第8章 输入输出和中断</option>      
+    <option value="09">第9章 宏</option>      
+    <option value="10">第10章 应用程序的设计</option>      
+    <option value="11">第11章 数值运算协处理器</option>
+    <option value="12">第12章 汇编语言和C语言</option>
+  </select></td>
+    </tr>
+    <tr>
+      <td width="36%">
+        <p style="margin-left: 30PT">选择题数：<!--webbot bot="Validation"
+        S-Display-Name="选择题" S-Data-Type="Integer" S-Number-Separators="x"
+        B-Value-Required="TRUE" I-Minimum-Length="1" I-Maximum-Length="2"
+        S-Validation-Constraint="Greater than or equal to"
+        S-Validation-Value="0" S-Validation-Constraint="Less than or equal to"
+        S-Validation-Value="10" --><input type="text" name="QuestionNumberXZ" size="3" value="0" maxlength="2" tabindex="2"></td>
+      <td width="64%">判断题数： <!--webbot bot="Validation"
+        S-Display-Name="QuestionNumberPD" S-Data-Type="Integer"
+        S-Number-Separators="x" B-Value-Required="TRUE" I-Minimum-Length="1"
+        I-Maximum-Length="2" S-Validation-Constraint="Greater than or equal to"
+        S-Validation-Value="0" S-Validation-Constraint="Less than or equal to"
+        S-Validation-Value="5" -->
+  <input type="text" name="QuestionNumberPD" size="3" value="0" maxlength="2" tabindex="3"></td>
+    </tr>
+    <tr>
+      <td width="36%">
+        <p style="margin-left: 30PT">填空题数：<!--webbot bot="Validation"
+        S-Display-Name="QuestionNumberTK" S-Data-Type="Integer"
+        S-Number-Separators="x" B-Value-Required="TRUE" I-Minimum-Length="1"
+        I-Maximum-Length="1" S-Validation-Constraint="Greater than or equal to"
+        S-Validation-Value="0" S-Validation-Constraint="Less than or equal to"
+        S-Validation-Value="5" --><input type="text" name="QuestionNumberTK" size="3" value="0" maxlength="1" tabindex="4"></td>
+      <td width="64%">简答和计算题数： <!--webbot bot="Validation"
+        S-Display-Name="QuestionNumberBC" S-Data-Type="Integer"
+        S-Number-Separators="x" B-Value-Required="TRUE" I-Minimum-Length="1"
+        I-Maximum-Length="1" S-Validation-Constraint="Greater than or equal to"
+        S-Validation-Value="0" S-Validation-Constraint="Less than or equal to"
+        S-Validation-Value="3" -->
+  <input type="text" name="QuestionNumberJD" size="3" value="0" maxlength="1" tabindex="5"></td>
+    </tr>
+  </table>
+  <table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="36%">
+        <p style="margin-left: 30PT">编程题数：<!--webbot bot="Validation"
+        S-Display-Name="QuestionNumberBC" S-Data-Type="Integer"
+        S-Number-Separators="x" B-Value-Required="TRUE" I-Minimum-Length="1"
+        I-Maximum-Length="1" S-Validation-Constraint="Greater than or equal to"
+        S-Validation-Value="0" S-Validation-Constraint="Less than or equal to"
+        S-Validation-Value="2" --><input type="text" name="QuestionNumberBC" size="3" value="0" maxlength="1" tabindex="6"></td>
+      <td width="64%"></td>
+    </tr>
+  </table>
+  <p align="center">
+  <input type="submit" value="确定" name="B1" tabindex="7">&nbsp;&nbsp;&nbsp; <input type="reset" value="清除" name="B2" tabindex="8"></p> 
+</form> 
+    
+</body>    
+    
+</html>    

@@ -1,0 +1,445 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录6.1 几个重要内存单元地址</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="image/background.gif">
+
+<h2>1、系统时钟地址</h2>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+<tr>
+  <td width="24%" align="center" valign="top"><p align="center">0000:046CH——</p></td>
+  <td width="9%" valign="top">4字节</td>
+  <td width="67%" valign="top">时钟计数器，每次时钟中断时自动加1。系统启动时，其值为从午夜到现在的时钟中断数。当其计数达24小时时，则被置为0，并且将0000:0470H的字节置为1</td>
+</tr>
+<tr>
+  <td width="24%" align="center">0000:0470H——</td>
+  <td width="9%">1字节</td>
+  <td width="67%"> 该字节在午夜时置1</td>
+</tr>
+</table>
+<p style="TEXT-INDENT: 21px">参见INT 8H(时钟中断)        
+<h2><a name="2">2、显示特性数据地址</a></h2>
+<font>
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+</font>
+<tr>
+  <td width="24%" align="center">
+    <p align="center">0000:0449H——</p></td>
+  <td width="9%">1字节</td>
+  <td width="67%">当前显示模式</td>
+</tr>
+<tr>
+  <td width="24%" align="center">0000:044AH——</td>
+  <td width="9%">1字</td>
+  <td width="67%">每行字符数(列数)</td>
+</tr>
+<tr>
+  <td width="24%" align="center">0000:044CH——</td>
+  <td width="9%">1字</td>
+  <td width="67%">显示缓冲区的字节数</td>
+</tr>
+<tr>
+  <td width="24%" align="center">0000:044EH——</td>
+  <td width="9%">1字</td>
+  <td width="67%">当前显示页在显示缓冲区内的便移量</td>
+</tr>
+<tr>
+  <td width="24%" align="center">0000:0450H——</td>
+  <td width="9%">8字</td>
+  <td width="67%">光标在显示页中的位置，高字节为行，低字节为列</td>
+</tr>
+<tr>
+  <td width="24%" align="center" valign="top">0000:0460H——</td>
+  <td width="9%" valign="top">1字</td>
+  <td width="67%" valign="top">当前光标的形状。高字节为光标的上线，低字节为其下线</td>
+</tr>
+<tr>
+  <td width="24%" align="center">0000:0462H——</td>
+  <td width="9%">1字节</td>
+  <td width="67%">当前显示页</td>
+</tr>
+<tr>
+  <td width="24%" align="center">0000:0463H——</td>
+  <td width="9%">1字</td>
+  <td width="67%">CRT控制索引寄存器的端口地址</td>
+</tr>
+<tr>
+  <td width="24%" align="center">0000:0465H——</td>
+  <td width="9%">1字节</td>
+  <td width="67%">CRT控制器中模式寄存器的当前值</td>
+</tr>
+<tr>
+  <td width="24%" align="center">0000:0466H——</td>
+  <td width="9%">1字节</td>
+  <td width="67%">CRT控制器中颜色寄存器的当前值</td>
+</tr></TABLE>
+<p style="TEXT-INDENT: 21.25pt">参见INT              
+10H(显示服务中断)  
+</p>
+<h2><a name="3">3、显示缓冲区地址</a></h2>
+<p style="TEXT-INDENT: 21.25pt">A000:0000——　　内容　　图形显示模式的显示内容</p>
+
+<p align="center">表1 单色显示器的显示属性定义</p>              
+<div align="center">
+  <center>
+  <table border="0" width="70%" cellspacing="0">
+    <tr>
+      <td width="48%" align="center">背景属性</td>
+      <td width="52%" align="center">前景属性</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<div align="center">
+  <center>
+  <table border="1" width="70%" cellspacing="0" cellpadding="2">
+    <tr>
+      <td width="12%" align="center" bgcolor="#00ffff">7</td>
+      <td width="12%" align="center" bgcolor="#00ffff">6</td>
+      <td width="12%" align="center" bgcolor="#00ffff">5</td>
+      <td width="12%" align="center" bgcolor="#00ffff">4</td>
+      <td width="13%" align="center" bgcolor="#00ffff">3</td>
+      <td width="13%" align="center" bgcolor="#00ffff">2</td>
+      <td width="13%" align="center" bgcolor="#00ffff">1</td>
+      <td width="13%" align="center" bgcolor="#00ffff">0</td>
+    </tr>
+    <tr>
+      <td width="12%" align="center">Blink</td>
+      <td width="12%" align="center">　</td>
+      <td width="12%" align="center">　</td>
+      <td width="12%" align="center">　</td>
+      <td width="13%" align="center">Bright</td>
+      <td width="13%" align="center">　</td>
+      <td width="13%" align="center">　</td>
+      <td width="13%" align="center">　</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+<tr>
+  <td width="100%" align="middle" colspan="3">
+    <p></p>
+  </td>
+</tr>
+  <tr>
+  <td width="22%" align="middle" valign="top">
+    B000:0000——</td>
+  <td width="13%" valign="top">800H字</td>
+  <td width="65%" valign="top">黑白显示器的显示文本信息，每个字中的低字节是字符的ASCII码，高字节是其属性</td>
+  </tr>
+<tr>
+  <td width="22%" align="middle" valign="top">B800:0000——</td>
+  <td width="13%" valign="top">2000H字</td>
+  <td width="65%" valign="top">彩色显示器的显示缓冲区。其字符显示内容与前者相同</td>
+</tr>
+</table>
+<p align="center">表2 黑白显示器的显示属性表</p>             
+<div align="center">
+  <center>
+  <table border="0" width="75%" cellspacing="1">
+  <TBODY>
+    <tr>
+      <td width="45%" colspan="2">
+        <p align="center">背景属性</p></td>
+      <td width="4%"></td>
+      <td width="51%" colspan="2">
+        <p align="center">前景属性</p></td>
+    </tr>
+    <tr>
+      <td width="17%" align="middle">
+        <p align="center">7 6 5 4</p>       
+      </td>      
+      <td width="28%" align="middle">
+        <p align="center">属性</p>
+      </td>
+    </center>
+    <td width="4%">
+      <p></p></td>
+    <center>
+    <td width="16%" align="middle">
+      <p align="center">3 2 1 0</p>       
+    </td>      
+    <td width="35%" align="middle">
+      <p align="center">属性</p></td></TR></TBODY></TABLE>
+  </center>
+</div>
+<div align="center">
+  <center>
+  <table border="0" width="75%" cellspacing="0">
+    <tr>
+      <td width="45%" valign="top">
+        <table border="1" width="100%" cellspacing="0">
+          <tr>
+            <td width="38%" align="center" bgcolor="#00FFFF">0 0 0 0</td>             
+            <td width="62%" align="middle" valign="top">Black</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00FFFF">0 1 1 1</td>
+            <td width="62%" align="middle">Reverse</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00FFFF">1 0 0 0</td>
+            <td width="62%" align="middle">Blink</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00FFFF">1 1 1 1</td>
+            <td width="62%" align="middle">Reverse blink</td>
+          </tr>
+        </table>
+      </td>
+      <td width="4%" valign="top"></td>
+      <td width="51%" valign="top">
+        <table border="1" width="100%" cellspacing="0">
+          <tr>
+            <td width="32%" align="center" bgcolor="#00FFFF">0 0 0 0</td>
+            <td width="68%" align="middle">Black</td>
+          </tr>
+          <tr>
+            <td width="32%" align="center" bgcolor="#00FFFF">0 0 0 1</td>
+            <td width="68%" align="middle">Underlined</td>
+          </tr>
+          <tr>
+            <td width="32%" align="center" bgcolor="#00FFFF">0 1 1 1</td>
+            <td width="68%" align="middle">Normal</td>
+          </tr>
+          <tr>
+            <td width="32%" align="center" bgcolor="#00FFFF">1 0 0 1</td>
+            <td width="68%" align="middle">Bright Underlined</td>
+          </tr>
+          <tr>
+            <td width="32%" align="center" bgcolor="#00FFFF">1 1 1 1</td>
+            <td width="68%" align="middle">Bright</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="center">表3 彩色显示器的显示属性定义</p>             
+<div align="center">
+  <center>
+  <table border="0" width="75%" cellspacing="0">
+    <tr>
+      <td width="48%" align="center">背景属性</td>
+      <td width="52%" align="center">前景属性</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<div align="center">
+  <center>
+  <table border="1" width="75%" cellspacing="0" cellpadding="2">
+    <tr>
+      <td width="12%" align="center" bgcolor="#00ffff">7</td>
+      <td width="12%" align="center" bgcolor="#00ffff">6</td>
+      <td width="12%" align="center" bgcolor="#00ffff">5</td>
+      <td width="12%" align="center" bgcolor="#00ffff">4</td>
+      <td width="13%" align="center" bgcolor="#00ffff">3</td>
+      <td width="13%" align="center" bgcolor="#00ffff">2</td>
+      <td width="13%" align="center" bgcolor="#00ffff">1</td>
+      <td width="13%" align="center" bgcolor="#00ffff">0</td>
+    </tr>
+    <tr>
+      <td width="12%" align="center">Blink</td>
+      <td width="12%" align="center">Red</td>
+      <td width="12%" align="center">Green</td>
+      <td width="12%" align="center">Blue</td>
+      <td width="13%" align="center">Bright</td>
+      <td width="13%" align="center">Red</td>
+      <td width="13%" align="center">Green</td>
+      <td width="13%" align="center">Blue</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p align="center">表4 彩色显示器的显示属性表</p>             
+<div align="center">
+  <center>
+  <table border="0" width="75%" cellspacing="1">
+    <tr>
+      <td width="47%" colspan="2">
+        <p align="center">背景属性</p></td>
+      <td width="5%"></td>
+      <td width="48%" colspan="2">
+        <p align="center">前景属性</p></td>
+    </tr>
+    <tr>
+      <td width="18%" align="middle">
+        <p align="center">7 6 5 4</p>     
+      </td>      
+      <td width="29%" align="middle">
+        <p align="center">属性</p>
+      </td>
+  </center>
+      <td width="5%" align="middle">
+        <p></p></td>
+  <center>
+      <td width="17%" align="middle">
+        <p align="center">3 2 1 0</p>    
+      </td>      
+      <td width="31%" align="middle">
+        <p align="center">属性</p></td>
+    </tr>
+  </table>
+  </center>
+</div>
+<div align="center">
+  <center>
+  <table border="0" width="75%" cellspacing="0">
+    <tr>
+      <td width="47%" valign="top">
+        <table border="1" width="102%" cellspacing="0">
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 0 0 0</td>           
+            <td width="62%" align="middle" valign="top">Black</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 0 0 1</td>
+            <td width="62%" align="middle">Blue</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 0 1 0</td>
+            <td width="62%" align="middle">Green</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 0 1 1</td>
+            <td width="62%" align="middle">Cyan</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 1 0 0</td>
+            <td width="62%" align="middle">Red</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 1 0 1</td>
+            <td width="62%" align="middle">Magenta</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 1 1 0</td>
+            <td width="62%" align="middle">Brown</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 1 1 1</td>
+            <td width="62%" align="middle">White</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 0 0 0</td>
+            <td width="62%" align="middle">Black Blink</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 0 0 1</td>
+            <td width="62%" align="middle">Blue Blink</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 0 1 0</td>
+            <td width="62%" align="middle">Green Blink</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 0 1 1</td>
+            <td width="62%" align="middle">Cyan Blink</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 1 0 0</td>
+            <td width="62%" align="middle">Red Blink</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 1 0 1</td>
+            <td width="62%" align="middle">Magenta Blink</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 1 1 0</td>
+            <td width="62%" align="middle">Brown Blink</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 1 1 1</td>
+            <td width="62%" align="middle">White  
+              Blink</td>
+          </tr>
+        </table>
+      </td>
+      <td width="5%" valign="top"></td>
+      <td width="48%" valign="top">
+        <table border="1" width="100%" cellspacing="0">
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 0 0 0</td>
+            <td width="68%" align="middle">Black</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 0 0 1</td>
+            <td width="68%" align="middle">Blue</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 0 1 0</td>
+            <td width="68%" align="middle">Green</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 0 1 1</td>
+            <td width="68%" align="middle">Cyan</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 1 0 0</td>
+            <td width="68%" align="middle">Red</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 1 0 1</td>
+            <td width="68%" align="middle">Magenta</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 1 1 0</td>
+            <td width="68%" align="middle">Brown</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">0 1 1 1</td>
+            <td width="68%" align="middle">White</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 0 0 0</td>
+            <td width="68%" align="middle">Dark Gray</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 0 0 1</td>
+            <td width="68%" align="middle">Light Blue</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 0 1 0</td>
+            <td width="68%" align="middle">Light Green</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 0 1 1</td>
+            <td width="68%" align="middle">Light Cyan</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 1 0 0</td>
+            <td width="68%" align="middle">Light Red</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 1 0 1</td>
+            <td width="68%" align="middle">Light Magenta</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 1 1 0</td>
+            <td width="68%" align="middle">Yellow</td>
+          </tr>
+          <tr>
+            <td width="38%" align="center" bgcolor="#00ffff">1 1 1 1</td>
+            <td width="68%" align="middle">Bright  
+              White</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  </center>
+</div>
+
+</body>   
+   
+</html>   

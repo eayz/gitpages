@@ -1,0 +1,180 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>6.2.2 用伪指令实现分支结构</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter06.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle02.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="56%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="06-2-1.htm">程序的基本结构</a> →                            
+      伪指令实现的分支结构</td>                                                           
+    <td width="44%">                                              
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<p><font color="#FF00FF">二、用伪指令实现的分支结构</font></p>
+<p style="text-indent: 21.25pt">为了改善汇编语言源程序的结构，减少显式转移语句所带来混乱，在宏汇编MASM                                 
+6.11系统中，增加了表达分支结构的伪指令。该伪指令的书写格式与高级语言的书写方式相类似，汇编程序在汇编时会自动增加转移指令和相应的标号。理解并掌握该知识，对将来学习《编译原理》课程也有一定的帮助。</p> 
+<p style="text-indent: 21.25pt">分支伪指令的具体格式如下：</p> 
+<p style="text-indent: 21.25pt">格式1：</p> 
+<p style="margin-left: 40pt">.IF condition　　　　;以英文“句号”开头<br>
+　 指令序列　　　　 ;条件&quot;condition"成立时所执行的指令序列<br>                               
+.ENDIF</p> 
+<p style="text-indent: 21.25pt">格式2：</p> 
+<p style="margin-left: 40pt">.IF                                 
+condition<br> 
+　 指令序列1<br>                               
+.ELSE<br> 
+　 指令序列2　　　　;条件&quot;condition"不成立时所执行的指令序列<br>
+.ENDIF</p>
+<p style="text-indent: 21.25pt">格式3：</p>
+<p style="margin-left: 40pt">.IF                                 
+condition1<br> 
+　 指令序列1<br>                               
+.ELSEIF                                 
+condition2<br> 
+　 指令序列2　　　　;条件&quot;condition2"成立时所执行的指令序列<br>
+.ENDIF</p>
+<p style="text-indent: 21.25pt">其中：条件表达式“condition”的书写方式与C语言中条件表达式的书写方式相似，也可用括号来组成复杂的条件表达式。</p>
+<p style="text-indent: 21.25pt">条件表达式中可用的操作符有：==(等于)、!=(不等)、&gt;(大于)、&gt;=(大于等于)、&lt;(小于)、&lt;=(小于等于)、&amp;(位操作与)、!(逻辑非)、&amp;&amp;(逻辑与)、||(逻辑或)等。</p>
+<p style="text-indent: 21.25pt">若在条件表达式中检测标志位的信息，则可以使用的符号名有：CARRY?(相当于CF==1)、OVERFLOW?(OF==1)、PARITY?(PF==1)、SIGN?(SF==1)、ZERO?(ZF==1)等。例如：</p>
+<p style="margin-left: 40pt">.IF　CARRY? &amp;&amp; AX != BX　　　　;检测CF==1且AX!=BX是否成立<br>
+　　;汇编语言指令序列<br>
+.ENDIF</p>
+<p style="text-indent: 21.25pt">在指令序列中，还可再含有其它的.IF伪指令，即：允许嵌套。伪指令.ELSEIF引导出另一个二叉分支，但它不能作伪指令块的第一个伪指令。</p>
+<p style="text-indent: 21.25pt">汇编程序在对“条件表达式”进行代码转换时将进行代码优化处理，以便尽可能生成最好的指令代码。如：</p>
+<p style="margin-left: 40pt">.IF　ax == 0</p>                                
+<p style="text-indent: 21.25pt">汇编程序会把它转换为指令“OR　ax, ax”，而不是“CMP　ax, 0”，因为前者比后者更好，而不是简单直接地转换为后者。</p>                               
+<p style="text-indent: 21.25pt">如果用伪指令来书写分支结构，那么，例6.5的代码段部分就可写成如下程序段：</p> 
+<table border="0" width="100%" cellpadding="0" cellspacing="0"> 
+  <tr> 
+    <td width="7%" rowspan="6" valign="top"></td> 
+    <td width="93%" colspan="3">…</td> 
+  </tr> 
+  <tr> 
+    <td width="9%">MOV</td> 
+    <td width="84%" colspan="2">AL, CHAR1</td>   
+  </tr> 
+  <tr> 
+    <td width="30%" colspan="2">.IF　AL&gt;='a' &amp;&amp; AL&lt;='z'</td>                               
+    <td width="63%">;语句象C语言语句吗？</td> 
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="3">　　SUB　CHAR1, 20H</td>                               
+  </tr> 
+  <tr> 
+    <td width="93%" colspan="3">.ENDIF</td> 
+  </tr> 
+  <tr> 
+    <td width="9%">…</td> 
+    <td width="21%"></td> 
+    <td width="63%"></td> 
+  </tr> 
+</table> 
+<p style="text-indent: 21.25pt">也可把例6.6的代码段部分就可写成如下程序段：</p> 
+<table border="0" width="100%" cellpadding="0" cellspacing="0"> 
+  <tr> 
+    <td width="8%" rowspan="10" valign="top"></td> 
+    <td width="92%" colspan="2">…</td> 
+  </tr> 
+  <tr> 
+    <td width="92%" colspan="2">MOV&nbsp;&nbsp; AX, X</td>                             
+  </tr> 
+  <tr> 
+    <td width="92%" colspan="2">.IF&nbsp;AX &lt; 0</td>                              
+  </tr> 
+  <tr> 
+    <td width="29%">　　ADD　AX, 10</td>                              
+    <td width="63%">;计算第一种情况的结果</td> 
+  </tr> 
+  <tr> 
+    <td width="92%" colspan="2">.ELSEIF　AX &lt;= 10</td>                              
+  </tr> 
+  <tr> 
+    <td width="29%">　　MOV　BX, 30D<br>                              
+      　　IMUL　BX</td>
+    <td width="63%" valign="top">;计算第二种情况的结果</td>
+  </tr>
+  <tr>
+    <td width="92%" colspan="2">.ELSE</td>
+  </tr>
+  <tr>
+    <td width="29%">　　SUB　AX, 9</td>                              
+    <td width="63%">;计算第三种情况的结果</td> 
+  </tr> 
+  <tr> 
+    <td width="92%" colspan="2">.ENDIF</td> 
+  </tr> 
+  <tr> 
+    <td width="29%">MOV　Y, AX<br>                              
+      …</td> 
+    <td width="63%" valign="top">;把计算结果保存到变量Y中</td> 
+  </tr> 
+</table> 
+<p>例6.9 根据当前计算机的时间和日期，显示上午(AM)或下午(PM)，以及所在的季节。</p>                             
+<p>解：<a href="example/example06-9.htm" target="_blank">显示解答</a></p>
+             
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><A href="asp/QuestionIndex.asp-chapter=2&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="06-2-2-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="06-2-3.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>      
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->   
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

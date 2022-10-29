@@ -1,0 +1,162 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>11.2.2 存取状态寄存器</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter11.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle11.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="11-2.htm">协处理器的结构</a> <font face="Arial">                                           
+      → </font>存取状态寄存器</td>             
+    <td width="50%">             
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<p style="text-indent: 21.25pt">对于协处理器中状态寄存器的内容，程序员可用指令FSTSW把其值送到内存单元中。如果当前使用的是80287及其以后的协处理器，那么，可用指令“FSTSW                                         
+      AX”把该状态寄存器的值传送给通用寄存器AX。一旦状态寄存器的值复制到内存或AX中，那么，就可对其各位进行分析，并可检测出当前协处理器的工作状态。</p>
+          
+<p style="text-indent: 21.25pt">对于80287协处理器，它还可通过I/O地址00FAH～00FFH来实现其与CPU之间的数据交换，而80387~Pentium系列芯片，则是通过I/O地址800000FAH～800000FFH来实现这两者之间的数据交换。</p>
+          
+<p style="text-indent: 21.25pt">当状态寄存器的内容传给AX之后，一般可用下面二种方法来检测协处理器的状态。</p>
+          
+<p style="text-indent: 21.25pt"><font color="#FF00FF">方法1：用TEST指令来检测其相应的状态位。</font></p>
+          
+<p>例11.3 检测是否有“0作除数”的错误。&nbsp;</p>                                  
+<table border="0" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="8%" rowspan="4" valign="top"></td>  
+    <td width="9%">FDIV&nbsp;&nbsp;&nbsp;</td>  
+    <td width="21%">DATA1&nbsp;</td>  
+    <td width="62%">;用协处理器中堆顶数据去除DATA1</td>  
+  </tr>  
+  <tr>  
+    <td width="9%">FSTSW&nbsp;</td>  
+    <td width="21%">AX&nbsp;&nbsp;&nbsp;</td>  
+    <td width="62%">;把状态寄存器的值传送给AX</td>  
+  </tr>  
+  <tr>  
+    <td width="9%">TEST&nbsp;</td>  
+    <td width="21%">AX, 4&nbsp;&nbsp;</td>                                    
+    <td width="62%">;测试第2位，即：检测ZE是否为1</td>   
+  </tr>   
+  <tr>   
+    <td width="9%">JNZ</td>   
+    <td width="83%" colspan="2">DIV_ERR</td>   
+  </tr>   
+</table>   
+<p>例11.4 检测是否有“非法操作数”的错误。&nbsp;</p>                                
+<table border="0" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="8%" rowspan="4" valign="top"></td>  
+    <td width="30%" colspan="2">FSQRT</td>  
+    <td width="62%">;求协处理器中堆顶数据的平方根</td>  
+  </tr>  
+  <tr>  
+    <td width="8%">FSTSW</td>  
+    <td width="84%" colspan="2">AX</td>  
+  </tr>  
+  <tr>  
+    <td width="8%">TEST</td>  
+    <td width="22%">AX, 1</td>        
+    <td width="62%">;测试第0位，即：检测IE是否为1</td>   
+  </tr>   
+  <tr>   
+    <td width="8%">JNZ</td>   
+    <td width="84%" colspan="2">SQRT_ERR</td>   
+  </tr>   
+</table>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">方法2：用SAHF指令把AX的低字节传送给CPU的标志位寄存器，然后再用条件转移指令来完成相应的检测。&nbsp;</font></p>  
+<p>例11.5                                     
+检测内存单元的数据与协处理器堆顶数据之间的大小关系。&nbsp;</p>  
+<table border="0" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="7%" rowspan="6" valign="top"></td>  
+    <td width="7%">FCOM</td>  
+    <td width="24%">DATA1</td>  
+    <td width="62%">;内存单元DATA1的值与协处理器堆顶数据进行比较</td>  
+  </tr>  
+  <tr>  
+    <td width="7%">FSTSW</td>  
+    <td width="86%" colspan="2">AX</td>  
+  </tr>  
+  <tr>  
+    <td width="31%" colspan="2">SAHF</td>  
+    <td width="62%">;把AX的低字节存入CPU的状态寄存器</td>  
+  </tr>  
+  <tr>  
+    <td width="7%">JE</td>  
+    <td width="24%">ST_EQUAL&nbsp;</td>  
+    <td width="62%">;具体大小关系的决定可见表11.2中的“FCOM”</td>  
+  </tr>  
+  <tr>  
+    <td width="7%">JB</td>  
+    <td width="86%" colspan="2">ST_BELOW</td>  
+  </tr>  
+  <tr>  
+    <td width="7%">JA</td>  
+    <td width="86%" colspan="2">ST_ABOVE</td>  
+  </tr>  
+</table>  
+             
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=11&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="11-2-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="11-2-3.htm"><img border="0" src="Button/NextPage1.gif" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">           
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>    
+        
+</body>        
+        
+</html>

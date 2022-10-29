@@ -1,0 +1,179 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>2.2.1 段寄存器的引用</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter02.js"></script>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+
+function REGS_onmouseover() {
+	REGS.src = "textbookIMG\\02-7-d.gif";
+}
+
+function REGS_onmouseout() {
+	REGS.src = "textbookIMG\\02-7.gif";
+}
+
+//-->
+</SCRIPT>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.GIF">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle02.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a> 
+      → <a href="02-2.htm"> 存储器的管理模式</a> → 段寄存器的引用</td>                                                         
+    <td width="50%">             
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<p><font color="#FF00FF">3、段寄存器的引用</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+  <tr>
+    <td width="65%" valign="top">
+      <p style="text-indent: 21.25pt">段寄存器是因为对内存的分段管理而设置的。16位<font color="#FF0000">CPU</font>有四个段寄存器，所以，其程序可同时访问四个不同含义的段。段寄存器及其偏移量的引用关系如图2.7所示。</p>
+      <p style="text-indent: 21.25pt">段寄存器<font color="#FF0000">CS</font>指向存放程序的内存段，<font color="#FF0000">IP</font>是用来存放下条待执行的指令在该段的偏移量，把它们合在一起可在该内存段内取到下次要执行的指令。</p>
+      <p style="text-indent: 21.25pt">段寄存器<font color="#FF0000">SS</font>指向用于堆栈的内存段，<font color="#FF0000">SP</font>是用来指向该堆栈的栈顶，把它们合在一起可访问栈顶单元。另外，当偏移量用到了指针寄存器<font color="#FF0000">BP</font>，则其缺省的段寄存器也是<font color="#FF0000">SS</font>，并且用<font color="#FF0000">BP</font>可访问整个堆栈，不仅仅是只访问栈顶。</p>
+      <p style="text-indent: 21.25pt">段寄存器<font color="#FF0000">DS</font>指向数据段，<font color="#FF0000">ES</font>指向附加段，在存取操作数时，二者之一和一个偏移量合并就可得到存储单元的物理地址。该偏移量可以是具体数值、符号地址和指针寄存器的值等之一，具体情况将由指令的寻址方式来决定。</td>
+    <td width="35%">
+      <p align="center"><img border="0" src="TextBookIMG/02-7.gif" width="188" id=REGS LANGUAGE=javascript onmouseover="return REGS_onmouseover()" onmouseout="return REGS_onmouseout()"></p>
+      <p align="center">图2.7 段和段寄存器的引用示意图</td>                                               
+  </tr>  
+</table>  
+<p style="text-indent: 21.25pt">通常，缺省的数据段寄存器是<font color="#FF0000">DS</font>，只有一个例外，即：在进行串操作时，其目的地址的段寄存器规定为<font color="#FF0000">ES</font>。当然，在一般指令中，我们还可以用强置前缀的方法来改变操作数的段寄存器(见：第3.3节中的<a href="03-3.htm#段前缀">强置前缀的书写格式</a>)。</p>  
+<p style="text-indent: 21.25pt">一般情况下，段寄存器及其指针寄存器的引用关系如下表所示。表2.2中的“可选用的段寄存器”即是可以用强置说明这些段寄存器的值来作为其操作数地址的段地址。</p>  
+<p align="center">表2.2 段寄存器及其指针寄存器的引用关系</p>                                               
+<div align="center"> 
+  <center> 
+  <table border="0" width="65%" cellpadding="0"> 
+    <tr> 
+      <td colspan="2" width="157" align="center" bgcolor="#FFFF00">访问存储器方式</td> 
+      <td width="122" align="center" bgcolor="#FFFF00">缺省的段寄存器</td> 
+      <td width="138" align="center" bgcolor="#FFFF00">可选用的段寄存器</td> 
+      <td width="111" align="center" bgcolor="#FFFF00">偏移量</td> 
+    </tr> 
+    <tr> 
+      <td colspan="2" width="157" align="center" bgcolor="#FFFF00">取指令</td> 
+      <td width="122" align="center" bgcolor="#00FFFF">CS</td> 
+      <td width="138" align="center" bgcolor="#00FFFF">&nbsp;</td> 
+      <td width="111" align="center" bgcolor="#00FFFF">IP</td> 
+    </tr> 
+    <tr> 
+      <td colspan="2" width="157" align="center" bgcolor="#FFFF00">堆栈操作</td> 
+      <td width="122" align="center">SS</td> 
+      <td width="138" align="center">&nbsp;</td> 
+      <td width="111" align="center">SP</td> 
+    </tr> 
+    <tr> 
+      <td colspan="2" width="157" align="center" bgcolor="#FFFF00">一般取操作数</td> 
+      <td width="122" align="center" bgcolor="#00FFFF">DS</td> 
+      <td width="138" align="center" bgcolor="#00FFFF">CS、ES、SS</td> 
+      <td width="111" align="center" bgcolor="#00FFFF">有效地址</td> 
+    </tr> 
+    <tr> 
+      <td width="70" rowspan="2" align="center" bgcolor="#FFFF00">串操作</td> 
+      <td width="85" bgcolor="#FFFF00"> 
+        <p style="text-indent: 3pt">源操作数</td> 
+      <td width="122" align="center">DS</td> 
+      <td width="138" align="center">CS、ES、SS</td> 
+      <td width="111" align="center">SI</td> 
+    </tr> 
+    <tr> 
+      <td width="85" bgcolor="#FFFF00"> 
+        <p style="text-indent: 3pt">目标操作数</td> 
+      <td width="122" align="center" bgcolor="#00FFFF">ES</td> 
+      <td width="138" align="center" bgcolor="#00FFFF">&nbsp;</td> 
+      <td width="111" align="center" bgcolor="#00FFFF">DI</td> 
+    </tr> 
+    <tr> 
+      <td colspan="2" width="157"> 
+        <p align="center">使用指针寄存器BP</td> 
+      <td width="122" align="center">SS</td> 
+      <td width="138" align="center">CS、DS、ES</td> 
+      <td width="111" align="center">有效地址</td> 
+    </tr> 
+  </table> 
+  </center> 
+</div> 
+<table border="0" width="100%" cellspacing="0" cellpadding="2"> 
+  <tr> 
+    <td width="100%" valign="bottom"> 
+      <p style="text-indent: 21.25pt">由上表可以看出16位<font color="#FF0000">CPU</font>在段寄存器的引用方面有如下规定：</td> 
+  </tr> 
+  <tr> 
+    <td width="100%"> 
+      <p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、取指令所用的段寄存器和偏移量一定是用<font color="#FF0000">CS</font>和<font color="#FF0000">IP</font>；</td> 
+  </tr> 
+  <tr> 
+    <td width="100%"> 
+      <p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、堆栈操作所用的段寄存器和偏移量一定是<font color="#FF0000">SS</font>和<font color="#FF0000">SP</font>；</td> 
+  </tr> 
+  <tr> 
+    <td width="100%"> 
+      <p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、串操作的目标操作数所用的段寄存器和偏移量一定是<font color="#FF0000">ES</font>和<font color="#FF0000">DI</font>；</td> 
+  </tr> 
+  <tr> 
+    <td width="100%"> 
+      <p style="text-indent: 21.25pt"><img border="0" src="TextBookIMG/redpoint.gif" width="20">、其它情况，段寄存器除了其默认引用的寄存器外，还可以强行改变为其它段寄存器。</td> 
+  </tr> 
+</table> 
+<p style="text-indent: 21.25pt">对于上述规定，随着后续内容的叙述，将会对它们有更进一步理解。</p> 
+       
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><A href="asp/QuestionIndex.asp-chapter=2&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="02-2-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="02-2-3.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>      
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

@@ -1,0 +1,357 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>10.3 数据转换程序举例</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter10.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle10.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="file:///d:/assember/homepage/10-3.htm">数据转换</a>                    
+      → 数据转换程序举例</td>                                                       
+    <td width="50%">                            
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt"><a href="10-3.htm#例10.7">例10.7</a>是用“用16位除10”的方法从低向高依次得到每位的数值，但若待输出的数据是32位，用10除之后，其商很可能会超过16位，所以，不能简单地引用例10.7的方法来输出32位二进制。          
+</p>          
+<p style="text-indent: 21.25pt">假设：32位二进制数Z为A×2<sup>16</sup>＋B，其中：A和B都是16位二进制数。&nbsp;用10去除A，得：A＝A<sub>1</sub>×10＋A<sub>2</sub>，于是，&nbsp;          
+</p>          
+<p style="margin-left: 35pt">&nbsp; <img border="0" src="TextBookIMG/10-9.gif" width="439">　　　　　　　(1)&nbsp;           
+</p>          
+<p style="text-indent: 21.25pt">假设A<sub>2</sub>×2<sup>16</sup>＋B被10除后所得的商和余数分别为B<sub>1</sub>和C<sub>1</sub>(B<sub>1</sub>≥0，C<sub>1</sub>≥0)。&nbsp;          
+</p>          
+<p style="text-indent: 21.25pt">利用式(1)和“A<sub>2</sub>&lt;10”，我们不难看出：Z的个位就是C<sub>1</sub>和B<sub>1</sub>&lt;2<sup>16</sup>。&nbsp;          
+</p>          
+<p style="text-indent: 21.25pt">令Z<sub>1</sub>＝A<sub>1</sub>×2<sup>16</sup>＋B<sub>1</sub>，显然，Z<sub>1</sub>就是Z/10所得到的商。&nbsp;          
+</p>          
+<p style="text-indent: 21.25pt">对于Z<sub>1</sub>，再利用式(1)得到商Z<sub>2</sub>和C<sub>2</sub>。……，重复上面的步骤，直到所得商为0为止。          
+</p>          
+<p style="text-indent: 21.25pt">下面的例10.9就是利用上面方法来输出32位二进制数值。<p style="text-indent: -36pt; margin-left: 36pt">例10.9                                   
+编写一个子程序，该子程序能把32位二进制变量的数值以十进制形式输出出来。若该数值为负数，则需要输出负号&quot;-&quot;，否则，不输出符号。    
+</p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="5">解：</td>
+  </tr>
+  <tr>
+    <td width="7%" rowspan="58" valign="top"></td>
+    <td width="93%" colspan="4">.MODEL&nbsp;SMALL, C</td>                             
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">.DATA</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">
+      <p style="margin-left: 13pt">CR = 13</td> 
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">
+      <p style="margin-left: 13pt">LF = 10</td> 
+  </tr>
+  <tr>
+    <td width="8%">
+      <p style="margin-left: 13pt">Data1</td>
+    <td width="85%" colspan="3"> DD&nbsp;&nbsp;&nbsp;                                    
+      908976789</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">.CODE</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">;子程序Display是按十进制输出32位二进制数值SOURCE</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="12" valign="top">Display</td>
+    <td width="85%" colspan="3">PROC USES AX BX CX DX SI DI        
+      SOURCE:DWORD</td>
+  </tr>
+  <tr>
+    <td width="7%">LOCAL</td>
+    <td width="27%">FLAG:BYTE</td>
+    <td width="51%">;定义一个字节类型的局部变量FLAG</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="78%" colspan="2">BX, WORD PTR [SOURCE]</td> 
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="78%" colspan="2">CX, WORD PTR [SOURCE+2]</td> 
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="27%">FLAG,       
+      0</td>
+    <td width="51%">;FLAG=0——正数</td>
+  </tr>
+  <tr>
+    <td width="7%">CMP</td>
+    <td width="78%" colspan="2">CX,      
+      0</td>
+  </tr>
+  <tr>
+    <td width="7%">JGE</td>
+    <td width="78%" colspan="2">next</td>
+  </tr>
+  <tr>
+    <td width="7%">INC</td>
+    <td width="27%">FLAG</td>
+    <td width="51%">;FLAG=1——负数</td>
+  </tr>
+  <tr>
+    <td width="7%">NOT</td>
+    <td width="78%" colspan="2">BX</td>
+  </tr>
+  <tr>
+    <td width="7%">NOT</td>
+    <td width="78%" colspan="2">CX</td>
+  </tr>
+  <tr>
+    <td width="7%">ADD</td>
+    <td width="27%">BX, 1</td> 
+    <td width="51%">;能否用指令<font color="#FF0000">INC BX</font>?</td>                            
+  </tr>
+  <tr>
+    <td width="7%">ADC</td>
+    <td width="27%">CX, 0</td> 
+    <td width="51%">;上四条指令把32位数CX-BX变为正数</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="4">next:</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="32" valign="top"></td>
+    <td width="7%">XOR</td>
+    <td width="27%">DI, DI</td> 
+    <td width="51%">;压入堆栈字符的个数</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="27%">SI,10</td>
+    <td width="51%">;用10来除</td>
+  </tr>
+  <tr>
+    <td width="34%" colspan="2">.REPEAT</td>
+    <td width="51%">;本循环把32位二进制数转换成十进制</td>
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">XOR</td>
+    <td width="27%">DX, DX</td> 
+    <td width="51%">;数的字符串存入堆栈之中</td>
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">MOV</td>
+    <td width="78%" colspan="2">AX, CX</td> 
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">DIV</td>
+    <td width="78%" colspan="2">SI</td>
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">MOV</td>
+    <td width="78%" colspan="2">CX, AX</td> 
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">MOV</td>
+    <td width="78%" colspan="2">AX, BX</td> 
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">DIV</td>
+    <td width="78%" colspan="2">SI</td>
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">ADD</td>
+    <td width="78%" colspan="2">DL, '0'</td> 
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">PUSH</td>
+    <td width="78%" colspan="2">DX</td>
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">INC</td>
+    <td width="78%" colspan="2">DI</td>
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">MOV</td>
+    <td width="78%" colspan="2">BX, AX</td> 
+  </tr>
+  <tr>
+    <td width="7%">.UNTIL</td>
+    <td width="78%" colspan="2">BX==0 &amp;&amp; CX==0</td> 
+  </tr>
+  <tr>
+    <td width="34%" colspan="2">.IF　FLAG==1</td>
+    <td width="51%">;判断前面转换的数是否为负数</td>
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">MOV</td>
+    <td width="27%">AL, '-'</td> 
+    <td width="51%">;若是，把符号'-'压入堆栈</td>
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">PUSH</td>
+    <td width="78%" colspan="2">AX</td>
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">INC</td>
+    <td width="78%" colspan="2">DI</td>
+  </tr>
+  <tr>
+    <td width="7%">.ENDIF</td>
+    <td width="78%" colspan="2"></td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="78%" colspan="2">CX, DI</td> 
+  </tr>
+  <tr>
+    <td width="34%" colspan="2">.REPEAT</td>
+    <td width="51%">;本循环把堆栈中的字符串显示出来</td>
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">POP</td>
+    <td width="78%" colspan="2">DX</td>
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">MOV</td>
+    <td width="78%" colspan="2">AH, 2</td> 
+  </tr>
+  <tr>
+    <td width="7%">
+      <p style="margin-left: 13pt">INT</td>
+    <td width="78%" colspan="2">21H</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">.UNTILCXZ</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="27%">DL, CR</td> 
+    <td width="51%">;下面六条指令显示回车、换行</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="78%" colspan="2">AH, 2</td> 
+  </tr>
+  <tr>
+    <td width="7%">INT</td>
+    <td width="78%" colspan="2">21H</td>
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="78%" colspan="2">DL, LF</td> 
+  </tr>
+  <tr>
+    <td width="7%">MOV</td>
+    <td width="78%" colspan="2">AH, 2</td> 
+  </tr>
+  <tr>
+    <td width="7%">INT</td>
+    <td width="78%" colspan="2">21H</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">RET</td>
+  </tr>
+  <tr>
+    <td width="8%" rowspan="6" valign="top">Display</td>
+    <td width="85%" colspan="3">ENDP</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">.STARTUP</td>
+  </tr>
+  <tr>
+    <td width="7%">INVOKE</td>
+    <td width="78%" colspan="2"> Display,        
+      Data1</td>
+  </tr>
+  <tr>
+    <td width="7%">INVOKE</td>
+    <td width="78%" colspan="2"> Display,        
+      -123456789</td>
+  </tr>
+  <tr>
+    <td width="7%">.EXIT</td>
+    <td width="78%" colspan="2"> 0</td>
+  </tr>
+  <tr>
+    <td width="85%" colspan="3">END</td>
+  </tr>
+</table>
+            
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=10&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="10-3-2.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="10-3-4.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>            
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->       
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">            
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>       
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>       
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>       
+    <option value="04-1.htm">第4章 标识符和表达式</option>       
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>       
+    <option value="06-1.htm">第6章 程序的基本结构</option>       
+    <option value="07-1.htm">第7章 子程序和库</option>       
+    <option value="08-1.htm">第8章 输入输出和中断</option>       
+    <option value="09-1.htm">第9章 宏</option>       
+    <option value="10-1.htm">第10章 应用程序的设计</option>       
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>         

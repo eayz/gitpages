@@ -1,0 +1,105 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>8.3.2 屏幕中断功能</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter08.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle08.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="08-3.htm"> 中断功能的分类</a> → 屏幕显示的中断功能</td>                                    
+    <td width="50%">            
+      <p align="right">   
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+     
+<h3>8.3.2 屏幕显示的中断功能</h3>                         
+<p style="text-indent: 21.25pt">   
+显示器是一个重要的输出设备，它通过显示卡与计算机系统相连。显示器的显示屏通常称之为屏幕，现在常用的显示器有14"和17"，常用的显示分辨率为800×600或1024×768等。常用的显示卡类型为VGA、SVGA、EVGA和TVGA等，显示卡上也都带有大量的显示存储器，能快速显示精美的图象。</p>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、显示模式</font></p>   
+<p style="text-indent: 21.25pt">   
+计算机系统中的显示器都有二种显示方式：文本显示方式和图形显示方式。在DOS操作系统环境下，其默认的显示方式为文本显示方式，而在Windows操作系统环境下，其显示方式是图形显示方式，其绝大多数操作界面是以图形界面的窗口形式出现的。</p>   
+<p style="text-indent: 21.25pt">可用的显示模式，请参阅附录3中的中断10H之功能00H中所列。</p>   
+<p style="text-indent: 21.25pt"><font color="#FF00FF"><a name="文本显示方式">1)、文本显示方式</a></font></p>   
+<p style="text-indent: 21.25pt">文本显示方式是指以字符为最小单位的显示方式，每个字符都是以矩形块形式显示的。在BIOS                           
+ROM中存有多种不同大小的字符集，主要的显示字符集大小为：8×8(标准)、8×14和8×16等。</p>   
+<p style="text-indent: 21.25pt">   
+在常用的文本显示模式(模式3)下，屏幕被划分成25行，每行可显示80个字符，所以，每屏最多可显示2000(80×25)个字符。为了便于标识屏幕上的每个显示位置，我们就用其所在行和列来表示之，并规定：屏幕的左上角坐标为(0,                           
+0)，右下角坐标为(24, 79)。</p>                          
+<table border="0" width="100%" cellpadding="0">   
+  <tr>   
+    <td width="48%"><p style="text-indent: 21.25pt">   
+在显示字符时，用一个字节存储该字符的ASCII码，用另一个字节存储的显示属性，即：显示颜色。彩色显示器的字符显示属性定义如图8.6所示，有关颜色值的定义，请参阅<a href="Appendix/App6-1.htm" target="_blank">附录6中的表4</a>。</p>  
+      <p align="center"><img border="0" src="TextBookIMG/08-6.gif" width="193"></p>  
+      <p align="center">图8.6 字符显示属性的定义</p>                       
+<p style="text-indent: 21.25pt">   
+存储内容与显示位置的对应关系如图8.7所示。</p>   
+    </td>   
+    <td width="52%">   
+      <p align="center"><img border="0" src="TextBookIMG/08-7.gif" width="348"></p>   
+      <p align="center">   
+图8.7 存储内容与显示位置的对应关系示意图</td>                        
+  </tr>   
+</table>   
+<p style="text-indent: 21.25pt">   
+由上面的叙述可知：在80×25的文本显示模式下，满屏可显示2000个字符，也就需要4000个字节来存储一屏的显示信息。</p>   
+           
+<p style="text-indent: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=8&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="08-3-1-7.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="08-3-2-1.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>   
+       
+</body>       
+       
+</html>

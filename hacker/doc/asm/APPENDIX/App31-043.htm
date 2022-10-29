@@ -1,0 +1,522 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录3.1 文件操作功能的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<p><font color="#FF00FF">(1)、功能3CH</font></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%" valign="top">功能描述：</td>
+    <td width="81%">用指定的文件名创建一个新文件。如果指定的文件已存在，则设置其长度为0。创建后，该文件是打开的，并返回其句柄</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝3CH<br>
+      DS:DX＝指定文件名字符串的地址(以0为字符串的结束标志)<br>
+      CX＝文件属性(这些标志位可以组合)
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="34%">
+            <p align="center">位0=1——只读<br>
+            位2=1——系统<br>
+            位5=1——归档</td>
+          <td width="66%">位1=1——隐含<br>
+            位3=1——卷标号<br>
+            其它位保留不用，并置为0</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——创建成功，AX＝文件句柄，否则，AX＝错误号(03H、04H或05H)，其含义见错误代码表</td>
+  </tr>
+</table>
+
+<p><a name="3DH"><font color="#FF00FF">(2)、功能3DH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">打开指定的驱动器、路径和文件名，并返回其文件句柄</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝3DH<br>
+      DS:DX＝表明文件的字符串(以0为字符串的结束标志)<br>
+      AL为打开方式：
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="13%" align="right">位0~2</td>
+          <td width="87%">000—只读方式　　001—写方式　　010—读/写方式</td>
+        </tr>
+        <tr>
+          <td width="13%" align="right">位3</td>
+          <td width="87%">保留，其值为0</td>
+        </tr>
+        <tr>
+          <td width="13%" align="right" valign="top">位4~6</td>
+          <td width="87%">共享模式
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="34%">000—兼容模式</td>
+                <td width="33%">001—不共享</td>
+                <td width="33%">010—拒绝写</td>
+              </tr>
+              <tr>
+                <td width="34%">011—拒绝读</td>
+                <td width="66%" colspan="2">100—不拒绝任何操作</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td width="13%" align="right">位7</td>
+          <td width="87%">继承标志——0/1：子进程继承或不继承句柄</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——打开成功，AX＝文件句柄，否则，AX＝错误号(02H、03H、04H、05H或0CH)，其含义见错误代码表</td>
+  </tr>
+</table>
+<p><a name="3EH"><font color="#FF00FF">(3)、功能3EH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">关闭指定句柄的文件</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝3EH<br>
+      BX＝文件句柄</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——关闭成功，否则，AX＝错误号(06H)，其含义见错误代码表</td>
+  </tr>
+</table>
+<p><a name="41H"><font color="#FF00FF">(4)、功能41H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">删除指定的文件</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝41H<br>
+      DS:DX＝文件名字符串的地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——删除成功，否则，AX＝错误号(02H、03H或05H)，其含义见错误代码表</td>
+  </tr>
+</table>
+<p><a name="43H"><font color="#FF00FF">(5)、功能43H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">读取或设置指定文件的属性</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝43H<br>
+      BX＝文件句柄<br>
+      DS:DX＝文件名字符串的地址<br>
+      AL＝00H/01H——读取/设置文件属性<br>
+      CX＝文件属性：
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="31%" align="center">位0=1——只读</td>
+          <td width="69%">位1=1——隐含</td>
+        </tr>
+        <tr>
+          <td width="31%" align="center">位2=1——系统</td>
+          <td width="69%">位3=1——卷标号</td>
+        </tr>
+        <tr>
+          <td width="31%" align="center">位5=1——归档</td>
+          <td width="69%">其它位保留不用，并置为0</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——关闭成功，CX＝文件属性，否则，AX＝错误号(01H、02H、03H或05H)，其含义见错误代码表</td>
+  </tr>
+</table>
+
+<p><a name="45H"><font color="#FF00FF">(6)、功能45H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%" valign="top">功能描述：</td>
+    <td width="81%">复制当前打开设备或文件的句柄，该句柄对应同样设备或文件的相同位置</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝45H<br>
+      BX＝待复制的文件句柄</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——复制成功，AX＝新句柄，否则，AX＝错误号(04H或06H)，其含义见错误代码表</td>
+  </tr>
+</table>
+
+<p><a name="46H"><font color="#FF00FF">(7)、功能46H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%" valign="top">功能描述：</td>
+    <td width="81%">指定二个句柄，把第二句柄指向第一个句柄，即第二个句柄被重定向</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝46H<br>
+      BX＝文件或设备的句柄<br>
+      CX＝待重定向的文件句柄</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——重定向成功，否则，AX＝错误号(04H或06H)，其含义见错误代码表</td>
+  </tr>
+</table>
+<p><a name="4EH"><font color="#FF00FF">(8)、功能4EH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">获取第一个与给定的文件名相匹配的文件</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝4EH<br>
+      DS:DX＝给定文件名的字符串<br>
+      CX＝搜索时使用的文件属性：
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="5%" rowspan="4" valign="top"></td>
+          <td width="95%">位0=1——只读　　位1=1——隐含</td>
+        </tr>
+        <tr>
+          <td width="95%">位2=1——系统　　位3=1——卷标号</td>
+        </tr>
+        <tr>
+          <td width="95%">位4=1——目录　　位5=1——归档</td>
+        </tr>
+        <tr>
+          <td width="95%">其它位保留不用，并置为0</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝1——操作失败，AX＝错误号(02H、03H或12H)，其含义见错误代码表，否则，操作成功，DTA(Disk    
+      Transfer Area)按下列方式填入数据：   
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="26%" align="center">字节00~14H</td>
+          <td width="74%">保留</td>
+        </tr>
+        <tr>
+          <td width="26%" align="center">字节15H</td>
+          <td width="74%">匹配的文件属性</td>
+        </tr>
+        <tr>
+          <td width="26%" align="center">字节16~17H</td>
+          <td width="74%">压缩的文件名</td>
+        </tr>
+        <tr>
+          <td width="26%" align="center">字节18~19H</td>
+          <td width="74%">压缩的文件日期</td>
+        </tr>
+        <tr>
+          <td width="26%" align="center">字节1A~1DH</td>
+          <td width="74%">文件大小</td>
+        </tr>
+        <tr>
+          <td width="26%" align="center">字节1E~2AH</td>
+          <td width="74%">文件名字符串</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p><a name="4FH"><font color="#FF00FF">(9)、功能4FH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">在中断21H的功能4EH成功使用之后，再搜索下一个文件名</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝4FH<br>
+      AL＝返回的代码</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝1——操作失败，AX＝错误号(12H)，其含义见错误代码表，否则，操作成功，DTA中的数据如前面功能4EH所示</td>
+  </tr>
+</table>
+<p><a name="56H"><font color="#FF00FF">(10)、功能56H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">文件换名</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝56H<br>
+      DS:DX＝当前文件名字符串地址<br>
+      ES:DI＝新文件名字符串地址</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——操作成功，否则，AX＝错误号(02H、03H、05H、11H)，其含义见错误代码表</td>
+  </tr>
+</table>
+
+<p><a name="57H"><font color="#FF00FF">(11)、功能57H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">读取/设置文件的日期和时间</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝57H<br>
+      BX＝文件句柄
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="25%">读取日期和时间</td>
+          <td width="75%">AL＝00H</td>
+        </tr>
+        <tr>
+          <td width="25%" valign="top">设置日期和时间</td>
+          <td width="75%">AL＝01H<br>
+            CX＝时间(0F~0BH：小时，0AH~05H：分钟，04H~00H：2秒的个数)<br>
+            DX＝日期(0F~09H：年(相对1980年)，08H~05H：月，04H~00H：日)</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝1——操作失败，AX＝错误号(01H、06H)，其含义见错误代码表，否则，若是读文件信息，则，CX＝时间，DX＝日期</td>
+  </tr>
+</table>
+
+<p><a name="5AH"><font color="#FF00FF">(12)、功能5AH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">创建临时文件</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝5AH<br>
+      DS:DX＝路径名的地址<br>
+      CX＝文件属性(位可组合)，其定义如下：
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="31%" align="center">位0＝1　只读</td>
+          <td width="69%">位3-4＝0　　保留</td>
+        </tr>
+        <tr>
+          <td width="31%" align="center">位1＝1　隐含</td>
+          <td width="69%">位5＝1　 　归档</td>
+        </tr>
+        <tr>
+          <td width="31%" align="center">位2＝1　系统</td>
+          <td width="69%">位6-15＝0　保留</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——操作成功，AX＝文件句柄，DS:DX＝完整的路径文件地址，否则，AX＝错误号(03H、04H或05H)，其含义见错误代码表</td>
+  </tr>
+</table>
+<p><a name="5BH"><font color="#FF00FF">(13)、功能5BH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">创建新文件</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝5BH<br>
+      DS:DX＝路径名的地址<br>
+      CX＝文件属性(位可组合)，其定义如下：
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="6%" align="center" rowspan="4" valign="top"></td>
+          <td width="13%" align="center">位0＝1</td>
+          <td width="18%">只读</td>
+          <td width="18%" align="center">位4＝0</td>
+          <td width="45%">保留</td>
+        </tr>
+        <tr>
+          <td width="13%" align="center">位1＝1</td>
+          <td width="18%">隐含</td>
+          <td width="18%" align="center">位5＝1</td>
+          <td width="45%">归档</td>
+        </tr>
+        <tr>
+          <td width="13%" align="center">位2＝1</td>
+          <td width="18%">系统</td>
+          <td width="18%" align="center">位6-15＝0</td>
+          <td width="45%">保留</td>
+        </tr>
+        <tr>
+          <td width="13%" align="center">位3＝1</td>
+          <td width="81%" colspan="3">卷标号</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——操作成功，AX＝文件句柄，否则，AX＝错误号(03H、04H、05H或50H)，其含义见错误代码表</td>
+  </tr>
+</table>
+<p><a name="67H"><font color="#FF00FF">(14)、功能67H</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">设置文件句柄数(最多文件数)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝67H<br>
+      BX＝句柄的数量</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝0——操作成功，否则，AX＝错误号，其含义见错误代码表</td>
+  </tr>
+</table>
+<p><a name="6CH"><font color="#FF00FF">(15)、功能6CH</font></a></p>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" valign="top" rowspan="3"></td>
+    <td width="14%">功能描述：</td>
+    <td width="81%">扩展的打开文件功能(打开、创建或替换文件)</td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">入口参数：</td>
+    <td width="81%" valign="top">AH＝6CH<br>
+      AL＝00H<br>
+      DS:SI＝路径名的地址<br>
+      BX＝打开方式
+      <table border="0" width="100%" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="17%" align="center">位2~0</td>
+          <td width="83%">000—只读　　001—只写　　010—可读、写</td>
+        </tr>
+        <tr>
+          <td width="17%" align="center">位3</td>
+          <td width="83%">保留(0)</td>
+        </tr>
+        <tr>
+          <td width="17%" align="center" valign="top">位6~4</td>
+          <td width="83%">000—兼容　　　001—拒绝读写　　010——拒绝写<br>
+            011—拒绝读　　100——不拒绝任何操作</td>
+        </tr>
+        <tr>
+          <td width="17%" align="center">位7</td>
+          <td width="83%">0—子进程继承句柄，1—子进程不继承句柄</td>
+        </tr>
+        <tr>
+          <td width="17%" align="center">位12~8</td>
+          <td width="83%">保留(0)</td>
+        </tr>
+        <tr>
+          <td width="17%" align="center" valign="top">位13</td>
+          <td width="83%">致命错误处理程序，0—执行INT 24H，否则，返回错误代码给进程</td>  
+        </tr>
+        <tr>
+          <td width="17%" align="center">位14</td>
+          <td width="83%">写入方式：0—写入缓冲区，1—直接写入文件</td>
+        </tr>
+        <tr>
+          <td width="17%" align="center">位15</td>
+          <td width="83%">保留(0)</td>
+        </tr>
+        <tr>
+          <td width="100%" colspan="2">CX＝文件属性</td>
+        </tr>
+        <tr>
+          <td width="100%" colspan="2">
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="7%" rowspan="4" valign="top"></td>
+                <td width="30%">位0＝1　只读</td>
+                <td width="63%">位4＝0　　　保留</td>
+              </tr>
+              <tr>
+                <td width="30%">位1＝1　隐含</td>
+                <td width="63%">位5＝1　　　归档</td>
+              </tr>
+              <tr>
+                <td width="30%">位2＝1　系统</td>
+                <td width="63%">位6-15＝0　 保留</td>  
+              </tr>
+              <tr>
+                <td width="93%" colspan="2">位3＝1　卷标签</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td width="100%" colspan="2">DX＝打开标志
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="7%" valign="top"></td>
+                <td width="93%">位3~0　　0—打开失败，1—打开文件，2—替换文件<br>
+                  位7~4　　0—打开失败，1—创建文件<br>
+                  位15~8　 0—保留</td>  
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="14%" valign="top">出口参数：</td>
+    <td width="81%">CF＝1——操作失败，AX＝错误号，其含义见错误代码表，否则，<br>
+      AX＝文件句柄<br>
+      CX＝1——文件存在，打开之<br>
+      　＝2——文件不存在，创建之</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

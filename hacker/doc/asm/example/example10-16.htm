@@ -1,0 +1,273 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例10.16</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p>例10.16          
+编写一个驻留程序，它可显示当前时间的秒数。</p>   
+ 
+<table border="0" width="100%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="690" valign="top" colspan="5">解：</td>   
+  </tr>  
+  <tr> 
+    <td width="56" valign="top"></td>   
+    <td width="634" colspan="4">CSEG　SEGMENT　'CODE'</td> 
+  </tr>
+  <tr> 
+    <td width="56" rowspan="58" valign="top"></td>  
+    <td width="52"></td> 
+    <td width="46">ORG</td> 
+    <td width="516" colspan="2">100H</td> 
+  </tr> 
+  <tr> 
+    <td width="614" colspan="4">start:</td> 
+  </tr> 
+  <tr> 
+    <td width="52" rowspan="3" valign="top"></td> 
+    <td width="46">JMP</td> 
+    <td width="516" colspan="2">init</td> 
+  </tr> 
+  <tr> 
+    <td width="46">INT1C</td> 
+    <td width="516" colspan="2">DD　?</td> 
+  </tr> 
+  <tr> 
+    <td width="46">SEC</td> 
+    <td width="516" colspan="2">DW　?</td> 
+  </tr> 
+  <tr> 
+    <td width="614" colspan="4">TSR:</td> 
+  </tr> 
+  <tr> 
+    <td width="52" rowspan="34" valign="top"></td> 
+    <td width="46">PUSH</td> 
+    <td width="516" colspan="2">AX</td> 
+  </tr> 
+  <tr> 
+    <td width="46">PUSH</td> 
+    <td width="516" colspan="2">BX</td> 
+  </tr> 
+  <tr> 
+    <td width="46">PUSH </td> 
+    <td width="516" colspan="2">CX</td> 
+  </tr> 
+  <tr> 
+    <td width="46">PUSH </td> 
+    <td width="516" colspan="2">DX</td> 
+  </tr> 
+  <tr> 
+    <td width="46">PUSH </td> 
+    <td width="516" colspan="2">BP</td> 
+  </tr> 
+  <tr> 
+    <td width="46">PUSH </td> 
+    <td width="516" colspan="2">DS</td> 
+  </tr> 
+  <tr> 
+    <td width="46">PUSH </td> 
+    <td width="150">ES</td> 
+    <td width="366">;保存所用到的寄存器</td> 
+  </tr> 
+  <tr> 
+    <td width="46">MOV</td> 
+    <td width="516" colspan="2">AX, CS</td>  
+  </tr>  
+  <tr>  
+    <td width="46">MOV</td> 
+    <td width="516" colspan="2">DS, AX</td>  
+  </tr>  
+  <tr>  
+    <td width="46">MOV </td> 
+    <td width="150">ES, AX</td>  
+    <td width="366">;把CS的值赋给DS和ES</td> 
+  </tr> 
+  <tr> 
+    <td width="46">MOV </td> 
+    <td width="516" colspan="2">AH, 2H</td>  
+  </tr>  
+  <tr>  
+    <td width="46">INT</td> 
+    <td width="150">1AH</td> 
+    <td width="366">;读取当前时间</td> 
+  </tr> 
+  <tr> 
+    <td width="46">MOV </td> 
+    <td width="516" colspan="2">DL, DH</td>  
+  </tr>  
+  <tr>  
+    <td width="46">AND </td> 
+    <td width="516" colspan="2">DH, 0FH</td>  
+  </tr>  
+  <tr>  
+    <td width="46">MOV</td> 
+    <td width="516" colspan="2">CL, 4</td>  
+  </tr>  
+  <tr>  
+    <td width="46">SHR </td> 
+    <td width="516" colspan="2">DL, CL</td>  
+  </tr>  
+  <tr>  
+    <td width="46">ADD </td> 
+    <td width="516" colspan="2">DX, 3030H</td>  
+  </tr>  
+  <tr>  
+    <td width="46">MOV </td> 
+    <td width="150">SEC, DX</td>  
+    <td width="366">;把当前秒数转化成字符串</td> 
+  </tr> 
+  <tr> 
+    <td width="46">MOV</td> 
+    <td width="516" colspan="2">&nbsp;AH, 13H</td>    
+  </tr>    
+  <tr>    
+    <td width="46">MOV </td>   
+    <td width="516" colspan="2">AL, 0</td>    
+  </tr>    
+  <tr>    
+    <td width="46">MOV</td>   
+    <td width="516" colspan="2">BH, 0</td>    
+  </tr>    
+  <tr>    
+    <td width="46">MOV </td>   
+    <td width="516" colspan="2">BL, 7</td>    
+  </tr>    
+  <tr>    
+    <td width="46">MOV</td>   
+    <td width="516" colspan="2">CX, 2</td>    
+  </tr>    
+  <tr>    
+    <td width="46">MOV</td>   
+    <td width="150">DX, 004EH&nbsp;</td>     
+    <td width="366">;指定显示位置为(0,78)</td>  
+  </tr>  
+  <tr>  
+    <td width="46">LEA </td>  
+    <td width="516" colspan="2">BP, SEC</td>   
+  </tr>   
+  <tr>   
+    <td width="46">INT </td>  
+    <td width="150">10H</td>  
+    <td width="366">;在指定位置显示秒数</td>  
+  </tr>  
+  <tr>  
+    <td width="46">POP</td>  
+    <td width="150">ES</td>  
+    <td width="366">;恢复所用寄存器的值</td>  
+  </tr>  
+  <tr>  
+    <td width="46">POP </td>  
+    <td width="516" colspan="2">DS</td>  
+  </tr>  
+  <tr>  
+    <td width="46">POP </td>  
+    <td width="516" colspan="2">BP</td>  
+  </tr>  
+  <tr>  
+    <td width="46">POP</td>  
+    <td width="516" colspan="2">DX</td>  
+  </tr>  
+  <tr>  
+    <td width="46">POP</td>  
+    <td width="516" colspan="2">CX</td>  
+  </tr>  
+  <tr>  
+    <td width="46">POP</td>  
+    <td width="516" colspan="2">BX</td>  
+  </tr>  
+  <tr>  
+    <td width="46">POP</td>  
+    <td width="516" colspan="2">AX</td>  
+  </tr>  
+  <tr>  
+    <td width="46">JMP</td>  
+    <td width="150">CS:INT1C</td>  
+    <td width="366">;转向中断1CH原服务程序</td>  
+  </tr>  
+  <tr>  
+    <td width="614" colspan="4">init:</td>  
+  </tr>  
+  <tr>  
+    <td width="52" rowspan="15" valign="top"></td>  
+    <td width="562" colspan="3">CLI</td>  
+  </tr>  
+  <tr>  
+    <td width="46">MOV</td>  
+    <td width="516" colspan="2">AX, 351CH</td>   
+  </tr>   
+  <tr>   
+    <td width="46">INT </td>  
+    <td width="516" colspan="2">21H</td>  
+  </tr>  
+  <tr>  
+    <td width="46">MOV </td>  
+    <td width="516" colspan="2">word ptr INT1C, BX</td>   
+  </tr>   
+  <tr>   
+    <td width="46">MOV</td>  
+    <td width="516" colspan="2">word ptr     
+      INT1C+2, ES</td>   
+  </tr>   
+  <tr>   
+    <td width="46">MOV </td>  
+    <td width="516" colspan="2">AX, 251CH</td>   
+  </tr>   
+  <tr>   
+    <td width="46">LEA</td>  
+    <td width="516" colspan="2">DX, TSR</td>   
+  </tr>   
+  <tr>   
+    <td width="46">INT </td>  
+    <td width="516" colspan="2">21H</td>  
+  </tr>  
+  <tr>  
+    <td width="562" colspan="3">STI</td>  
+  </tr>  
+  <tr>  
+    <td width="46">LEA </td>  
+    <td width="516" colspan="2">DX, init</td>   
+  </tr>    
+  <tr>    
+    <td width="46">ADD</td>   
+    <td width="516" colspan="2">DX, 15</td>    
+  </tr>    
+  <tr>    
+    <td width="46">MOV</td>   
+    <td width="150">CL, 4</td>    
+    <td width="366">;把init的偏移量转换成“节数”</td>  
+  </tr>  
+  <tr>  
+    <td width="46">SHR</td>  
+    <td width="150">DX, CL</td>   
+    <td width="366">;每节内有16个字节</td>  
+  </tr>  
+  <tr>  
+    <td width="46">MOV</td>  
+    <td width="516" colspan="2">AX, 3100H</td>   
+  </tr>   
+  <tr>   
+    <td width="46">INT </td>  
+    <td width="516" colspan="2">21H</td>  
+  </tr>  
+  <tr>  
+    <td width="52" rowspan="2" valign="top">CSEG </td>  
+    <td width="562" colspan="3">ENDS</td>  
+  </tr>  
+  <tr>  
+    <td width="46">END</td>  
+    <td width="516" colspan="2">&nbsp;start</td>  
+  </tr>  
+</table>  
+  
+<p align="center"><a href="javascript:close();">关　闭</a></p>
+  
+</body>
+
+</html>

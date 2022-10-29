@@ -1,0 +1,160 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>3.7 相对基址加变址寻址方式</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter03.js"></script>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+
+function Address7_onmouseover() {
+	Address7.src="TextbookIMG\\03-7-d.gif" 
+}
+
+function Address7_onmouseout() {
+	Address7.src="TextbookIMG\\03-7.gif" 
+}
+
+//-->
+</SCRIPT>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <IMG border=0 src="images/btitle03.gif" width="778" height="70"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><A href="index.htm"><IMG border=0 id=Home0 language =javascript onmouseout ="return Home0_onmouseout()" onmouseover="return Home0_onmouseover()" src="Button/home1.gif" width="96" height="28"></A><A href="homework.htm"><IMG border=0  id =Homework  language =javascript  onmouseout ="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96" height="28"></A><a href="bbs/index.asp"><IMG border=0 id=Discuss  language =javascript  onmouseout ="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><A href="question.htm"><IMG border=0 id=Problem  language =javascript  onmouseout ="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96" height="28"></A><A href="test.asp"><IMG border=0 id=Test  language =javascript  onmouseout ="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96" height="28"></A><A href="search.htm"><IMG border=0 id=Search  language =javascript  onmouseout ="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96" height="28"></A></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="50%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51" height="12"></a> 
+      → 相对基址加变址寻址方式</td>                                    
+    <td width="50%">                  
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p></td>
+  </tr>
+</table>
+
+<h2>3.7 相对基址加变址寻址方式</h2>                                     
+      <p style="TEXT-INDENT: 21.25pt">操作数在存储器中，其有效地址是一个基址寄存器(<font color="#ff0000">BX</font>、<font color="#ff0000">BP</font>)的值、一个变址寄存器(<font color="#ff0000">SI</font>、<font color="#ff0000">DI</font>)的值和指令中的8位/16位偏移量之和。其有效地址的计算公式如右式所示。       
+      <p align="center"><IMG border=0 src="TextBookIMG/03-7-1.gif" width="248" height="46">     
+<p style="TEXT-INDENT: 21.25pt">在不使用段超越前缀的情况下，规定：如果有效地址中含有<font color="#ff0000">BP</font>，则其缺省的段寄存器为<font color="#ff0000">SS</font>；否则，其缺省的段寄存器为<font color="#ff0000">DS</font>。</p>     
+<p style="TEXT-INDENT: 21.25pt">指令中给出的8位/16位偏移量用补码表示。在计算有效地址时，如果偏移量是8位，则进行符号扩展成16位。当所得的有效地址超过<font color="#FF0000">0FFFFH</font>，则取其<font color="#FF0000">64K</font>的模。</p>    
+<p style="text-indent: -30pt; margin-left: 30pt">例3.5 假设指令：MOV AX, [BX+SI+200H]，在执行时，(DS)=1000H，(BX)=2100H，(SI)=0010H，内存单元12310H的内容为1234H。问该指令执行后，AX的值是什么？</p>                                   
+<table border="0" width="100%" cellspacing="0" cellpadding="2">    
+  <tr>    
+    <td width="48%" valign="top">    
+      <p style="MARGIN-LEFT: 19pt; TEXT-INDENT: -19pt">解：根据相对基址加变址寻址方式的规则，在执行本例指令时，源操作数的有效地址<font color="#FF0000">EA</font>为：</p>    
+      <p align="center"><font color="#ff0000">EA</font>=(BX)+(SI)+200H=2100H+0010H+200H=2310H</p>    
+<p style="TEXT-INDENT: 21.25pt">该操作数的物理地址应由<font color="#FF0000">DS</font>和<font color="#FF0000">EA</font>的值形成，即：</p>    
+      <p align="center"><font color="#ff0000">PA</font>=(DS)*16+EA=1000H*16+2310H=12310H</p>    
+      <p style="TEXT-INDENT: 21.25pt">所以，该指令的执行效果是：把从物理地址为12310H开始的一个字的值传送给<font color="#FF0000">AX</font>。其执行过程如图3.7所示。<p style="TEXT-INDENT: 21.25pt">从相对基址加变址这种寻址方式来看，由于它的可变因素较多，看起来就显得复杂些，但正因为其可变因素多，它的灵活性也就很高。比如：</p>    
+    </td>    
+    <td width="52%">   
+      <p align="center"><IMG border=0 id=Address7 src="TextBookIMG/03-7.gif"  LANGUAGE=javascript onmouseover="return Address7_onmouseover()" onmouseout="return Address7_onmouseout()" width="370" height="220">    
+      <p align="center">图3.7 相对基址加变址寻址方式的执行过程示意图</p>                                    
+      </td>      
+  </tr>      
+</table>      
+<p style="TEXT-INDENT: 21.25pt">用<font color="#FF0000">D1[i]</font>来访问一维数组<font color="#FF0000">D1</font>的第<font color="#FF0000">i</font>个元素，它的寻址有一个自由度，用<font color="#FF0000">D2[i][j]</font>来访问二维数组<font color="#FF0000">D2</font>的第<font color="#FF0000">i</font>行、第<font color="#FF0000">j</font>列的元素，其寻址有二个自由度。多一个可变的量，其寻址方式的灵活度也就相应提高了。</p>    
+<p style="TEXT-INDENT: 21.25pt">相对基址加变址寻址方式有多种等价的书写方式，下面的书写格式都是正确的，并且其寻址含义也是一致的。</p>    
+<p style="margin-left: 40pt">MOV　AX, [BX+SI+1000H]　　　MOV　AX,                                 
+1000H[BX+SI]<br>
+MOV　AX, 1000H[BX][SI]　　　 MOV　AX, 1000H[SI][BX]</p>                          
+<p style="TEXT-INDENT: 21.25pt">但书写格式BX                        
+[1000+SI]和SI[1000H+BX]等是错误的，即所用寄存器不能在“[“，”]”之外，该限制对寄存器相对寻址方式的书写也同样起作用。</p>    
+<p style="TEXT-INDENT: 21.25pt">相对基址加变址寻址方式是以上7种寻址方式中最复杂的一种寻址方式，它可变形为其它类型的存储器寻址方式。表3.1列举出该寻址方式与其它寻址方式之间的变形关系。</p>    
+<p align="center">表3.1                                      
+相对基址加变址寻址方式与其它寻址方式之间的变形关系</p>       
+<div align="center">       
+  <center>       
+  <table border="0" width="673" cellpadding="0">       
+    <tr>       
+      <td width="156" bgcolor="#ffff00"> <p style="TEXT-INDENT: 4pt">源操作数</p></td>       
+      <td width="323" bgcolor="#ffff00"> <p style="TEXT-INDENT: 4pt">指令的变形</p></td>       
+      <td width="176" bgcolor="#ffff00"> <p style="TEXT-INDENT: 4pt">源操作数的寻址方式</p></td>       
+    </tr>       
+    <tr>       
+      <td width="156" bgcolor="#00ffff"> <p style="TEXT-INDENT: 4pt">只有偏移量</p></td>       
+      <td width="323" bgcolor="#00ffff"> <p style="TEXT-INDENT: 4pt">MOV　AX, [100H]</p></td>                                      
+      <td width="176" bgcolor="#00ffff"> <p style="TEXT-INDENT: 4pt">直接寻址方式</p></td>        
+    </tr>        
+    <tr>        
+      <td width="156"> <p style="TEXT-INDENT: 4pt">只有一个寄存器</p></td>       
+      <td width="323"> <p style="TEXT-INDENT: 4pt">MOV　AX, [BX] 或 MOV AX, [SI]</p></td>                                      
+      <td width="176"> <p style="TEXT-INDENT: 4pt">寄存器间接寻址方式</p></td>        
+    </tr>        
+    <tr>        
+      <td width="156" bgcolor="#00ffff"> <p style="TEXT-INDENT: 4pt">有一个寄存器和偏移量</p></td>       
+      <td width="323" bgcolor="#00ffff"> <p style="TEXT-INDENT: 4pt">MOV　AX, [BX+100H] 或 MOV AX, [SI+100H]</p></td>                                      
+      <td width="176" bgcolor="#00ffff"> <p style="TEXT-INDENT: 4pt">寄存器相对寻址方式</p></td>        
+    </tr>        
+    <tr>        
+      <td width="156"> <p style="TEXT-INDENT: 4pt">有二个寄存器</p></td>       
+      <td width="323"> <p style="TEXT-INDENT: 4pt">MOV　AX, [BX+SI]</p></td>                                      
+      <td width="176"> <p style="TEXT-INDENT: 4pt">基址加变址寻址方式</p></td>        
+    </tr>        
+    <tr>        
+      <td width="156" bgcolor="#00ffff"> <p style="TEXT-INDENT: 4pt">有二个寄存器和偏移量</p></td>       
+      <td width="323" bgcolor="#00ffff"> <p style="TEXT-INDENT: 4pt">MOV　AX, [BX+SI+100H]</p></td>                                      
+      <td width="176" bgcolor="#00ffff"> <p style="TEXT-INDENT: 4pt">相对基址加变址寻址方式</p></td>        
+    </tr>        
+  </table>        
+  </center>        
+</div>        
+                          
+<p align="right">                          
+<A href="index.htm">                          
+<IMG border=0 id=Home language =javascript onmouseout ="return Home_onmouseout()" onmouseover="return Home_onmouseover()" src="Button/home1.gif" width="96" height="28"></A><A href="asp/QuestionIndex.asp-chapter=1&amp;sort=date"><IMG border=0 id=Question  language=javascript onmouseout="return Question_onmouseout()" onmouseover="return Question_onmouseover()" src="Button/question1.gif" width="96" height="28"></A><A href="03-6.htm"><IMG border=0 src="Button/prevpage1.gif" width="96" height="28"></a><A href="03-8.htm"><IMG border=0 id =NextPage language =javascript onmouseout ="return NextPage_onmouseout()" onmouseover="return NextPage_onmouseover()" src="Button/NextPage1.gif" width="96" height="28"></a>                     
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->        
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>      
+      
+</body>      
+      
+</html>      

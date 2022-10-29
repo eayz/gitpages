@@ -1,0 +1,146 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例8.12</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p style="text-indent: -36pt; margin-left: 36pt">例8.12         
+编写可随时修改文本鼠标指针符号的程序，即要求：在程序运行过程中，随时在键盘上按什么字符，即以该字符为鼠标指针符号。</p> 
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" colspan="6">解：</td> 
+  </tr> 
+  <tr> 
+    <td width="7%" rowspan="30" valign="top"></td> 
+    <td width="93%" colspan="5">.MODEL　SMALL<br>
+      .CODE</td>
+  </tr>
+  <tr>
+    <td width="5%" rowspan="15" valign="top"></td>
+    <td width="88%" colspan="4">.STARTUP</td>
+  </tr>
+  <tr>
+    <td width="88%" colspan="4">MOV　AX, 00</td>   
+  </tr> 
+  <tr> 
+    <td width="26%" colspan="3">INT　33H</td>
+    <td width="62%"> ;初始化鼠标</td>
+  </tr>
+  <tr>
+    <td width="88%" colspan="4">.IF　AX != 00</td>  
+  </tr> 
+  <tr> 
+    <td width="5%" rowspan="16" valign="top"></td> 
+    <td width="6%">MOV</td> 
+    <td width="77%" colspan="2"> AX, 01H</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">INT</td> 
+    <td width="77%" colspan="2"> 33H</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="77%" colspan="2"> BX, 0</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="15%"> DL, 'A'</td>  
+    <td width="62%">;用字符’A’作为鼠标指针符号</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="15%"> DH, 07FH</td>  
+    <td width="62%"> ;设置鼠标的颜色</td> 
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="77%" colspan="2">CX, 0H</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">MOV</td> 
+    <td width="77%" colspan="2"> AX, 0AH</td>  
+  </tr> 
+  <tr> 
+    <td width="6%">INT</td> 
+    <td width="15%"> 33H</td> 
+    <td width="62%">       
+;设置文本鼠标指针</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">.REPEAT</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">　MOV　AH, 01H<br>  
+      　INT　16H</td>
+  </tr>
+  <tr>
+    <td width="21%" colspan="2">　JZ　next</td>
+    <td width="62%">      
+;无键盘按键，则转到后面</td>
+  </tr>
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="83%" colspan="3">　MOV　AH, 00H</td>  
+  </tr> 
+  <tr> 
+    <td width="21%" colspan="2">　INT　16H</td>
+    <td width="62%"> ;读键盘按键</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">　MOV　BX, 0</td>  
+  </tr> 
+  <tr> 
+    <td width="21%" colspan="2">　MOV　DL, AL</td>  
+    <td width="62%">       
+;设置当前按键为鼠标指针符号</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">　MOV　DH, 7FH<br>  
+      　MOV　CX, 0<br>  
+      　MOV　AX, 0AH<br>  
+      　INT　33H</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="5">next:</td>
+  </tr>
+  <tr>
+    <td width="5%" rowspan="8" valign="top"></td>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="83%" colspan="3">　MOV　AX, 03H</td>  
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">　INT　33H</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">.UNTIL BX==1</td> 
+  </tr>
+  <tr>
+    <td width="6%">MOV</td>
+    <td width="77%" colspan="2"> AX, 02H</td> 
+  </tr>
+  <tr>
+    <td width="6%">INT</td>
+    <td width="77%" colspan="2"> 33H</td>
+  </tr>
+  <tr>
+    <td width="88%" colspan="4">.ENDIF</td>
+  </tr>
+  <tr>
+    <td width="88%" colspan="4">.EXIT　0</td>
+  </tr>
+  <tr>
+    <td width="88%" colspan="4">END</td>
+  </tr>
+</table>
+  
+<p align="center"><a href="javascript:close();">关　闭</a></p>  
+             
+</body>  
+  
+</html>  

@@ -1,0 +1,222 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>6.6 习题</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter06.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle06.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → 习题</td>                   
+    <td width="50%">        
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h2>6.6 习题</h2>                
+<table border="0" width="100%" cellspacing="3" cellpadding="0">
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.1、简述ASSUME伪指令的作用，用该语句说明的段寄存器不用对其赋段地址的初值？
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.2、用二种定义方法堆栈段，并给出相应的初始化语句或说明。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%"><p style="margin-left: 22pt">6.3、把下列C语句的语句改写成功能相同的汇编语言程序片段(其中：变量都为整型变量)。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 47pt">1)、h = (key &amp; 0XFF00) &gt;&gt; 8;<br>                
+2)、k = (k + '1' – 0xabcd) / 56;<br>                
+3)、for (i = s = 0; i &lt; 100; i++) s += data[i]                 
+* 2;<br>                
+4)、for (s = 0, i = 100; i &gt; 0; i--) s += i *                 
+2;
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.4、把下列C语言的语句改写成等价的汇编语言程序段(不考虑运算过程中的溢出)。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+      <p style="margin-left: 47pt">If (a&lt;1 || b/4 &gt; 10 &amp;&amp; c%8==5) {<br>                
+      　a = 20+b++;<br>                
+      　c &lt;&lt;= 2;<br>                
+      　}<br>
+      else {a = 21-(++c);<br>                
+      　　 b--;<br>               
+      　　}<br>
+      其中：变量a、b和c都是有符号的整型(int)变量。</td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="text-indent: -26pt; margin-left: 48pt">6.5、假设内存单元中有三个字a、b和c，编写一个程序，它可判断它们能否构成一个三角形，若能，CF为1，否则，CF为0。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.6、假设有三个无符号字存放在以Buffer为开始的缓冲区中，编写一个程序把它们从低到高排序好。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.7、编写一个程序，它把一位十六进制数转化成相应的数字字符或大写字母。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.8、编写一个程序，它把一个合法的十六字符转化成相应的数值。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.9、编写一个程序，它可统计32数DX:AX中二进制位是1的位数。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.10、编写一个程序，它把CH和CL中的二进制位依次交叉存入AX中。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="text-indent: -32pt; margin-left: 54pt">6.11、编写一个程序，求出从内存单元1000:0000开始的1024个字的32位累加和，并把该值存入程序中的变量Data中。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="text-indent: -32pt; margin-left: 54pt">6.12、假设从变量Buff开始存放了200个字，编写一个程序统计出其正数、0和负数的个数，并把它们分别存入N1、N2和N3中。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.13、用双重循环把下三角乘法表存入从product开始的45个字节中。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.14、表示源程序结束的伪指令是什么？在其后所编写的指令在被汇编吗？
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.15、汇编语言程序一定会从代码段的第一条指令开始执行吗？如果不是，如何指定程序的入口地址？
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.16、编写一个程序，它把字符串String两端的空格删除(字符串以0结束)。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.17、编写一个程序，它把字符串String中的数字字符删除掉(字符串以0结束)。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.18、编写一个程序，它把AX的值以二进制字符串的形式存放在以buff开始的缓冲区中。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="text-indent: -32pt; margin-left: 54pt">6.19、假设有一个以Data为首地址的字缓冲区，其缓冲区的大小在第一个字中，试编写一个程序，求出该缓冲区数值的最大值和最小值，并分别存入DI和SI中。
+</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="100%">
+<p style="margin-left: 22pt">6.20、编写一个程序片段，把32位数DX:AX向左移六位。
+</p>
+     
+    </td>
+  </tr>
+</table>
+     
+<p align="right">　<a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=6&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="06-5.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="07-1.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a> 
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>       
+       
+</body>         
+         
+</html>         

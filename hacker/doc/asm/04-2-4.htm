@@ -1,0 +1,167 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>4.2.5 多字变量的定义</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter04.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle04.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="04-1.htm#简单内存变量的定义">内存变量定义</a> → 字变量</td>                                  
+    <td width="50%">          
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+    
+<h3>4.2.5 六字节变量</h3>                     
+<p style="text-indent: 21.25pt">定义六字节变量的定义符为<font color="#FF0000">DF</font>/<font color="#FF0000">FWORD</font>(Define        
+Farword)。顾名思义，每个六字节变量占用六个连续的字节。</p> 
+<p style="text-indent: -28pt; margin-left: 68pt">DF1　DF　1234567890abH, -1<br>       
+DF　1abcd23H</p>   
+<p style="text-indent: 21.25pt">上述定义的内存分配如下所示。</p> 
+<table border="1" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="5%" align="center">…</td> 
+    <td width="5%" align="center">abH</td> 
+    <td width="5%" align="center">90H</td> 
+    <td width="5%" align="center">78H</td> 
+    <td width="5%" align="center">56H</td> 
+    <td width="5%" align="center">34H</td> 
+    <td width="5%" align="center">12H</td> 
+    <td width="5%" align="center">0FFH</td> 
+    <td width="5%" align="center">0FFH</td> 
+    <td width="5%" align="center">0FFH</td> 
+    <td width="5%" align="center">0FFH</td> 
+    <td width="5%" align="center">0FFH</td> 
+    <td width="5%" align="center">0FFH</td> 
+    <td width="5%" align="center">23hH</td> 
+    <td width="5%" align="center">0cdH</td> 
+    <td width="5%" align="center">0abH</td> 
+    <td width="5%" align="center">01H</td> 
+    <td width="5%" align="center">00H</td> 
+    <td width="5%" align="center">00H</td> 
+    <td width="5%" align="center">…</td> 
+  </tr> 
+</table> 
+<h3><a name="DQ">4.2.6 </a> 八字节变量</h3> 
+<p style="text-indent: 21.25pt">定义八字节变量的定义符为<font color="#FF0000">DQ</font>/<font color="#FF0000">QWORD</font>(Define   
+Quadword)。同理，每个八字节变量占用八个连续的字节。</p> 
+<p style="text-indent: -30pt; margin-left: 70pt">DQ1　DQ　12345678H,           
+0H, -1234H<br>       
+DQ　?,            
+1238H, ?</p>           
+<p style="text-indent: 21.25pt">第一个八字节常量12345678H在内存中的分配方式如下所示，其存储原则与前面相同。其它八字节常量的存储方式与此一致。</p>
+<div align="center">
+  <center>
+  <table border="1" width="56%" cellspacing="0">
+    <tr>
+      <td width="10%" align="center">…</td>
+      <td width="10%" align="center">
+        <p>78</p>
+      </td>
+      <td width="10%" align="center">56</td>
+      <td width="10%" align="center">34</td>
+      <td width="10%" align="center">12</td>
+      <td width="10%" align="center">00</td>
+      <td width="10%" align="center">00</td>
+      <td width="10%" align="center">00</td>
+      <td width="10%" align="center">00</td>
+      <td width="10%" align="center">…</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<h3><a name="DT">4.2.7 </a> 十字节变量</h3>      
+<p style="text-indent: 21.25pt">定义十字节变量的定义符为<font color="#FF0000">DT</font>/<font color="#FF0000">TBYTE</font>(Define 
+Tenbytes)。同理，每个十字节变量占用十个连续的字节。</p>    
+<p style="margin-left: 40pt">DT1　DT　12345678H,           
+0H, -1234H<br>       
+DT2　DT　?,           
+-1H</p>     
+<p style="text-indent: 21.25pt">第一个十字节常量12345678H在内存中的分配方式如下所示，它同样按“高高低低”的原则来存储。其它十字节常量的存储方式与此一致。</p>
+<div align="center">
+  <center>
+  <table border="1" width="60%" cellspacing="0">
+    <tr>
+      <td width="8%" align="center">…</td>
+      <td width="8%" align="center">
+        <p>78</p>
+      </td>
+      <td width="8%" align="center">56</td>
+      <td width="8%" align="center">34</td>
+      <td width="8%" align="center">12</td>
+      <td width="8%" align="center">00</td>
+      <td width="9%" align="center">00</td>
+      <td width="9%" align="center">00</td>
+      <td width="9%" align="center">00</td>
+      <td width="9%" align="center">00</td>
+      <td width="9%" align="center">00</td>
+      <td width="9%" align="center">…</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p style="text-indent: 21.25pt">
+以上六个数据类型是汇编语言中最基本的数据类型，其中，前三个是在程序中经常使用的，后三个的使用频率不太高。     
+            
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=4&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="04-2-3.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="04-3.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                  
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2>                         
+    <option selected value="#">课件章节</option>         
+    <option value="course.htm">课件目录</option>         
+    <option value="01-1.htm">第1章 预备知识</option>               
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>               
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>               
+    <option value="04-1.htm">第4章 标识符和表达式</option>               
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>               
+    <option value="06-1.htm">第6章 程序的基本结构</option>               
+    <option value="07-1.htm">第7章 子程序和库</option>               
+    <option value="08-1.htm">第8章 输入输出和中断</option>               
+    <option value="09-1.htm">第9章 宏</option>               
+    <option value="10-1.htm">第10章 应用程序的设计</option>               
+    <option value="11-1.htm">第11章 数值运算协处理器</option>         
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>         
+  </select></p>            
+                 
+</body>                 
+                 
+</html>                 

@@ -1,0 +1,17 @@
+
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<title>章节疑难问题清单</title></HEAD>
+
+<frameset rows="71%,*">
+  <frame name="top" src=QuestionList.asp-chapter=6&sort=date>
+  <frame name="bottom">
+  <noframes>
+  <body>
+  <p>This page uses frames, but your browser doesn't support them.</p>
+  </body>
+  </noframes>
+</frameset>
+
+</HTML>

@@ -1,0 +1,216 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>7.2.2 子程序的举例</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter07.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle07.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0"  id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="07-2.htm">子程序的调用和返回指令</a>                              
+ → 子程序举例</td>                                     
+    <td width="50%">       
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<p>例7.1 编写一个子程序UPPER，实现把寄存器AL中存放的字符变大写。</p>                        
+<table border="0" width="100%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="100%" colspan="5">解：</td>   
+  </tr>   
+  <tr>   
+    <td width="8%" rowspan="12" valign="top"></td>   
+    <td width="92%" colspan="4">;子程序功能：把AL中存放的字符变大写</td>   
+  </tr>   
+  <tr>   
+    <td width="92%" colspan="4">;入口参数：AL</td>   
+  </tr>   
+  <tr>   
+    <td width="92%" colspan="4">;出口参数：AL</td>   
+  </tr>   
+  <tr>   
+    <td width="92%" colspan="4">;算法描述：判断AL中字符必须在'a'~'z'之间才能把该字符变为大写</td>   
+  </tr>   
+  <tr>   
+    <td width="9%" rowspan="6" valign="top">UPPER</td>   
+    <td width="83%" colspan="3">PROC</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">CMP</td>   
+    <td width="20%">AL, 'a'</td>     
+    <td width="56%">;书写'a'的ASCII码61H也可以</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">JB</td>   
+    <td width="76%" colspan="2">over</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">CMP</td>   
+    <td width="76%" colspan="2">AL, 'z'</td>     
+  </tr>    
+  <tr>    
+    <td width="7%">JA&nbsp;</td>   
+    <td width="76%" colspan="2">over</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">SUB</td>   
+    <td width="20%">AL, 20H</td>     
+    <td width="56%">;书写指令AND AL, 0DFH也可以</td>                                
+  </tr>    
+  <tr>    
+    <td width="9%">over:</td>   
+    <td width="83%" colspan="3">RET</td>   
+  </tr>   
+  <tr>   
+    <td width="9%">UPPER</td>   
+    <td width="83%" colspan="3">ENDP</td>   
+  </tr>   
+</table>   
+<p style="text-indent: -31pt; margin-left: 31pt">例7.2                      
+编写一个求字符串长度的子程序StrLen，该字符串以0为结束标志，其首地址存放在DS:DX，其长度保存在CX中返回。</p>   
+<table border="0" width="100%" cellspacing="0" cellpadding="0">   
+  <tr>   
+    <td width="100%" colspan="5">解：</td>   
+  </tr>   
+  <tr>   
+    <td width="8%" rowspan="19" valign="top"></td>   
+    <td width="92%" colspan="4">;子程序功能：求字符串的长度</td>   
+  </tr>   
+  <tr>   
+    <td width="92%" colspan="4">;入口参数：DS:DX存放字符串的首地址，该字符串以0为结束标志</td>   
+  </tr>   
+  <tr>   
+    <td width="92%" colspan="4">;出口参数：CX存放该字符串的长度</td>   
+  </tr>   
+  <tr>   
+    <td width="92%" colspan="4">;算法描述：用BX来指针来扫描字符串中的字符，如果遇到其结束标志，则停止扫描字符串操作</td>   
+  </tr>   
+  <tr>   
+    <td width="9%" rowspan="6" valign="top">StrLen</td>   
+    <td width="83%" colspan="3">PROC</td>   
+  </tr>   
+  <tr>   
+    <td width="8%">PUSH</td>   
+    <td width="75%" colspan="2">AX</td>   
+  </tr>   
+  <tr>   
+    <td width="8%">PUSH</td>   
+    <td width="19%">BX</td>   
+    <td width="56%">;用堆栈来保存子程序所用到的寄存器内容</td>   
+  </tr>   
+  <tr>   
+    <td width="8%">XOR</td>   
+    <td width="75%" colspan="2">CX, CX</td>    
+  </tr>    
+  <tr>    
+    <td width="8%">XOR</td>    
+    <td width="75%" colspan="2">AL, AL</td>    
+  </tr>    
+  <tr>    
+    <td width="8%">MOV</td>    
+    <td width="75%" colspan="2">BX, DX</td>    
+  </tr>    
+  <tr>    
+    <td width="9%" rowspan="5" valign="top">again:</td>    
+    <td width="8%">CMP</td>    
+    <td width="75%" colspan="2">[BX], AL</td>    
+  </tr>    
+  <tr>    
+    <td width="8%">JZ</td>    
+    <td width="75%" colspan="2">over</td>    
+  </tr>    
+  <tr>    
+    <td width="8%">INC</td>    
+    <td width="19%">CX</td>    
+    <td width="56%">;增加字符串的长度</td>    
+  </tr>    
+  <tr>    
+    <td width="8%">INC</td>    
+    <td width="19%">BX</td>    
+    <td width="56%">;访问字符串的指针向后移</td>    
+  </tr>    
+  <tr>    
+    <td width="8%">JMP</td>    
+    <td width="75%" colspan="2">again</td>    
+  </tr>    
+  <tr>    
+    <td width="9%" rowspan="3" valign="top">over:</td>    
+    <td width="8%">POP</td>    
+    <td width="19%">BX</td>    
+    <td width="56%">;恢复在子程序开始时所保存的寄存器内容</td>    
+  </tr>    
+  <tr>    
+    <td width="8%">POP</td>    
+    <td width="75%" colspan="2">AX</td>    
+  </tr>    
+  <tr>    
+    <td width="83%" colspan="3">RET</td>    
+  </tr>    
+  <tr>    
+    <td width="9%">StrLen</td>    
+    <td width="83%" colspan="3">ENDP</td>    
+  </tr>    
+</table>    
+         
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=7&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="07-2-2.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="07-3.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                   
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->    
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+      
+</body>      
+      
+</html>      

@@ -1,0 +1,261 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>10.2 数据的分类统计程序</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter10.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p>
+  <img border="0" src="images/btitle10.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → 数据的分类统计程序</td>                                  
+    <td width="50%">                         
+      <p align="right">
+      <!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+<h2>10.2 数据的分类统计程序</h2>                         
+<p style="text-indent: 21.25pt; line-height: 150%"><span style="letter-spacing: 2">数据的分类和统计也是一类非数值计算，数据的分类统计方法在<a href="10-2-2.htm">例<b>6.10</b></a>中已介绍，下面通过一个例子介绍数据的分类存储问题。</span>     
+</p>     
+<p style="text-indent: -35pt; margin-left: 35pt">例10.5 统计从地址0040H:0000H开始的100个字中，把正数和负数按照它们先后出现的次序分别存储在缓冲区Data1和Data2，并把每类的个数存入相应缓冲区的第一个字单元中。                                
+</p>       
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" colspan="4">解：由于在指定地址之后的100个字中，可能存在全是正数或负数的情况，所以，缓冲区Data1和Data2的容量都应是100个字。</td> 
+  </tr> 
+  <tr> 
+    <td width="9%" rowspan="22" valign="top"></td> 
+    <td width="98%" colspan="3">.MODEL　SMALL</td>
+  </tr>
+  <tr>
+    <td width="98%" colspan="3">.DATA</td>
+  </tr>
+  <tr>
+    <td width="98%" colspan="3">
+      <p style="margin-left: 12pt">Num         
+      = 100</td> 
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">Data1</td>
+    <td width="89%" colspan="2">DW　?, Num dup(?)</td>                           
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">Data2</td> 
+    <td width="89%" colspan="2">DW　?, Num dup(?)</td>                           
+  </tr> 
+  <tr> 
+    <td width="98%" colspan="3">.CODE</td> 
+  </tr> 
+  <tr> 
+    <td width="98%" colspan="3"> 
+      <p style="margin-left: 12pt">.STARTUP</td> 
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">MOV</td> 
+    <td width="89%" colspan="2">AX, 40H</td>   
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">MOV</td> 
+    <td width="89%" colspan="2">ES, AX</td>  
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">LEA</td> 
+    <td width="24%">SI, Data1+2</td>   
+    <td width="65%">;指向存储正数的缓冲区</td> 
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">LEA</td> 
+    <td width="24%">DI, Data2+2</td>  
+    <td width="65%">;指向存储负数的缓冲区</td> 
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">XOR</td> 
+    <td width="24%">BX, BX</td>   
+    <td width="65%">;BX用于扫描存储单元</td> 
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 12pt">MOV</td> 
+    <td width="24%">CX, 100</td>   
+    <td width="65%">;字符个数</td> 
+  </tr> 
+  <tr> 
+    <td width="98%" colspan="3"> 
+      <p style="margin-left: 12pt">.REPEAT</td> 
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 20pt">MOV</td> 
+    <td width="89%" colspan="2">AX, ES:[BX]</td>  
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 20pt">ADD</td> 
+    <td width="89%" colspan="2">BX, 2</td>   
+  </tr> 
+  <tr> 
+    <td width="9%"> 
+      <p style="margin-left: 20pt">CMP</td> 
+    <td width="89%" colspan="2">AX, 0</td>  
+  </tr> 
+  <tr> 
+    <td width="98%" colspan="3"> 
+      <p style="margin-left: 20pt">.CONTINUE　.IF　ZERO?</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 20pt">JL</td>
+    <td width="89%" colspan="2">next1</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 20pt">MOV       
+    </td>
+    <td width="24%">[SI], AX          
+    </td>
+    <td width="65%">         
+;向正数缓冲区内存储数据</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 20pt">ADD</td>
+    <td width="89%" colspan="2">SI, 2</td>  
+  </tr>
+  <tr>
+    <td width="98%" colspan="3">
+      <p style="margin-left: 20pt">.CONTINUE</td>
+  </tr>
+  <tr>
+    <td width="107%" colspan="4">
+      <p style="margin-left: 20pt">next1:</td>
+  </tr>
+  <tr>
+    <td width="9%" rowspan="11" valign="top"></td>
+    <td width="9%">
+      <p style="margin-left: 12pt">MOV</td>
+    <td width="24%">[DI], AX</td> 
+    <td width="65%">        
+;向负数缓冲区内存储数据</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">ADD</td>
+    <td width="89%" colspan="2">DI, 2</td>  
+  </tr>
+  <tr>
+    <td width="98%" colspan="3">
+      <p style="margin-left: 12pt">.UNTILCXZ</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">SUB</td>
+    <td width="89%" colspan="2">SI, OFFSET Data1+2</td> 
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">SUB</td>
+    <td width="89%" colspan="2">DI, OFFSET Data2+2</td>  
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">SHR</td>
+    <td width="89%" colspan="2">SI, 1</td> 
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">SHR</td>
+    <td width="89%" colspan="2">DI, 1</td> 
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">MOV</td>
+    <td width="89%" colspan="2">Data1, SI</td> 
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">MOV        
+    </td>
+    <td width="24%">Data2, DI           
+    </td>
+    <td width="65%">         
+;把每类的统计个数存入缓冲区的第一个字单元</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">.EXIT</td>
+    <td width="89%" colspan="2">0</td>
+  </tr>
+  <tr>
+    <td width="98%" colspan="3">
+      <p style="margin-left: 12pt">      
+END          
+                                       
+    </td>
+  </tr>
+</table>
+         
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=10&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="10-1-3.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="10-2-2.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96" height="28"></a>&nbsp; 
+<!--webbot bot="Validation" b-disallow-first-item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">            
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>       
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>       
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>       
+    <option value="04-1.htm">第4章 标识符和表达式</option>       
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>       
+    <option value="06-1.htm">第6章 程序的基本结构</option>       
+    <option value="07-1.htm">第7章 子程序和库</option>       
+    <option value="08-1.htm">第8章 输入输出和中断</option>       
+    <option value="09-1.htm">第9章 宏</option>       
+    <option value="10-1.htm">第10章 应用程序的设计</option>       
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>

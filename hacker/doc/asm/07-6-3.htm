@@ -1,0 +1,97 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>7.6.3 库文件的应用</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter07.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle07.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0"  id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="07-6.htm">子程序库</a>                            
+      → 库文件的应用</td>                                   
+    <td width="50%">       
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+   
+<h3>7.6.3 库文件的应用</h3>                              
+<p style="text-indent: 21.25pt">在开发一个功能较弱的应用程序时，其执行文件通常可由一个目标文件连接而成，当开发一个功能较强、关系较复杂的应用程序时，其执行文件很难由一个目标文件连接而成，常常是由多个目标文件(模块)连接而成的。各模块之间无疑会存在着相互调用、相互访问数据单元等内在联系，各模块之间的相互联系就产生了这样的问题：程序员如何在源程序中来表达这种联系？</p>
+<p style="text-indent: 21.25pt">为了解决描述各模块之间的联系，汇编语言提供了二条伪指令PUBLIC和EXTRN，它们的作用有点象C/C++语言说明变量、过程和函数是“全局的”或“外部的”。</p>
+<p style="text-indent: 21.25pt">这二条伪指令的具体用法和含义如下：</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">1、伪指令PUBLIC</font></p>
+<p style="text-indent: 21.25pt">伪指令PUBLIC是用来说明：当前模块中哪些标识符是能被其它模块引用的公共标识符。其说明的一般格式如下：</p>
+<p style="margin-left: 40pt">PUBLIC　标识符1, 标识符2, ……</p>                  
+<p style="text-indent: 21.25pt">其中：“标识符”可以是变量名、过程名和程序标号，各标识符之间要用逗号分开。</p>
+<p style="text-indent: 21.25pt">上面说明语句说明了标识符1、标识符2等是公共标识符，可以被其它模块引用。在一个模块中，可用多条PUBLIC伪指令来说明公共标识符。</p>
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、伪指令EXTRN</font></p>
+<p style="text-indent: 21.25pt">伪指令EXTRN是用来说明：在当前模块所使用的标识符中，哪些标识符是已在其它模块中被定义为指定类型的标识符。如果当前模块使用了其它模块的标识符，而对它又不加以说明的话，那么，在汇编时，汇编程序将会给出下列出错信息：</p>
+<p style="margin-left: 40pt">error nnnnn: undefined symbol : XXXXXX</p>                  
+<p style="text-indent: 21.25pt">其中：“nnnnn”是错误号，“XXXXXX”是当前模块中没有定义的标识符。</p>
+<p style="text-indent: 21.25pt">伪指令EXTRN的一般说明格式如下：</p>
+<p style="margin-left: 40pt">EXTRN　标识符1:类型1, 标识符2:类型2, ……</p>                  
+<p style="text-indent: 21.25pt">其中：“标识符”和“类型”之间要用冒号“:”连接。</p>
+<p style="text-indent: 21.25pt">上面语句说明了标识符1、标识符2等是外部标识符，它们在其它模块中已被分别定义为类型1、类型2等，该类型说明符可以是：NEAR、FAR、BYTE、WORD、DWORD等之一。如果在一条说明伪指令中说明了多个标识符，那么，各标识符之间要用逗号分开。</p>
+<p style="text-indent: 21.25pt">在一个模块中，可用多条EXTRN伪指令来说明本模块所引用的外部标识符。</p>
+<p style="text-indent: 21.25pt">注意：伪指令EXTRN中所说明的标识符必须在其定义的模块中被PUBLIC伪指令说明为公共标识符，并且其说明的标识符类型要与该标识符在定义是的类型相一致，否则，要么不能生成其可执行文件，要么其执行文件不能正确运行。</p>
+     
+<p align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=7&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="07-6.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="07-6-31.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a> 
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->    
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+      
+</body>      
+      
+</html>      

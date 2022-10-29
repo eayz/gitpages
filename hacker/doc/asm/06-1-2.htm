@@ -1,0 +1,236 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>6.1.2 段寄存器的说明语句</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter06.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle06.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0"  id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0"  id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0"  id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0"  id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="57%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="06-1.htm">源程序的基本组成</a>                    
+      → 段寄存器的说明语句</td>                                      
+    <td width="43%">          
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id="Chapter1" size="1">
+        <option selected value="#">课件章节</option>
+        <option value="course.htm">网络课件目录</option>
+        <option value="01-1.htm">第1章 预备知识</option>
+        <option value="02-1.htm">第2章 CPU资源和存储器</option>
+        <option value="03-1.htm">第3章 操作数的寻址方式</option>
+        <option value="04-1.htm">第4章 标识符和表达式</option>
+        <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+        <option value="06-1.htm">第6章 程序的基本结构</option>
+        <option value="07-1.htm">第7章 子程序和库</option>
+        <option value="08-1.htm">第8章 输入输出和中断</option>
+        <option value="09-1.htm">第9章 宏</option>
+        <option value="10-1.htm">第10章 应用程序的设计</option>
+        <option value="11-1.htm">第11章 数值运算协处理器</option>
+        <option value="12-1.htm">第12章 汇编语言和C语言</option>
+      </select></td>
+  </tr>
+</table>
+    
+<h3>6.1.2 段寄存器的说明语句</h3>                               
+<p style="text-indent: 21.25pt">在汇编语言源程序中可以定义多个段，每个段都要与一个段寄存器建立一种对应关系。建立这种对应关系的说明语句格式如下：</p>  
+<p style="margin-left: 40pt">ASSUME&nbsp; 段寄存器名:段名[,                                
+段寄存器名:段名, ……]</p>                                 
+<p>其中：段寄存器是<font color="#FF0000">CS</font>、<font color="#FF0000">DS</font>、<font color="#FF0000">ES</font>、<font color="#FF0000">SS</font>、<font color="#FF0000">FS</font>和<font color="#FF0000">GS</font>，段名是在段定义语句说明时的段名。</p>  
+<p style="text-indent: 21.25pt">在一条<font color="#FF0000">ASSUME</font>语句中可建立多组段寄存器与段之间的关系，每种对应关系要用逗号分隔。例如，</p>  
+<p style="margin-left: 40pt">ASSUME&nbsp; CS:CODE1, DS:DATA1</p>                                 
+<p style="text-indent: 21.25pt">上面的语句说明了：<font color="#FF0000" face="Arial">CS</font>对应于代码段<font color="#FF0000">CODE1</font>，<font color="#FF0000" face="Arial">DS</font>对应于数据段<font color="#FF0000">DATA1</font>。</p>  
+<p style="text-indent: 21.25pt">在ASSUME语句中，还可以用关键字<font color="#FF0000">NOTHING</font>来说明某个段寄存器不与任何段相对应。下面语句说明了段寄存器<font color="#FF0000">ES</font>不与某段相对应。</p>  
+<p style="margin-left: 40pt">ASSUME&nbsp; ES:NOTHING</p>                                 
+<p style="text-indent: 21.25pt">在通常情况下，代码段的第一条语句就是用ASSUME语句来说明段寄存器与段之间的对应关系。在代码段的其它位置，还可以用另一个ASSUME语句来改变前面ASSUME语句所说明的对应关系，这样，代码段中的指令就用最近的ASSUME语句所建立的对应关系来确定指令中的有关信息。</p>  
+<table border="0" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="91%" colspan="5">  
+<p>例6.1 汇编语言段及其段说明语句的作用。</p>                        
+    </td>  
+  </tr>  
+  <tr>  
+    <td width="6%" rowspan="29" valign="top"></td>  
+    <td width="7%" rowspan="3" valign="top" >DATA1</td>  
+    <td width="40%" colspan="2">SEGMENT</td>  
+    <td width="38%"> ;定义数据段DATA1</td>  
+  </tr>  
+  <tr>  
+    <td width="8%">word1</td>  
+    <td width="70%" colspan="2">DW　5678h</td>
+  </tr>
+  <tr>
+    <td width="8%">byte1</td>
+    <td width="70%" colspan="2">DB　"ABCDEFG"</td>
+  </tr>
+  <tr>
+    <td width="7%">DATA1</td>
+    <td width="78%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="7%" rowspan="3" valign="top">DATA2</td>
+    <td width="40%" colspan="2">SEGMENT</td>
+    <td width="38%"> ;定义数据段DATA2</td>
+  </tr>
+  <tr>
+    <td width="8%">word2</td>
+    <td width="70%" colspan="2">DW　1234h</td>
+  </tr>
+  <tr>
+    <td width="8%">word3</td>
+    <td width="70%" colspan="2">DW　9876h</td>
+  </tr>
+  <tr>
+    <td width="7%">DATA2</td>
+    <td width="78%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="7%" rowspan="2" valign="top">DATA3</td>
+    <td width="40%" colspan="2">SEGMENT</td>
+    <td width="38%"> ;定义数据段DATA3</td>
+  </tr>
+  <tr>
+    <td width="8%">byte2</td>
+    <td width="70%" colspan="2">DB　?</td>
+  </tr>
+  <tr>
+    <td width="7%">DATA3</td>
+    <td width="78%" colspan="3">ENDS</td>
+  </tr>
+  <tr>
+    <td width="7%" rowspan="17" valign="top">CODE1</td>
+    <td width="40%" colspan="2">SEGMENT</td>
+    <td width="38%"> ;编写代码段CODE1</td>
+  </tr>
+  <tr>
+    <td width="8%">ASSUME</td>
+    <td width="32%">CS:CODE1, DS:DATA1, ES:DATA2</td> 
+    <td width="38%">
+      <p>;(1)</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="34%"> AX, DATA1</td>   
+    <td width="36%">   
+      ;(2)</td>  
+  </tr> 
+  <tr> 
+    <td width="8%">MOV</td>
+    <td width="32%"> DS, AX</td>  
+    <td width="38%">;(3)</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="34%">AX, DATA2</td>   
+    <td width="36%">  
+      ;(4)</td>  
+  </tr> 
+  <tr> 
+    <td width="8%">MOV</td>
+    <td width="32%"> ES, AX</td>  
+    <td width="38%">;(5)</td>
+  </tr>
+  <tr>
+    <td width="78%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="32%"> AX, word1</td>  
+    <td width="38%">;访问段DATA1中的字变量word1</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="32%"> word2, AX</td>  
+    <td width="38%"> ;访问段DATA2中的字变量word2</td>
+  </tr>
+  <tr>
+    <td width="78%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="8%">ASSUME</td>
+    <td width="32%"> DS:DATA3, ES:NOTHING</td>  
+    <td width="38%">;(6)</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="70%" colspan="2"> AX, DATA3</td>  
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="70%" colspan="2"> DS, AX</td>  
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="32%"> BL, byte2</td>  
+    <td width="38%"> ;访问段DATA3中的字节变量byte2</td>
+  </tr>
+  <tr>
+    <td width="78%" colspan="3">…</td>
+  </tr>
+  <tr>
+    <td width="8%">MOV</td>
+    <td width="32%"> AX, 4C00H</td>   
+    <td width="38%"><p>;(7)</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="8%">INT</td>
+    <td width="32%"> 21H</td>
+    <td width="38%">;(8)
+    </td>
+  </tr>
+  <tr>
+    <td width="7%">CODE1</td>
+    <td width="78%" colspan="3">&nbsp;ENDS</td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt">语句(1)和(6)分别说明了段和段寄存器之间的对应关系，其中语句(6)重新说明语句(1)所指定的对应关系。</p>
+<p style="text-indent: 21.25pt">二组语句(2)和(3)、(4)和(5)实现对段寄存器DS和ES赋初值。ASSUME说明语句只起说明作用，它不会对段寄存器赋值，所以，必须对有关段寄存器赋值。在以后的其它源程序中也都是用此方法来实现对数据段寄存器赋值的。</p>
+<p style="text-indent: 21.25pt">语句(7)和(8)是调用中断21H的4CH号功能来结束本程序的执行，程序的返回代码由寄存器AL来确定。结束本程序执行的指令是所有主模块必须书写的语句。</p>
+    
+<p style="text-indent: 21.25pt">注意：代码段寄存器不能由程序员在源程序中对其赋值，其值是由操作系统在装入它进入系统运行时自动赋值的。</p>
+    
+<p align="right">               
+<a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=6&amp;sort=date"><IMG border=0 id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="06-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="06-1-3.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                  
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->     
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>     
+         
+</body>         
+         
+</html>         

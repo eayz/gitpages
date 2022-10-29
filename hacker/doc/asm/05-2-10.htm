@@ -1,0 +1,271 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>5.2.10 条件设置字节指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter05.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle05.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="05-2.htm">指令系统</a> → 条件设置字节指令</td>                                            
+    <td width="50%">               
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<h3>5.2.10 条件设置字节指令</h3>                                  
+<p style="text-indent: 21.25pt">条件设置字节指令(Set Byte Conditionally)是<font color="#FF0000">80386</font>及其以后<font color="#FF0000">CPU</font>所具有的一组指令。它们在测试条件方面与条件转移是一致的，但在功能方面，它们不是转移，而是根据测试条件的值来设置其字节操作数的内容为1或0。</p>                                  
+<p style="text-indent: 21.25pt">条件设置字节指令的一般格式如下：</p>     
+<p style="margin-left: 40pt">SETnn　Reg/Mem　　　　;80386+</p> 
+<p style="text-indent: 21.25pt">其中：nn是表示测试条件的(见表5.4)，操作数只能是8位寄存器或一个字节单元。</p>
+<p style="text-indent: 21.25pt">这组指令的执行不影响任何标志位。</p>
+<p align="center">表5.4 条件设置字节指令列表</p>                             
+<div align="center">
+  <center>
+  <table border="0" width="60%" cellpadding="0">
+    <tr>
+      <td bgcolor="#FFFF00">
+        <p style="margin-left: 3pt">指令的助忆符</td>
+      <td bgcolor="#FFFF00">
+        <p style="margin-left: 3pt">操作数和检测条件之间的关系</td>
+    </tr>
+    <tr>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">SETZ/SETE</td>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">Reg/Mem = ZF</td>
+    </tr>
+    <tr>
+      <td>
+        <p style="margin-left: 3pt">SETNZSETNE</td>
+      <td>
+        <p style="margin-left: 3pt">Reg/Mem = not ZF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">SETS</td>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">Reg/Mem = SF</td>
+    </tr>
+    <tr>
+      <td>
+        <p style="margin-left: 3pt">SETNS</td>
+      <td>
+        <p style="margin-left: 3pt">Reg/Mem = not SF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">SETO</td>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">Reg/Mem = OF</td>
+    </tr>
+    <tr>
+      <td>
+        <p style="margin-left: 3pt">SETNO</td>
+      <td>
+        <p style="margin-left: 3pt">Reg/Mem = not OF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">SETP/SETPE</td>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">Reg/Mem = PF</td>
+    </tr>
+    <tr>
+      <td>
+        <p style="margin-left: 3pt">SETNP/SETPO</td>
+      <td>
+        <p style="margin-left: 3pt">Reg/Mem = not PF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">SETC/SETB/SETNAE</td>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">Reg/Mem = CF</td>
+    </tr>
+    <tr>
+      <td>
+        <p style="margin-left: 3pt">SETNC/SETB/SETAE</td>
+      <td>
+        <p style="margin-left: 3pt">Reg/Mem = not CF</td>
+    </tr>
+    <tr>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">SETNA/SETBE</td>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">Reg/Mem = (CF or ZF)</td>
+    </tr>
+    <tr>
+      <td>
+        <p style="margin-left: 3pt">SETA/SETNBE</td>
+      <td>
+        <p style="margin-left: 3pt">Reg/Mem = not (CF or ZF)</td>
+    </tr>
+    <tr>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">SETL/SETNGE</td>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">Reg/Mem = (SF xor OF)</td>
+    </tr>
+    <tr>
+      <td>
+        <p style="margin-left: 3pt">SETNL/SETGE</td>
+      <td>
+        <p style="margin-left: 3pt">Reg/Mem = not (SF xor OF)</td>
+    </tr>
+    <tr>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">SETLE/SETNG</td>
+      <td bgcolor="#00FFFF">
+        <p style="margin-left: 3pt">Reg/Mem = (SF xor OF) or ZF</td>
+    </tr>
+    <tr>
+      <td>
+        <p style="margin-left: 3pt">SETNLE/SETG</td>
+      <td>
+        <p style="margin-left: 3pt">Reg/Mem = not ((SF xor OF) or ZF)</td>
+    </tr>
+  </table>
+  </center>
+</div>
+<p>例5.19 编写程序段：检测寄存器EAX的8个16进制中有几个0H，并把统计结果存入BH中。</p>                     
+<table border="0" width="100%" cellspacing="0" cellpadding="2">
+  <tr>
+    <td width="100%" colspan="4">解：</td>
+  </tr>
+  <tr>
+    <td width="7%" rowspan="3" valign="top"></td>
+    <td width="93%" colspan="3">方法1：用条件转移指令来实现</td>
+  </tr>
+  <tr>
+    <td width="7%">XOR</td>
+    <td width="86%" colspan="2"> BH, BH</td>   
+  </tr>  
+  <tr>  
+    <td width="7%">MOV</td>
+    <td width="16%"> CX, 8</td>   
+    <td width="70%">;测试寄存器EAX——8次</td>
+  </tr>
+  <tr>
+    <td width="7%" rowspan="3" valign="top">again:</td>
+    <td width="7%">TEST</td>
+    <td width="16%">AL, 0FH</td>   
+    <td width="70%">;测试低四位二进制是否为0H</td>
+  </tr>
+  <tr>
+    <td width="7%">JNZ</td>
+    <td width="86%" colspan="2"> next</td>
+  </tr>
+  <tr>
+    <td width="7%">INC</td>
+    <td width="86%" colspan="2"> BH</td>
+  </tr>
+  <tr>
+    <td width="7%" rowspan="5" valign="top">next:</td>
+    <td width="7%">ROR</td>
+    <td width="16%"> EAX, 4</td>   
+    <td width="70%">;循环向右移四位，为测试高四位作准备</td>
+  </tr>
+  <tr>
+    <td width="7%">LOOP</td>
+    <td width="86%" colspan="2"> again</td>
+  </tr>
+  <tr>
+    <td width="93%" colspan="3" valign="bottom">方法2：用条件设置字节指令来实现</td>
+  </tr>
+  <tr>
+    <td width="7%">XOR</td>
+    <td width="86%" colspan="2"> BH, BH</td>   
+  </tr>  
+  <tr>  
+    <td width="7%">MOV</td>
+    <td width="16%"> CX, 8</td>   
+    <td width="70%">;测试寄存器EAX——8次</td>
+  </tr>
+  <tr>
+    <td width="7%" rowspan="5" valign="top">again:</td>
+    <td width="7%">TEST</td>
+    <td width="16%"> AL, 0FH</td>   
+    <td width="70%">;测试低四位二进制是否为0H</td>
+  </tr>
+  <tr>
+    <td width="7%">SETZ</td>
+    <td width="16%"> BL</td>
+    <td width="70%">;如果AL的低四位是0，则BL置为1，否则，BL为0</td>
+  </tr>
+  <tr>
+    <td width="7%">ADD</td>
+    <td width="86%" colspan="2"> BH, BL</td>   
+  </tr>  
+  <tr>  
+    <td width="7%">ROR</td>
+    <td width="86%" colspan="2"> EAX, 4</td>   
+  </tr>  
+  <tr>  
+    <td width="7%">LOOP</td>
+    <td width="86%" colspan="2"> again</td>
+  </tr>
+</table>
+      
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=5&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="05-2-091.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="05-2-11.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                  
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->   
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

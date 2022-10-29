@@ -1,0 +1,150 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>5.2.4 逻辑运算指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter05.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle05.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    →&nbsp;<a href="05-2.htm">指令系统</a> → 逻辑运算指令</td>                                        
+    <td width="50%">             
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<h3>5.2.4 逻辑运算指令</h3>                               
+<p style="text-indent: 21.25pt">逻辑运算指令是另一组重要的指令，它包括：逻辑与(<a href="#AND">AND</a>)、逻辑或(<a href="#OR">OR</a>)、逻辑非(<a href="#NOT">NOT</a>)和异或指令(<a href="#XOR">XOR</a>)，逻辑运算指令也是经常使用的指令。</p>  
+<p style="text-indent: 21.25pt"><a name="AND"><font color="#FF00FF">1、逻辑与操作指令AND(Logical                                  
+AND Instruction)</font></a></p>                                 
+<p style="margin-left: 37pt">指令的格式：AND　Reg/Mem, Reg/Mem/Imm<br>                     
+受影响的标志位：CF(0)、OF(0)、PF、SF和ZF(AF无定义)<br>
+指令的功能是把源操作数中的每位二进制与目的操作数中的相应二进制进行逻辑“与操作”，操作结果存入目标操作数中。</p>  
+<p>例5.6 已知(BH)=67H，要求把其的第0、1和5位置为0。</p>                        
+<table border="0" width="100%" cellpadding="0">
+  <tr>
+    <td width="67%">   
+<p style="text-indent: -21pt; margin-left: 21pt">解：可以构造一个立即数，其第0、1和5位的值为0，其它位的值为1，该立即数即为：0DCH或11011100B，然后用指令&quot;<b>AND 
+BH, 0DCH</b>&quot;来实现此功能。</p> 
+<p style="text-indent: 21pt">其计算过程如右图所示。</p> 
+    </td>
+    <td width="33%">
+      <p align="center"><img border="0" src="TextBookIMG/05-06-AND.gif" width="131"></td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt"><a name="OR"><font color="#FF00FF">2</font></a><font color="#FF00FF"><a name="OR">、逻辑或操作指令OR(Logical                                  
+OR Instruction)</a></font></p>                                 
+<p style="margin-left: 37pt">指令的格式：OR　Reg/Mem, Reg/Mem/Imm<br>                               
+受影响的标志位：CF(0)、OF(0)、PF、SF和ZF(AF无定义)<br>  
+指令的功能是把源操作数中的每位二进制与目的操作数中的相应二进制进行逻辑&quot;或操作&quot;，操作结果存入目标操作数中。</p>  
+<p>例5.7 已知(BL)=46H，要求把其的第1、3、4和6位置为1。</p>                        
+<table border="0" width="100%" cellpadding="0">
+  <tr>
+    <td width="67%">   
+<p style="text-indent: -20pt; margin-left: 20pt">解：构造一个立即数，使其第1、3、4和6位的值为1，其它位的值为0，该立即数即为：5AH或01011010B，然后用指令&quot;OR                       
+BL, 5AH&quot;来实现此功能。</p>                       
+<p style="text-indent: 21pt">其计算过程如右图所示。</p> 
+    </td>
+    <td width="33%">
+      <p align="center"><img border="0" src="TextBookIMG/05-06-OR.gif" width="131"></td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt"><a name="NOT"><font color="#FF00FF">3、逻辑非操作指令NOT(Logical                                  
+NOT Instruction)</font></a></p>                                 
+<p style="margin-left: 37pt">指令的格式：NOT　Reg/Mem<br>   
+其功能是把操作数中的每位变反，即：1←0，0←1。指令的执行不影响任何标志位。</p>   
+<p>例5.8 已知(AL)=46H，执行指令“NOT　AL”后，AL的值是什么？</p>  
+<table border="0" width="100%" cellpadding="0">
+  <tr>
+    <td width="67%" valign="top">解：执行该指令后，(AL)=0B9H。其计算过程如下所示。</td>
+    <td width="33%">
+      <p align="center"><img border="0" src="TextBookIMG/05-06-NOT.gif" width="131"></td>
+  </tr>
+</table>
+<p style="text-indent: 21.25pt"><a name="XOR"><font color="#FF00FF">4、逻辑异或操作指令XOR(Exclusive                                  
+OR Instruction)</font></a></p>                                 
+<p style="margin-left: 37pt">指令的格式：XOR　Reg/Mem, Reg/Mem/Imm<br>                               
+受影响的标志位：CF(0)、OF(0)、PF、SF和ZF(AF无定义)<br>  
+指令的功能是把源操作数中的每位二进制与目的操作数中的相应二进制进行逻辑&quot;异或操作&quot;，操作结果存入目标操作数中。</p>  
+<p>例5.9 已知(AH)=46H，要求把其的第0、2、5和7位的二进制值变反。</p>                        
+<table border="0" width="100%" cellpadding="0">
+  <tr>
+    <td width="67%">
+      <p style="text-indent: -21.25pt; margin-left: 21.25pt">解：构造一个立即数，使其第0、2、5和7位的值为1，其它位的值为0，该立即数即为：0A5H或10100101B，然后再用指令&quot;XOR&nbsp;                       
+AH, 0A5H&quot;来实现此功能。</p>                     
+      <p style="text-indent: 21pt">其计算过程如右图所示。</td>
+    <td width="33%">
+      <p align="center"><img border="0" src="TextBookIMG/05-06-XOR.gif" width="131"></td>
+  </tr>
+</table>
+   
+<p style="text-indent: 21.25pt"><font color="#FF00FF">5、逻辑操作指令的小结</font></p>          
+<p style="text-indent: 21pt">下面是学习和掌握逻辑类指令的控件，可模拟执行<a href="#AND">AND</a>、<a href="#OR">OR</a>、<a href="#NOT">NOT</a>和<a href="#XOR">XOR</a>等指令。</p>  
+       
+<p align="center">
+<object classid="clsid:B63B2658-151F-4DA4-9CCB-E392F59AFBF2" id="Logic1" width="400" height="243">
+</object>
+</p>  
+             
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=5&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="05-2-034.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="05-2-05.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>            
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->   
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

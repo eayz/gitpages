@@ -1,0 +1,106 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录4.4 内存控制的说明</title>
+<link rel=stylesheet href="../Assember.css">
+<base target="_self">
+</head>
+
+<body topmargin="1" leftmargin="0" background="image/background.gif">
+
+<h3><a name="4.1">4.1、@FreeBlock：释放内存块</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="5" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@FreeBlock [segment]</td>       
+  </tr>
+  <tr>
+    <td width="16%" valign="top">参数说明：</td>
+    <td width="15%" valign="top">&lt;segment&gt;</td>
+    <td width="64%"> 
+要释放内存的起始地址，其缺省值为ES</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">若CF＝1，则AX＝错误代码</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX，ES(若有段参数)</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 21h — 49H，<A href="#4.2">@GetBlock</a>，<A href="#4.3">@ModBlock</a></td>       
+  </tr>
+</table>
+<h3><a name="4.2">4.2、@GetBlock：分配内存块</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="6" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@GetBlock paragraphs [, retry]</td>       
+  </tr>
+  <tr>
+    <td width="16%" rowspan="2" valign="top">参数说明：</td>
+    <td width="15%" valign="top">&lt;paragraphs&gt;</td>
+    <td width="64%"> 
+需要内存的段落数</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">&lt;retry&gt;</td>
+    <td width="64%"> 
+若非零，则分配满足要求的最大块</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">若CF＝1，则AX＝错误代码，否则，AX＝被分别内存的段地址，BX＝实际分配的段落数</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX和BX</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 21h — 48H，<A href="#4.1">@FreeBlock</a>，<A href="#4.3">@ModBlock</a></td>       
+  </tr>
+</table>
+<h3><a name="4.3">4.3、@ModBlock：修改一个以分配的内存块</a></h3>
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="5%" rowspan="6" valign="top"></td>
+    <td width="16%">使用语法：</td>
+    <td width="79%" colspan="2">@ModBlock paragraphs [,segment]</td>      
+  </tr>
+  <tr>
+    <td width="16%" rowspan="2" valign="top">参数说明：</td>
+    <td width="15%" valign="top">&lt;paragraphs&gt;</td>
+    <td width="64%"> 
+需要内存的段落数</td>
+  </tr>
+  <tr>
+    <td width="15%" valign="top">&lt;segment&gt;</td>
+    <td width="64%"> 
+释放内存单元的起始地址，缺省值为ES</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">返回参数：</td>
+    <td width="79%" colspan="2">若CF＝1，则AX＝错误代码，否则，ES＝被分别内存的段地址，BX＝实际分配的段落数</td>
+  </tr>
+  <tr>
+    <td width="16%" valign="top">内容破坏：</td>
+    <td width="79%" colspan="2">AX、BX，ES(若指定了段)</td>
+  </tr>
+  <tr>
+    <td width="16%">参见内容：</td>
+    <td width="79%" colspan="2">Int 21h — 4AH，<A href="#4.2">@GetBlock</a>，<A href="#4.1">@FreeBlock</a></td>      
+  </tr>
+</table>
+        
+</body>        
+        
+</html>        

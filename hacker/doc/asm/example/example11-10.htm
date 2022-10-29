@@ -1,0 +1,251 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例11.10</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+<p>例11.10 从键盘上读入一个带小数的数字字符串，然后把它转换成单精度浮点数，并存入内存单元DATA中。</p>         
+<table border="0" width="100%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="100%" colspan="5">解：</td> 
+  </tr> 
+  <tr> 
+    <td width="8%" rowspan="55" valign="top"></td> 
+    <td width="92%" colspan="4">.MODEL　SMALL</td>
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">.386</td>
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">.387</td>
+  </tr>
+  <tr>
+    <td width="92%" colspan="4">.DATA</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">DATA</td>
+    <td width="83%" colspan="3">DD　0</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">TEN</td>
+    <td width="83%" colspan="3">DD　10.0</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">TEMP</td>
+    <td width="83%" colspan="3">DW　?</td>
+  </tr>
+  <tr>
+    <td width="9%">
+      <p style="margin-left: 12pt">SIGN</td>
+    <td width="83%" colspan="3">DB　?</td>
+  </tr>
+  <tr>
+    <td width="9%">.CODE</td>
+    <td width="83%" colspan="3"></td>
+  </tr>
+  <tr>
+    <td width="9%">GETCH</td>
+    <td width="34%" colspan="2">MACRO</td>
+    <td width="49%">;宏GETCH的功能是从键盘读入一个字符</td>
+  </tr>
+  <tr>
+    <td width="9%" rowspan="38" valign="top"></td>
+    <td width="10%">MOV</td>
+    <td width="73%" colspan="2">AH, 1</td> 
+  </tr>
+  <tr>
+    <td width="10%">INT</td>
+    <td width="73%" colspan="2">21H</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">ENDM</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">.STARTUP</td>
+  </tr>
+  <tr>
+    <td width="34%" colspan="2">FLDZ</td>
+    <td width="49%">;ST=0</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">GETCH</td>
+  </tr>
+  <tr>
+    <td width="34%" colspan="2">.IF AL == ‘+’</td>
+    <td width="49%">;判定是否输入正号‘+’</td>
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 16pt">MOV</td>
+    <td width="73%" colspan="2">SIGN, 0</td> 
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">
+      <p style="margin-left: 16pt">GETCH</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">.ENDIF</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">.IF AL == ‘-‘</td> 
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 16pt">MOV</td>
+    <td width="24%">SIGN, 1</td> 
+    <td width="49%">;判定是否输入负号‘-’</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">
+      <p style="margin-left: 16pt">GETCH</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">.ENDIF</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">.REPEAT</td>
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 16pt">FMUL</td>
+    <td width="73%" colspan="2">TEN</td>
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 16pt">MOV</td>
+    <td width="73%" colspan="2">AH,0</td>
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 16pt">SUB</td>
+    <td width="73%" colspan="2">AL, 30H</td> 
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 16pt">MOV</td>
+    <td width="73%" colspan="2">TEMP, AX</td> 
+  </tr>
+  <tr>
+    <td width="10%">
+      <p style="margin-left: 16pt">FIADD</td>
+    <td width="24%">TEMP</td>
+    <td width="49%">;部分数×10.0＋(字符-‘0’)</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">
+      <p style="margin-left: 16pt">GETCH</td>
+  </tr>
+  <tr>
+    <td width="34%" colspan="2">.UNTIL　AL&lt;’0’ || AL&gt;’9’</td>   
+    <td width="49%">;完成整数部分的处理</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">CMP</td> 
+    <td width="73%" colspan="2"> AL, ‘.’</td>  
+  </tr> 
+  <tr> 
+    <td width="10%">JNE</td> 
+    <td width="73%" colspan="2">exit</td> 
+  </tr> 
+  <tr> 
+    <td width="34%" colspan="2">FLD1</td> 
+    <td width="49%">;开始处理小数部分</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">.WHILE1</td> 
+  </tr> 
+  <tr> 
+    <td width="10%"> 
+      <p style="margin-left: 16pt">FDIV</td> 
+    <td width="73%" colspan="2">TEN</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3"> 
+      <p style="margin-left: 16pt">GETCH</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3"> 
+      <p style="margin-left: 16pt">.BREAK&nbsp; .IF AL&lt;’0’ || AL&gt;’9’</td>   
+  </tr> 
+  <tr> 
+    <td width="10%"> 
+      <p style="margin-left: 16pt">MOV</td> 
+    <td width="73%" colspan="2">AH, 0</td>  
+  </tr> 
+  <tr> 
+    <td width="10%"> 
+      <p style="margin-left: 16pt">SUB</td> 
+    <td width="73%" colspan="2">AL, 30H</td>  
+  </tr> 
+  <tr> 
+    <td width="10%"> 
+      <p style="margin-left: 16pt">MOV</td> 
+    <td width="73%" colspan="2">TEMP, AX</td>  
+  </tr> 
+  <tr> 
+    <td width="10%"> 
+      <p style="margin-left: 16pt">FILD</td> 
+    <td width="73%" colspan="2">TEMP</td> 
+  </tr> 
+  <tr> 
+    <td width="10%"> 
+      <p style="margin-left: 16pt">FMUL</td> 
+    <td width="73%" colspan="2">ST, ST(1)</td>  
+  </tr> 
+  <tr> 
+    <td width="10%"> 
+      <p style="margin-left: 16pt">FADD</td> 
+    <td width="73%" colspan="2">ST(2), ST</td>  
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3"> 
+      <p style="margin-left: 16pt">FCOMP</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">.ENDW</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">FCOMP</td> 
+  </tr> 
+  <tr> 
+    <td width="92%" colspan="4">exit:</td> 
+  </tr> 
+  <tr> 
+    <td width="9%" rowspan="6" valign="top"></td> 
+    <td width="34%" colspan="2">.IF            
+SIGN == 1</td>  
+    <td width="49%">;如果是负数，那么需要改变符号</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3"> 
+      <p style="margin-left: 16pt">FCHS</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">.ENDIF</td> 
+  </tr> 
+  <tr> 
+    <td width="10%">FSTP</td> 
+    <td width="24%"> DATA</td> 
+    <td width="49%">;保存最终转换的结果</td> 
+  </tr> 
+  <tr> 
+    <td width="83%" colspan="3">.EXIT　0</td>
+  </tr>
+  <tr>
+    <td width="83%" colspan="3">END</td>
+  </tr>
+</table>
+     
+<p align="center"><a href="javascript:close();">关　闭</a></p>
+  
+</body>    
+    
+</html>    

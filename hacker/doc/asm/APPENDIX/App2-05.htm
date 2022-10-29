@@ -1,0 +1,284 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>附录2.5 移位操作指令</title>
+<link rel=stylesheet href="../Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+</head>
+
+<body background="image/background.gif">
+
+<h2>5、移位操作指令</h2>
+         
+<h3>5.1、算术左移指令</h3>
+         
+<div align="center">
+  <center>
+         
+  <table border="1" width="90%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="226"><p style="MARGIN-LEFT: 4pt">指令的语法</p></td>
+      <td width="305"><p style="MARGIN-LEFT: 4pt">举例</p></td>
+      <td width="139"><p style="MARGIN-LEFT: 4pt">周期数</p></td>
+    </tr>
+    <tr>
+    <td><p style="MARGIN-LEFT: 4pt">SAL reg,1</p></td>          
+    <td><p style="MARGIN-LEFT: 4pt">sal bx,1</p></td>       
+    <td><p style="MARGIN-LEFT: 4pt">1</p></td>     
+    </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SAL mem,1</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">sal word ptr m32[0],1</p></td>        
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SAL reg,CL</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">sal ah,cl</p></td>        
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SAL mem,CL</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">sal BYTE PTR [di],cl</p></td>        
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SAL reg,immed</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">sal cx,6</p></td>        
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SAL mem,immed</p></td>        
+    <td width="305"><p style="MARGIN-LEFT: 4pt">sal array[bx+di],14</p></td>        
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td>     
+  </tr>     
+</table>     
+  </center>     
+</div>     
+<h3>5.2、算术右移指令</h3>     
+              
+<div align="center">     
+  <center>     
+              
+<table border="1" width="90%" cellspacing="0" cellpadding="0">     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SAR reg,1</p></td>          
+    <td width="305"><p style="MARGIN-LEFT: 4pt">sar di,1</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SAR mem,1</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">sar count,1</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SAR reg,CL</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">sar bx,cl</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SAR mem,CL</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">sar sign,cl</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SAR reg,immed</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">sar bx,5</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SAR mem,immed</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">sar sign_count,3</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td>     
+  </tr>     
+</table>     
+  </center>     
+</div>     
+<h3>5.3、逻辑左移指令</h3>     
+              
+<div align="center">     
+  <center>     
+              
+<table border="1" width="90%" cellspacing="0" cellpadding="0">     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SHL reg,1</p></td>          
+    <td width="305"><p style="MARGIN-LEFT: 4pt">shl si,1</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SHL mem,1</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">shl index,1</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SHL reg,CL</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">shl di,cl</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SHL mem,CL</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">shl index,cl</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SHL reg,immed</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">shl di,2</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SHL mem,immed</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">shl unsign,4</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td>     
+  </tr>     
+</table>     
+  </center>     
+</div>     
+<h3>5.4、逻辑右移指令</h3>     
+              
+<div align="center">     
+  <center>     
+              
+<table border="1" width="90%" cellspacing="0" cellpadding="0">     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SHR reg,1</p></td>          
+    <td width="305"><p style="MARGIN-LEFT: 4pt">shr dh,1</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SHR mem,1</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">shr unsign[di],1</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SHR reg,CL</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">shr dx,cl</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SHR mem,CL</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">shr word ptr m32[2],cl</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SHR reg,immed</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">shr bx,8</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">1</p></td>     
+  </tr>     
+  <tr>     
+    <td width="226"><p style="MARGIN-LEFT: 4pt">SHR mem,immed</p></td>       
+    <td width="305"><p style="MARGIN-LEFT: 4pt">shr mem16,11</p></td>       
+    <td width="139"><p style="MARGIN-LEFT: 4pt">3</p></td>     
+  </tr>     
+</table>     
+     
+  </center>     
+</div>     
+     
+<h3>5.5、双精度左移指令</h3>     
+              
+<div align="center">     
+  <center>     
+              
+<table border="1" width="90%" cellspacing="0" cellpadding="0"> 
+   
+  <TR>     
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHLD reg16,reg16,immed8</p></td>          
+    <td width="259"><p style="MARGIN-LEFT: 4pt">shld ax,dx,10</p></td>       
+    <td width="123"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  <tr>     
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHLD reg32,reg32,immed8</p></td>        
+    <td width="259">  &nbsp;&nbsp;  </td>  
+    <td width="123">  &nbsp;&nbsp;  </td>  
+  </tr>  
+  <tr>  
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHLD mem16,reg16,immed8</p></td>          
+    <td width="259"><p style="MARGIN-LEFT: 4pt">shld bits,cx,5</p></td>       
+    <td width="123"><p style="MARGIN-LEFT: 4pt">4</p></td>    
+  </tr>    
+  <tr>    
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHLD mem32,reg32,immed8</p></td>       
+    <td width="259">  &nbsp;&nbsp;  </td>  
+    <td width="123">  &nbsp;&nbsp;  </td>  
+  </tr>  
+  <tr>  
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHLD reg16,reg16,CL</p></td>          
+    <td width="259"><p style="MARGIN-LEFT: 4pt">shld ax,dx,cl</p></td>       
+    <td width="123"><p style="MARGIN-LEFT: 4pt">4</p></td>    
+  </tr>    
+  <tr>    
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHLD reg32,reg32,CL</p></td>       
+    <td width="259">  &nbsp;&nbsp;  </td>  
+    <td width="123">  &nbsp;&nbsp;  </td>  
+  </tr>  
+  <tr>  
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHLD mem16,reg16,CL</p></td>          
+    <td width="259"><p style="MARGIN-LEFT: 4pt">shld masker,ax,cl</p></td>       
+    <td width="123"><p style="MARGIN-LEFT: 4pt">5</p></td>    
+  </tr>    
+  <tr>    
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHLD mem32,reg32,CL</p></td>       
+    <td width="259">   &nbsp;&nbsp;   </td>  
+    <td width="123">   &nbsp;&nbsp;   </td>  
+  </tr>  
+</table>  
+  </center>  
+</div>  
+<h3>5.6、双精度右移指令</h3> 
+          
+<div align="center"> 
+  <center> 
+          
+<table border="1" width="90%" cellspacing="0" cellpadding="0"> 
+  <tr> 
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHRD reg16,reg16,immed8</p></td>          
+    <td width="256"><p style="MARGIN-LEFT: 4pt">shrd cx,si,3</p></td>        
+    <td width="126"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHRD reg32,reg32,immed8</p></td>        
+    <td width="256"><p style="MARGIN-LEFT: 4pt">&nbsp;</p></td>   
+    <td width="126"><p style="MARGIN-LEFT: 4pt">&nbsp;</p></td> 
+  </tr>  
+  <tr>  
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHRD mem16,reg16,immed8</p></td>          
+    <td width="256"><p style="MARGIN-LEFT: 4pt">shrd [di],dx,5</p></td>        
+    <td width="126"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHRD mem32,reg32,immed8</p></td>        
+    <td width="256"><p style="MARGIN-LEFT: 4pt">&nbsp;</p></td>         
+    <td width="126"><p style="MARGIN-LEFT: 4pt">&nbsp;</p></td>  
+  </tr>  
+  <tr>  
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHRD reg16,reg16,CL</p></td>          
+    <td width="256"><p style="MARGIN-LEFT: 4pt">shrd ax,dx,cl</p></td>        
+    <td width="126"><p style="MARGIN-LEFT: 4pt">4</p></td>     
+  </tr>     
+  <tr>     
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHRD reg32,reg32,CL</p></td>        
+    <td width="256"><p style="MARGIN-LEFT: 4pt">&nbsp;</p></td>     
+    <td width="126"><p style="MARGIN-LEFT: 4pt">&nbsp;</p></td>  
+  </tr>  
+  <tr>  
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHRD mem16,reg16,CL</p></td>          
+    <td width="256"><p style="MARGIN-LEFT: 4pt">shrd [bx],ax,cl</p></td>        
+    <td width="126"><p style="MARGIN-LEFT: 4pt">5</p></td>     
+  </tr>     
+  <tr>     
+    <td width="290"><p style="MARGIN-LEFT: 4pt">SHRD mem32,reg32,CL</p></td>        
+    <td width="256"><p style="MARGIN-LEFT: 4pt">&nbsp;</p></td>     
+    <td width="126"><p style="MARGIN-LEFT: 4pt">&nbsp;</p></td>  
+  </tr>  
+</table>  
+           
+  </center>  
+</div>  
+           
+<p align="center"><A href="App2-04.htm"><IMG language=javascript id=PrevPage onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" height=28 src ="../Button/prevpage1.gif" width=96 border=0></A>　　　<A href="App2-05-1.htm"><IMG language=javascript id=NextPage onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" height=28 src ="../Button/NextPage1.gif" width=96 border=0></A></p>
+         
+</body>        
+        
+</html>        

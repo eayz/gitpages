@@ -1,0 +1,194 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>5.2.8-循环指令</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter05.js"></script>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+
+function LOOPE_onmouseover() {
+	LOOPE.src = "textbookIMG\\05-13-d.gif";
+}
+
+function LOOPE_onmouseout() {
+	LOOPE.src = "textbookIMG\\05-13.gif";
+}
+
+function LOOPNE_onmouseover() {
+	LOOPNE.src = "textbookIMG\\05-14-d.gif";
+}
+
+function LOOPNE_onmouseout() {
+	LOOPNE.src = "textbookIMG\\05-14.gif";
+}
+
+//-->
+</SCRIPT>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.gif">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle05.gif" width="778"></p>
+    </td>  
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td>  
+  </tr>
+  <tr>
+    <td width="50%">
+    <a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >          
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+    → <a href="05-2.htm">指令系统</a>    → 循环指令</td>                                           
+    <td width="50%">              
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      -->     
+  <select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=Chapter1 size="1">       
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">网络课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>
+    <option value="04-1.htm">第4章 标识符和表达式</option>
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>
+    <option value="06-1.htm">第6章 程序的基本结构</option>
+    <option value="07-1.htm">第7章 子程序和库</option>
+    <option value="08-1.htm">第8章 输入输出和中断</option>
+    <option value="09-1.htm">第9章 宏</option>
+    <option value="10-1.htm">第10章 应用程序的设计</option>
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<p style="text-indent: 21.25pt"><font color="#FF00FF">2、相等或为零循环指令(Loop                                   
+While Equal or Loop While Zero)</font></p>                                  
+<p style="text-indent: 21.25pt">相等或为零循环指令的一般格式：</p>    
+<table border="0" width="100%" cellspacing="1"> 
+  <tr> 
+    <td width="60%" valign="top"><p style="margin-left: 40pt">LOOPE/LOOPZ　标号<br>
+LOOPEW/LOOPZW　标号　　;<font color="#FF0000">CX</font>作为循环计数器，80386+<br>
+LOOPED/LOOPZD　标号　　 ;<font color="#FF0000">ECX</font>作为循环计数器，80386+</p>                                
+<p style="text-indent: 21.25pt">这是一组有条件循环指令，它们除了要受CX或ECX的影响外，还要受标志位ZF的影响。其具体规定如下：</p>   
+      <p style="text-indent: 21.25pt">(1)、(CX)＝(CX)-1或(ECX)＝(ECX)-1；　(不改变任何标志位)</p>
+<p style="text-indent: 21.25pt">
+(2)、如果循环计数器≠0且ZF=1，则程序转到循环体的第一条指令，否则，程序将执行该循环指令下面的指令。</p>
+    </td>
+    <td width="40%">
+      <p align="center"><img border="0" src="TextBookIMG/05-13.gif" width="275" id=LOOPE LANGUAGE=javascript onmouseover="return LOOPE_onmouseover()" onmouseout="return LOOPE_onmouseout()"></p>
+      <p align="center">图5.13 循环指令LOOPE的功能示意图</td>                            
+  </tr> 
+</table> 
+<p style="text-indent: 21.25pt"><font color="#FF00FF"><a name="LOOPNE">3、不等或不为零循环指令(Loop                                   
+While Not Equal or Loop While Not Zero)</a></font></p>                                  
+<p style="text-indent: 21.25pt">不等或不为零循环指令的一般格式：</p>    
+<table border="0" width="100%" cellspacing="1"> 
+  <tr> 
+    <td width="62%" valign="top">    
+<p style="margin-left: 40pt">LOOPNE/LOOPNZ　标号<br>
+LOOPNEW/LOOPNZW　标号　 ;<font color="#FF0000">CX</font>作为循环计数器，80386+<br>                               
+LOOPNED/LOOPNZD　标号　　;<font color="#FF0000">ECX</font>作为循环计数器，80386+</p>
+<p style="text-indent: 21.25pt">这也是一组有条件循环指令，它们与相等或为零循环指令在循环结束条件上有点不同。其具体规定如下：</p>
+<p style="text-indent: 21.25pt">(1)、(CX)＝(CX)-1或(ECX)＝(ECX)-1；　(不改变任何标志位)</p>
+<p style="text-indent: 21.25pt">
+(2)、如果循环计数器≠0且ZF=0，则程序转到循环体的第一条指令，否则，程序将执行该循环指令下面的指令。</p>
+    </td>
+    <td width="38%">
+      <p align="center"><img border="0" src="TextBookIMG/05-14.gif" width="275" id=LOOPNE LANGUAGE=javascript onmouseover="return LOOPNE_onmouseover()" onmouseout="return LOOPNE_onmouseout()"></p>
+      <p align="center">图5.14 循环指令LOOPNE的功能示意图</td>                            
+  </tr> 
+</table> 
+<p style="text-indent: 21.25pt"><font color="#FF00FF"><a name="JCXZ">4、循环计数器为零转指令(Jump                                   
+if CX/ECX is Zero)</a></font></p>                                  
+<p style="text-indent: 21.25pt">在前面的各类循环指令中，不管循环计数器的初值为何，循环体至少会被执行一次。当循环计数器的初值为0时，通常的理解应是循环体被循环0次，即循环体一次也不被执行。其实不然，循环体不是不被执行，而是会被执行65536次(用CX计数)或4294967296次(几乎是死循环，用<font color="#FF0000">ECX</font>计数)。</p>  
+<p style="text-indent: 21.25pt">为了解决指令的执行和常规思维之间差异，指令系统又提供了一条与循环计数器有关的指令——循环计数器为零转指令。该指令一般用于循环的开始处，其指令格式如下：</p>  
+<p style="margin-left: 40pt">JCXZ　标号　　　;当<font color="#FF0000">CX</font>=0时，则程序转移标号处执行<br>
+JECXZ　标号　　 ;当<font color="#FF0000">ECX</font>=0时，则程序转移标号处执行，80386+</p>                               
+<p>例5.14 编写一段程序，求1+2+…+k(K≥0)之和，并把结果存入AX中。</p>                          
+<table border="0" width="100%" cellspacing="0" cellpadding="2">  
+  <tr>  
+    <td width="100%" colspan="4">解：</td>  
+  </tr>  
+  <tr>  
+    <td width="7%" rowspan="9" valign="top"></td>  
+    <td width="7%" rowspan="6" valign="top"></td>  
+    <td width="86%" colspan="2">…</td>  
+  </tr>  
+  <tr>  
+    <td width="7%">K</td>  
+    <td width="79%">DB　 ?　　　　;变量定义</td> 
+  </tr> 
+  <tr> 
+    <td width="86%" colspan="2">…</td> 
+  </tr> 
+  <tr> 
+    <td width="7%">XOR</td> 
+    <td width="79%">  
+AX, AX</td>  
+  </tr>  
+  <tr>  
+    <td width="7%">MOV</td> 
+    <td width="79%">  
+CX, K</td>  
+  </tr>  
+  <tr>  
+    <td width="7%">JCXZ</td> 
+    <td width="79%">  
+next</td> 
+  </tr> 
+  <tr> 
+    <td width="7%" rowspan="2" valign="top">again:</td> 
+    <td width="7%">ADD</td> 
+    <td width="79%">  
+AX, CX　　　　;计算过程:                                   
+K+(K-1)+…+2+1</td>    
+  </tr>    
+  <tr>    
+    <td width="7%">LOOP</td>   
+    <td width="79%">    
+again</td>   
+  </tr>   
+  <tr>   
+    <td width="7%">next:</td>   
+    <td width="86%" colspan="2">    
+…</td>   
+  </tr>   
+</table>   
+<p style="text-indent: 21.25pt">思考题：假设变量K的值为0，并且在循环体的前面没有写指令“JCXZ                                   
+next”，这时求出的“和”AX的值是什么？</p>   
+     
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><a href="asp/QuestionIndex.asp-chapter=5&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="05-2-08.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96" height="28"></a><a href="05-2-09.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" -->   
+<select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">         
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>     
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>     
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>     
+    <option value="04-1.htm">第4章 标识符和表达式</option>     
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>     
+    <option value="06-1.htm">第6章 程序的基本结构</option>     
+    <option value="07-1.htm">第7章 子程序和库</option>     
+    <option value="08-1.htm">第8章 输入输出和中断</option>     
+    <option value="09-1.htm">第9章 宏</option>     
+    <option value="10-1.htm">第10章 应用程序的设计</option>     
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

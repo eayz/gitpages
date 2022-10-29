@@ -1,0 +1,196 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>2.1.2 程序状态字</title>
+<link rel=stylesheet href="Assember.css">
+<script LANGUAGE="javascript" src="Assember.js"></script>
+<script language="JavaScript1.2" src="menus.js"></script>
+<script language="JavaScript1.2" src="chapter02.js"></script>
+</head>
+
+<body topmargin="1" leftmargin="0" background="TextBookIMG/background.GIF">
+<script language="JavaScript1.2">fwLoadMenus();</script>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="100%" colspan="2">
+  <p align="center">
+  <img border="0" src="images/btitle02.gif" width="778"></p>
+    </td> 
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">
+      <p align="center"><a href="index.htm"><img border="0" id="Home0" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home0_onmouseover()" onmouseout="return Home0_onmouseout()" width="96"></a><a href="homework.htm"><img border="0" id="Homework" language="javascript" onmouseout="return  Homework_onmouseout()" onmouseover="return Homework_onmouseover()" src="Button/homework1.gif" width="96"></a><a href="bbs/index.asp"><img border="0" id="Discuss" language="javascript" onmouseout="return  Discuss_onmouseout()" onmouseover="return Discuss_onmouseover()" src="Button/discuss1.gif" width="96" height="28"></a><a href="question.htm"><img border="0" id="Problem" language="javascript" onmouseout="return  Problem_onmouseout()" onmouseover="return Problem_onmouseover()" src="Button/problem1.gif" width="96"></a><a href="test.asp"><img border="0" id="Test" language="javascript" onmouseout="return  Test_onmouseout()" onmouseover="return Test_onmouseover()" src="Button/test1.gif" width="96"></a><a href="search.htm"><img border="0" id="Search" language="javascript" onmouseout="return  Search_onmouseout()" onmouseover="return Search_onmouseover()" src="Button/search1.gif" width="96"></a></td> 
+  </tr>
+  <tr>
+    <td width="55%"><a href="#" onMouseOut="FW_startTimeout();"  onMouseOver="window.FW_showMenu(window.fw_menu_0,50,115);" >
+    <img name="menu1" src="TextBookIMG/menu.gif" border="0" width="51"></a>
+      → <a href="02-1-1.htm"> 寄存器组</a>                                                                 
+      → 专用寄存器的作用</td>                                                                           
+    <td width="45%">                                             
+      <p align="right"><!--webbot bot="Validation" B-Disallow-First-Item="TRUE"
+      --><select name="chapter1" onchange="location.href=chapter1.options[chapter1.selectedIndex].value" id=chapter1 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></td>
+  </tr>
+</table>
+  
+<h3>2.1.3、专用寄存器的作用</h3>                               
+<p style="text-indent: 21.25pt"><font color="#FF0000">16</font>位<font color="#FF0000">CPU</font>内部有一个<font color="#FF0000">16</font>位的标志寄存器，它包含<font color="#FF0000">9</font>个标志位。这些标志位主要用来反映处理器的状态和运算结果的某些特征。各标志位在标志寄存器内的分布如图2.2所示。</p>                               
+                                 
+<table border="0" width="100%" cellspacing="0" cellpadding="0">                       
+  <tr>                       
+    <td width="31%"></td>                       
+    <td width="69%">                       
+      <div align="center">              
+      <center>              
+      <table border="0" width="454" cellspacing="0">                      
+        <tr>                      
+      <td width="25" align="center">15</td>                        
+      <td width="25" align="center">14</td>                        
+      <td width="25" align="center">13</td>                        
+      <td width="25" align="center">12</td>                        
+      <td width="25" align="center">11</td>                        
+      <td width="25" align="center">10</td>                        
+      <td width="25" align="center">9</td>                        
+      <td width="25" align="center">8</td>                        
+      <td width="25" align="center">7</td>                        
+      <td width="25" align="center">6</td>                        
+      <td width="25" align="center">5</td>                        
+      <td width="25" align="center">4</td>                        
+      <td width="25" align="center">3</td>                        
+      <td width="25" align="center">2</td>                        
+      <td width="25" align="center">1</td>                        
+      <td width="25" align="center">0</td>                        
+        </tr>                      
+      </table>                      
+      </center>                      
+      </div>              
+      <div align="center">                      
+      <center>                      
+      <table border="1" width="454" cellspacing="0" cellpadding="0">                      
+        <tr>                      
+      <td width="25" align="center"> &nbsp; </td>                        
+      <td width="25" align="center"> &nbsp; </td>                        
+      <td width="25" align="center"> &nbsp; </td>                        
+      <td width="25" align="center"> &nbsp; </td>                        
+      <td width="25" align="center" bgcolor="#00FFFF"><span style="background-color: #00FFFF">OF</span></td>                       
+      <td width="25" align="center">DF</td>                       
+      <td width="25" align="center">IF</td>                       
+      <td width="25" align="center">TF</td>                       
+      <td width="25" align="center" bgcolor="#00FFFF">SF</td>                       
+      <td width="25" align="center" bgcolor="#00FFFF">ZF</td>                       
+      <td width="25" align="center"> 　 </td>  
+      <td width="25" align="center" bgcolor="#00FFFF">AF</td>  
+      <td width="25" align="center"> 　 </td>  
+      <td width="25" align="center" bgcolor="#00FFFF">PF</td>  
+      <td width="25" align="center"> 　 </td>  
+      <td width="25" align="center" bgcolor="#00FFFF">CF</td>  
+        </tr>
+      </table>
+      </center>
+      </div>
+    </td>
+  </tr>
+</table>
+<div align="center">
+  <center>
+<table border="0" width="90%" cellspacing="0" cellpadding="2">
+  <tr>
+      <td width="30" align="center" valign="middle">31</td>     
+      <td width="210" align="center" valign="middle">…</td>     
+      <td width="30" align="center" valign="middle">17</td>     
+      <td width="30" align="center" valign="middle">16</td>     
+      <td width="30" align="center" valign="middle">15</td>     
+      <td width="30" align="center" valign="middle">14</td>     
+      <td width="30" align="center" valign="middle">13</td>     
+      <td width="30" align="center" valign="middle">12</td>     
+      <td width="30" align="center" valign="middle">11</td>     
+      <td width="30" align="center" valign="middle">10</td>     
+      <td width="30" align="center" valign="middle">9</td>     
+      <td width="30" align="center" valign="middle">8</td>     
+      <td width="30" align="center" valign="middle">7</td>     
+      <td width="30" align="center" valign="middle">6</td>     
+      <td width="30" align="center" valign="middle">5</td>     
+      <td width="30" align="center" valign="middle">4</td>     
+      <td width="30" align="center" valign="middle">3</td>     
+      <td width="30" align="center" valign="middle">2</td>     
+      <td width="30" align="center" valign="middle">1</td>     
+      <td width="30" align="center" valign="middle">0</td>     
+  </tr>
+</table>
+  </center>
+</div>
+<div align="center">
+  <center>
+  <table border="1" width="90%" cellspacing="0" cellpadding="0">     
+    <tr>     
+      <td width="30" align="center" valign="middle">…</td>     
+      <td width="186" align="center" valign="middle">…</td>     
+      <td width="30" align="center" valign="middle">VM</td>    
+      <td width="30" align="center" valign="middle">RF</td>    
+      <td width="30" align="center" valign="middle">&nbsp;</td>    
+      <td width="30" align="center" valign="middle">NT</td>    
+      <td width="60" align="center" valign="middle">IOPL</td>    
+      <td width="30" align="center" valign="middle" bgcolor="#00FFFF">OF</td>    
+      <td width="30" align="center" valign="middle">DF</td>    
+      <td width="30" align="center" valign="middle">IF</td>    
+      <td width="30" align="center" valign="middle">TF</td>    
+      <td width="30" align="center" valign="middle" bgcolor="#00FFFF">SF</td>    
+      <td width="30" align="center" valign="middle" bgcolor="#00FFFF">ZF</td>    
+      <td width="30" align="center" valign="middle"> 　 </td>    
+      <td width="30" align="center" valign="middle" bgcolor="#00FFFF">AF</td>    
+      <td width="30" align="center" valign="middle"> &nbsp; </td>    
+      <td width="30" align="center" valign="middle" bgcolor="#00FFFF">PF</td>    
+      <td width="30" align="center" valign="middle"> &nbsp; </td>    
+      <td width="30" align="center" valign="middle" bgcolor="#00FFFF">CF</td>    
+    </tr>    
+  </table>    
+  </center>
+</div>
+<p align="center">图2.2 16位/32位标志寄存器的示意图</p>                                     
+         
+<p style="text-indent: 21.25pt">上面9个标志位可分为二组：运算结果标志位(有<span style="background-color: #00FFFF">背景色</span>的标志位)和状态控制标志位。前者受<a href="05-2-03.htm">算术运算</a>和<a href="05-2-04.htm">逻辑运算</a>结果的影响，后者受一些控制指令执行的影响。</p>       
+<p style="text-indent: 21.25pt">更详细的内容请点击：<a href="flags.htm">标志位的说明</a>。</p>      
+<p style="text-indent: 21.25pt">有些指令的执行会改变标志位(如：算术运算指令等)，不同的指令会影响不同的标志位，有些指令的执行不改变任何标志位(如：<font color="#FF0000">MOV</font>指令等)，有些指令的执行会受标志位的影响(如：条件转移指令等)，也有指令的执行不受其影响。</p>      
+<p style="text-indent: 21.25pt">程序员要想熟练运用这些标志位，就必须掌握每个标志位的含义、每条指令的执行条件和执行结果对标志位的作用。</p>      
+<p style="text-indent: 21.25pt"><font color="#FF0000">注意</font>：虽然知道每个标志位在标志寄存器内的具体位置是有好处的，但通常情况下，没有这个必要。在使用第5.2.9节中的“<a href="05-2-091.htm">条件转移指令</a>”时，系统会自动引用相应标志位的值来决定是否需要“转移”的，所以，不必过分强调标志位在标志寄存器内的具体位置。</p>      
+        
+<p style="TEXT-INDENT: 21.25pt" align="right"><a href="index.htm"><img border="0" id="Home" src="Button/home1.gif" LANGUAGE="javascript" onmouseover="return Home_onmouseover()" onmouseout="return Home_onmouseout()" width="96"></a><A href="asp/QuestionIndex.asp-chapter=2&amp;sort=date"><IMG border=0  id=Question src="Button/question1.gif"  LANGUAGE=javascript onmouseover="return Question_onmouseover()" onmouseout="return Question_onmouseout()" width="96"></a><a href="02-1-1.htm"><img border="0" id="PrevPage" src="Button/prevpage1.gif" LANGUAGE="javascript" onmouseover="return PrevPage_onmouseover()" onmouseout="return PrevPage_onmouseout()" width="96"></a><a href="02-2.htm"><img border="0" id="NextPage" src="Button/NextPage1.gif" LANGUAGE="javascript" onmouseover="return NextPage_onmouseover()" onmouseout="return NextPage_onmouseout()" width="96"></a>                 
+ <!--webbot bot="Validation" B-Disallow-First-Item="TRUE" --><select name="chapter2" onchange="location.href=chapter2.options[chapter2.selectedIndex].value" id=Chapter2 size="1">              
+    <option selected value="#">课件章节</option>
+    <option value="course.htm">课件目录</option>
+    <option value="01-1.htm">第1章 预备知识</option>      
+    <option value="02-1.htm">第2章 CPU资源和存储器</option>      
+    <option value="03-1.htm">第3章 操作数的寻址方式</option>      
+    <option value="04-1.htm">第4章 标识符和表达式</option>      
+    <option value="05-1.htm">第5章 微机CPU的指令系统</option>      
+    <option value="06-1.htm">第6章 程序的基本结构</option>      
+    <option value="07-1.htm">第7章 子程序和库</option>      
+    <option value="08-1.htm">第8章 输入输出和中断</option>      
+    <option value="09-1.htm">第9章 宏</option>      
+    <option value="10-1.htm">第10章 应用程序的设计</option>      
+    <option value="11-1.htm">第11章 数值运算协处理器</option>
+    <option value="12-1.htm">第12章 汇编语言和C语言</option>
+  </select></p>  
+             
+</body>  
+  
+</html>  

@@ -1,0 +1,126 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>例8.13</title>
+<link rel=stylesheet href="../Assember.css">
+</head>
+
+<body background="../TextBookIMG/background.gif">
+
+<p style="text-indent: -36pt; margin-left: 36pt">例8.13 编写一个创建子目录的程序，具体要求如下：<br>      
+1)、用键盘输入一个目录路径名，若输入的字符串为空，则程序运行结束；<br>  
+2)、若目录创建成功，显示成功信息，否则，显示创建失败信息。</p>     
+<table border="0" width="100%" cellspacing="0" cellpadding="0">  
+  <tr>  
+    <td width="100%" colspan="5">解：</td>  
+  </tr>  
+  <tr>  
+    <td width="7%" valign="top" rowspan="21"></td>  
+    <td width="93%" colspan="4">.MODEL　SMALL<br>
+      .DATA<br>
+      　 DName　DB　30, ?, 30 DUP(?), 0<br>    
+      　 SMsg　&nbsp; DB　&quot;Ok&quot;, 10, 13, &quot;$&quot;<br>    
+      　 FMsg　&nbsp; DB　&quot;Failure&quot;, 10, 13, &quot;$&quot;<br>    
+      .CODE</td>  
+  </tr>  
+  <tr>  
+    <td width="4%"></td>  
+    <td width="89%" colspan="3">.STARTUP</td>  
+  </tr>  
+  <tr>  
+    <td width="93%" colspan="4">again:</td>  
+  </tr>  
+  <tr>  
+    <td width="4%" valign="top" rowspan="15"></td>  
+    <td width="6%">MOV</td>  
+    <td width="83%" colspan="2"> AH, 0AH</td>   
+  </tr>  
+  <tr>  
+    <td width="6%">LEA</td>  
+    <td width="83%" colspan="2"> DX, DName</td>   
+  </tr>  
+  <tr>  
+    <td width="6%">INT</td>  
+    <td width="24%">        
+21H</td>  
+    <td width="59%"> ;输入目录名</td>  
+  </tr>  
+  <tr>  
+    <td width="6%">MOV</td>  
+    <td width="83%" colspan="2"> BL, DName+1</td>   
+  </tr>  
+  <tr>  
+    <td width="6%">CMP</td>  
+    <td width="83%" colspan="2"> BL, 0</td>   
+  </tr>  
+  <tr>  
+    <td width="6%">JZ</td>  
+    <td width="24%">        
+over</td>  
+    <td width="59%"> ;检查输入的字符串是否为空</td>  
+  </tr>  
+  <tr>  
+    <td width="6%">XOR</td>  
+    <td width="83%" colspan="2">BH, BH</td>   
+  </tr>  
+  <tr>  
+    <td width="6%">MOV</td>  
+    <td width="24%"> DName[BX+2], 0</td>   
+    <td width="59%">        
+;确保字符串以0为结束标志</td>  
+  </tr>  
+  <tr>  
+    <td width="6%">MOV</td>  
+    <td width="83%" colspan="2"> DX, Offset DName+2</td>   
+  </tr>  
+  <tr>  
+    <td width="6%">MOV</td>  
+    <td width="83%" colspan="2"> AH, 39H</td>   
+  </tr>  
+  <tr>  
+    <td width="6%">INT</td>  
+    <td width="24%">        
+21H</td>  
+    <td width="59%"> ;以当前输入的字符串来创建目录</td>  
+  </tr>  
+  <tr>  
+    <td width="89%" colspan="3">.IF&nbsp; CARRY?<br>   
+      　　LEA　DX, FMsg<br>    
+      .ELSE<br>  
+      　　LEA　DX, SMsg<br>    
+      .ENDIF</td>  
+  </tr>  
+  <tr>  
+    <td width="6%">MOV</td>  
+    <td width="83%" colspan="2"> AH, 9H</td>   
+  </tr>  
+  <tr>  
+    <td width="6%">INT</td>  
+    <td width="83%" colspan="2"> 21H</td>  
+  </tr>  
+  <tr>  
+    <td width="6%">JMP</td>  
+    <td width="83%" colspan="2"> again</td>  
+  </tr>  
+  <tr>  
+    <td width="93%" colspan="4">over:</td>  
+  </tr>  
+  <tr>  
+    <td width="4%"></td>  
+    <td width="6%">.EXIT</td>  
+    <td width="83%" colspan="2"> 0</td>  
+  </tr>  
+  <tr>  
+    <td width="4%"></td>  
+    <td width="89%" colspan="3">END</td>  
+  </tr>  
+</table>  
+    
+<p align="center"><a href="javascript:close();">关　闭</a></p>  
+             
+</body>  
+  
+</html>  
