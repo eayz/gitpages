@@ -1,0 +1,14 @@
+{
+  "files.associations": {
+    "*.tcc": "c",
+    "fstream": "c",
+    "iosfwd": "c",
+    "istream": "c",
+    "limits": "c",
+    "sstream": "c",
+    "streambuf": "c",
+    "memory.h": "c",
+    "features.h": "c",
+    "stdlib.h": "c"
+  }
+}
